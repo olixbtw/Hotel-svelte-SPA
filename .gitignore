@@ -1,0 +1,7 @@
+.vscode
+_task
+.DS_Store
+node_modules
+yarn.lock
+public/bundle.*
+package-lock.json
