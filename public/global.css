@@ -1,7 +1,11 @@
 * {
 	box-sizing: border-box;
 }
-
+nav ul,nav li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 html,
 body {
 	position: relative;
@@ -13,8 +17,7 @@ body {
 
 body {
 	color: #333;
-	margin: 0;
-	padding: 8px;
+	background: #f1f1f1;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
