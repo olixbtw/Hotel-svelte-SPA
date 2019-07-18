@@ -6,9 +6,6 @@ const app = new App({
 	target: document.body,
 	props: {
 		activeapp: true,
-		colors: {
-			red: 'blue',
-		},
 	},
 })
 

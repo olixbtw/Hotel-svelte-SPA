@@ -8,23 +8,23 @@
 
 <div class="slider">
   <img
-    src="assets/slider/slider1.jpg"
+    src="assets/img/slider/slider1.jpg"
     alt="sliderImage1"
     class={sliderScroll_class} />
   <img
-    src="assets/slider/slider2.jpg"
+    src="assets/img/slider/slider2.jpg"
     alt="sliderImage2"
     class={sliderScroll_class} />
   <img
-    src="assets/slider/slider3.jpg"
+    src="assets/img/slider/slider3.jpg"
     alt="sliderImage3"
     class={sliderScroll_class} />
   <img
-    src="assets/slider/slider4.jpg"
+    src="assets/img/slider/slider4.jpg"
     alt="sliderImage4"
     class={sliderScroll_class} />
   <img
-    src="assets/slider/slider5.jpg"
+    src="assets/img/slider/slider5.jpg"
     alt="sliderImage5"
     class={sliderScroll_class} />
   <div
@@ -45,7 +45,7 @@
 <style lang="scss">
   h1,
   h2 {
-    color: white;
+    color: #fff;
     position: absolute;
     top: 30px;
     left: 30px;
@@ -70,7 +70,7 @@
 
       width: 45px;
       height: 45px;
-      background: rgb(231, 16, 195);
+      background: #ad1b95;
       border-radius: 4px;
       opacity: 0.5;
       &:hover {

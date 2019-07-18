@@ -5,10 +5,10 @@
 
 <style>
   footer {
-    background: rgb(37, 30, 35);
+    background: #251e23;
     padding: 0.3rem 3.2rem;
     text-align: right;
     font-size: 0.6rem;
-    color: rgb(174, 183, 185);
+    color: #aeb7b9;
   }
 </style>
