@@ -1,2 +1,2 @@
-<span>About section</span>
+<em>About section</em>
 <h1>gallery</h1>

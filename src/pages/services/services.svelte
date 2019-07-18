@@ -1,3 +1,3 @@
-<span>Services section</span>
+<em>Services section</em>
 <h1>services</h1>
-<em>дополнительные услуги - екскурсии и т.д.</em>
+<strong>дополнительные услуги - екскурсии и т.д.</strong>

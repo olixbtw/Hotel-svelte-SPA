@@ -1,5 +1,16 @@
 <script>
+  import { pageActive } from "./../stores.js";
+
   import Logo from "./logo.svelte";
+
+  function changePage() {
+    // var a = this.closest('.submenu');
+    // console.log(a);
+    // a = a.nextSibling
+    // console.log(a);
+    $pageActive = this.textContent;
+    console.log($pageActive);
+  }
 </script>
 
 <style lang="scss">
@@ -94,35 +105,35 @@
   <nav>
     <ul>
       <li>
-        <button>Services</button>
-        <ul>
+        <button on:click={changePage}>Services</button>
+        <ul class="submenu">
           <li>
-            <button>Booking</button>
+            <button on:click={changePage}>Booking</button>
           </li>
           <li>
-            <button>Search</button>
+            <button on:click={changePage}>Search</button>
           </li>
           <li>
-            <button>Services</button>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <button>About</button>
-        <ul>
-          <li>
-            <button>Contacts</button>
-          </li>
-          <li>
-            <button>Gallery</button>
-          </li>
-          <li>
-            <button>Team</button>
+            <button on:click={changePage}>Activities</button>
           </li>
         </ul>
       </li>
       <li>
-        <button>Login</button>
+        <button on:click={changePage}>About</button>
+        <ul class="submenu">
+          <li>
+            <button on:click={changePage}>Contacts</button>
+          </li>
+          <li>
+            <button on:click={changePage}>Gallery</button>
+          </li>
+          <li>
+            <button on:click={changePage}>Team</button>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button on:click={changePage}>Login</button>
       </li>
     </ul>
     <div />

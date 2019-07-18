@@ -4,7 +4,7 @@
 
 <style lang="scss">
   nav {
-    margin-top: 0.25em;
+    padding-top: 0.25em;
     font-size: 0.9em;
     color: #a1a1af;
   }

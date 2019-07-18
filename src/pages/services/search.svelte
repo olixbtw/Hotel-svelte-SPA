@@ -1,5 +1,5 @@
-<span>Services section</span>
+<em>Services section</em>
 <h1>roomы</h1>
-<em>выбор номеров (сортировка + пагинация тут)</em>
+<strong>выбор номеров (сортировка + пагинация тут)</strong>
 <br>
-<em>это же и поиск</em>
+<strong>это же и поиск</strong>

@@ -1,4 +1,6 @@
 <script>
+  import { pageActive } from "./../stores.js";
+
   import Contact from "./../pages/about/contacts.svelte";
   import Gallery from "./../pages/about/gallery.svelte";
   import Team from "./../pages/about/team.svelte";
@@ -20,22 +22,24 @@
 </style>
 
 <Breadcrumbs />
-
-<Registration />
-<hr />
-
-<Team />
-<hr />
-<Gallery />
-<hr />
-<Contact />
-<hr />
-
-<Booking />
-<hr />
-<Room />
-<hr />
-<Search />
-<hr />
-<Services />
-<hr />
+{#if $pageActive == 'Login'}
+  Login
+  <Registration />
+{:else if $pageActive == 'About'}
+  About (redirect page)
+{:else if $pageActive == 'Contacts'}
+  <Contact />
+{:else if $pageActive == 'Gallery'}
+  <Gallery />
+{:else if $pageActive == 'Team'}
+  <Team />
+{:else if $pageActive == 'Services'}
+  Services (redirect page)
+{:else if $pageActive == 'Booking'}
+  <Booking />
+{:else if $pageActive == 'Search'}
+  <Search />
+{:else if $pageActive == 'Activities'}
+  <Services />
+{/if}
+<!-- <Room /> -->

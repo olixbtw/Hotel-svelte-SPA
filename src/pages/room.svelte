@@ -1,3 +1,3 @@
-<span>Services section</span>
+<em>inner page</em>
 <h1>room</h1>
-<em>просмотр номера</em>
+<strong>просмотр номера</strong>
