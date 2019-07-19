@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store'
 
-export const pageActive = writable('Gallery')
+export const pageActive = writable()

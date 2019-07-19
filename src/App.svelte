@@ -1,4 +1,8 @@
 <script>
+  export let activePage;
+  import { pageActive } from "./stores.js";
+  $pageActive = activePage;
+
   import Content from "./parts/contentArea.svelte";
   import Slider from "./parts/slider.svelte";
   import Navigation from "./parts/navigation.svelte";

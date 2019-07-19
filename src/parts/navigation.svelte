@@ -98,7 +98,7 @@
 
 <header>
 
-  <Logo />
+  <Logo on:click={changePage} />
 
   <input type="search" />
 

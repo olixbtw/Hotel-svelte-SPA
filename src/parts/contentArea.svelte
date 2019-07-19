@@ -21,25 +21,29 @@
   }
 </style>
 
-<Breadcrumbs />
-{#if $pageActive == 'Login'}
-  Login
-  <Registration />
-{:else if $pageActive == 'About'}
-  About (redirect page)
-{:else if $pageActive == 'Contacts'}
-  <Contact />
-{:else if $pageActive == 'Gallery'}
-  <Gallery />
-{:else if $pageActive == 'Team'}
-  <Team />
-{:else if $pageActive == 'Services'}
-  Services (redirect page)
-{:else if $pageActive == 'Booking'}
-  <Booking />
-{:else if $pageActive == 'Search'}
-  <Search />
-{:else if $pageActive == 'Activities'}
-  <Services />
-{/if}
-<!-- <Room /> -->
+<main>
+  <Breadcrumbs />
+  {#if $pageActive == 'Main'}
+    Home Page
+  {:else if $pageActive == 'Login'}
+    Login
+    <Registration />
+  {:else if $pageActive == 'About'}
+    About (redirect page)
+  {:else if $pageActive == 'Contacts'}
+    <Contact />
+  {:else if $pageActive == 'Gallery'}
+    <Gallery />
+  {:else if $pageActive == 'Team'}
+    <Team />
+  {:else if $pageActive == 'Services'}
+    Services (redirect page)
+  {:else if $pageActive == 'Booking'}
+    <Booking />
+  {:else if $pageActive == 'Search'}
+    <Search />
+  {:else if $pageActive == 'Activities'}
+    <Services />
+  {/if}
+  <!-- <Room /> -->
+</main>
