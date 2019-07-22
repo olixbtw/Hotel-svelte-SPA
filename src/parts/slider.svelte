@@ -2,11 +2,12 @@
   export let value = "";
 
   let sliderScroll = 0;
-  value !== "" ? (sliderScroll = value) : false;
   $: sliderScroll_class = "slide" + sliderScroll;
 </script>
 
 <div class="slider">
+  <h1 class={sliderScroll_class}>{sliderScroll_class}</h1>
+  <h2>{value}</h2>
   <img
     src="assets/img/slider/slider1.jpg"
     alt="sliderImage1"
@@ -38,8 +39,6 @@
       sliderScroll++;
     }} />
 
-  <h1 class={sliderScroll_class}>{sliderScroll_class}</h1>
-  <h2>{value}</h2>
 </div>
 
 <style lang="scss">
@@ -55,7 +54,8 @@
     height: 100%;
     position: relative;
     display: flex;
-    overflow-x: hidden;
+    overflow: hidden;
+    background: #4f3552;
 
     img {
       scroll-snap-align: center;
@@ -68,20 +68,21 @@
       top: 50%;
       transform: translateY(-50%);
 
-      width: 45px;
-      height: 45px;
-      background: #ad1b95;
-      border-radius: 4px;
-      opacity: 0.5;
+      width: 5em;
+      height: 450px;
+      background: #4f3552;
+      // border-radius: 4px;
+      opacity: 0.1;
+      transition: all 0.5s;
       &:hover {
-        opacity: 0.9;
+        opacity: 0.5;
       }
 
       &-left {
-        left: 15px;
+        left: 0.5em;
       }
       &-right {
-        right: 15px;
+        right: 0.5em;
       }
     }
   }

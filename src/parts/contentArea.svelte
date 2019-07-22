@@ -1,5 +1,8 @@
 <script>
   import { pageActive } from "./../stores.js";
+  // export let pageLogo = false;
+  export let pageLogo = "favicon";
+  //until i wont fild logos for every page and connect them
 
   import Contact from "./../pages/about/contacts.svelte";
   import Gallery from "./../pages/about/gallery.svelte";
@@ -15,13 +18,10 @@
   import Breadcrumbs from "./breadcrumbs.svelte";
 </script>
 
-<style lang="scss">
-  :global(h1, h2) {
-    margin: 0;
-  }
-</style>
-
 <main>
+  {#if pageLogo}
+    <img class="pageLogo" src="assets/{pageLogo}.png" alt="{pageLogo} logo" />
+  {/if}
   <Breadcrumbs />
   {#if $pageActive == 'Main'}
     Home Page
@@ -30,7 +30,14 @@
     <Registration />
   {:else if $pageActive == 'About'}
     About (redirect page)
-  {:else if $pageActive == 'Contacts'}
+  {:else if $pageActive == 'Contact'}
+    <style>
+      /*  pin map inside this component to the bottom  */
+      main {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
     <Contact />
   {:else if $pageActive == 'Gallery'}
     <Gallery />
@@ -47,3 +54,20 @@
   {/if}
   <!-- <Room /> -->
 </main>
+
+<style lang="scss">
+  .pageLogo {
+    position: absolute;
+    top: 2em;
+    right: 15em;
+    width: 10rem;
+    height: 10rem;
+    object-fit: contain;
+    opacity: 0.19;
+    z-index: -1;
+  }
+  main {
+    min-height: 100%;
+    width: 100%;
+  }
+</style>

@@ -70,3 +70,7 @@ button:active {
 button:focus {
 	border-color: #666;
 }
+
+img{
+	max-width: 100%;
+}

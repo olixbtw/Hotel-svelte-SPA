@@ -1,3 +1,5 @@
+<span on:click class="logo">Main Hotel</span>
+
 <style lang="scss">
   .logo {
     text-transform: uppercase;
@@ -11,5 +13,3 @@
     }
   }
 </style>
-
-<span on:click class="logo">Main Hotel</span>
