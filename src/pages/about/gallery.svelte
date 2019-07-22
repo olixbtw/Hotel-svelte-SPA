@@ -35,6 +35,11 @@
     <img src="assets/img/other/image1.jpg" alt="image1" />
     <figcaption>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
+      <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad. -->
     </figcaption>
   </figure>
   <figure>
