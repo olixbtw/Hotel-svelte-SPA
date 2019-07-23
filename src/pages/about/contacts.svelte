@@ -13,7 +13,6 @@
 </script>
 
 <div class="contact-body">
-  <em>About section</em>
   <h1>Контакты</h1>
 
   <section>

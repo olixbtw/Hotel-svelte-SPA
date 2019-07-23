@@ -1,5 +1,4 @@
-<em>About section</em>
-<h1>Hotel info</h1>
+<h1>Про отель</h1>
 
 <section>
   <h2>Краткая информация</h2>

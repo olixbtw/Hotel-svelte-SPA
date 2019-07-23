@@ -1,1 +1,1 @@
-<h1>registration/login</h1>
+<h1>Регистрация\Логин</h1>

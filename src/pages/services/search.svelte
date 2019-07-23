@@ -11,8 +11,7 @@
   }
 </script>
 
-<em>Services section</em>
-<h1>roomы</h1>
+<h1>Номера</h1>
 
 <Filter />
 

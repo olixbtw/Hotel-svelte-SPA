@@ -20,8 +20,7 @@
   }
 </script>
 
-<em>About section</em>
-<h1>Gallery</h1>
+<h1>Галерея</h1>
 {#if modalShow}
   <Modal
     {modalContent}

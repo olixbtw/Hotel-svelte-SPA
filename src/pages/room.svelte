@@ -1,7 +1,5 @@
 <em>inner page</em>
-<h1>room</h1>
-<strong>просмотр номера</strong>
-
+<h1>Апартаменты</h1>
 <div class="calendar">CALENDAR</div>
 <article>
   <!-- more photos here -->

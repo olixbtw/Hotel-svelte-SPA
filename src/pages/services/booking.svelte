@@ -1,3 +1,2 @@
-<em>Services section</em>
-<h1>booking</h1>
+<h1>Зарезервировать</h1>
 <strong>бронирование номера</strong>
