@@ -26,7 +26,6 @@
   {#if $pageActive == 'Main'}
     Home Page
   {:else if $pageActive == 'Login'}
-    Login
     <Registration />
   {:else if $pageActive == 'About'}
     About (redirect page)
@@ -44,13 +43,11 @@
   {:else if $pageActive == 'Info'}
     <Info />
   {:else if $pageActive == 'Services'}
-    Services (redirect page)
+        <Services />
   {:else if $pageActive == 'Booking'}
     <Booking />
   {:else if $pageActive == 'Search'}
     <Search />
-  {:else if $pageActive == 'Activities'}
-    <Services />
   {/if}
   <!-- <Room /> -->
 </main>
@@ -59,7 +56,7 @@
   .pageLogo {
     position: absolute;
     top: 2em;
-    right: 15em;
+    right: 13em;
     width: 10rem;
     height: 10rem;
     object-fit: contain;

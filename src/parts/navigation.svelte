@@ -25,13 +25,10 @@
         <button on:click={changePage}>Services</button>
         <ul class="submenu">
           <li>
-            <button on:click={changePage}>Booking</button>
-          </li>
-          <li>
             <button on:click={changePage}>Search</button>
           </li>
           <li>
-            <button on:click={changePage}>Activities</button>
+            <button on:click={changePage}>Booking</button>
           </li>
         </ul>
       </li>
@@ -39,13 +36,13 @@
         <button on:click={changePage}>About</button>
         <ul class="submenu">
           <li>
+            <button on:click={changePage}>Info</button>
+          </li>
+          <li>
             <button on:click={changePage}>Contact</button>
           </li>
           <li>
             <button on:click={changePage}>Gallery</button>
-          </li>
-          <li>
-            <button on:click={changePage}>Info</button>
           </li>
         </ul>
       </li>

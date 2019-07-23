@@ -141,6 +141,7 @@
 
 <style lang="scss">
   .gallery {
+    padding:.5rem 0;
     width: calc(100% + 1em);
     margin-left: -0.5em;
     display: flex;
@@ -188,7 +189,7 @@
     margin: 1em 0.5em;
 
     img {
-      background: #eee;
+      background: #cecece;
       transition: all 0.4s;
       position: absolute;
       top: 5%;
