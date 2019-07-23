@@ -10,6 +10,7 @@
   import Slider from "./parts/slider.svelte";
   import Navigation from "./parts/navigation.svelte";
   import Footer from "./parts/footer.svelte";
+  import Arrow from "./parts/topArrow.svelte";
 </script>
 
 <div class="container">
@@ -26,6 +27,7 @@
     <Footer />
   </div>
 </div>
+<Arrow/>
 
 <style lang="scss">
   $g_gap: 0.75rem;
@@ -49,6 +51,9 @@
         padding: 0;
       }
     }
+  }
+  :global(body) {
+    overflow-y:scroll;
   }
   :global(html) {
     font-size: 16px;
