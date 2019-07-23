@@ -188,6 +188,7 @@
     margin: 1em 0.5em;
 
     img {
+      background: #eee;
       transition: all 0.4s;
       position: absolute;
       top: 5%;

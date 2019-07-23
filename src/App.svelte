@@ -27,7 +27,7 @@
     <Footer />
   </div>
 </div>
-<Arrow/>
+<Arrow />
 
 <style lang="scss">
   $g_gap: 0.75rem;
@@ -53,7 +53,7 @@
     }
   }
   :global(body) {
-    overflow-y:scroll;
+    overflow-y: scroll;
   }
   :global(html) {
     font-size: 16px;
