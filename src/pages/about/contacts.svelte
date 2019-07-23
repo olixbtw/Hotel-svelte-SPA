@@ -7,22 +7,36 @@
     index: "03127",
     city: "Kyiv",
     country: "Ukraine",
-    phone: "0954501796",
+    phone: "+38 044 597 90 30",
     email: "example@mail.com"
   };
 </script>
 
 <div class="contact-body">
   <em>About section</em>
+  <h1>Контакты</h1>
 
-  <h1>Contacts</h1>
-  <a href="tel:{address.phone}">{address.phone}</a>
-  <!-- <br /> -->
-  <a href="mailto:{address.email}">{address.email}</a>
-  <address>
-    {address.country}, {address.city}
-    <br />
-    {address.street} {address.building} street, {address.index}
-  </address>
+  <section>
+    Тел:
+    <a href="tel:{address.phone}">{address.phone}</a>
+    <!-- <br /> -->
+    Email:
+    <a href="mailto:{address.email}">{address.email}</a>
+    <address>
+      Address: {address.country}, {address.city}
+      <br />
+      {address.street} {address.building} street, {address.index}
+    </address>
+  </section>
+  <section>
+    <h2>Отзывы и комментарии гостей</h2>
+    <span>Марина Томашевская</span>
+    <span>Менеджер по работе с гостями</span>
+    Тел:
+    <a href="tel:+38 044 597 90 30">+38 044 597 90 30</a>
+    Email:
+    <a href="mailto:comments@mail.com">comments@mail.com</a>
+  </section>
 </div>
+
 <Map />

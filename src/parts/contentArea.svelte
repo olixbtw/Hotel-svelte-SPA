@@ -6,7 +6,7 @@
 
   import Contact from "./../pages/about/contacts.svelte";
   import Gallery from "./../pages/about/gallery.svelte";
-  import Team from "./../pages/about/team.svelte";
+  import Info from "./../pages/about/info.svelte";
 
   import Registration from "./../pages/registration.svelte";
   import Room from "./../pages/room.svelte";
@@ -41,8 +41,8 @@
     <Contact />
   {:else if $pageActive == 'Gallery'}
     <Gallery />
-  {:else if $pageActive == 'Team'}
-    <Team />
+  {:else if $pageActive == 'Info'}
+    <Info />
   {:else if $pageActive == 'Services'}
     Services (redirect page)
   {:else if $pageActive == 'Booking'}

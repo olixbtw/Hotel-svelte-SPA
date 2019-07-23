@@ -1,7 +1,164 @@
+<script>
+  import Pagination from "./../../parts/pagination.svelte";
+  import Filter from "./../../parts/filter.svelte";
+
+  var activePag = 5;
+  var pagesPag = 5;
+
+  function paginationClick(event) {
+    console.log(event.target);
+    // activePag = 10;
+  }
+</script>
+
 <em>Services section</em>
 <h1>roomы</h1>
-<strong>выбор номеров (сортировка + пагинация тут)</strong>
-<br />
-<strong>это же и поиск</strong>
 
-<article>-image -type\number of beds -heading -price\night</article>
+<Filter />
+
+<div class="room-list">
+  <!-- <article>-image -type\number of beds -heading -price\night</article> -->
+  <article>
+    <figure>
+      <img src="/assets/img/other/image12.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/assets/img/other/image6.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/assets/img/other/image7.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/assets/img/other/image3.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/assets/img/other/image2.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/assets/img/other/image9.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+</div>
+
+<Pagination on:click={paginationClick} active={activePag} />
+
+<style lang="scss">
+  .room-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    article {
+      cursor: pointer;
+      width: 30%;
+      margin-bottom: 1.5em;
+      display: flex;
+      flex-direction: column;
+      &:hover {
+        figure:before {
+          bottom: -0.5em;
+          left: -0.5em;
+          width: 50%;
+          height: 50%;
+        }
+      }
+
+      figure {
+        &::before {
+          width: 80%;
+          height: 80%;
+          bottom: 5%;
+          left: 5%;
+          transition: all 0.6s;
+          content: "";
+          display: block;
+          position: absolute;
+          z-index: -1;
+          background: #443941;
+        }
+        position: relative;
+        margin: 0;
+        margin-bottom: 0.5em;
+        img {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          width: 100%;
+          object-fit: cover;
+        }
+        &:after {
+          padding-bottom: 80%;
+          display: block;
+          content: "";
+        }
+      }
+      h4 {
+        margin: 0;
+      }
+      .type {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: gray;
+        font-size: 0.8em;
+        letter-spacing: -0.025em;
+
+        span {
+          &:before {
+            content: "| ";
+            margin: 0 0.25em;
+          }
+        }
+      }
+      .price {
+        color: #443941;
+      }
+    }
+  }
+</style>

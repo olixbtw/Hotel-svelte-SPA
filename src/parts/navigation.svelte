@@ -45,7 +45,7 @@
             <button on:click={changePage}>Gallery</button>
           </li>
           <li>
-            <button on:click={changePage}>Team</button>
+            <button on:click={changePage}>Info</button>
           </li>
         </ul>
       </li>
