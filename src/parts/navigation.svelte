@@ -36,9 +36,6 @@
         <button on:click={changePage}>About</button>
         <ul class="submenu">
           <li>
-            <button on:click={changePage}>Info</button>
-          </li>
-          <li>
             <button on:click={changePage}>Contact</button>
           </li>
           <li>

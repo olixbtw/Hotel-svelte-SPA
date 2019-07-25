@@ -8,12 +8,12 @@
   import Gallery from "./../pages/about/gallery.svelte";
   import Info from "./../pages/about/info.svelte";
 
-  import Registration from "./../pages/registration.svelte";
-  import Room from "./../pages/room.svelte";
-
   import Booking from "./../pages/services/booking.svelte";
   import Search from "./../pages/services/search.svelte";
   import Services from "./../pages/services/services.svelte";
+
+  import Registration from "./../pages/registration.svelte";
+  import Room from "./../pages/room.svelte";
 
   import Breadcrumbs from "./breadcrumbs.svelte";
 </script>
@@ -27,8 +27,6 @@
     Home Page
   {:else if $pageActive == 'Login'}
     <Registration />
-  {:else if $pageActive == 'About'}
-    About (redirect page)
   {:else if $pageActive == 'Contact'}
     <style>
       /*  pin map inside this component to the bottom  */
@@ -40,14 +38,16 @@
     <Contact />
   {:else if $pageActive == 'Gallery'}
     <Gallery />
-  {:else if $pageActive == 'Info'}
+  {:else if $pageActive == 'About'}
     <Info />
   {:else if $pageActive == 'Services'}
-        <Services />
+    <Services />
   {:else if $pageActive == 'Booking'}
     <Booking />
   {:else if $pageActive == 'Search'}
     <Search />
+  {:else if $pageActive == 'Room'}
+    <Room />
   {/if}
   <!-- <Room /> -->
 </main>

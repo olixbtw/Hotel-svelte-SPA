@@ -7,7 +7,7 @@
   //       node.appendChild(node.children[0].cloneNode());
   // }
 
-  import Modal from "./../../parts/modal.svelte";
+  import Modal from "./../../parts/galleryModal.svelte";
   var modalContent, modalShow;
 
   function runModal(event) {
@@ -18,6 +18,27 @@
     modalContent.text = event.currentTarget.children[1].innerText;
     // modalContent.heading = event.currentTarget.children[1].innerText;
   }
+
+  var images = [
+    {src:'assets/img/other/image1.jpg',alt:'image1',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image2.jpg',alt:'image2',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image3.jpg',alt:'image3',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image4.jpg',alt:'image4',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image5.jpg',alt:'image5',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image6.jpg',alt:'image6',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image7.jpg',alt:'image7',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image8.jpg',alt:'image8',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image9.jpg',alt:'image9',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image10.jpg',alt:'image10',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image11.jpg',alt:'image11',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image12.jpg',alt:'image12',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image13.jpg',alt:'image13',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image14.jpg',alt:'image14',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image15.jpg',alt:'image15',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image16.jpg',alt:'image16',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    {src:'assets/img/other/image17.jpg',alt:'image17',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+    // {src:'assets/img/other/image18.jpg',alt:'image18',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
+  ];
 </script>
 
 <h1>Галерея</h1>
@@ -28,17 +49,26 @@
       modalShow = false;
     }} />
 {/if}
-<!-- <div class="gallery" use:fillGaps> -->
+
 <div class="gallery">
+{#each images as img}
+  <figure on:click={runModal}>
+    <img src="{img.src}" alt="{img.alt}" />
+    <figcaption>{img.text}</figcaption>
+  </figure>
+{/each}
+</div>
+<!-- <div class="gallery" use:fillGaps> -->
+<!-- <div class="gallery">
   <figure on:click={runModal}>
     <img src="assets/img/other/image1.jpg" alt="image1" />
     <figcaption>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
-      <!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad. -->
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
     </figcaption>
   </figure>
   <figure>
@@ -137,11 +167,11 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.
     </figcaption>
   </figure>
-</div>
+</div> -->
 
 <style lang="scss">
   .gallery {
-    padding:.5rem 0;
+    padding: 0.5rem 0;
     width: calc(100% + 1em);
     margin-left: -0.5em;
     display: flex;

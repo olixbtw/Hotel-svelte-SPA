@@ -1,3 +1,7 @@
+<script>
+  var emptylink = "#";
+</script>
+
 <h1>Про отель</h1>
 
 <section>
@@ -194,6 +198,6 @@
 </section>
 
 <h1>SERVICES LINKS</h1>
-<a href="facebook.com">Link1</a>
-<a href="facebook.com">Link2</a>
-<a href="facebook.com">Link3</a>
+<a href={emptylink}>Link1</a>
+<a href={emptylink}>Link2</a>
+<a href={emptylink}>Link3</a>
