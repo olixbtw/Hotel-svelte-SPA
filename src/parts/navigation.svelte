@@ -3,13 +3,14 @@
 
   import Logo from "./logo.svelte";
 
-  function changePage() {
-    $pageActive = this.textContent;
+  function changePage(arrrg) {
+    this ? ($pageActive = this.textContent) : ($pageActive = "Main");
   }
 </script>
 
 <header>
 
+  <!-- <Logo on:click={() => changePage('Main')} /> -->
   <Logo on:click={changePage} />
 
   <input type="search" />

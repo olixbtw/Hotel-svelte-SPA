@@ -39,6 +39,7 @@
     flex-direction: column;
     .slider {
       height: 20vh;
+      display: none;
     }
     .content {
       position: relative;
