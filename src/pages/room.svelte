@@ -20,6 +20,47 @@
   ];
 </script>
 
+<div class="container">
+  <!-- more photos here -->
+  <div class="images">
+    {#each images as img}
+      <img src={img.src} alt={img.alt} />
+    {/each}
+  </div>
+  <div class="col-left">
+    <h1>
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </h1>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+
+    <h3>Amenities</h3>
+    <ul>
+      <li>Item1</li>
+      <li>Item2</li>
+      <li>Item3</li>
+      <li>Item4</li>
+    </ul>
+    <h3>Description</h3>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
+      ratione temporibus eum voluptatem officia distinctio eveniet numquam,
+      voluptatum quaerat ab similique accusamus expedita nemo ducimus libero
+      voluptas veniam architecto quae illum earum obcaecati sapiente hic. Sequi
+      fugit, molestiae officiis at, sunt, saepe recusandae totam deserunt quasi
+      doloribus repellendus provident aliquid?
+    </p>
+    <button>Reserve it</button>
+  </div>
+  <div class="col-right">
+    <div class="calendar">CALENDAR</div>
+    <div class="price-total">Price total</div>
+    <button>Reserve</button>
+    You wont be charged yet
+  </div>
+</div>
+
 <style lang="scss">
   .container {
     display: grid;
@@ -98,41 +139,3 @@
     grid-row: 2 / 3;
   }
 </style>
-
-<div class="container">
-  <!-- more photos here -->
-  <div class="images">
-    {#each images as img}
-      <img src={img.src} alt={img.alt} />
-    {/each}
-  </div>
-  <div class="col-left">
-    <h1>
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </h1>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-
-    <h3>Amenities</h3>
-    <ul>
-      <li>Item1</li>
-      <li>Item2</li>
-      <li>Item3</li>
-      <li>Item4</li>
-    </ul>
-    <h3>Description</h3>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
-      ratione temporibus eum voluptatem officia distinctio eveniet numquam,
-      voluptatum quaerat ab similique accusamus expedita nemo ducimus libero
-      voluptas veniam architecto quae illum earum obcaecati sapiente hic. Sequi
-      fugit, molestiae officiis at, sunt, saepe recusandae totam deserunt quasi
-      doloribus repellendus provident aliquid?
-    </p>
-    <button>Reserve it</button>
-  </div>
-  <div class="col-right">
-    <div class="calendar">CALENDAR</div>
-  </div>
-</div>

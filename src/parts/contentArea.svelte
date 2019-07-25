@@ -9,7 +9,7 @@
   import Info from "./../pages/about/info.svelte";
 
   import Booking from "./../pages/services/booking.svelte";
-  import Search from "./../pages/services/search.svelte";
+  import Appartments from "./../pages/services/search.svelte";
   import Services from "./../pages/services/services.svelte";
 
   import Registration from "./../pages/registration.svelte";
@@ -44,8 +44,8 @@
     <Services />
   {:else if $pageActive == 'Booking'}
     <Booking />
-  {:else if $pageActive == 'Search'}
-    <Search />
+  {:else if $pageActive == 'Appartments'}
+    <Appartments />
   {:else if $pageActive == 'Room'}
     <Room />
   {/if}
@@ -66,5 +66,7 @@
   main {
     min-height: 100%;
     width: 100%;
+    padding-top: 0.25rem;
+    padding-bottom: 2rem;
   }
 </style>

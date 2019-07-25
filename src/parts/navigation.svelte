@@ -4,12 +4,7 @@
   import Logo from "./logo.svelte";
 
   function changePage() {
-    // var a = this.closest('.submenu');
-    // console.log(a);
-    // a = a.nextSibling
-    // console.log(a);
     $pageActive = this.textContent;
-    console.log($pageActive);
   }
 </script>
 
@@ -25,7 +20,7 @@
         <button on:click={changePage}>Services</button>
         <ul class="submenu">
           <li>
-            <button on:click={changePage}>Search</button>
+            <button on:click={changePage}>Appartments</button>
           </li>
           <li>
             <button on:click={changePage}>Booking</button>
