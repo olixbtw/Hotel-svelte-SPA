@@ -74,8 +74,8 @@
     top: 3.75rem;
     z-index: 500;
     left: 0.5rem;
-    @media (min-width:1680px) {
-      
+
+    @media (min-width: 1680px) {
       left: -3rem;
     }
 

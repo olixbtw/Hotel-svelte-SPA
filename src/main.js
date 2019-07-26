@@ -4,7 +4,7 @@ import './App.svelte'
 const app = new App({
   target: document.body,
   props: {
-    activePage: 'Appartments',
+    activePage: 'Contact',
   },
 })
 
