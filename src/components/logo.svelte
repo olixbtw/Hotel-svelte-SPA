@@ -1,16 +1,27 @@
-<a href class="logo">Main Hotel</a>
-
 <style lang="scss">
   .logo {
-    text-transform: uppercase;
-    font-size: 2rem;
-    display: inline-block;
-    transition: all 0.5s linear;
+    transition: filter 0.3s ease-in-out;
     cursor: pointer;
     text-decoration: none;
+    display: inline-block;
+
+    img {
+      display: block;
+      max-height: 5rem;
+      max-width: 7rem;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
     &:hover {
-      text-shadow: 0 0 3px red;
+      filter: drop-shadow(1px 2px 3px rgba(235, 154, 33, 0.5));
+      // box-shadow: 0 0 5px red;
+      text-decoration: none;
     }
   }
 </style>
+
+<a href="/" class="logo">
+  <img src="logo.svg" alt="Logo" />
+</a>

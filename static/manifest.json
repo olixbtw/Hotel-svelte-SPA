@@ -7,8 +7,13 @@
 	"start_url": "/",
 	"icons": [
 		{
-			"src": "logo-192.png",
-			"sizes": "192x192",
+			"src": "LOGO_dark.png",
+			"sizes": "420x421",
+			"type": "image/png"
+		},
+		{
+			"src": "LOGO.png",
+			"sizes": "420x421",
 			"type": "image/png"
 		}
 	]

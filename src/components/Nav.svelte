@@ -6,8 +6,7 @@
 
 <header>
 
-  <Logo href="." />
-  <!-- <Logo /> -->
+  <Logo href="/ololo" />
 
   <input type="search" />
 
@@ -56,9 +55,7 @@
         </ul>
       </li>
       <li>
-        <a class={segment === 'login' ? 'selected' : ''} href="login">
-          Вход
-        </a>
+        <a class={segment === 'login' ? 'selected' : ''} href="login">Вход</a>
       </li>
 
       <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
@@ -104,29 +101,12 @@
     padding: 0 1em;
   }
 
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* clearfix */
-  ul::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-
-  li {
-    display: block;
-    float: left;
-  }
-
   .selected {
     position: relative;
     display: inline-block;
   }
 
-  .selected::after {
+  .selected::before {
     position: absolute;
     content: "";
     width: calc(100% - 1em);
@@ -141,23 +121,34 @@
     padding: 1em 0.5em;
     display: block;
   }
+//
+//
+//
+//
+//
+//
+//
 
   header {
     display: flex;
     // background: #fff;
     // border-bottom: 1px solid #e6e6e6;
-    background: #443941;
+    background: #393d46;
     color: #fff;
 
     justify-content: space-between;
-    padding: 1rem 2rem;
+      padding: .5rem 2rem;
+    @media(min-width:1680px){}
+    @media(min-width:1680px){
+      padding: 1rem 20vw;
+    }
     align-items: center;
   }
 
   input[type="search"] {
     // border-radius: 5px;
     color: #eee;
-    background: #443941;
+    background: #393d46;
     border: 1px solid #5c4957;
     margin: 0;
     line-height: 1.5;
@@ -189,7 +180,7 @@
           left: 50%;
           transform: translateX(-50%);
           // background: #fafafa;
-          background: #443941;
+          background: #393d46;
 
           display: flex;
           flex-direction: column;
@@ -202,7 +193,7 @@
     }
   }
 
-  button {
+  a {
     background: none;
     border: 0px;
     outline: none;
@@ -231,7 +222,7 @@
       opacity: 0.5;
     }
   }
-  li:hover > button {
+  li:hover > a {
     text-decoration: none;
     // background: rgba(238, 238, 238, 0.6);
     &:after {

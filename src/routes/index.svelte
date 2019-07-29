@@ -5,7 +5,7 @@
 <h1>Great success!</h1>
 ssssss
 <figure>
-  <img alt="Borat" src="great-success.png" />
+  <img alt="Borat" src="LOGO_dark.png" />
   <figcaption>HIGH FIVE!</figcaption>
 </figure>
 
@@ -42,10 +42,6 @@ ssssss
 
   p {
     margin: 1em auto;
-
-    strong {
-      background: green;
-    }
   }
 
   @media (min-width: 480px) {
