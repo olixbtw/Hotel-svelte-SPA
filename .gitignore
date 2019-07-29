@@ -1,7 +1,11 @@
 .vscode
 _task
 .DS_Store
-node_modules
-yarn.lock
-public/bundle.*
+/node_modules/
+/src/node_modules/@sapper/
+yarn-error.log
 package-lock.json
+/cypress/screenshots/
+/__sapper__/
+
+# public/bundle.*
