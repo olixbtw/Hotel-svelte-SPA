@@ -19,10 +19,7 @@
 </script>
 
 <main>
-  {#if pageLogo}
-    <img class="pageLogo" src="assets/{pageLogo}.png" alt="{pageLogo} logo" />
-  {/if}
-  <Breadcrumbs />
+
   {#if $pageActive == 'Main'}
     Home Page
   {:else if $pageActive == 'Login'}
@@ -51,22 +48,3 @@
   {/if}
   <!-- <Room /> -->
 </main>
-
-<style lang="scss">
-  .pageLogo {
-    position: absolute;
-    top: 2em;
-    right: 13em;
-    width: 10rem;
-    height: 10rem;
-    object-fit: contain;
-    opacity: 0.19;
-    z-index: -1;
-  }
-  main {
-    min-height: 100%;
-    width: 100%;
-    padding-top: 0.25rem;
-    padding-bottom: 2rem;
-  }
-</style>

@@ -7,7 +7,7 @@
   //       node.appendChild(node.children[0].cloneNode());
   // }
 
-  import Modal from "./../../parts/galleryModal.svelte";
+  // import Modal from "./../../parts/galleryModal.svelte";
   var modalContent, modalShow;
 
   function runModal(event) {
@@ -127,13 +127,13 @@
 </script>
 
 <h1>Галерея</h1>
-{#if modalShow}
+<!-- {#if modalShow}
   <Modal
     {modalContent}
     on:click={() => {
       modalShow = false;
     }} />
-{/if}
+{/if} -->
 
 <div class="gallery">
   {#each images as img}

@@ -1,4 +1,4 @@
-<span on:click class="logo">Main Hotel</span>
+<a href class="logo">Main Hotel</a>
 
 <style lang="scss">
   .logo {
@@ -7,6 +7,7 @@
     display: inline-block;
     transition: all 0.5s linear;
     cursor: pointer;
+    text-decoration: none;
 
     &:hover {
       text-shadow: 0 0 3px red;

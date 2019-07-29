@@ -1,6 +1,6 @@
 <script>
-  import Pagination from "./../../parts/pagination.svelte";
-  import Filter from "./../../parts/filter.svelte";
+  // import Pagination from "./../../parts/pagination.svelte";
+  // import Filter from "./../../parts/filter.svelte";
 
   var activePag = 5;
   var pagesPag = 5;
@@ -13,7 +13,7 @@
 
 <h1>Номера</h1>
 
-<Filter />
+<!-- <Filter /> -->
 
 <div class="room-list">
   <!-- <article>-image -type\number of beds -heading -price\night</article> -->
@@ -85,7 +85,7 @@
   </article>
 </div>
 
-<Pagination on:click={paginationClick} active={activePag} />
+<!-- <Pagination on:click={paginationClick} active={activePag} /> -->
 
 <style lang="scss">
   .room-list {

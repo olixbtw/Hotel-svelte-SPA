@@ -1,5 +1,5 @@
 <script>
-  import Map from "./../../parts/map.svelte";
+  // import Map from "./../../parts/map.svelte";
 
   var address = {
     street: "Sechenova",
@@ -38,4 +38,4 @@
   </section>
 </div>
 
-<Map />
+<!-- <Map /> -->

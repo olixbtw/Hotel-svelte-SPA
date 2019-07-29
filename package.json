@@ -1,31 +1,30 @@
 {
   "name": "svelte-app",
-  "version": "1.0.0",
+  "version": "0.0.1",
+  "dependencies": {
+    "compression": "^1.7.1",
+    "polka": "next",
+    "sirv": "^0.4.0"
+  },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "sapper": "^0.27.0",
+    "svelte": "^3.0.0",
+    "svelte-loader": "^2.9.0",
+    "webpack": "^4.7.0",
     "@fortawesome/fontawesome-free": "^5.9.0",
     "autoprefixer": "^9.6.1",
-    "cross-env": "^5.2.0",
-    "css-loader": "^2.1.1",
     "css-mqpacker": "^7.0.0",
-    "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.12.0",
     "postcss-responsive-type": "^1.0.0",
-    "style-loader": "^0.23.1",
-    "svelte": "^3.0.0",
-    "svelte-loader": "2.13.3",
-    "svelte-preprocess": "^2.14.4",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.3.1"
+    "svelte-preprocess": "^2.14.4"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack",
-    "dev": "webpack-dev-server --content-base public",
+    "dev": "sapper dev --no-hot",
+    "build": "sapper build",
+    "export": "sapper export",
     "pretty": "prettier --write --svelte-sort-order scripts-markup-styles ./**/*.svelte",
-    "start": "npm run pretty && start powershell -NoExit npm run dev && npm run build",
+    "start": "npm run pretty && start powershell -NoExit npm run dev",
     "open": "start powershell"
-  },
-  "dependencies": {
-    "fontawesome": "^5.6.3"
   }
 }
