@@ -6,6 +6,16 @@
   export let segment;
 </script>
 
+<Nav {segment} />
+
+<main>
+  {#if pageLogo}
+    <img class="pageLogo" src="{pageLogo}.png" alt="{pageLogo} logo" />
+  {/if}
+  <Breadcrumbs />
+  <slot />
+</main>
+
 <style lang="scss">
   main {
     position: relative;
@@ -32,13 +42,3 @@
     z-index: -1;
   }
 </style>
-
-<Nav {segment} />
-
-<main>
-  {#if pageLogo}
-    <img class="pageLogo" src="{pageLogo}.png" alt="{pageLogo} logo" />
-  {/if}
-  <Breadcrumbs />
-  <slot />
-</main>

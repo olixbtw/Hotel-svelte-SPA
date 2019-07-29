@@ -121,13 +121,13 @@
     padding: 1em 0.5em;
     display: block;
   }
-//
-//
-//
-//
-//
-//
-//
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
   header {
     display: flex;
@@ -137,9 +137,10 @@
     color: #fff;
 
     justify-content: space-between;
-      padding: .5rem 2rem;
-    @media(min-width:1680px){}
-    @media(min-width:1680px){
+    padding: 0.5rem 2rem;
+    @media (min-width: 1680px) {
+    }
+    @media (min-width: 1680px) {
       padding: 1rem 20vw;
     }
     align-items: center;
