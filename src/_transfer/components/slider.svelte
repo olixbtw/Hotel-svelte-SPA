@@ -9,23 +9,23 @@
   <h1 class={sliderScroll_class}>{sliderScroll_class}</h1>
   <h2>{value}</h2>
   <img
-    src="assets/img/slider/slider1.jpg"
+    src="_assets/img/slider/slider1.jpg"
     alt="sliderImage1"
     class={sliderScroll_class} />
   <img
-    src="assets/img/slider/slider2.jpg"
+    src="_assets/img/slider/slider2.jpg"
     alt="sliderImage2"
     class={sliderScroll_class} />
   <img
-    src="assets/img/slider/slider3.jpg"
+    src="_assets/img/slider/slider3.jpg"
     alt="sliderImage3"
     class={sliderScroll_class} />
   <img
-    src="assets/img/slider/slider4.jpg"
+    src="_assets/img/slider/slider4.jpg"
     alt="sliderImage4"
     class={sliderScroll_class} />
   <img
-    src="assets/img/slider/slider5.jpg"
+    src="_assets/img/slider/slider5.jpg"
     alt="sliderImage5"
     class={sliderScroll_class} />
   <div

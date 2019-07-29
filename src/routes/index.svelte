@@ -3,9 +3,9 @@
 </svelte:head>
 
 <h1>Great success!</h1>
-ssssss
+
 <figure>
-  <img alt="Borat" src="LOGO_dark.png" />
+  <img alt="Borкat" src="LOGO_dark.svg" />
   <figcaption>HIGH FIVE!</figcaption>
 </figure>
 
