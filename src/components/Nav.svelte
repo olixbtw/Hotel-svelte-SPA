@@ -2,11 +2,16 @@
   import Logo from "./logo.svelte";
 
   export let segment;
+
+  var navShown = false;
+  function toggleNavigation() {
+    navShown = !navShown;
+  }
 </script>
 
 <style lang="scss">
   .nav-show {
-    margin-left: 0;
+    margin-left: 1em;
   }
 
   header {
@@ -15,14 +20,14 @@
     background: #393d46;
     color: #fff;
 
-    justify-content: space-between;
     padding: 0.5rem 2rem;
     @media (min-width: 1680px) {
     }
     @media (min-width: 1680px) {
-      padding: 1rem 20vw;
+      padding: 1rem 10vw;
     }
     align-items: center;
+    justify-content: space-between;
   }
 
   input[type="search"] {
@@ -39,7 +44,9 @@
   }
 
   nav {
-    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     font-weight: 300;
     ul {
       display: flex;
@@ -70,6 +77,31 @@
             min-width: 100%;
             text-align: left;
           }
+        }
+      }
+    }
+
+    .nav-show {
+      vertical-align: baseline;
+      cursor: pointer;
+      padding: 0.2rem;
+      // line-height: 2;
+      font-size: 0.9rem;
+      i {
+        font-size: 1.3rem;
+      }
+      span {
+        // vertical-align: bottom;
+        display: inline-block;
+        transition: all 0.5s;
+        overflow: hidden;
+        max-width: 0px;
+      }
+    }
+    &.active {
+      .nav-show {
+        span {
+          max-width: 200px;
         }
       }
     }
@@ -119,15 +151,15 @@
   }
 
   .selected {
-    &::before {
-      // position: absolute;
-      // content: "";
-      // width: calc(100% - 1em);
-      // height: 2px;
-      // background-color: rgb(255, 62, 0);
-      // display: block;
-      // bottom: -1px;
-    }
+    // &::before {
+    // position: absolute;
+    // content: "";
+    // width: calc(100% - 1em);
+    // height: 2px;
+    // background-color: rgb(255, 62, 0);
+    // display: block;
+    // bottom: -1px;
+    // }
     &::after {
       opacity: 1;
       width: 80%;
@@ -144,7 +176,7 @@
     <input type="search" />
   </div>
 
-  <nav>
+  <nav class={!navShown ? 'active' : ''}>
     <ul>
       <li>
         <a class={segment === 'services' ? 'selected' : ''} href="services">
@@ -192,10 +224,10 @@
         <a class={segment === 'login' ? 'selected' : ''} href="login">Вход</a>
       </li>
     </ul>
+    <div class="nav-show" on:click={toggleNavigation}>
+      <i class="fas fa-bars" />
+      <span>Меню</span>
+    </div>
   </nav>
-
-  <div class="nav-show">
-    <i class="fas fa-bars" />
-  </div>
 
 </header>

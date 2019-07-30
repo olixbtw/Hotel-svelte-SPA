@@ -1,6 +1,15 @@
 * {
   box-sizing: border-box;
 }
+
+div,
+main,
+header,
+nav,
+footer {
+  display: block;
+}
+
 nav ul,
 nav li {
   margin: 0;
