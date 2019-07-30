@@ -19,7 +19,7 @@
   <!-- <article>-image -type\number of beds -heading -price\night</article> -->
   <article>
     <figure>
-      <img src="/assets/img/other/image12.jpg" alt="Beautiful image" />
+      <img src="/_assets/img/other/image12.jpg" alt="Beautiful image" />
     </figure>
     <div class="type">
       VIP suite
@@ -30,7 +30,7 @@
   </article>
   <article>
     <figure>
-      <img src="/assets/img/other/image6.jpg" alt="Beautiful image" />
+      <img src="/_assets/img/other/image6.jpg" alt="Beautiful image" />
     </figure>
     <div class="type">
       VIP suite
@@ -41,7 +41,7 @@
   </article>
   <article>
     <figure>
-      <img src="/assets/img/other/image7.jpg" alt="Beautiful image" />
+      <img src="/_assets/img/other/image7.jpg" alt="Beautiful image" />
     </figure>
     <div class="type">
       VIP suite
@@ -52,7 +52,7 @@
   </article>
   <article>
     <figure>
-      <img src="/assets/img/other/image3.jpg" alt="Beautiful image" />
+      <img src="/_assets/img/other/image3.jpg" alt="Beautiful image" />
     </figure>
     <div class="type">
       VIP suite
@@ -63,7 +63,7 @@
   </article>
   <article>
     <figure>
-      <img src="/assets/img/other/image2.jpg" alt="Beautiful image" />
+      <img src="/_assets/img/other/image2.jpg" alt="Beautiful image" />
     </figure>
     <div class="type">
       VIP suite
@@ -74,7 +74,7 @@
   </article>
   <article>
     <figure>
-      <img src="/assets/img/other/image9.jpg" alt="Beautiful image" />
+      <img src="/_assets/img/other/image9.jpg" alt="Beautiful image" />
     </figure>
     <div class="type">
       VIP suite

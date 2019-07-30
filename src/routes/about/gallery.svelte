@@ -126,6 +126,25 @@
   ];
 </script>
 
+<h1>Галерея</h1>
+<!-- {#if modalShow}
+  <Modal
+    {modalContent}
+    on:click={() => {
+      modalShow = false;
+    }} />
+{/if} -->
+
+<div class="gallery">
+  {#each images as img}
+    <figure on:click={runModal}>
+      <img src={img.src} alt={img.alt} />
+      <figcaption>{img.text}</figcaption>
+    </figure>
+  {/each}
+</div>
+<!-- <div class="gallery" use:fillGaps> -->
+
 <style lang="scss">
   .gallery {
     padding: 0.5rem 0;
@@ -136,13 +155,12 @@
     justify-content: space-around;
   }
   figure {
-    
     // border-radius: 10px;
     // overflow: hidden;
     position: relative;
     width: 300px;
     display: block;
-    margin: 1.5em 0.5em;
+    margin: 1.5em 0.75em;
 
     &:after {
       position: absolute;
@@ -157,7 +175,6 @@
       z-index: 1;
       transition: all 0.5s;
     }
-
 
     img {
       z-index: 2;
@@ -192,8 +209,8 @@
     &:hover {
       &:after {
         background: #dcb03f;
-        right: 1em;
-        top: 1em;
+        right: .75em;
+        top: .75em;
         width: 100%;
         height: 100%;
       }
@@ -204,30 +221,11 @@
         height: 100%;
       }
       figcaption {
-        top: -1em;
-        right: -1em;
+        top: -.75em;
+        right: -.75em;
         opacity: 1;
         z-index: 3;
       }
     }
   }
 </style>
-
-<h1>Галерея</h1>
-<!-- {#if modalShow}
-  <Modal
-    {modalContent}
-    on:click={() => {
-      modalShow = false;
-    }} />
-{/if} -->
-
-<div class="gallery">
-  {#each images as img}
-    <figure on:click={runModal}>
-      <img src={img.src} alt={img.alt} />
-      <figcaption>{img.text}</figcaption>
-    </figure>
-  {/each}
-</div>
-<!-- <div class="gallery" use:fillGaps> -->

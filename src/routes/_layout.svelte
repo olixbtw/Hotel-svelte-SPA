@@ -20,7 +20,7 @@
   main {
     position: relative;
     max-width: 56em;
-    max-width: 70em;
+    // max-width: 70em;
     background-color: white;
     padding: 2em;
     margin: 0 auto;
@@ -41,5 +41,11 @@
     object-fit: contain;
     opacity: 0.15;
     z-index: -1;
+  }
+
+  :global(html) {
+    font-size: 16px;
+    font-size: responsive 14px 25px; /* min-size, max-size */
+    font-range: 500px 1680px; /* viewport widths between which font-size is fluid */
   }
 </style>
