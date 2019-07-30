@@ -162,7 +162,7 @@
     display: block;
     margin: 1.5em 0.75em;
 
-    &:after {
+    &::after {
       position: absolute;
       content: "";
       background: #eb9a21;
@@ -172,12 +172,12 @@
       height: 80%;
       right: -0.5em;
       top: -0.5em;
-      z-index: 1;
+      z-index: -1;
       transition: all 0.5s;
     }
 
     img {
-      z-index: 2;
+      // z-index: 2;
       background: #cecece;
       transition: all 0.4s;
       position: absolute;
@@ -200,17 +200,17 @@
       transition: all 0.5s;
     }
 
-    &:before {
+    &::before {
       display: block;
       content: "";
       padding-bottom: 100%;
     }
 
     &:hover {
-      &:after {
+      &::after {
         background: #dcb03f;
-        right: .75em;
-        top: .75em;
+        right: 0.75em;
+        top: 0.75em;
         width: 100%;
         height: 100%;
       }
@@ -221,10 +221,10 @@
         height: 100%;
       }
       figcaption {
-        top: -.75em;
-        right: -.75em;
+        top: -0.75em;
+        right: -0.75em;
         opacity: 1;
-        z-index: 3;
+        // z-index: 3;
       }
     }
   }

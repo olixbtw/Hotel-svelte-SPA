@@ -5,10 +5,11 @@
 </script>
 
 <header>
-
   <Logo href="/ololo" />
 
-  <input type="search" />
+  <div class="search">
+    <input type="search" />
+  </div>
 
   <nav>
     <ul>
@@ -19,14 +20,14 @@
         <ul class="submenu">
           <li>
             <a
-              class={segment === 'services' ? 'selected' : ''}
+              class={segment === 'rooms' ? 'selected' : ''}
               href="services/rooms">
-              Комнати
+              Номера
             </a>
           </li>
           <li>
             <a
-              class={segment === 'services' ? 'selected' : ''}
+              class={segment === 'booking' ? 'selected' : ''}
               href="services/booking">
               Резервация
             </a>
@@ -40,14 +41,14 @@
         <ul class="submenu">
           <li>
             <a
-              class={segment === 'about' ? 'selected' : ''}
+              class={segment === 'contact' ? 'selected' : ''}
               href="about/contact">
               Контакти
             </a>
           </li>
           <li>
             <a
-              class={segment === 'about' ? 'selected' : ''}
+              class={segment === 'gallery' ? 'selected' : ''}
               href="about/gallery">
               Галерея
             </a>
@@ -57,82 +58,23 @@
       <li>
         <a class={segment === 'login' ? 'selected' : ''} href="login">Вход</a>
       </li>
-
-      <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-      <!-- <li>
-      <a
-        rel="prefetch"
-        class={segment === 'blog' ? 'selected' : ''}
-        href="blog">
-        blog
-      </a>
-      </li> -->
     </ul>
-    <!-- <ul>
-    <li>
-      <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
-    </li>
-    <li>
-      <a class={segment === 'about' ? 'selected' : ''} href="about">about</a>
-    </li>
-
-          -->
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-    <!-- 
-           
-    <li>
-      <a
-        rel="prefetch"
-        class={segment === 'blog' ? 'selected' : ''}
-        href="blog">
-        blog
-      </a>
-    </li>
-    </ul> -->
   </nav>
+
+  <div class="nav-show">
+    <i class="fas fa-bars" />
+  </div>
+
 </header>
 
 <style lang="scss">
-  nav {
-    border-bottom: 1px solid rgba(255, 62, 0, 0.1);
-    font-weight: 300;
-    padding: 0 1em;
+  .nav-show {
+    margin-left: 0;
   }
-
-  .selected {
-    position: relative;
-    display: inline-block;
-  }
-
-  .selected::before {
-    position: absolute;
-    content: "";
-    width: calc(100% - 1em);
-    height: 2px;
-    background-color: rgb(255, 62, 0);
-    display: block;
-    bottom: -1px;
-  }
-
-  a {
-    text-decoration: none;
-    padding: 1em 0.5em;
-    display: block;
-  }
-  //
-  //
-  //
-  //
-  //
-  //
-  //
 
   header {
+    border-bottom: 0.15em solid #eb9a21;
     display: flex;
-    // background: #fff;
-    // border-bottom: 1px solid #e6e6e6;
     background: #393d46;
     color: #fff;
 
@@ -150,7 +92,7 @@
     // border-radius: 5px;
     color: #eee;
     background: #393d46;
-    border: 1px solid #5c4957;
+    border: 1px solid #dcb03f;
     margin: 0;
     line-height: 1.5;
     width: 15rem;
@@ -160,6 +102,8 @@
   }
 
   nav {
+    margin-right: 0;
+    font-weight: 300;
     ul {
       display: flex;
       > li {
@@ -193,7 +137,11 @@
       }
     }
   }
-
+  //  a {
+  //     text-decoration: none;
+  //     padding: 1em 0.5em;
+  //     display: block;
+  //   }
   a {
     background: none;
     border: 0px;
@@ -209,15 +157,15 @@
     cursor: pointer;
     color: inherit;
     transition: all 0.4s;
-    &:after {
+
+    &::after {
       transition: all 0.5s;
       position: absolute;
       left: 0.1rem;
       bottom: 0.3em;
       display: block;
       content: "";
-      // background: #aaf;
-      background: #5c4957;
+      background: #dcb03f;
       width: 0;
       height: 0.1em;
       opacity: 0.5;
@@ -226,9 +174,28 @@
   li:hover > a {
     text-decoration: none;
     // background: rgba(238, 238, 238, 0.6);
-    &:after {
+    &::after {
       opacity: 1;
       width: 90%;
+      margin-left: 5%;
+    }
+  }
+
+  .selected {
+    &::before {
+      // position: absolute;
+      // content: "";
+      // width: calc(100% - 1em);
+      // height: 2px;
+      // background-color: rgb(255, 62, 0);
+      // display: block;
+      // bottom: -1px;
+    }
+    &::after {
+      opacity: 1;
+      width: 80%;
+      margin-left: 10%;
+      background: #eb9a21;
     }
   }
 </style>

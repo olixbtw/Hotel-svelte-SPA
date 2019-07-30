@@ -21,12 +21,12 @@
     cursor: pointer;
     margin-right: 0.25em;
     display: inline-block;
-    &:after {
+    &::after {
       margin-left: 0.5em;
       content: ">";
     }
     &:last-child {
-      &:after {
+      &::after {
         content: "";
       }
     }

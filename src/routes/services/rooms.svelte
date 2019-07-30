@@ -92,12 +92,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
     article {
       cursor: pointer;
       width: 30%;
       margin-bottom: 1.5em;
       display: flex;
       flex-direction: column;
+
       &:hover {
         figure:before {
           bottom: -0.5em;
@@ -118,11 +120,12 @@
           display: block;
           position: absolute;
           z-index: -1;
-          background: #443941;
+          background: red;
         }
         position: relative;
         margin: 0;
         margin-bottom: 0.5em;
+
         img {
           top: 0;
           left: 0;
@@ -132,7 +135,8 @@
           width: 100%;
           object-fit: cover;
         }
-        &:after {
+
+        &::after {
           padding-bottom: 80%;
           display: block;
           content: "";
@@ -149,7 +153,7 @@
         letter-spacing: -0.025em;
 
         span {
-          &:before {
+          &::before {
             content: "| ";
             margin: 0 0.25em;
           }
