@@ -1,7 +1,3 @@
-<a href="/" class="logo">
-  <img src="logo.svg" alt="Logo" />
-</a>
-
 <style lang="scss">
   .logo {
     transition: filter 0.3s ease-in-out;
@@ -25,3 +21,7 @@
     }
   }
 </style>
+
+<a href="/" class="logo">
+  <img src="logo.svg" alt="Logo" />
+</a>

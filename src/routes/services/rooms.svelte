@@ -11,82 +11,6 @@
   }
 </script>
 
-<h1>Номера</h1>
-
-<!-- <Filter /> -->
-
-<div class="room-list">
-  <!-- <article>-image -type\number of beds -heading -price\night</article> -->
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image12.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image6.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image7.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image3.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image2.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image9.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-</div>
-
-<!-- <Pagination on:click={paginationClick} active={activePag} /> -->
-
 <style lang="scss">
   .room-list {
     display: flex;
@@ -165,3 +89,79 @@
     }
   }
 </style>
+
+<h1>Номера</h1>
+
+<!-- <Filter /> -->
+
+<div class="room-list">
+  <!-- <article>-image -type\number of beds -heading -price\night</article> -->
+  <article>
+    <figure>
+      <img src="/_assets/img/other/image12.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/_assets/img/other/image6.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/_assets/img/other/image7.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/_assets/img/other/image3.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/_assets/img/other/image2.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+  <article>
+    <figure>
+      <img src="/_assets/img/other/image9.jpg" alt="Beautiful image" />
+    </figure>
+    <div class="type">
+      VIP suite
+      <span class="n_people">3 beds</span>
+    </div>
+    <h4>Glass window suite</h4>
+    <div class="price">$300/night</div>
+  </article>
+</div>
+
+<!-- <Pagination on:click={paginationClick} active={activePag} /> -->

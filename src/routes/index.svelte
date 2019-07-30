@@ -1,20 +1,3 @@
-<svelte:head>
-  <title>Sapper project template</title>
-</svelte:head>
-
-<h1>Great success!</h1>
-
-<figure>
-  <img alt="Borкat" src="LOGO_dark.svg" />
-  <figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p>
-  <strong>
-    Try editing this file (src/routes/index.svelte) to test live reloading.
-  </strong>
-</p>
-
 <style lang="scss">
   h1,
   figure,
@@ -50,3 +33,20 @@
     }
   }
 </style>
+
+<svelte:head>
+  <title>Sapper project template</title>
+</svelte:head>
+
+<h1>Great success!</h1>
+
+<figure>
+  <img alt="Borкat" src="LOGO_dark.svg" />
+  <figcaption>HIGH FIVE!</figcaption>
+</figure>
+
+<p>
+  <strong>
+    Try editing this file (src/routes/index.svelte) to test live reloading.
+  </strong>
+</p>

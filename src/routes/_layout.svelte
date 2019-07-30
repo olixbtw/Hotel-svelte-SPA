@@ -6,16 +6,6 @@
   export let segment;
 </script>
 
-<Nav {segment} />
-
-<main>
-  {#if pageLogo}
-    <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />
-  {/if}
-  <Breadcrumbs />
-  <slot />
-</main>
-
 <style lang="scss">
   main {
     position: relative;
@@ -62,3 +52,13 @@
     font-range: 500px 1680px; /* viewport widths between which font-size is fluid */
   }
 </style>
+
+<Nav {segment} />
+
+<main>
+  {#if pageLogo}
+    <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />
+  {/if}
+  <Breadcrumbs />
+  <slot />
+</main>

@@ -9,6 +9,41 @@
   var emptylink = "#";
 </script>
 
+<style lang="scss">
+  .login {
+    margin: 0 auto;
+    max-width: 20rem;
+    header {
+      width: 100%;
+      justify-content: space-around;
+      display: flex;
+      h3 {
+        cursor: pointer;
+        &.active {
+          border-bottom: 4px solid orange;
+        }
+      }
+    }
+    section,
+    form,
+    .control_group,
+    input {
+      width: 100%;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  a {
+    color: grey;
+    font-size: 0.9;
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
+</style>
+
 <div class="login">
   <header>
     <h3 on:click={autTab} class:active={!register}>Авторизация</h3>
@@ -53,38 +88,3 @@
     </section>
   {/if}
 </div>
-
-<style lang="scss">
-  .login {
-    margin: 0 auto;
-    max-width: 20rem;
-    header {
-      width: 100%;
-      justify-content: space-around;
-      display: flex;
-      h3 {
-        cursor: pointer;
-        &.active {
-          border-bottom: 4px solid orange;
-        }
-      }
-    }
-    section,
-    form,
-    .control_group,
-    input {
-      width: 100%;
-    }
-    button {
-      display: block;
-      margin: 0 auto;
-    }
-  }
-  a {
-    color: grey;
-    font-size: 0.9;
-    display: block;
-    width: 100%;
-    text-align: right;
-  }
-</style>

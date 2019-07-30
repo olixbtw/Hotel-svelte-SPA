@@ -4,69 +4,6 @@
   export let segment;
 </script>
 
-<header>
-  <Logo href="/ololo" />
-
-  <div class="search">
-    <input type="search" />
-  </div>
-
-  <nav>
-    <ul>
-      <li>
-        <a class={segment === 'services' ? 'selected' : ''} href="services">
-          Услуги
-        </a>
-        <ul class="submenu">
-          <li>
-            <a
-              class={segment === 'rooms' ? 'selected' : ''}
-              href="services/rooms">
-              Номера
-            </a>
-          </li>
-          <li>
-            <a
-              class={segment === 'booking' ? 'selected' : ''}
-              href="services/booking">
-              Резервация
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a class={segment === 'about' ? 'selected' : ''} href="about">
-          Про нас
-        </a>
-        <ul class="submenu">
-          <li>
-            <a
-              class={segment === 'contact' ? 'selected' : ''}
-              href="about/contact">
-              Контакти
-            </a>
-          </li>
-          <li>
-            <a
-              class={segment === 'gallery' ? 'selected' : ''}
-              href="about/gallery">
-              Галерея
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a class={segment === 'login' ? 'selected' : ''} href="login">Вход</a>
-      </li>
-    </ul>
-  </nav>
-
-  <div class="nav-show">
-    <i class="fas fa-bars" />
-  </div>
-
-</header>
-
 <style lang="scss">
   .nav-show {
     margin-left: 0;
@@ -199,3 +136,66 @@
     }
   }
 </style>
+
+<header>
+  <Logo href="/ololo" />
+
+  <div class="search">
+    <input type="search" />
+  </div>
+
+  <nav>
+    <ul>
+      <li>
+        <a class={segment === 'services' ? 'selected' : ''} href="services">
+          Услуги
+        </a>
+        <ul class="submenu">
+          <li>
+            <a
+              class={segment === 'rooms' ? 'selected' : ''}
+              href="services/rooms">
+              Номера
+            </a>
+          </li>
+          <li>
+            <a
+              class={segment === 'booking' ? 'selected' : ''}
+              href="services/booking">
+              Резервация
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class={segment === 'about' ? 'selected' : ''} href="about">
+          Про нас
+        </a>
+        <ul class="submenu">
+          <li>
+            <a
+              class={segment === 'contact' ? 'selected' : ''}
+              href="about/contact">
+              Контакти
+            </a>
+          </li>
+          <li>
+            <a
+              class={segment === 'gallery' ? 'selected' : ''}
+              href="about/gallery">
+              Галерея
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class={segment === 'login' ? 'selected' : ''} href="login">Вход</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="nav-show">
+    <i class="fas fa-bars" />
+  </div>
+
+</header>

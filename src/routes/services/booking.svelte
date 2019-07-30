@@ -11,6 +11,13 @@
   }
 </script>
 
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: auto 10rem;
+  }
+</style>
+
 <div class="container">
   <div class="col-left">
     <button on:click={prevBooking}>Back</button>
@@ -93,10 +100,3 @@
   </div>
   <div class="col-right">Booking info - col right</div>
 </div>
-
-<style>
-  .container {
-    display: grid;
-    grid-template-columns: auto 10rem;
-  }
-</style>

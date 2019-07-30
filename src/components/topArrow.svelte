@@ -7,10 +7,6 @@
   }
 </script>
 
-<nav on:click={scrollTop}>
-  <i class="fas fa-chevron-up" />
-</nav>
-
 <style>
   nav {
     cursor: pointer;
@@ -29,3 +25,7 @@
     background: #443941;
   }
 </style>
+
+<nav on:click={scrollTop}>
+  <i class="fas fa-chevron-up" />
+</nav>

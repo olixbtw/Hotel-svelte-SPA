@@ -126,25 +126,6 @@
   ];
 </script>
 
-<h1>Галерея</h1>
-<!-- {#if modalShow}
-  <Modal
-    {modalContent}
-    on:click={() => {
-      modalShow = false;
-    }} />
-{/if} -->
-
-<div class="gallery">
-  {#each images as img}
-    <figure on:click={runModal}>
-      <img src={img.src} alt={img.alt} />
-      <figcaption>{img.text}</figcaption>
-    </figure>
-  {/each}
-</div>
-<!-- <div class="gallery" use:fillGaps> -->
-
 <style lang="scss">
   .gallery {
     padding: 0.5rem 0;
@@ -229,3 +210,22 @@
     }
   }
 </style>
+
+<h1>Галерея</h1>
+<!-- {#if modalShow}
+  <Modal
+    {modalContent}
+    on:click={() => {
+      modalShow = false;
+    }} />
+{/if} -->
+
+<div class="gallery">
+  {#each images as img}
+    <figure on:click={runModal}>
+      <img src={img.src} alt={img.alt} />
+      <figcaption>{img.text}</figcaption>
+    </figure>
+  {/each}
+</div>
+<!-- <div class="gallery" use:fillGaps> -->

@@ -2,14 +2,6 @@
 
 </script>
 
-<nav>
-  <ul>
-    <li>Link1</li>
-    <li>Link2</li>
-    <li>Link3</li>
-  </ul>
-</nav>
-
 <style lang="scss">
   nav {
     padding: 0.25rem 0;
@@ -32,3 +24,11 @@
     }
   }
 </style>
+
+<nav>
+  <ul>
+    <li>Link1</li>
+    <li>Link2</li>
+    <li>Link3</li>
+  </ul>
+</nav>
