@@ -8,6 +8,7 @@
 
 <style lang="scss">
   main {
+    width: 100%;
     position: relative;
     max-width: 56em;
     // max-width: 70em;
@@ -44,6 +45,11 @@
     font-size: responsive 14px 25px; /* min-size, max-size */
     font-range: 500px 1680px; /* viewport widths between which font-size is fluid */
   }
+  footer {
+    margin-top: auto;
+    background: #4f4f4f;
+    color: #4f4f4f;
+  }
 </style>
 
 <Nav {segment} />
@@ -55,3 +61,4 @@
   <Breadcrumbs />
   <slot />
 </main>
+<footer>123</footer>

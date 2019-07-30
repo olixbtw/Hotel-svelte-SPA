@@ -228,3 +228,9 @@ img {
 /*  */
 /*  */
 /*  */
+
+#sapper {
+  flex-direction: column;
+  display: flex;
+  min-height: 100%;
+}
