@@ -16,9 +16,8 @@
   }
 
   header {
-    line-height: 3rem;
-    transition: all 0.6s ease-in-out;
     @media (max-width: 999px) {
+      transition: all 0.6s ease-in-out;
       &.shown {
         top: 0;
         left: 0;
