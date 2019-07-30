@@ -13,7 +13,7 @@
     // max-width: 70em;
     padding: 2em;
     margin: 0 auto;
-    box-sizing: border-box;
+    // min-height: 100%;
 
     &::after {
       //заменить простой бекграунд чтобы можно спокойно использовать z-index:-1;
@@ -28,16 +28,9 @@
     }
   }
 
-  // main {
-  //   min-height: 100%;
-  //   width: 100%;
-  //   padding-top: 0.25rem;
-  //   padding-bottom: 2rem;
-  // }
-
   .pageLogo {
     position: absolute;
-    top: 2em;
+    top: 9em;
     right: 13em;
     width: 10rem;
     height: 10rem;

@@ -44,6 +44,9 @@
   }
 </style>
 
+<svelte:head>
+  <title>ОТЕЛЬ - Войти</title>
+</svelte:head>
 <div class="login">
   <header>
     <h3 on:click={autTab} class:active={!register}>Авторизация</h3>

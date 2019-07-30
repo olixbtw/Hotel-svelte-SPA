@@ -3,10 +3,11 @@
 
   export let segment;
 
-  var navShown = false;
+  var navShown = true;
   function toggleNavigation() {
     navShown = !navShown;
   }
+  var y;
 </script>
 
 <style lang="scss">
@@ -15,14 +16,58 @@
   }
 
   header {
+    line-height: 3rem;
+    transition: all 0.6s ease-in-out;
+    @media (max-width: 999px) {
+      &.shown {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99999;
+        position: fixed;
+        align-items: flex-start;
+
+        nav > ul {
+          position: absolute;
+          left: 2rem;
+          top: 6rem;
+          display: block;
+        }
+
+        .nav-show {
+          span {
+            &:first-child {
+              top: 10px;
+              transform: rotate(45deg);
+              width: 45px;
+            }
+            &:nth-child(2) {
+              transition: all 0.2s;
+              opacity: 0;
+            }
+            &:last-child {
+              top: -10px;
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+
+    // &.fixed {
+    //   z-index: 9998;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   position: fixed;
+    // }
     border-bottom: 0.15em solid #eb9a21;
     display: flex;
-    background: #393d46;
+    background: #444b57;
     color: #fff;
 
-    padding: 0.5rem 2rem;
-    @media (min-width: 1680px) {
-    }
+    padding: 0.25rem 2rem;
     @media (min-width: 1680px) {
       padding: 1rem 10vw;
     }
@@ -42,75 +87,92 @@
       outline-color: #3d4861;
     }
   }
-
   nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     font-weight: 300;
-    ul {
-      display: flex;
-      > li {
-        z-index: 999;
-        position: relative;
-        &:hover {
+
+    > ul {
+      @media (max-width: 999px) {
+        display: none;
+        font-size: 1.4rem;
+        a {
+          display: inline-block;
+        }
+        > li {
+          display: block;
           > ul {
-            opacity: 1;
-            pointer-events: all;
+            margin-left: 1rem;
           }
         }
-        > ul {
-          display: block;
-          transition: opacity 0.5s;
-          opacity: 0;
-          pointer-events: none;
-          position: absolute;
-          top: 100%;
-          left: 50%;
-          transform: translateX(-50%);
-          // background: #fafafa;
-          background: #393d46;
+      }
+      @media (min-width: 1000px) {
+        position: relative;
+        display: flex;
+        > li {
+          z-index: 999;
+          position: relative;
+          &:hover {
+            > ul {
+              opacity: 1;
+              pointer-events: all;
+            }
+          }
+          > ul {
+            display: block;
+            transition: opacity 0.5s;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            // background: #fafafa;
+            background: #393d46;
 
-          display: flex;
-          flex-direction: column;
-          button {
-            min-width: 100%;
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            a {
+              min-width: 100%;
+              text-align: left;
+            }
           }
         }
       }
     }
 
     .nav-show {
-      vertical-align: baseline;
+      display: block;
+      @media (min-width: 1000px) {
+        display: none;
+      }
+      padding: 0.5rem;
       cursor: pointer;
-      padding: 0.2rem;
-      // line-height: 2;
-      font-size: 0.9rem;
-      i {
-        font-size: 1.3rem;
-      }
+
       span {
-        // vertical-align: bottom;
-        display: inline-block;
-        transition: all 0.5s;
-        overflow: hidden;
-        max-width: 0px;
-      }
-    }
-    &.active {
-      .nav-show {
-        span {
-          max-width: 200px;
+        position: relative;
+        display: block;
+        background: white;
+        width: 45px;
+        margin: 5px 0;
+        height: 5px;
+        top: 0;
+
+        &:first-child {
+          width: 30px;
+        }
+        &:nth-child(2) {
+          transition: all 0.8s;
+        }
+        &:first-child,
+        &:last-child {
+          transition: all 0.5s;
         }
       }
     }
   }
-  //  a {
-  //     text-decoration: none;
-  //     padding: 1em 0.5em;
-  //     display: block;
-  //   }
+
   a {
     background: none;
     border: 0px;
@@ -119,8 +181,7 @@
     margin: 0;
 
     display: block;
-    // border-radius: 6px;
-    padding: 0.5em 0.8rem;
+    padding: 0.75em;
     position: relative;
     text-decoration: none;
     cursor: pointer;
@@ -140,26 +201,30 @@
       opacity: 0.5;
     }
   }
-  li:hover > a {
-    text-decoration: none;
-    // background: rgba(238, 238, 238, 0.6);
-    &::after {
-      opacity: 1;
-      width: 90%;
-      margin-left: 5%;
+
+  @media (max-width: 999px) {
+    a:hover {
+      text-decoration: none;
+      &::after {
+        opacity: 1;
+        width: 90%;
+        margin-left: 5%;
+      }
+    }
+  }
+  @media (min-width: 1000px) {
+    li:hover > a {
+      text-decoration: none;
+      &::after {
+        background: #dcb03f;
+        opacity: 1;
+        width: 90%;
+        margin-left: 5%;
+      }
     }
   }
 
   .selected {
-    // &::before {
-    // position: absolute;
-    // content: "";
-    // width: calc(100% - 1em);
-    // height: 2px;
-    // background-color: rgb(255, 62, 0);
-    // display: block;
-    // bottom: -1px;
-    // }
     &::after {
       opacity: 1;
       width: 80%;
@@ -169,65 +234,97 @@
   }
 </style>
 
-<header>
-  <Logo href="/ololo" />
+<svelte:window bind:scrollY={y} on:event={() => (navShown = false)} />
+<!-- <header class="{y > 150 ? 'fixed' : ''} {navShown ? 'shown' : ''}"> -->
+<header class={navShown ? 'shown' : ''}>
+  <Logo {navShown} />
 
-  <div class="search">
-    <input type="search" />
-  </div>
-
-  <nav class={!navShown ? 'active' : ''}>
+  <nav>
     <ul>
       <li>
-        <a class={segment === 'services' ? 'selected' : ''} href="services">
+        <a
+          class={segment === 'services' ? 'selected' : ''}
+          rel="prefetch"
+          href="services"
+          on:click={toggleNavigation}>
           Услуги
         </a>
         <ul class="submenu">
           <li>
             <a
               class={segment === 'rooms' ? 'selected' : ''}
-              href="services/rooms">
+              rel="prefetch"
+              href="services/rooms"
+              on:click={toggleNavigation}>
               Номера
             </a>
           </li>
           <li>
             <a
               class={segment === 'booking' ? 'selected' : ''}
-              href="services/booking">
+              rel="prefetch"
+              href="services/booking"
+              on:click={toggleNavigation}>
               Резервация
             </a>
           </li>
         </ul>
       </li>
       <li>
-        <a class={segment === 'about' ? 'selected' : ''} href="about">
+        <a
+          class={segment === 'about' ? 'selected' : ''}
+          rel="prefetch"
+          href="about"
+          on:click={toggleNavigation}>
           Про нас
         </a>
         <ul class="submenu">
           <li>
             <a
               class={segment === 'contact' ? 'selected' : ''}
-              href="about/contact">
-              Контакти
+              rel="prefetch"
+              href="about/contact"
+              on:click={toggleNavigation}>
+              Контакты
             </a>
           </li>
           <li>
             <a
               class={segment === 'gallery' ? 'selected' : ''}
-              href="about/gallery">
+              rel="prefetch"
+              href="about/gallery"
+              on:click={toggleNavigation}>
               Галерея
             </a>
           </li>
         </ul>
       </li>
       <li>
-        <a class={segment === 'login' ? 'selected' : ''} href="login">Вход</a>
+        <a
+          class={segment === 'login' ? 'selected' : ''}
+          rel="prefetch"
+          href="login"
+          on:click={toggleNavigation}>
+          Вход
+        </a>
       </li>
     </ul>
     <div class="nav-show" on:click={toggleNavigation}>
-      <i class="fas fa-bars" />
-      <span>Меню</span>
+      <span />
+      <span />
+      <span />
+      <!-- <div class="bars">
+        <span />
+        <span />
+        <span />
+      </div> 
+      <span>Меню</span> -->
     </div>
   </nav>
+
+  <!-- <div class="search">
+    <input type="search" />
+    <i class="fas fa-search" />
+  </div> -->
 
 </header>

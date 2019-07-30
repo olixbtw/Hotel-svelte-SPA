@@ -9,4 +9,4 @@ package-lock.json
 /__sapper__/
 /_temporary/
 
-# public/bundle.*
+public/bundle.*

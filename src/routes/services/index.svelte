@@ -114,3 +114,7 @@
   <span>Моб.: +38 (067) 218 82 43</span>
   <span>E-mail: catering@premier-palace.com</span>
 </section>
+
+<svelte:head>
+  <title>ОТЕЛЬ - Услуги</title>
+</svelte:head>

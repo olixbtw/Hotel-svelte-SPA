@@ -100,3 +100,7 @@
   </div>
   <div class="col-right">Booking info - col right</div>
 </div>
+
+<svelte:head>
+  <title>ОТЕЛЬ - Резервация</title>
+</svelte:head>

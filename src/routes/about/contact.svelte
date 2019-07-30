@@ -12,6 +12,10 @@
   };
 </script>
 
+<svelte:head>
+  <title>ОТЕЛЬ - Контакты</title>
+</svelte:head>
+
 <div class="contact-body">
   <h1>Контакты</h1>
 

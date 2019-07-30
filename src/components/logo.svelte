@@ -1,5 +1,14 @@
+<script>
+  export let navShown = false;
+</script>
+
 <style lang="scss">
   .logo {
+    // &.shown {
+    //   position: fixed;
+    //   z-index: 99999;
+    //   top: 2rem;
+    // }
     transition: filter 0.3s ease-in-out;
     cursor: pointer;
     text-decoration: none;
@@ -22,6 +31,6 @@
   }
 </style>
 
-<a href="/" class="logo">
+<a href="/" class="logo {navShown ? 'shown' : ''}">
   <img src="logo.svg" alt="Logo" />
 </a>

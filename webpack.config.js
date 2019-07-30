@@ -65,7 +65,7 @@ module.exports = {
                   plugins: [require('postcss-responsive-type')(), require('css-mqpacker')(), require('autoprefixer')()],
                 },
               }),
-              css: true,
+              css: false,
               generate: 'ssr',
               dev,
             },

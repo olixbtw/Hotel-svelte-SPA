@@ -2,6 +2,10 @@
   var emptylink = "#";
 </script>
 
+<svelte:head>
+  <title>ОТЕЛЬ - Про отель</title>
+</svelte:head>
+
 <h1>Про отель</h1>
 
 <section>

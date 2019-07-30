@@ -229,3 +229,7 @@
   {/each}
 </div>
 <!-- <div class="gallery" use:fillGaps> -->
+
+<svelte:head>
+  <title>ОТЕЛЬ - Галерея</title>
+</svelte:head>

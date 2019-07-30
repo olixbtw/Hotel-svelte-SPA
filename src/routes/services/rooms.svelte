@@ -44,8 +44,9 @@
           display: block;
           position: absolute;
           z-index: -1;
-          background: red;
+          background: #eb9a21;
         }
+
         position: relative;
         margin: 0;
         margin-bottom: 0.5em;
