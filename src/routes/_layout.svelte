@@ -1,7 +1,8 @@
 <script>
   export let pageLogo = "LOGO_dark";
   import Breadcrumbs from "../components/breadcrumbs.svelte";
-  import Nav from "../components/Nav.svelte";
+  import Nav from "../components/_Nav.svelte";
+  import Footer from "../components/_Footer.svelte";
   import Arrow from "../components/topArrow.svelte";
 
   export let segment;
@@ -56,10 +57,6 @@
     font-size: responsive 14px 25px; /* min-size, max-size */
     font-range: 500px 1680px; /* viewport widths between which font-size is fluid */
   }
-  footer {
-    background: #4f4f4f;
-    color: #4f4f4f;
-  }
 </style>
 
 <svelte:window bind:scrollY={y} />
@@ -73,7 +70,8 @@
   <Breadcrumbs />
   <slot />
 </main>
-<footer>123</footer>
+
+<Footer></Footer>
 
 {#if y > 150}
   <Arrow />

@@ -31,6 +31,6 @@
   }
 </style>
 
-<a href="/" class="logo {navShown ? 'shown' : ''}">
+<a href="/" rel="prefetch" class="logo {navShown ? 'shown' : ''}">
   <img src="logo.svg" alt="Logo" />
 </a>

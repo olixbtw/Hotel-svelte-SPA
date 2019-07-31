@@ -2,18 +2,34 @@
   import Logo from "./logo.svelte";
   export let segment;
 
+  import { onMount } from "svelte";
+  var LOADED;
+
   var y, yStore;
   var navShown = false;
 
   function toggleNavigation() {
     navShown = !navShown;
-    //fix body from scrollin with returning to previous position
-    navShown ? (yStore = y) : "";
-    navShown
-      ? document.body.setAttribute("style", "position:fixed;overflow-y:scroll;")
-      : document.body.setAttribute("style", "");
-    navShown ? "" : (y = yStore);
   }
+
+  $: {
+    if (LOADED) {
+      //fix body from scrollin with returning to previous position
+      navShown ? (yStore = y) : "";
+      navShown
+        ? document.body.setAttribute(
+          "style",
+            "position:fixed;overflow-y:scroll;"
+          )
+        : document.body.setAttribute("style", "");
+      navShown ? "" : (y = yStore);
+    }
+  }
+
+  onMount(() => {
+    // fire only after component loads not to get document beforehand
+    LOADED = true;
+  });
 </script>
 
 <style lang="scss">
