@@ -14,10 +14,97 @@
 </script>
 
 <script>
+  import { reservedRoom } from "../../../components/stores.js";
   export let room;
+  var showAmm =
+    room.amenities.additional.length + room.amenities.abscent.length;
+  var a, b;
+
+  function addRoom(){
+    $reservedRoom.push(room)
+  }
 </script>
 
-<style>
+<style lang="scss">
+  .container {
+    display: grid;
+    grid-template-columns: auto 10rem;
+  }
+  .images {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+
+    display: grid;
+    height: 400px;
+    grid-auto-flow: dense;
+
+    grid-row-gap: 0.5em;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    @media (min-width: 500px) {
+      grid-gap: 0.5em;
+      grid-template-columns: 6fr 7fr;
+    }
+    @media (min-width: 1000px) {
+      grid-template-columns: 6fr 7fr 6fr;
+    }
+    @media (min-width: 1680px) {
+      grid-template-columns: 6fr 7fr 6fr 6fr;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+      @media (max-width: 499px) {
+        &:first-child {
+          grid-row: 1 / 3;
+        }
+        &:nth-child(n + 3) {
+          display: none;
+        }
+      }
+      @media (min-width: 500px) and (max-width: 999px) {
+        &:first-child {
+          grid-column: 2 / 3;
+          grid-row: 1 / 3;
+        }
+        &:nth-child(n + 4) {
+          display: none;
+        }
+      }
+      @media (min-width: 1000px) and (max-width: 1679px) {
+        &:first-child {
+          grid-column: 2 / 3;
+          grid-row: 1 / 3;
+        }
+        &:nth-child(n + 6) {
+          display: none;
+        }
+      }
+      @media (min-width: 1680px) {
+        &:first-child {
+          grid-column: 2 / 3;
+          grid-row: 1 / 3;
+        }
+        &:nth-child(n + 8) {
+          display: none;
+        }
+      }
+    }
+  }
+  .col-left {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+  .col-right {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+</style>
+
+<!-- <style>
   /*
 		By default, CSS is locally scoped to the component,
 		and any unused styles are dead-code-eliminated.
@@ -51,14 +138,61 @@
   .content :global(li) {
     margin: 0 0 0.5em 0;
   }
-</style>
-
+</style> -->
+<!-- <div class="content">
+  {@html room.description}
+</div> -->
 <svelte:head>
   <title>{room.title}</title>
 </svelte:head>
 
-<h1>{room.title}</h1>
+<div class="container">
+  <!-- more photos here -->
+  <div class="images">
+    {#each room.photos as img}
+      <img src={img.src} alt={img.alt} />
+    {/each}
+  </div>
+  <div class="col-left">
+    <h1>
+      {room.type}
+      <span class="n_people">
+        {room.people} {room.people == 1 ? 'person' : 'people'}
+      </span>
+    </h1>
+    <h4>{room.title}</h4>
+    <div class="price">{room.price.currency}{room.price.value}/night</div>
 
-<div class="content">
-  {@html room.description}
+    {#if room.amenities.additional.length + room.amenities.abscent.length > 0}
+      <h3>Amenities</h3>
+      <ul>
+        {#each room.amenities.additional as amm}
+          <li>{amm}</li>
+        {/each}
+        {#each room.amenities.abscent as amm}
+          <li class="disabled">{amm}</li>
+        {/each}
+      </ul>
+    {/if}
+
+    <h3>Description</h3>
+    <p>{room.description}</p>
+    <button>Reserve it</button>
+  </div>
+  <div class="col-right">
+    <input type="date" bind:value={a} />
+    {a}
+    <input type="date" bind:value={b} />
+    {b}
+    <div class="price-total">Price total</div>
+    <!-- <a href="services/booking" on:click={() => $reservedRoom.push('asdasd')}> -->
+    <button  on:click={addRoom}>
+      Reserve
+    </button>
+    <br />
+    You wont be charged yet
+  </div>
 </div>
+
+<button on:click={() => console.log(room)}>SHOW</button>
+<button on:click={() => console.log($reservedRoom)}>RESERVED</button>

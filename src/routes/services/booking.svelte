@@ -1,4 +1,6 @@
 <script>
+  import { reservedRoom } from "../../components/stores.js";
+
   export let bookingData = false;
 
   var activeBooking = 0;
@@ -24,7 +26,7 @@
   <title>ОТЕЛЬ - Резервация</title>
 </svelte:head>
 
-{#if bookingData}
+{#if $reservedRoom.length}
   <div class="container">
     <div class="col-left">
       <button on:click={prevBooking}>Back</button>

@@ -13,9 +13,12 @@
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
+    display: flex;
+    align-items: center;
+    color: white;
 
     img {
-      display: block;
+      // display: inline-block;
       max-height: 5rem;
       max-width: 7rem;
       width: 100%;
@@ -33,4 +36,7 @@
 
 <a href="/" rel="prefetch" class="logo {navShown ? 'shown' : ''}">
   <img src="logo.svg" alt="Logo" />
+  <div class="name">
+    <slot />
+  </div>
 </a>

@@ -18,7 +18,7 @@
       navShown ? (yStore = y) : "";
       navShown
         ? document.body.setAttribute(
-          "style",
+            "style",
             "position:fixed;overflow-y:scroll;"
           )
         : document.body.setAttribute("style", "");
@@ -263,7 +263,9 @@
 <!-- <svelte:window bind:scrollY={y} on:event={() => (navShown = false)} /> -->
 <!-- <header class="{y > 150 ? 'fixed' : ''} {navShown ? 'shown' : ''}"> -->
 <header class={navShown ? 'shown' : ''}>
-  <Logo {navShown} />
+  
+  <Logo {navShown} >Pris Hotel</Logo>
+  <!-- <Logo {navShown} /> -->
 
   <nav>
     <ul>

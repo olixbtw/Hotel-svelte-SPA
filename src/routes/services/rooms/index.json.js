@@ -6,7 +6,7 @@ const contents = JSON.stringify(
       title: room.title,
       slug: room.slug,
       photo: {
-        src: room.photos[0].source,
+        src: room.photos[0].src,
         alt: room.photos[0].alt,
       },
       price: room.price.currency + room.price.value,
