@@ -2,8 +2,10 @@
   export let pageLogo = "LOGO_dark";
   import Breadcrumbs from "../components/breadcrumbs.svelte";
   import Nav from "../components/Nav.svelte";
+  import Arrow from "../components/topArrow.svelte";
 
   export let segment;
+  var y;
 </script>
 
 <style lang="scss">
@@ -60,6 +62,8 @@
   }
 </style>
 
+<svelte:window bind:scrollY={y} />
+
 <Nav {segment} />
 
 <main>
@@ -70,3 +74,7 @@
   <slot />
 </main>
 <footer>123</footer>
+
+{#if y > 150}
+  <Arrow />
+{/if}
