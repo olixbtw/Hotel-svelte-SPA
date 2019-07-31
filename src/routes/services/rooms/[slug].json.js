@@ -1,8 +1,8 @@
-import posts from './_posts.js';
+import rooms from './_rooms.js';
 
 const lookup = new Map();
-posts.forEach(post => {
-	lookup.set(post.slug, JSON.stringify(post));
+rooms.forEach(room => {
+	lookup.set(room.slug, JSON.stringify(room));
 });
 
 export function get(req, res, next) {

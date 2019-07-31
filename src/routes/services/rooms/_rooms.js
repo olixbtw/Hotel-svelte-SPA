@@ -4,6 +4,7 @@ const rooms = [
   {
     type: 'VIP suite',
     title: 'Glass window suite',
+    slug: 'glass-window-suite',
     people: '2',
     price: {
       currency: '$',
@@ -26,6 +27,7 @@ const rooms = [
   {
     type: 'VIP suite',
     title: 'Pool suite',
+    slug: 'pool-suite',
     people: '5',
     price: {
       currency: '$',
@@ -48,6 +50,7 @@ const rooms = [
   {
     type: 'VIP suite',
     title: 'Lux suite',
+    slug: 'lux-suite',
     people: '2',
     price: {
       currency: '$',
@@ -70,6 +73,7 @@ const rooms = [
   {
     type: 'Room',
     title: 'Comfortable room',
+    slug: 'comfortable-room',
     people: '3',
     price: {
       currency: '$',
@@ -92,6 +96,7 @@ const rooms = [
   {
     type: 'Room',
     title: 'Comfortable large room',
+    slug: 'comfortable-large-room',
     people: '5',
     price: {
       currency: '$',

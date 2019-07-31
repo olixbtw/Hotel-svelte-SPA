@@ -1,16 +1,25 @@
-import posts from './_posts.js';
+import rooms from './_rooms.js'
 
-const contents = JSON.stringify(posts.map(post => {
-	return {
-		title: post.title,
-		slug: post.slug
-	};
-}));
+const contents = JSON.stringify(
+  rooms.map(room => {
+    return {
+      title: room.title,
+      slug: room.slug,
+      photo: {
+        src: room.photos[0].source,
+        alt: room.photos[0].alt,
+      },
+      price: room.price.currency + room.price.value,
+      people: room.people,
+      type: room.type,
+    }
+  }),
+)
 
 export function get(req, res) {
-	res.writeHead(200, {
-		'Content-Type': 'application/json'
-	});
+  res.writeHead(200, {
+    'Content-Type': 'application/json',
+  })
 
-	res.end(contents);
+  res.end(contents)
 }
