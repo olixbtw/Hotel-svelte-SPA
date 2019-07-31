@@ -20,8 +20,15 @@
     room.amenities.additional.length + room.amenities.abscent.length;
   var a, b;
 
-  function addRoom(){
-    $reservedRoom.push(room)
+  function addRoom() {
+    var reserveItem = {
+      id: room.slug,
+      content: room,
+      date1: "",
+      date2: ""
+    };
+    //should be unique index, push dates aswell, check for errors
+    $reservedRoom.push(reserveItem);
   }
 </script>
 
@@ -186,9 +193,7 @@
     {b}
     <div class="price-total">Price total</div>
     <!-- <a href="services/booking" on:click={() => $reservedRoom.push('asdasd')}> -->
-    <button  on:click={addRoom}>
-      Reserve
-    </button>
+    <button on:click={addRoom}>Reserve</button>
     <br />
     You wont be charged yet
   </div>
