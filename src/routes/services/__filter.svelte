@@ -36,7 +36,7 @@
     top: 5rem;
     z-index: 500;
     white-space: nowrap;
-    line-height: 2.4;
+    line-height: 2.2;
 
     right: 0.5rem;
     // @media (min-width: 1000px) {
@@ -53,6 +53,7 @@
       }
     }
     nav {
+      margin: 0 0 0 auto;
       transition: all 0.4s;
       padding: 1rem 2.5rem;
       color: #a19d9d;
@@ -61,6 +62,8 @@
       max-height: 0;
       max-width: 0;
       overflow: hidden;
+      display: block;
+      float: right;
     }
   }
   input,

@@ -123,8 +123,6 @@
     </article>
   {/each}
 
-
-
   {#each rooms as room}
     <article>
       <figure>

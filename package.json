@@ -7,17 +7,18 @@
     "sirv": "^0.4.0"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
-    "sapper": "^0.27.0",
-    "svelte": "^3.0.0",
-    "svelte-loader": "^2.9.0",
-    "webpack": "^4.7.0",
     "@fortawesome/fontawesome-free": "^5.9.0",
     "autoprefixer": "^9.6.1",
     "css-mqpacker": "^7.0.0",
     "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-discard-duplicates": "^4.0.2",
     "postcss-responsive-type": "^1.0.0",
-    "svelte-preprocess": "^2.14.4"
+    "sapper": "^0.27.0",
+    "svelte": "^3.0.0",
+    "svelte-loader": "^2.9.0",
+    "svelte-preprocess": "^2.14.4",
+    "webpack": "^4.7.0"
   },
   "scripts": {
     "dev": "sapper dev --no-hot",
@@ -25,7 +26,7 @@
     "export": "sapper export",
     "pretty": "prettier --write --svelte-sort-order scripts-markup-styles ./**/*.svelte",
     "pretty2": "prettier --write --svelte-sort-order scripts-styles-markup ./**/*.svelte",
-    "start": "npm run pretty && start powershell -NoExit npm run dev",
+    "start": "npm run pretty2 && start powershell -NoExit npm run dev",
     "open": "start powershell"
   }
 }

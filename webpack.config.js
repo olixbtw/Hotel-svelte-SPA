@@ -24,7 +24,7 @@ module.exports = {
             options: {
               preprocess: require('svelte-preprocess')({
                 postcss: {
-                  plugins: [require('postcss-responsive-type')(), require('css-mqpacker')(), require('autoprefixer')()],
+                  plugins: [require('postcss-responsive-type')(), require('css-mqpacker')(), require('autoprefixer')(), require('postcss-discard-duplicates')()],
                 },
               }),
               dev,
@@ -60,12 +60,12 @@ module.exports = {
           use: {
             loader: 'svelte-loader',
             options: {
-							preprocess: require('svelte-preprocess')({
+              css: false,
+              preprocess: require('svelte-preprocess')({
                 postcss: {
-                  plugins: [require('postcss-responsive-type')(), require('css-mqpacker')(), require('autoprefixer')()],
+                  plugins: [require('postcss-responsive-type')(), require('css-mqpacker')(), require('autoprefixer')(), require('postcss-discard-duplicates')()],
                 },
               }),
-              css: false,
               generate: 'ssr',
               dev,
             },

@@ -2,6 +2,12 @@
   var emptylink = "#";
 </script>
 
+<style>
+  section {
+    margin-bottom: 1rem;
+  }
+</style>
+
 <svelte:head>
   <title>ОТЕЛЬ - Про отель</title>
 </svelte:head>
