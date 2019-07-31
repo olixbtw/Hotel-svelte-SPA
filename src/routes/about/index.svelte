@@ -6,6 +6,10 @@
   section {
     margin-bottom: 1rem;
   }
+  section ul {
+    columns: 2;
+    column-span: 2rem;
+  }
 </style>
 
 <svelte:head>

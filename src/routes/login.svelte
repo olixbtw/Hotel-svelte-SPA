@@ -13,6 +13,8 @@
   .login {
     margin: 0 auto;
     max-width: 20rem;
+    width: 100%;
+
     header {
       width: 100%;
       justify-content: space-around;

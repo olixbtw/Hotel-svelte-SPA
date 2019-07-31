@@ -1,5 +1,14 @@
-<h1>Услуги отеля</h1>
+<style>
+  section {
+    margin-bottom: 1rem;
+  }
+</style>
 
+<svelte:head>
+  <title>ОТЕЛЬ - Услуги</title>
+</svelte:head>
+
+<h1>Услуги отеля</h1>
 <section>
   <h1>Банкеты</h1>
   <p>
@@ -21,7 +30,9 @@
     Тел.: +38 (044) 244 14 48, 244 12 22 – с понедельника по пятницу с 9:00 до
     18:00
   </span>
+  <br />
   <span>E-mail:conference@premier-palace.com</span>
+  <br />
 
 </section>
 
@@ -111,10 +122,9 @@
   <p>Мы предложим Вам самое лучшее!</p>
   <h4>Дополнительная информация:</h4>
   <span>Тел.: +38 (044) 244 12 22</span>
+  <br />
   <span>Моб.: +38 (067) 218 82 43</span>
+  <br />
   <span>E-mail: catering@premier-palace.com</span>
+  <br />
 </section>
-
-<svelte:head>
-  <title>ОТЕЛЬ - Услуги</title>
-</svelte:head>
