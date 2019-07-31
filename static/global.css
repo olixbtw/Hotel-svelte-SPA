@@ -37,7 +37,6 @@ h3,
 h4,
 h5,
 h6 {
-  /* font-family: 'PT Serif', Merriweather, serif; */
   text-transform: uppercase;
   margin: 0 0 0.5em 0;
   font-weight: 400;
@@ -109,60 +108,6 @@ img {
   max-width: 100%;
 }
 
-/* PT Sans */
-/* 
-@font-face {
-  font-family: 'PT Sans';
-  src: url('../_assets/fonts/PT_Sans/PTSans-Regular.ttf') format('truetype');
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'PT Sans';
-  src: url('../_assets/fonts/PT_Sans/PTSans-RegularItalic.ttf') format('truetype');
-  font-style: italic;
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'PT Sans';
-  src: url('../_assets/fonts/PT_Sans/PTSans-Bold.ttf') format('truetype');
-  font-style: normal;
-  font-weight: 700;
-}
-@font-face {
-  font-family: 'PT Sans';
-  src: url('../_assets/fonts/PT_Sans/PTSans-BoldItalic.ttf') format('truetype');
-  font-style: italic;
-  font-weight: 700;
-} */
-
-/* PT Serif */
-/* 
-@font-face {
-  font-family: 'PT Serif';
-  src: url('../_assets/fonts/PT_Serif/PTSerif-Regular.ttf') format('truetype');
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'PT Serif';
-  src: url('../_assets/fonts/PT_Serif/PTSerif-RegularItalic.ttf') format('truetype');
-  font-style: italic;
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'PT Serif';
-  src: url('../_assets/fonts/PT_Serif/PTSerif-Bold.ttf') format('truetype');
-  font-style: normal;
-  font-weight: 700;
-}
-@font-face {
-  font-family: 'PT Serif';
-  src: url('../_assets/fonts/PT_Serif/PTSerif-BoldItalic.ttf') format('truetype');
-  font-style: italic;
-  font-weight: 700;
-} */
-
 /* Open Sans */
 
 @font-face {
@@ -225,9 +170,6 @@ img {
   font-style: italic;
   font-weight: 800;
 }
-/*  */
-/*  */
-/*  */
 
 #sapper {
   flex-direction: column;

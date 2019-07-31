@@ -22,8 +22,15 @@
 
     article {
       cursor: pointer;
-      width: 30%;
-      margin-bottom: 1.5em;
+      width: 90%;
+      max-width: 350px;
+      min-width: 300px;
+      @media (min-width: 1000px) {
+        width: 30%;
+        max-width: 450px;
+      }
+
+      margin: 0 0.25em 1.5em;
       display: flex;
       flex-direction: column;
 
@@ -96,7 +103,7 @@
 
 <h1>Номера</h1>
 
-<!-- <Filter /> -->
+<Filter />
 
 <div class="room-list">
   <!-- <article>-image -type\number of beds -heading -price\night</article> -->
@@ -115,72 +122,40 @@
       <div class="price">{room.price.currency}{room.price.value}/night</div>
     </article>
   {/each}
-  <!-- <article>
-    <figure>
-      <img src="/_assets/img/other/image12.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image6.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image7.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image3.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image2.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article>
-  <article>
-    <figure>
-      <img src="/_assets/img/other/image9.jpg" alt="Beautiful image" />
-    </figure>
-    <div class="type">
-      VIP suite
-      <span class="n_people">3 beds</span>
-    </div>
-    <h4>Glass window suite</h4>
-    <div class="price">$300/night</div>
-  </article> -->
+
+
+
+  {#each rooms as room}
+    <article>
+      <figure>
+        <img src={room.photos[0].source} alt={room.photos[0].alt} />
+      </figure>
+      <div class="type">
+        {room.type}
+        <span class="n_people">
+          {room.people} {room.n_people == 1 ? 'guest' : 'guests'}
+        </span>
+      </div>
+      <h4>{room.title}</h4>
+      <div class="price">{room.price.currency}{room.price.value}/night</div>
+    </article>
+  {/each}
+  {#each rooms as room}
+    <article>
+      <figure>
+        <img src={room.photos[0].source} alt={room.photos[0].alt} />
+      </figure>
+      <div class="type">
+        {room.type}
+        <span class="n_people">
+          {room.people} {room.n_people == 1 ? 'guest' : 'guests'}
+        </span>
+      </div>
+      <h4>{room.title}</h4>
+      <div class="price">{room.price.currency}{room.price.value}/night</div>
+    </article>
+  {/each}
+
 </div>
 
-<!-- <Pagination on:click={paginationClick} active={activePag} /> -->
+<Pagination on:click={paginationClick} active={activePag} />

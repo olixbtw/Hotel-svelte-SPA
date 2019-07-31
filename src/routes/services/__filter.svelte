@@ -19,23 +19,28 @@
 
 <style lang="scss">
   .filter-button {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     font-size: 1.2rem;
-    line-height: 2rem;
+    line-height: 3rem;
     text-align: center;
     color: #dfdbdb;
     background: #443941;
     cursor: pointer;
     position: absolute;
     bottom: 100%;
+    right: 0;
   }
   .filter-body {
     position: absolute;
-    top: 3.75rem;
+    top: 5rem;
     z-index: 500;
-    left: 0.5rem;
+    white-space: nowrap;
+    line-height: 2.4;
 
+    right: 0.5rem;
+    // @media (min-width: 1000px) {
+    // }
     @media (min-width: 1680px) {
       left: -3rem;
     }

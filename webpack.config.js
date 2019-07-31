@@ -29,7 +29,7 @@ module.exports = {
               }),
               dev,
               hydratable: true,
-              hotReload: false, // pending https://github.com/sveltejs/svelte/issues/2377
+              hotReload: false,
             },
           },
         },

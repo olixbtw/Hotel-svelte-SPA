@@ -12,6 +12,7 @@
     padding: 0.5rem 0;
     display: flex;
     justify-content: center;
+    
     ul {
       display: flex;
     }
@@ -72,7 +73,7 @@
   }
 </style>
 
-<!-- <nav class="pagination">
+<nav class="pagination">
   <div class="arr">&#60;</div>
   <ul>
     <li>1</li>
@@ -87,8 +88,8 @@
     <li>10</li>
   </ul>
   <div class="arr">&#62;</div>
-</nav> -->
-
+</nav>
+<!-- 
 <nav class="pagination" on:click>
   <div class="arr">&#60;</div>
   <ul>
@@ -113,4 +114,4 @@
     <li>19</li>
   </ul>
   <div class="arr">&#62;</div>
-</nav>
+</nav> -->

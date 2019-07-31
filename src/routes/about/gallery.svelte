@@ -122,7 +122,6 @@
       text:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
     }
-    // {src:'assets/img/other/image18.jpg',alt:'image18',text:'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad.'},
   ];
 </script>
 
