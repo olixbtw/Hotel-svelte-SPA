@@ -9,10 +9,19 @@
 <style lang="scss">
   main {
     width: 100%;
+    flex-grow: 1;
+
+    // :global(.hasMap) {
+    display: flex;
+    flex-direction: column;
+    // align-items: flex-start;
+    // padding-bottom: 0 !important;
+    // }
+
     position: relative;
     max-width: 56em;
     // max-width: 70em;
-    padding: 2em;
+    padding: 2rem;
     margin: 0 auto;
     // min-height: 100%;
 
@@ -46,7 +55,6 @@
     font-range: 500px 1680px; /* viewport widths between which font-size is fluid */
   }
   footer {
-    margin-top: auto;
     background: #4f4f4f;
     color: #4f4f4f;
   }

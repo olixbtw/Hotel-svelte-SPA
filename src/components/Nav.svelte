@@ -275,7 +275,7 @@
           rel="prefetch"
           href="about"
           on:click={toggleNavigation}>
-          Про нас
+          Про отель
         </a>
         <ul class="submenu">
           <li>

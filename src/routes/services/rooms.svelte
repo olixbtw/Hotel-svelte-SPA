@@ -1,6 +1,6 @@
 <script>
-  // import Pagination from "./../../parts/pagination.svelte";
-  // import Filter from "./../../parts/filter.svelte";
+  import Pagination from "./__pagination.svelte";
+  import Filter from "./__filter.svelte";
 
   var activePag = 5;
   var pagesPag = 5;
@@ -9,13 +9,16 @@
     console.log(event.target);
     // activePag = 10;
   }
+
+  import rooms from "./_rooms.js";
+  console.log(rooms);
 </script>
 
 <style lang="scss">
   .room-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 
     article {
       cursor: pointer;
@@ -97,7 +100,22 @@
 
 <div class="room-list">
   <!-- <article>-image -type\number of beds -heading -price\night</article> -->
-  <article>
+  {#each rooms as room}
+    <article>
+      <figure>
+        <img src={room.photos[0].source} alt={room.photos[0].alt} />
+      </figure>
+      <div class="type">
+        {room.type}
+        <span class="n_people">
+          {room.people} {room.n_people == 1 ? 'guest' : 'guests'}
+        </span>
+      </div>
+      <h4>{room.title}</h4>
+      <div class="price">{room.price.currency}{room.price.value}/night</div>
+    </article>
+  {/each}
+  <!-- <article>
     <figure>
       <img src="/_assets/img/other/image12.jpg" alt="Beautiful image" />
     </figure>
@@ -162,7 +180,7 @@
     </div>
     <h4>Glass window suite</h4>
     <div class="price">$300/night</div>
-  </article>
+  </article> -->
 </div>
 
 <!-- <Pagination on:click={paginationClick} active={activePag} /> -->

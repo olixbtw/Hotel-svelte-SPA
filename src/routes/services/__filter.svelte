@@ -1,0 +1,129 @@
+<script>
+  var classToggle = false;
+  var classShow = "";
+
+  function filterToggle() {
+    classToggle = !classToggle;
+    classToggle ? (classShow = "active") : (classShow = "");
+  }
+
+  var n_guests = 1;
+
+  function inc_guest() {
+    n_guests == 10 ? (n_guests = 10) : (n_guests += 1);
+  }
+  function red_guest() {
+    n_guests == 1 ? (n_guests = 1) : (n_guests -= 1);
+  }
+</script>
+
+<style lang="scss">
+  .filter-button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-align: center;
+    color: #dfdbdb;
+    background: #443941;
+    cursor: pointer;
+    position: absolute;
+    bottom: 100%;
+  }
+  .filter-body {
+    position: absolute;
+    top: 3.75rem;
+    z-index: 500;
+    left: 0.5rem;
+
+    @media (min-width: 1680px) {
+      left: -3rem;
+    }
+
+    &.active {
+      nav {
+        max-height: 90vh;
+        max-width: 50vw;
+        opacity: 1;
+      }
+    }
+    nav {
+      transition: all 0.4s;
+      padding: 1rem 2.5rem;
+      color: #a19d9d;
+      background: rgba(68, 57, 65, 0.95);
+      opacity: 0;
+      max-height: 0;
+      max-width: 0;
+      overflow: hidden;
+    }
+  }
+  input,
+  label {
+    cursor: pointer;
+    display: inline-block;
+  }
+  input {
+    &[type="number"] {
+      width: 4rem;
+    }
+    &[name="filter_view"] {
+      display: none;
+
+      & + label {
+        color: #a19d9d;
+      }
+    }
+    &:checked + label {
+      color: #dfdbdb;
+    }
+  }
+  label {
+    i {
+      margin-right: 0.5em;
+    }
+  }
+  h4 {
+    margin: 0.15em 0 0.25em -0.5rem;
+    color: #dfdbdb;
+  }
+</style>
+
+<div class="filter-body {classShow}">
+  <div class="filter-button" on:click={filterToggle}>
+    <i class="fas fa-tasks" />
+  </div>
+  <nav>
+    <h4>Guests</h4>
+    <button on:click={red_guest}>-</button>
+    <input type="number" bind:value={n_guests} />
+    <button on:click={inc_guest}>+</button>
+    <br />
+    <input id="filter_n_guests" type="checkbox" checked />
+    <label for="filter_n_guests">Show larger rooms</label>
+    <h4>Availability</h4>
+    <input id="filter_availability" type="checkbox" checked />
+    <label for="filter_availability">Show unavailable</label>
+    <h4>Sort by</h4>
+    <input id="filter_sort_name" type="radio" name="filter_sort" />
+    <label for="filter_sort_name">name</label>
+    <br />
+    <input id="filter_sort_price" type="radio" name="filter_sort" />
+    <label for="filter_sort_price">price</label>
+    <br />
+    <input id="filter_sort_guests" type="radio" name="filter_sort" />
+    <label for="filter_sort_guests">number of guests</label>
+    <h4>View</h4>
+    <input id="filter_view_list" type="radio" name="filter_view" checked />
+    <label for="filter_view_list">
+      <i class="fas fa-th-list" />
+      list
+    </label>
+    <br />
+    <input id="filter_view_cards" type="radio" name="filter_view" />
+    <label for="filter_view_cards">
+      <i class="fas fa-grip-horizontal" />
+      cards
+    </label>
+  </nav>
+</div>

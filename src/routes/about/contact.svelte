@@ -1,5 +1,5 @@
 <script>
-  // import Map from "./../../parts/map.svelte";
+  import Map from "./_map.svelte";
 
   var address = {
     street: "Sechenova",
@@ -34,12 +34,17 @@
   <section>
     <h2>Отзывы и комментарии гостей</h2>
     <span>Марина Томашевская</span>
+    <br />
     <span>Менеджер по работе с гостями</span>
+    <br />
     Тел:
     <a href="tel:+38 044 597 90 30">+38 044 597 90 30</a>
+    <br />
     Email:
     <a href="mailto:comments@mail.com">comments@mail.com</a>
+    <br />
+    <br />
   </section>
 </div>
 
-<!-- <Map /> -->
+<Map />
