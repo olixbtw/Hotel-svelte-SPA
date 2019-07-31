@@ -1,4 +1,16 @@
+<script context="module">
+  export function preload({ params, query }) {
+    return this.fetch(`services/rooms.json`)
+      .then(r => r.json())
+      .then(rooms => {
+        return { rooms };
+      });
+  }
+</script>
+
 <script>
+  export let rooms;
+
   import Pagination from "./__pagination.svelte";
   import Filter from "./__filter.svelte";
 
@@ -7,11 +19,7 @@
 
   function paginationClick(event) {
     console.log(event.target);
-    // activePag = 10;
   }
-
-  import rooms from "./_rooms.js";
-  // console.log(rooms);
 </script>
 
 <style lang="scss">
@@ -21,6 +29,12 @@
     justify-content: space-around;
 
     article {
+      > a {
+        color: inherit;
+        &:hover {
+          text-decoration: none;
+        }
+      }
       cursor: pointer;
       width: 90%;
       max-width: 350px;
@@ -101,6 +115,10 @@
   }
 </style>
 
+<svelte:head>
+  <title>ОТЕЛЬ - Номера</title>
+</svelte:head>
+
 <h1>Номера</h1>
 
 <Filter />
@@ -109,51 +127,21 @@
   <!-- <article>-image -type\number of beds -heading -price\night</article> -->
   {#each rooms as room}
     <article>
-      <figure>
-        <img src={room.photos[0].source} alt={room.photos[0].alt} />
-      </figure>
-      <div class="type">
-        {room.type}
-        <span class="n_people">
-          {room.people} {room.n_people == 1 ? 'guest' : 'guests'}
-        </span>
-      </div>
-      <h4>{room.title}</h4>
-      <div class="price">{room.price.currency}{room.price.value}/night</div>
+      <a rel="prefetch" href="services/rooms/{room.slug}">
+        <figure>
+          <img src={room.photo.src} alt={room.photo.alt} />
+        </figure>
+        <div class="type">
+          {room.type}
+          <span class="n_people">
+            {room.people} {room.people == 1 ? 'guest' : 'guests'}
+          </span>
+        </div>
+        <h4>{room.title}</h4>
+        <div class="price">{room.price}/night</div>
+      </a>
     </article>
   {/each}
-
-  {#each rooms as room}
-    <article>
-      <figure>
-        <img src={room.photos[0].source} alt={room.photos[0].alt} />
-      </figure>
-      <div class="type">
-        {room.type}
-        <span class="n_people">
-          {room.people} {room.n_people == 1 ? 'guest' : 'guests'}
-        </span>
-      </div>
-      <h4>{room.title}</h4>
-      <div class="price">{room.price.currency}{room.price.value}/night</div>
-    </article>
-  {/each}
-  {#each rooms as room}
-    <article>
-      <figure>
-        <img src={room.photos[0].source} alt={room.photos[0].alt} />
-      </figure>
-      <div class="type">
-        {room.type}
-        <span class="n_people">
-          {room.people} {room.n_people == 1 ? 'guest' : 'guests'}
-        </span>
-      </div>
-      <h4>{room.title}</h4>
-      <div class="price">{room.price.currency}{room.price.value}/night</div>
-    </article>
-  {/each}
-
 </div>
 
 <Pagination on:click={paginationClick} active={activePag} />

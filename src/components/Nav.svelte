@@ -1,13 +1,19 @@
 <script>
   import Logo from "./logo.svelte";
-
   export let segment;
 
-  var navShown = true;
+  var y, yStore;
+  var navShown = false;
+
   function toggleNavigation() {
     navShown = !navShown;
+    //fix body from scrollin with returning to previous position
+    navShown ? (yStore = y) : "";
+    navShown
+      ? document.body.setAttribute("style", "position:fixed;overflow-y:scroll;")
+      : document.body.setAttribute("style", "");
+    navShown ? "" : (y = yStore);
   }
-  var y;
 </script>
 
 <style lang="scss">
@@ -16,6 +22,10 @@
   }
 
   header {
+    // position: fixed;
+    // width: 100%;
+    // z-index: 999;
+
     @media (max-width: 999px) {
       transition: all 0.6s ease-in-out;
       &.shown {
@@ -234,6 +244,7 @@
 </style>
 
 <svelte:window bind:scrollY={y} on:event={() => (navShown = false)} />
+<!-- <svelte:window bind:scrollY={y} on:event={() => (navShown = false)} /> -->
 <!-- <header class="{y > 150 ? 'fixed' : ''} {navShown ? 'shown' : ''}"> -->
 <header class={navShown ? 'shown' : ''}>
   <Logo {navShown} />

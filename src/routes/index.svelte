@@ -1,6 +1,10 @@
+<script>
+  import Slider from "../components/slider.svelte";
+</script>
+
 <style lang="scss">
   h1,
-  figure,
+  // figure,
   p {
     text-align: center;
     margin: 0 auto;
@@ -13,15 +17,15 @@
     margin: 0 0 0.5em 0;
   }
 
-  figure {
-    margin: 0 0 1em 0;
-  }
+  // figure {
+  //   margin: 0 0 1em 0;
+  // }
 
-  img {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 0 1em 0;
-  }
+  // img {
+  //   width: 100%;
+  //   max-width: 400px;
+  //   margin: 0 0 1em 0;
+  // }
 
   p {
     margin: 1em auto;
@@ -38,12 +42,13 @@
   <title>ОТЕЛЬ - 123</title>
 </svelte:head>
 
+<Slider />
 <h1>Great success!</h1>
 
-<figure>
+<!-- <figure>
   <img alt="Borкat" src="LOGO_dark.svg" />
   <figcaption>HIGH FIVE!</figcaption>
-</figure>
+</figure> -->
 
 <p>
   <strong>

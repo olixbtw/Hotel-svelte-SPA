@@ -7,7 +7,7 @@
   //       node.appendChild(node.children[0].cloneNode());
   // }
 
-  // import Modal from "./../../parts/galleryModal.svelte";
+  import Modal from "../../components/modal.svelte";
   var modalContent, modalShow;
 
   function runModal(event) {

@@ -8,6 +8,7 @@
     font-size: 0.9rem;
     color: #a1a1af;
     line-height: 2rem;
+    display: none;
   }
   li {
     cursor: pointer;
