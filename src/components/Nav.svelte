@@ -74,18 +74,18 @@
     justify-content: space-between;
   }
 
-  input[type="search"] {
-    // border-radius: 5px;
-    color: #eee;
-    background: #393d46;
-    border: 1px solid #dcb03f;
-    margin: 0;
-    line-height: 1.5;
-    width: 15rem;
-    &:focus {
-      outline-color: #3d4861;
-    }
-  }
+  // input[type="search"] {
+  //   // border-radius: 5px;
+  //   color: #eee;
+  //   background: #393d46;
+  //   border: 1px solid #dcb03f;
+  //   margin: 0;
+  //   line-height: 1.5;
+  //   width: 15rem;
+  //   &:focus {
+  //     outline-color: #3d4861;
+  //   }
+  // }
   nav {
     display: flex;
     align-items: center;

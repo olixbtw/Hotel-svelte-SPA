@@ -11,7 +11,7 @@
   }
 
   import rooms from "./_rooms.js";
-  console.log(rooms);
+  // console.log(rooms);
 </script>
 
 <style lang="scss">
