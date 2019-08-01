@@ -271,7 +271,7 @@
   bind:offsetHeight={$navHeight}>
   <Logo {navShown} {smaller}>Pris Hotel</Logo>
   <!-- <Logo {navShown} /> -->
-  {y}
+  
   <nav>
     <ul>
       <li>

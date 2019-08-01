@@ -22,7 +22,7 @@
             transition = true;
           }, 0);
           sliderScroll = 1;
-        }, 100);
+        }, 110);
         transition = false;
       }, 1000);
     }
@@ -38,7 +38,7 @@
             transition = true;
           }, 0);
           sliderScroll = imageList.length;
-        }, 100);
+        }, 110);
         transition = false;
       }, 1000);
     }
@@ -121,7 +121,6 @@
 
   @for $i from 1 through 10 {
     .slide#{$i} {
-      transition: margin 1s ease-out;
       margin-left: #{$i * -100%};
       margin-right: #{$i * 100%};
     }
