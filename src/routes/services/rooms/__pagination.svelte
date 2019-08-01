@@ -1,9 +1,31 @@
 <script>
-  export let active = 1;
-  // console.log("active pagination - " + active);
+  export let opt = {
+    active: 10,
+    len: 10
+  };
 
-  function myfunc() {
-    console.log("123");
+  import { onMount } from "svelte";
+  let items;
+  onMount(() => {
+    items = document.getElementById("pagination").getElementsByTagName("ul")[0]
+      .children;
+    items[opt.active - 1].classList.add("active");
+  });
+
+  $: if (opt.active < 1) opt.active = 1;
+  $: if (opt.active > opt.len) opt.active = opt.len;
+
+  $: {
+    if (items) {
+      for (var i = 0; i < items.length; i++)
+        items[i].classList.remove("active");
+      items[opt.active - 1].classList.add("active");
+    }
+  }
+
+  var arr = [];
+  for (var i = 1; i < opt.len + 1; i++) {
+    arr[i - 1] = i;
   }
 </script>
 
@@ -18,12 +40,13 @@
     }
     .arr,
     ul li {
+      color: #4f4f4f;
       width: 2rem;
       height: 2rem;
       line-height: 2rem;
       text-align: center;
       box-sizing: content-box;
-      transition: all 0.2s linear;
+      transition: all 0.3s linear;
       cursor: pointer;
       &:hover {
         background: rgba(68, 57, 65, 0.9);
@@ -34,7 +57,7 @@
       position: relative;
       &:before,
       &:after {
-        transition: all 0.4s ease-in-out;
+        transition: all 0.5s ease-in-out;
         width: 1.75rem;
         height: 1.75rem;
         content: "";
@@ -50,68 +73,57 @@
         bottom: 0.25rem;
         left: 0.25rem;
       }
-      &.active {
-        &:before,
-        &:after {
-          background: #443941;
-        }
-        &:after {
-          top: -0.15rem;
-          right: -0.15rem;
-        }
-        &:before {
-          bottom: -0.15rem;
-          left: -0.15rem;
-        }
-        color: #fff;
-      }
     }
 
     .arr {
       line-height: 1.85rem;
+      &.disabled {
+        opacity: 0.4;
+        color: hsl(0, 0%, 31%);
+        &:hover {
+          color: inherit;
+          background: transparent;
+        }
+      }
     }
+  }
+  .pagination .active {
+    color: white;
+    &:hover {
+      color: white;
+      background: transparent;
+      &:before,
+      &:after {
+        opacity: 0.9;
+      }
+    }
+    &:before,
+    &:after {
+      background: #443941;
+    }
+    &:after {
+      top: -0.15rem;
+      right: -0.15rem;
+    }
+    &:before {
+      bottom: -0.15rem;
+      left: -0.15rem;
+    }
+    color: #fff;
   }
 </style>
 
-<nav class="pagination">
-  <div class="arr">&#60;</div>
-  <ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li class="active">5</li>
-    <li>6</li>
-    <li>7</li>
-    <li>8</li>
-    <li>9</li>
-    <li>10</li>
-  </ul>
-  <div class="arr">&#62;</div>
-</nav>
-<!-- 
-<nav class="pagination" on:click>
-  <div class="arr">&#60;</div>
-  <ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li class="active">5</li>
-    <li>6</li>
-    <li>7</li>
-    <li>8</li>
-    <li>9</li>
-    <li>10</li>
-    <li>11</li>
-    <li>12</li>
-    <li>13</li>
-    <li>14</li>
-    <li>15</li>
-    <li>16</li>
-    <li>17</li>
-    <li>18</li>
-    <li>19</li>
-  </ul>
-  <div class="arr">&#62;</div>
-</nav> -->
+<!-- <script context="module">
+
+</script> -->
+{#if opt.len > 0}
+  <nav id="pagination" on:click class="pagination">
+    <div class="arr {opt.active == 1 ? 'disabled' : ''}">&#60;</div>
+    <ul>
+      {#each arr as i}
+        <li>{i}</li>
+      {/each}
+    </ul>
+    <div class="arr {opt.active == opt.len ? 'disabled' : ''}">&#62;</div>
+  </nav>
+{/if}

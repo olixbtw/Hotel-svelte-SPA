@@ -14,12 +14,22 @@
   import Pagination from "./__pagination.svelte";
   import Filter from "./__filter.svelte";
 
-  var activePag = 5;
-  var pagesPag = 5;
-
   function paginationClick(event) {
-    console.log(event.target);
+    var content = event.target.innerHTML;
+
+    if (content == "&lt;") {
+      opt.active--;
+    } else if (content == "&gt;") {
+      opt.active++;
+    } else {
+      opt.active = +content;
+    }
   }
+
+  var opt = {
+    active: 4,
+    len: 5
+  };
 </script>
 
 <style lang="scss">
@@ -144,4 +154,4 @@
   {/each}
 </div>
 
-<Pagination on:click={paginationClick} active={activePag} />
+<Pagination on:click={paginationClick} {opt} />
