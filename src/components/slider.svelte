@@ -3,33 +3,60 @@
 </script>
 
 <script>
-  export let value = "";
+  export let sliderScroll = 1;
 
-  let sliderScroll = 0;
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    //добавить первый слайд справа
+    //добавить последний слева
+
+    setInterval(() => {
+      nextSlide();
+    }, 3000);
+  });
+
+  var transition = true;
+  function nextSlide() {
+    if (sliderScroll === imageList.length) {
+      setTimeout(() => {
+        setTimeout(() => {
+          setTimeout(() => {
+            transition = true;
+          }, 0);
+          sliderScroll = 1;
+        }, 100);
+        transition = false;
+      }, 1000);
+    }
+    sliderScroll++;
+  }
+  function prevSlide() {
+    if (sliderScroll === 1) {
+      setTimeout(() => {
+        setTimeout(() => {
+          setTimeout(() => {
+            transition = true;
+          }, 0);
+          sliderScroll = imageList.length;
+        }, 100);
+        transition = false;
+      }, 1000);
+    }
+    sliderScroll--;
+  }
 </script>
 
 <style lang="scss">
-  h1,
-  h2 {
-    color: #fff;
-    position: absolute;
-    top: 30px;
-    left: 30px;
-  }
   .slider {
     height: 400px;
     width: 100vw;
     background: #5c505e;
     position: relative;
-    // margin-top: auto;
     left: 50%;
     transform: translateX(-50%);
     margin-top: -2rem;
 
-    // width: 100%;
-    // height: 100%;
-    // position: relative;
-    // background: #4f3552;
     display: flex;
     overflow: hidden;
 
@@ -38,7 +65,7 @@
       object-fit: cover;
       width: 100%;
     }
-    .slider__button {
+    &__button {
       display: block;
       position: absolute;
       top: 50%;
@@ -47,7 +74,6 @@
       width: 5em;
       height: 450px;
       background: #4f3552;
-      // border-radius: 4px;
       opacity: 0.1;
       transition: all 0.5s;
       &:hover {
@@ -61,38 +87,44 @@
         right: 0.5em;
       }
     }
+    &__text {
+      color: white;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+    }
   }
 
-  img {
-    transition: margin 1s linear;
+  .transition {
+    img {
+      transition: margin 1s ease-in;
+    }
   }
 
   @for $i from 1 through 10 {
     .slide#{$i} {
+      transition: margin 1s ease-out;
       margin-left: #{$i * -100%};
       margin-right: #{$i * 100%};
     }
   }
 </style>
 
-<div class="slider">
-  <h1>Title</h1>
-  <h2>{value}</h2>
+<div class="slider {transition ? 'transition' : ''}">
+  <div class="slider__text">
+    <slot />
+  </div>
+  <img
+    src={imageList[imageList.length - 1].src}
+    alt={imageList[imageList.length - 1].alt}
+    class="slide{sliderScroll}" />
   {#each imageList as img}
-    <img
-      rel="preload"
-      src={img.src}
-      alt={img.alt}
-      class="slide{sliderScroll}" />
+    <img src={img.src} alt={img.alt} class="slide{sliderScroll}" />
   {/each}
-  <div
-    class="slider__button slider__button-left"
-    on:click={() => {
-      sliderScroll--;
-    }} />
-  <div
-    class="slider__button slider__button-right"
-    on:click={() => {
-      sliderScroll++;
-    }} />
+  <img
+    src={imageList[0].src}
+    alt={imageList[0].alt}
+    class="slide{sliderScroll}" />
+  <div class="slider__button slider__button-left" on:click={prevSlide} />
+  <div class="slider__button slider__button-right" on:click={nextSlide} />
 </div>

@@ -42,7 +42,11 @@
   <title>ОТЕЛЬ - 123</title>
 </svelte:head>
 
-<Slider />
+<Slider>
+  <h1>New Title</h1>
+</Slider>
+<!-- <Slider /> -->
+
 <h1>Great success!</h1>
 
 <!-- <figure>
