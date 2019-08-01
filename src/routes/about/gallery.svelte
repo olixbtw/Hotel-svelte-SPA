@@ -1,128 +1,10 @@
 <script>
-  // function fillGaps(node) {
-  //   var cols = parseInt(node.offsetWidth / node.children[0].offsetWidth);
-  //   var block_c = cols - (node.children.length % cols);
-  //   if (block_c !== 0)
-  //     for (let i = 0; i < block_c; i++)
-  //       node.appendChild(node.children[0].cloneNode());
-  // }
-
+  import imageList from "./_gallery.js";
   import Modal from "../../components/modal.svelte";
-  var modalContent, modalShow;
-
-  function runModal(event) {
-    modalShow = true;
-    modalContent = event.currentTarget;
-    modalContent.image = event.currentTarget.children[0].src;
-    modalContent.alt = event.currentTarget.children[0].alt;
-    modalContent.text = event.currentTarget.children[1].innerText;
-    // modalContent.heading = event.currentTarget.children[1].innerText;
-  }
-
-  var images = [
-    {
-      src: "_assets/img/other/image1.jpg",
-      alt: "image1",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image2.jpg",
-      alt: "image2",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image3.jpg",
-      alt: "image3",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image4.jpg",
-      alt: "image4",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image5.jpg",
-      alt: "image5",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image6.jpg",
-      alt: "image6",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image7.jpg",
-      alt: "image7",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image8.jpg",
-      alt: "image8",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image9.jpg",
-      alt: "image9",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image10.jpg",
-      alt: "image10",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image11.jpg",
-      alt: "image11",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image12.jpg",
-      alt: "image12",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image13.jpg",
-      alt: "image13",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image14.jpg",
-      alt: "image14",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image15.jpg",
-      alt: "image15",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image16.jpg",
-      alt: "image16",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    },
-    {
-      src: "_assets/img/other/image17.jpg",
-      alt: "image17",
-      text:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ad."
-    }
-  ];
+  var modalContent = {
+    active: false,
+    images: imageList
+  };
 </script>
 
 <style lang="scss">
@@ -211,24 +93,18 @@
 </style>
 
 <h1>Галерея</h1>
-<!-- {#if modalShow}
-  <Modal
-    {modalContent}
-    on:click={() => {
-      modalShow = false;
-    }} />
-{/if} -->
 
 <div class="gallery">
-  {#each images as img}
-    <figure on:click={runModal}>
+  {#each imageList as img, index}
+    <figure on:click={() => (modalContent.active = index)}>
       <img src={img.src} alt={img.alt} />
       <figcaption>{img.text}</figcaption>
     </figure>
   {/each}
 </div>
-<!-- <div class="gallery" use:fillGaps> -->
 
 <svelte:head>
   <title>ОТЕЛЬ - Галерея</title>
 </svelte:head>
+
+<Modal {modalContent} />

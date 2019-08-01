@@ -14,6 +14,7 @@
 </script>
 
 <script>
+
   import { reservedRoom } from "../../../components/stores.js";
   export let room;
   var showAmm =
@@ -30,6 +31,12 @@
     //should be unique index, push dates aswell, check for errors
     $reservedRoom.push(reserveItem);
   }
+
+  import Modal from "../../../components/modal.svelte";
+  var modalContent = {
+    active: false,
+    images: room.photos
+  };
 </script>
 
 <style lang="scss">
@@ -156,8 +163,11 @@
 <div class="container">
   <!-- more photos here -->
   <div class="images">
-    {#each room.photos as img}
-      <img src={img.src} alt={img.alt} />
+    {#each room.photos as img, index}
+      <img
+        src={img.src}
+        alt={img.alt}
+        on:click={() => (modalContent.active = index)} />
     {/each}
   </div>
   <div class="col-left">
@@ -201,3 +211,5 @@
 
 <button on:click={() => console.log(room)}>SHOW</button>
 <button on:click={() => console.log($reservedRoom)}>RESERVED</button>
+
+<Modal {modalContent} />
