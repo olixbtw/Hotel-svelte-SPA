@@ -14,7 +14,6 @@
 </script>
 
 <script>
-
   import { reservedRoom } from "../../../components/stores.js";
   export let room;
   var showAmm =

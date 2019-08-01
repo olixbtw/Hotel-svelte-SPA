@@ -1,8 +1,11 @@
+<script context="module">
+  import imageList from "./_slider.js";
+</script>
+
 <script>
   export let value = "";
 
   let sliderScroll = 0;
-  $: sliderScroll_class = "slide" + sliderScroll;
 </script>
 
 <style lang="scss">
@@ -59,50 +62,29 @@
       }
     }
   }
+
   img {
     transition: margin 1s linear;
-    &.slide1 {
-      margin-left: -100%;
-      margin-right: 100%;
-    }
-    &.slide2 {
-      margin-left: -200%;
-      margin-right: 200%;
-    }
-    &.slide3 {
-      margin-left: -300%;
-      margin-right: 300%;
-    }
-    &.slide4 {
-      margin-left: -400%;
-      margin-right: 400%;
+  }
+
+  @for $i from 1 through 10 {
+    .slide#{$i} {
+      margin-left: #{$i * -100%};
+      margin-right: #{$i * 100%};
     }
   }
 </style>
 
 <div class="slider">
-  <h1 class={sliderScroll_class}>{sliderScroll_class}</h1>
+  <h1>Title</h1>
   <h2>{value}</h2>
-  <img
-    src="_assets/img/slider/slider1.jpg"
-    alt="sliderImage1"
-    class={sliderScroll_class} />
-  <img
-    src="_assets/img/slider/slider2.jpg"
-    alt="sliderImage2"
-    class={sliderScroll_class} />
-  <img
-    src="_assets/img/slider/slider3.jpg"
-    alt="sliderImage3"
-    class={sliderScroll_class} />
-  <img
-    src="_assets/img/slider/slider4.jpg"
-    alt="sliderImage4"
-    class={sliderScroll_class} />
-  <img
-    src="_assets/img/slider/slider5.jpg"
-    alt="sliderImage5"
-    class={sliderScroll_class} />
+  {#each imageList as img}
+    <img
+      rel="preload"
+      src={img.src}
+      alt={img.alt}
+      class="slide{sliderScroll}" />
+  {/each}
   <div
     class="slider__button slider__button-left"
     on:click={() => {
@@ -113,5 +95,4 @@
     on:click={() => {
       sliderScroll++;
     }} />
-
 </div>
