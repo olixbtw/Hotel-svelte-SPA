@@ -71,7 +71,7 @@
   <slot />
 </main>
 
-<Footer></Footer>
+<Footer />
 
 {#if y > 150}
   <Arrow />

@@ -1,12 +1,12 @@
 # Final project - Hotel 
 #### by Alex Revchuk 
 
-Built application usin [Svelte] and [Sapper].
+Built application usin [Svelte](https://svelte.dev/) and [Sapper](https://sapper.svelte.dev/).
 
 Open project and get started:
 
 ```bash
-npm install # or yarn!
+npm install
 npm run dev
 ```
 

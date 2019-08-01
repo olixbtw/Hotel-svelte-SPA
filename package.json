@@ -24,9 +24,9 @@
     "dev": "sapper dev --no-hot",
     "build": "sapper build",
     "export": "sapper export",
-    "pretty": "prettier --write --svelte-sort-order scripts-markup-styles ./**/*.svelte",
-    "pretty2": "prettier --write --svelte-sort-order scripts-styles-markup ./**/*.svelte",
-    "start": "npm run pretty2 && start powershell -NoExit npm run dev",
+    "pretty": "prettier --write --svelte-sort-order scripts-styles-markup ./**/*.svelte",
+    "pretty2": "prettier --write --svelte-sort-order scripts-markup-styles ./**/*.svelte",
+    "start": "npm run pretty && start powershell -NoExit npm run dev",
     "open": "start powershell"
   }
 }
