@@ -5,18 +5,20 @@
   };
 
   import { onMount } from "svelte";
-  let items;
+
+  var numberItems;
   onMount(() => {
-    items = document.getElementById("pagination").getElementsByTagName("ul")[0]
-      .children;
-    items[pag_opt.active - 1].classList.add("active");
+    numberItems = document
+      .getElementById("pagination")
+      .getElementsByTagName("ul")[0].children;
+    numberItems[pag_opt.active - 1].classList.add("active");
   });
 
   $: {
-    if (items) {
-      for (var i = 0; i < items.length; i++)
-        items[i].classList.remove("active");
-      items[pag_opt.active - 1].classList.add("active");
+    if (numberItems) {
+      for (var i = 0; i < numberItems.length; i++)
+        numberItems[i].classList.remove("active");
+      numberItems[pag_opt.active - 1].classList.add("active");
     }
   }
 

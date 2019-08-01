@@ -9,9 +9,10 @@
 </script>
 
 <script>
+  //pagination - данные в родитель-ребенок
+  //данные передаем напрямую в компонент, но логика остается у родителя
+  // + удобнее потому что вешаем обработчик на общий елемент, а не на кажый
   export let rooms;
-
-  //pagination
   import Pagination from "./__pagination.svelte";
   var y;
   var roomsPerPage = 8;
@@ -19,7 +20,6 @@
     active: 1,
     len: Math.ceil(rooms.length / roomsPerPage)
   };
-
   function paginationClick(event) {
     //check if page is changing
     var destination = pag_opt.active;
@@ -32,7 +32,7 @@
     } else {
       destination = +event.target.innerHTML;
     }
-    
+
     //change pages
     if (destination !== pag_opt.active) {
       if (y > 270) {
@@ -42,16 +42,37 @@
         });
         setTimeout(() => {
           pag_opt.active = destination;
-        }, 380);
+        }, 300);
       } else {
         pag_opt.active = destination;
       }
     }
   }
 
-  //filter
+  //filter - данные через store.js
+  // нужно связать каждое поле со значением
+  // + удобнее передавать через общие свойства (но наверное дольше)
+  import { onMount } from "svelte";
   import Filter from "./__filter.svelte";
-  var filt_opt = {};
+  import { roomsFilter } from "../../../components/stores.js";
+  let showFilter = false;
+  onMount(() => {
+    showFilter = true;
+  });
+
+  $roomsFilter = {
+    guests: {
+      n: 1,
+      larger: true
+    },
+    unavailable: true,
+    sort: "",
+    view: "cards"
+  };
+  //additional
+  // FIX
+  // вствить сортировку по датам в объект комнат
+  var room_available = true;
 </script>
 
 <style lang="scss">
@@ -175,12 +196,23 @@
 <svelte:window bind:scrollY={y} />
 
 <h1>Номера</h1>
-
-<Filter />
+{#if showFilter}
+  <Filter />
+{/if}
+<!-- $roomsFilter.guests.n {$roomsFilter.guests.n}
+<br />
+$roomsFilter.larger {$roomsFilter.guests.larger}
+<br />
+$roomsFilter.unavailable {$roomsFilter.unavailable}
+<br />
+$roomsFilter.sort {$roomsFilter.sort}
+<br />
+$roomsFilter.view {$roomsFilter.view}
+<br /> -->
 
 <div class="room-list activePage{pag_opt.active}">
-  <!-- <article>-image -type\number of beds -heading -price\night</article> -->
   {#each rooms as room}
+    <!-- <article class="guests{room.people} available{room_available} price{room.price}"> -->
     <article>
       <a rel="prefetch" href="services/rooms/{room.slug}">
         <figure>

@@ -3,15 +3,15 @@
 
   export let bookingData = false;
 
-  var activeBooking = 0;
+  var activeBookingPage = 0;
   function nextBooking() {
-    activeBooking += 1;
+    activeBookingPage += 1;
   }
   function prevBooking() {
-    activeBooking -= 1;
+    activeBookingPage -= 1;
   }
   function resetBooking() {
-    activeBooking = 0;
+    activeBookingPage = 0;
   }
 </script>
 
@@ -31,7 +31,7 @@
     <div class="col-left">
       <button on:click={prevBooking}>Back</button>
 
-      {#if activeBooking == 0}
+      {#if activeBookingPage == 0}
         <section>
           <h1>1. Review rules</h1>
           <h2>3 nights in L'viv</h2>
@@ -86,7 +86,7 @@
           <button on:click={nextBooking}>Agree and continue</button>
 
         </section>
-      {:else if activeBooking == 1}
+      {:else if activeBookingPage == 1}
         <section>
           <h1>Confirm and pay</h1>
           <h3>Pay with card:</h3>
@@ -99,7 +99,7 @@
           pay for booking--- the rest you will pay upon arival
           <button on:click={nextBooking}>Next</button>
         </section>
-      {:else if activeBooking > 1}
+      {:else if activeBookingPage > 1}
         <section>
           <h1>Thank you for your booking!</h1>
           <button on:click={resetBooking}>Close</button>
