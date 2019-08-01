@@ -50,7 +50,7 @@
 <h1>Great success!</h1>
 
 <!-- <figure>
-  <img alt="Borкat" src="LOGO_dark.svg" />
+  <img alt="Borкat" src="logo_dark.svg" />
   <figcaption>HIGH FIVE!</figcaption>
 </figure> -->
 

@@ -1,17 +1,14 @@
 <script>
+  import { onMount } from "svelte";
   import { navHeight } from "./stores.js";
-
   import Logo from "./logo.svelte";
   export let segment;
-
-  import { onMount } from "svelte";
-  var LOADED;
-
-  var y, yStore;
+  var loaded_flag, smallerRange_flag, smaller, y, yStore;
   var navShown = false;
 
+  $: y > smallerRange_flag ? (smaller = true) : (smaller = false);
   function toggleNavigation() {
-    if (LOADED && window.innerWidth < 1000) {
+    if (loaded_flag && window.innerWidth < 1000) {
       navShown = !navShown;
       // не можем поставить ниже потому что запускает себя
       // (дважды закрывает = сбрасывается позиция)
@@ -23,7 +20,7 @@
     //при изменении чего либо (navShown или y)
     // = при открытии\закрытии навигации
     // ставим нужные стили и возвращаем позицию если нужно
-    if (LOADED && window.innerWidth < 1000) {
+    if (loaded_flag && window.innerWidth < 1000) {
       navShown
         ? document.body.setAttribute(
             "style",
@@ -36,10 +33,9 @@
 
   onMount(() => {
     // fire only after component loads not to get document beforehand
-    LOADED = true;
+    loaded_flag = true;
+    smallerRange_flag = $navHeight / 2;
   });
-  var smaller;
-  $: y > $navHeight / 2 ? (smaller = true) : (smaller = false);
 </script>
 
 <style lang="scss">
@@ -271,7 +267,7 @@
   bind:offsetHeight={$navHeight}>
   <Logo {navShown} {smaller}>Pris Hotel</Logo>
   <!-- <Logo {navShown} /> -->
-  
+
   <nav>
     <ul>
       <li>

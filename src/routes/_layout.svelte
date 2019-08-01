@@ -1,11 +1,11 @@
 <script>
   import { navHeight } from "../components/stores.js";
-  export let pageLogo = "LOGO_dark";
   import Breadcrumbs from "../components/breadcrumbs.svelte";
   import Nav from "../components/_Nav.svelte";
   import Footer from "../components/_Footer.svelte";
   import Arrow from "../components/topArrow.svelte";
 
+  let pageLogo = "logo_dark";
   export let segment;
 </script>
 
