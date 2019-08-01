@@ -15,24 +15,28 @@
   import Filter from "./__filter.svelte";
 
   function paginationClick(event) {
-    var content = event.target.innerHTML;
-
-    if (content == "&lt;") {
+    if (event.target.innerHTML == "&lt;") {
       opt.active--;
-    } else if (content == "&gt;") {
+      if (opt.active < 1) opt.active = 1;
+    } else if (event.target.innerHTML == "&gt;") {
       opt.active++;
+
+      if (opt.active > opt.len) opt.active = opt.len;
     } else {
-      opt.active = +content;
+      opt.active = +event.target.innerHTML;
     }
   }
-
+  var roomsPerPage = 8;
   var opt = {
-    active: 4,
-    len: 5
+    active: 1,
+    len: Math.ceil(rooms.length / roomsPerPage)
   };
 </script>
 
 <style lang="scss">
+  $pages: 100;
+  $perPage: 8;
+
   .room-list {
     display: flex;
     flex-wrap: wrap;
@@ -56,6 +60,8 @@
 
       margin: 0 0.25em 1.5em;
       display: flex;
+      //toggle visibility
+      display: none;
       flex-direction: column;
 
       &:hover {
@@ -123,6 +129,23 @@
       }
     }
   }
+
+  //toggle visibility
+  @for $i from 1 through $pages {
+    //#of pages
+    .activePage#{$i} {
+      @for $jj
+        from (($i - 1) * $perPage + 1)
+        through (($i - 1) * $perPage + $perPage)
+      {
+        //#of elements per page
+
+        article:nth-child(#{$jj}) {
+          display: block;
+        }
+      }
+    }
+  }
 </style>
 
 <svelte:head>
@@ -133,7 +156,7 @@
 
 <Filter />
 
-<div class="room-list">
+<div class="room-list activePage{opt.active}">
   <!-- <article>-image -type\number of beds -heading -price\night</article> -->
   {#each rooms as room}
     <article>

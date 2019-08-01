@@ -12,9 +12,6 @@
     items[opt.active - 1].classList.add("active");
   });
 
-  $: if (opt.active < 1) opt.active = 1;
-  $: if (opt.active > opt.len) opt.active = opt.len;
-
   $: {
     if (items) {
       for (var i = 0; i < items.length; i++)
@@ -116,7 +113,7 @@
 <!-- <script context="module">
 
 </script> -->
-{#if opt.len > 0}
+{#if opt.len > 1}
   <nav id="pagination" on:click class="pagination">
     <div class="arr {opt.active == 1 ? 'disabled' : ''}">&#60;</div>
     <ul>
