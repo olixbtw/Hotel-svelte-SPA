@@ -1,7 +1,7 @@
 <style lang="scss">
   #map {
     height: 400px;
-    width: 100vw;
+    width: 101vw;
     background: #5c505e;
     position: relative;
     margin-top: auto;

@@ -7,17 +7,14 @@
 
   import { onMount } from "svelte";
 
+  var myTimer;
   onMount(() => {
-    //добавить первый слайд справа
-    //добавить последний слева
-
-    setInterval(() => {
-      nextSlide();
-    }, 3000);
+    myTimer = setInterval(nextSlide, 15000);
   });
 
   var transition = true;
   function nextSlide() {
+    clearInterval(myTimer);
     if (sliderScroll === imageList.length) {
       setTimeout(() => {
         setTimeout(() => {
@@ -30,8 +27,10 @@
       }, 1000);
     }
     sliderScroll++;
+    myTimer = setInterval(nextSlide, 15000);
   }
   function prevSlide() {
+    clearInterval(myTimer);
     if (sliderScroll === 1) {
       setTimeout(() => {
         setTimeout(() => {
@@ -44,13 +43,14 @@
       }, 1000);
     }
     sliderScroll--;
+    myTimer = setInterval(nextSlide, 15000);
   }
 </script>
 
 <style lang="scss">
   .slider {
     height: 400px;
-    width: 100vw;
+    width: 101vw;
     background: #5c505e;
     position: relative;
     left: 50%;
@@ -59,30 +59,47 @@
 
     display: flex;
     overflow: hidden;
+    &:after {
+      position: absolute;
+      z-index: 1;
+      display: block;
+      content: "";
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0.2;
+      background: #000;
+    }
 
     img {
       scroll-snap-align: center;
       object-fit: cover;
       width: 100%;
     }
+
     &__button {
       display: block;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      z-index: 3;
 
-      width: 5em;
+      width: 6em;
       height: 450px;
-      background: #4f3552;
-      opacity: 0.1;
+      background: #131f1f;
+      opacity: 0.05;
+      cursor: pointer;
       transition: all 0.5s;
+
       &:hover {
-        opacity: 0.5;
+        opacity: 0.15;
       }
 
       &-left {
         left: 0.5em;
       }
+
       &-right {
         right: 0.5em;
       }
@@ -90,8 +107,9 @@
     &__text {
       color: white;
       position: absolute;
-      top: 30px;
-      left: 30px;
+      top: 2.5em;
+      left: 2.5em;
+      z-index: 2;
     }
   }
 

@@ -1,8 +1,5 @@
 <script>
-  export let pag_opt = {
-    active: 10,
-    len: 10
-  };
+  export let pag_opt;
 
   import { onMount } from "svelte";
 

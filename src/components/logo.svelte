@@ -1,5 +1,6 @@
 <script>
-  export let navShown = false;
+  export let navShown,
+    smaller = false;
 </script>
 
 <style lang="scss">
@@ -19,6 +20,7 @@
 
     img {
       // display: inline-block;
+      transition: max-height 0.6s ease-in-out;
       max-height: 5rem;
       max-width: 7rem;
       width: 100%;
@@ -34,7 +36,12 @@
   }
 </style>
 
-<a href="/" rel="prefetch" class="logo {navShown ? 'shown' : ''}">
+<a
+  href="/"
+  rel="prefetch"
+  class="logo {navShown ? 'shown' : ''}
+  {smaller ? 'smaller' : ''}
+  ">
   <img src="logo.svg" alt="Logo" />
   <div class="name">
     <slot />

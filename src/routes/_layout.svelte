@@ -1,4 +1,5 @@
 <script>
+  import { navHeight } from "../components/stores.js";
   export let pageLogo = "LOGO_dark";
   import Breadcrumbs from "../components/breadcrumbs.svelte";
   import Nav from "../components/_Nav.svelte";
@@ -60,6 +61,7 @@
 
 <Nav {segment} />
 
+<div style="height:{$navHeight}px;" />
 <main>
   {#if pageLogo}
     <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />

@@ -11,26 +11,26 @@
   var navShown = false;
 
   function toggleNavigation() {
-    if (LOADED && window.innerWidth < 1000) {
-      navShown = !navShown;
-      // не можем поставить ниже потому что запускает себя
-      // (дважды закрывает = сбрасывается позиция)
-      if (navShown) yStore = y;
-    }
+    if (window.innerWidth < 1000) navShown = !navShown;
   }
 
   $: {
-    //при изменении чего либо (navShown или y)
-    // = при открытии\закрытии навигации
-    // ставим нужные стили и возвращаем позицию если нужно
     if (LOADED && window.innerWidth < 1000) {
+      //fix body from scrollin with returning to previous position
+      navShown ? (yStore = y) : "";
+
+      navShown ? console.log("on open") : "";
+      navShown ? console.log(yStore) : "";
       navShown
         ? document.body.setAttribute(
             "style",
             "position:fixed;overflow-y:scroll;"
           )
         : document.body.setAttribute("style", "");
-      if (!navShown && yStore) y = yStore;
+      navShown ? "" : (y = yStore);
+
+      navShown ? "" : console.log("on close");
+      navShown ? "" : console.log(yStore);
     }
   }
 
@@ -38,8 +38,6 @@
     // fire only after component loads not to get document beforehand
     LOADED = true;
   });
-  var smaller;
-  $: y > $navHeight / 2 ? (smaller = true) : (smaller = false);
 </script>
 
 <style lang="scss">
@@ -54,7 +52,7 @@
     background: #444b57;
     color: #fff;
 
-    padding: 0.4rem 2rem;
+    padding: 0.25rem 2rem;
     @media (min-width: 1680px) {
       padding: 1rem 10vw;
     }
@@ -258,18 +256,16 @@
       background: #eb9a21;
     }
   }
-  .smaller :global(img) {
-    max-height: 3.5rem !important;
-  }
 </style>
 
 <svelte:window bind:scrollY={y} on:event={() => (navShown = false)} />
-
+<!-- <svelte:window bind:scrollY={y} on:event={() => (navShown = false)} /> -->
+<!-- <header class="{y > 150 ? 'fixed' : ''} {navShown ? 'shown' : ''}"> -->
 <header
   class="{navShown ? 'shown' : ''}
-  {smaller ? 'smaller' : ''}"
+  {y > $navHeight / 2 ? 'smaller' : ''}"
   bind:offsetHeight={$navHeight}>
-  <Logo {navShown} {smaller}>Pris Hotel</Logo>
+  <Logo {navShown}>Pris Hotel</Logo>
   <!-- <Logo {navShown} /> -->
   {y}
   <nav>
@@ -277,6 +273,7 @@
       <li>
         <a
           class={segment === 'services' ? 'selected' : ''}
+          rel="prefetch"
           href="services"
           on:click={toggleNavigation}>
           Услуги
@@ -285,6 +282,7 @@
           <li>
             <a
               class={segment === 'rooms' ? 'selected' : ''}
+              rel="prefetch"
               href="services/rooms"
               on:click={toggleNavigation}>
               Номера
@@ -293,6 +291,7 @@
           <li>
             <a
               class={segment === 'booking' ? 'selected' : ''}
+              rel="prefetch"
               href="services/booking"
               on:click={toggleNavigation}>
               Резервация
@@ -303,6 +302,7 @@
       <li>
         <a
           class={segment === 'about' ? 'selected' : ''}
+          rel="prefetch"
           href="about"
           on:click={toggleNavigation}>
           Про отель
@@ -311,6 +311,7 @@
           <li>
             <a
               class={segment === 'contact' ? 'selected' : ''}
+              rel="prefetch"
               href="about/contact"
               on:click={toggleNavigation}>
               Контакты
@@ -319,6 +320,7 @@
           <li>
             <a
               class={segment === 'gallery' ? 'selected' : ''}
+              rel="prefetch"
               href="about/gallery"
               on:click={toggleNavigation}>
               Галерея
@@ -329,6 +331,7 @@
       <li>
         <a
           class={segment === 'login' ? 'selected' : ''}
+          rel="prefetch"
           href="login"
           on:click={toggleNavigation}>
           Вход
