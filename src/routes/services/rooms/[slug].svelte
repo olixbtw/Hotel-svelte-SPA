@@ -14,7 +14,7 @@
 </script>
 
 <script>
-  import { reservedRoom } from "../../../components/stores.js";
+  import { reservedRoom } from "../../../components/_stores.js";
   export let room;
   var showAmm =
     room.amenities.additional.length + room.amenities.abscent.length;

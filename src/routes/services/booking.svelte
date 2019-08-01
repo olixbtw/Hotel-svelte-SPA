@@ -1,5 +1,5 @@
 <script>
-  import { reservedRoom } from "../../components/stores.js";
+  import { reservedRoom } from "../../components/_stores.js";
 
   export let bookingData = false;
 

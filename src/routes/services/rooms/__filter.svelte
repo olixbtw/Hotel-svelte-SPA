@@ -1,5 +1,5 @@
 <script>
-  import { roomsFilter } from "../../../components/stores.js";
+  import { roomsFilter } from "../../../components/_stores.js";
   var classToggle = false;
 
   function inc_guest() {

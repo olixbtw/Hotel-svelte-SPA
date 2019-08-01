@@ -57,7 +57,7 @@
   // + удобнее передавать через общие свойства (но наверное дольше)
   import { onMount } from "svelte";
   import Filter from "./__filter.svelte";
-  import { roomsFilter } from "../../../components/stores.js";
+  import { roomsFilter } from "../../../components/_stores.js";
   let showFilter = false;
   onMount(() => {
     showFilter = true;
