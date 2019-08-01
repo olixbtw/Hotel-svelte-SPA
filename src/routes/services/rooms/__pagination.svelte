@@ -1,5 +1,5 @@
 <script>
-  export let opt = {
+  export let pag_opt = {
     active: 10,
     len: 10
   };
@@ -9,19 +9,19 @@
   onMount(() => {
     items = document.getElementById("pagination").getElementsByTagName("ul")[0]
       .children;
-    items[opt.active - 1].classList.add("active");
+    items[pag_opt.active - 1].classList.add("active");
   });
 
   $: {
     if (items) {
       for (var i = 0; i < items.length; i++)
         items[i].classList.remove("active");
-      items[opt.active - 1].classList.add("active");
+      items[pag_opt.active - 1].classList.add("active");
     }
   }
 
   var arr = [];
-  for (var i = 1; i < opt.len + 1; i++) {
+  for (var i = 1; i < pag_opt.len + 1; i++) {
     arr[i - 1] = i;
   }
 </script>
@@ -35,6 +35,7 @@
     ul {
       display: flex;
     }
+
     .arr,
     ul li {
       color: #4f4f4f;
@@ -91,11 +92,12 @@
       background: transparent;
       &:before,
       &:after {
-        opacity: 0.9;
+        opacity: 1;
       }
     }
     &:before,
     &:after {
+      opacity: 0.9;
       background: #443941;
     }
     &:after {
@@ -110,17 +112,16 @@
   }
 </style>
 
-<!-- <script context="module">
-
-</script> -->
-{#if opt.len > 1}
+{#if pag_opt.len > 1}
   <nav id="pagination" on:click class="pagination">
-    <div class="arr {opt.active == 1 ? 'disabled' : ''}">&#60;</div>
+    <div class="arr {pag_opt.active == 1 ? 'disabled' : ''}">&#60;</div>
     <ul>
       {#each arr as i}
         <li>{i}</li>
       {/each}
     </ul>
-    <div class="arr {opt.active == opt.len ? 'disabled' : ''}">&#62;</div>
+    <div class="arr {pag_opt.active == pag_opt.len ? 'disabled' : ''}">
+      &#62;
+    </div>
   </nav>
 {/if}

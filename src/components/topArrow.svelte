@@ -1,4 +1,5 @@
 <script>
+  var y;
   function scrollTop() {
     window.scrollTo({
       top: 0,
@@ -26,6 +27,10 @@
   }
 </style>
 
-<nav on:click={scrollTop}>
-  <i class="fas fa-chevron-up" />
-</nav>
+<svelte:window bind:scrollY={y} />
+
+{#if y > 150}
+  <nav on:click={scrollTop}>
+    <i class="fas fa-chevron-up" />
+  </nav>
+{/if}

@@ -6,7 +6,6 @@
   import Arrow from "../components/topArrow.svelte";
 
   export let segment;
-  var y;
 </script>
 
 <style lang="scss">
@@ -59,8 +58,6 @@
   }
 </style>
 
-<svelte:window bind:scrollY={y} />
-
 <Nav {segment} />
 
 <main>
@@ -73,6 +70,4 @@
 
 <Footer />
 
-{#if y > 150}
-  <Arrow />
-{/if}
+<Arrow />

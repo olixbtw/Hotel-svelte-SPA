@@ -11,26 +11,47 @@
 <script>
   export let rooms;
 
+  //pagination
   import Pagination from "./__pagination.svelte";
-  import Filter from "./__filter.svelte";
-
-  function paginationClick(event) {
-    if (event.target.innerHTML == "&lt;") {
-      opt.active--;
-      if (opt.active < 1) opt.active = 1;
-    } else if (event.target.innerHTML == "&gt;") {
-      opt.active++;
-
-      if (opt.active > opt.len) opt.active = opt.len;
-    } else {
-      opt.active = +event.target.innerHTML;
-    }
-  }
+  var y;
   var roomsPerPage = 8;
-  var opt = {
+  var pag_opt = {
     active: 1,
     len: Math.ceil(rooms.length / roomsPerPage)
   };
+
+  function paginationClick(event) {
+    //check if page is changing
+    var destination = pag_opt.active;
+    if (event.target.innerHTML == "&lt;") {
+      destination--;
+      if (destination < 1) destination = 1;
+    } else if (event.target.innerHTML == "&gt;") {
+      destination++;
+      if (destination > pag_opt.len) destination = pag_opt.len;
+    } else {
+      destination = +event.target.innerHTML;
+    }
+    
+    //change pages
+    if (destination !== pag_opt.active) {
+      if (y > 270) {
+        window.scrollTo({
+          top: 150,
+          behavior: "smooth"
+        });
+        setTimeout(() => {
+          pag_opt.active = destination;
+        }, 380);
+      } else {
+        pag_opt.active = destination;
+      }
+    }
+  }
+
+  //filter
+  import Filter from "./__filter.svelte";
+  var filt_opt = {};
 </script>
 
 <style lang="scss">
@@ -151,12 +172,13 @@
 <svelte:head>
   <title>ОТЕЛЬ - Номера</title>
 </svelte:head>
+<svelte:window bind:scrollY={y} />
 
 <h1>Номера</h1>
 
 <Filter />
 
-<div class="room-list activePage{opt.active}">
+<div class="room-list activePage{pag_opt.active}">
   <!-- <article>-image -type\number of beds -heading -price\night</article> -->
   {#each rooms as room}
     <article>
@@ -177,4 +199,4 @@
   {/each}
 </div>
 
-<Pagination on:click={paginationClick} {opt} />
+<Pagination on:click={paginationClick} {pag_opt} />
