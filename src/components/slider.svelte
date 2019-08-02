@@ -121,27 +121,25 @@
 
   @for $i from 1 through 10 {
     .slide#{$i} {
-      margin-left: #{$i * -100%};
-      margin-right: #{$i * 100%};
+      img {
+        margin-left: #{$i * -100%};
+        margin-right: #{$i * 100%};
+      }
     }
   }
 </style>
 
-<div class="slider {transition ? 'transition' : ''}">
+<div class="slider {transition ? 'transition' : ''} slide{sliderScroll}">
   <div class="slider__text">
     <slot />
   </div>
   <img
     src={imageList[imageList.length - 1].src}
-    alt={imageList[imageList.length - 1].alt}
-    class="slide{sliderScroll}" />
+    alt={imageList[imageList.length - 1].alt} />
   {#each imageList as img}
-    <img src={img.src} alt={img.alt} class="slide{sliderScroll}" />
+    <img src={img.src} alt={img.alt} class="" />
   {/each}
-  <img
-    src={imageList[0].src}
-    alt={imageList[0].alt}
-    class="slide{sliderScroll}" />
+  <img src={imageList[0].src} alt={imageList[0].alt} />
   <div class="slider__button slider__button-left" on:click={prevSlide} />
   <div class="slider__button slider__button-right" on:click={nextSlide} />
 </div>

@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  var y, yStore, loaded_flag;
+  var y, yStore, loaded_flag, modalWindowActive;
+
   export let modalContent = {
     active: false,
     images: []
@@ -19,18 +20,24 @@
     }
   }
 
-  $: if (modalContent.active) openModal();
+  $: modalWindowActive =
+    modalContent.active === 0 ||
+    (modalContent.active && modalContent.images.length > 0);
+  $: if (modalWindowActive) openModal();
+  // $: if (modalContent.active) console.log('123');
 
   onMount(() => {
     loaded_flag = true;
   });
   function openModal() {
+    console.log("open");
     if (loaded_flag) {
       yStore = y;
-      document.body.setAttribute("style", "position:fixed;overflow-y:scroll;");
+      document.body.setAttribute("style", "position:fixed; overflow-y:scroll;");
     }
   }
   function closeModal() {
+    console.log("close");
     if (loaded_flag) {
       y = yStore;
       document.body.setAttribute("style", "");
@@ -41,7 +48,6 @@
 <style lang="scss">
   .modalBG {
     background: #fff;
-    background: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     bottom: 0;
@@ -49,10 +55,10 @@
     right: 0;
     z-index: 9999;
     overflow: hidden;
+    // background: rgba(0, 0, 0, 0.5);
   }
   .inner {
-    background: rgba(250, 250, 250, 0.5);
-
+    // background: rgba(250, 250, 250, 0.5);
     width: 100%;
     padding: 4rem 2rem;
     display: flex;
@@ -72,7 +78,7 @@
   .all_img_list {
     padding: 1rem 0;
     display: flex;
-    max-width: 35rem;
+    max-width: 40rem;
     position: relative;
     overflow-x: hidden;
   }
@@ -105,7 +111,7 @@
     line-height: 6rem;
     text-align: center;
     background: white;
-    background: radial-gradient(#ffffff 45%, rgba(0, 0, 0, 0) 75%);
+    // background: radial-gradient(#ffffff 45%, rgba(0, 0, 0, 0) 75%);
     transition: all 0.3s ease-in-out;
     &:hover {
       transform: scale(1.1);
@@ -139,6 +145,15 @@
     right: -2rem;
     background: linear-gradient(270deg, #ffffff 40%, rgba(0, 0, 0, 0) 100%);
   }
+
+  @for $i from 0 through 20 {
+    .active_slide#{$i} {
+      img {
+        margin-left: #{$i * -5rem + 12rem};
+        margin-right: #{$i * 5rem - 12rem};
+      }
+    }
+  }
 </style>
 
 <svelte:window bind:scrollY={y} />
@@ -150,13 +165,14 @@
         {#each modalContent.images as img, index}
           {#if index === modalContent.active}
             <img src={img.src} alt={img.alt} />
-            {#if img.text}{img.text}{/if}
+            <!-- {#if img.text}{img.text}{/if} -->
           {/if}
         {/each}
       </div>
-
+      {modalContent.active}
+      <br />
       <div class="controls-overflow">
-        <div class="all_img_list">
+        <div class="all_img_list active_slide{modalContent.active}">
           {#each modalContent.images as img, index}
             <img
               class={modalContent.active == index ? 'active' : ''}
