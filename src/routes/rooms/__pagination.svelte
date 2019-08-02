@@ -52,8 +52,8 @@
     }
     ul li {
       position: relative;
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         transition: all 0.5s ease-in-out;
         width: 1.75rem;
         height: 1.75rem;
@@ -62,11 +62,11 @@
         position: absolute;
         z-index: -1;
       }
-      &:after {
+      &::after {
         top: 0.25rem;
         right: 0.25rem;
       }
-      &:before {
+      &::before {
         bottom: 0.25rem;
         left: 0.25rem;
       }
@@ -89,21 +89,21 @@
     &:hover {
       color: white;
       background: transparent;
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         opacity: 1;
       }
     }
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       opacity: 0.9;
       background: #443941;
     }
-    &:after {
+    &::after {
       top: -0.15rem;
       right: -0.15rem;
     }
-    &:before {
+    &::before {
       bottom: -0.15rem;
       left: -0.15rem;
     }

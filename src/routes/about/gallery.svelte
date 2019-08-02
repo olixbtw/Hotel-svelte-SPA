@@ -17,12 +17,11 @@
     justify-content: space-around;
   }
   figure {
-    // border-radius: 10px;
-    // overflow: hidden;
     position: relative;
     width: 300px;
     display: block;
     margin: 1.5em 0.75em;
+    cursor: pointer;
 
     &::after {
       position: absolute;

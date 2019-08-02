@@ -59,7 +59,7 @@
 
     display: flex;
     overflow: hidden;
-    &:after {
+    &::after {
       position: absolute;
       z-index: 1;
       display: block;
