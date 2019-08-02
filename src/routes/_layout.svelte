@@ -66,7 +66,9 @@
   {#if pageLogo}
     <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />
   {/if}
-  <Breadcrumbs {segment} />
+  {#if segment !== 'login'}
+    <Breadcrumbs {segment} />
+  {/if}
   <slot />
 </main>
 

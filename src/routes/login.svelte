@@ -15,7 +15,7 @@
 
 <style lang="scss">
   .login {
-    margin: 0 auto;
+    margin: 2rem auto 1rem;
     max-width: 20rem;
     width: 100%;
 

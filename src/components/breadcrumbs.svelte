@@ -1,7 +1,3 @@
-<script context="module">
-
-</script>
-
 <script>
   import { stores } from "@sapper/app";
   const { page } = stores();
@@ -20,16 +16,26 @@
     path = $page.path.split("/");
     // ссылки
     path.forEach((element, index) => {
-      if (element === segment) path = path.slice(index, path.length).filter(Boolean);
+      if (element === segment)
+        path = path.slice(index, path.length).filter(Boolean);
     });
+    let itemNames = [...path];
+    let pathNames = [...path];
     //имена
     for (var pathName in translatePath) {
-      path.forEach((element, index) => {
-        if (element == pathName) path[index] = translatePath[pathName];
+      itemNames.forEach((element, index) => {
+        if (element == pathName) itemNames[index] = translatePath[pathName];
       });
     }
-    if (path[path.length - 1] == $page.params.slug)
-      path[path.length - 1] = $slugTitle;
+    if (itemNames[itemNames.length - 1] == $page.params.slug)
+      itemNames[itemNames.length - 1] = $slugTitle;
+    //в общий массив
+    itemNames.forEach((element, index) => {
+      path[index] = {
+        name: element,
+        path: pathNames.slice(0, index + 1).join("/")
+      };
+    });
   }
 </script>
 
@@ -39,11 +45,16 @@
     font-size: 0.9rem;
     color: #a1a1af;
     line-height: 2rem;
-    // display: none;
+    position: relative;
+    top: -1rem;
   }
   li {
+    a {
+      color: inherit;
+    }
     cursor: pointer;
     margin-right: 0.25em;
+    vertical-align: top;
     display: inline-block;
     &::after {
       margin-left: 0.5em;
@@ -52,6 +63,7 @@
     &:last-child {
       &::after {
         content: "";
+        display: none;
       }
     }
   }
@@ -61,7 +73,9 @@
   <nav>
     <ul>
       {#each path as node}
-        <li>{node}</li>
+        <li>
+          <a href={node.path}>{node.name}</a>
+        </li>
       {/each}
     </ul>
   </nav>
