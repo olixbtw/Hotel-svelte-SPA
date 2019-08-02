@@ -1,7 +1,5 @@
 <script context="module">
   export async function preload({ params, query }) {
-    // the `slug` parameter is available because
-    // this file is called [slug].svelte
     const res = await this.fetch(`services/rooms/${params.slug}.json`);
     const data = await res.json();
 
@@ -14,8 +12,13 @@
 </script>
 
 <script>
-  import { reservedRoom } from "../../../components/_stores.js";
+  import { reservedRoom, slugTitle } from "../../../components/_stores.js";
+  import { onMount } from "svelte";
   export let room;
+
+  onMount(() => {
+    $slugTitle = room.title;
+  });
   var showAmm_flag =
     room.amenities.additional.length + room.amenities.abscent.length;
   var a, b;

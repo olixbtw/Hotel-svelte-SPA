@@ -5,13 +5,9 @@
 <script>
   import { stores } from "@sapper/app";
   const { page } = stores();
-
-  console.log($page.params);
-  console.log($page.query);
-
   export let segment;
-
   import { onMount } from "svelte";
+  import { slugTitle } from "./_stores.js";
   import translatePath from "./_paths.js";
 
   var path = [];
@@ -24,7 +20,7 @@
     path = $page.path.split("/");
     // ссылки
     path.forEach((element, index) => {
-      if (element === segment) path = path.slice(index, path.length);
+      if (element === segment) path = path.slice(index, path.length).filter(Boolean);
     });
     //имена
     for (var pathName in translatePath) {
@@ -32,7 +28,8 @@
         if (element == pathName) path[index] = translatePath[pathName];
       });
     }
-    if (path[path.length - 1] == $page.params.slug) console.log("123");
+    if (path[path.length - 1] == $page.params.slug)
+      path[path.length - 1] = $slugTitle;
   }
 </script>
 
@@ -60,7 +57,7 @@
   }
 </style>
 
-{#if path.length > 0}
+{#if path.length > 0 && segment}
   <nav>
     <ul>
       {#each path as node}
@@ -68,7 +65,4 @@
       {/each}
     </ul>
   </nav>
-  segment - {segment}
-  <br />
-  path - {path}
 {/if}
