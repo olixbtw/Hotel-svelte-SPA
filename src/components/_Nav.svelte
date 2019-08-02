@@ -7,6 +7,7 @@
   var navShown = false;
 
   $: y > smallerRange_flag ? (smaller = true) : (smaller = false);
+
   function toggleNavigation() {
     if (loaded_flag && window.innerWidth < 1000) {
       navShown = !navShown;

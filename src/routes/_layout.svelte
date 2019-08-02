@@ -7,26 +7,26 @@
 
   let pageLogo = "logo_dark";
   export let segment;
+
+  import { onMount } from "svelte";
+  var heightFix;
+  onMount(() => {
+    heightFix = $navHeight - 25;
+  });
 </script>
 
 <style lang="scss">
   main {
     width: 100%;
     flex-grow: 1;
-
-    // :global(.hasMap) {
+    //to make it possible to pin items to the bottom
     display: flex;
     flex-direction: column;
-    // align-items: flex-start;
-    // padding-bottom: 0 !important;
-    // }
-
     position: relative;
     max-width: 56em;
-    // max-width: 70em;
-    padding: 2rem;
+    padding: 2.5rem 2rem 2rem;
+    padding: calc(2rem + 25px) 2rem 2rem;
     margin: 0 auto;
-    // min-height: 100%;
 
     &::after {
       //заменить простой бекграунд чтобы можно спокойно использовать z-index:-1;
@@ -61,7 +61,7 @@
 
 <Nav {segment} />
 
-<div style="height:{$navHeight}px;" />
+<div style="height:{heightFix}px;" />
 <main>
   {#if pageLogo}
     <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />

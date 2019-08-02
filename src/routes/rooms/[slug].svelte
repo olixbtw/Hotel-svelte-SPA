@@ -15,20 +15,22 @@
   import { reservedRoom, slugTitle } from "../../components/_stores.js";
   import { onMount } from "svelte";
   export let room;
+  var Date_a = "2019-08-02";
+  var Date_b = "2019-08-04";
+  var daysTotal = 2;
 
   onMount(() => {
     $slugTitle = room.title;
   });
   var showAmm_flag =
     room.amenities.additional.length + room.amenities.abscent.length;
-  var a, b;
 
   function addRoom() {
     var reserveItem = {
       id: room.slug,
       content: room,
-      date1: "",
-      date2: ""
+      date1: Date_a,
+      date2: Date_b
     };
     //should be unique index, push dates aswell, check for errors
     $reservedRoom.push(reserveItem);
@@ -118,7 +120,83 @@
     grid-column: 2 / 3;
     grid-row: 2 / 3;
   }
+  .type {
+  }
+  .n_people {
+  }
+  h1 {
+  }
+  .price {
+  }
+  .amenities {
+    h3 {
+    }
+    ul {
+      li {
+      }
+    }
+  }
+  .description {
+  }
 </style>
+
+<svelte:head>
+  <title>{room.title}</title>
+</svelte:head>
+
+<div class="container">
+  <!-- more photos here -->
+  <div class="images">
+    {#each room.photos as img, index}
+      <img
+        src={img.src}
+        alt={img.alt}
+        on:click={() => (modalContent.active = index)} />
+    {/each}
+  </div>
+  <div class="col-left">
+    <div class="type">{room.type}</div>
+    <div class="n_people">
+      {room.people} {room.people == 1 ? 'person' : 'people'}
+    </div>
+    <h1>{room.title}</h1>
+    <div class="price">{room.price.currency}{room.price.value}/night</div>
+
+    {#if room.amenities.additional.length + room.amenities.abscent.length > 0}
+      <div class="amenities">
+        <h3>Amenities</h3>
+        <ul>
+          {#each room.amenities.additional as amm}
+            <li>{amm}</li>
+          {/each}
+          {#each room.amenities.abscent as amm}
+            <li class="disabled">{amm}</li>
+          {/each}
+        </ul>
+      </div>
+    {/if}
+    <div class="description">
+      <h3>Description</h3>
+      <p>{room.description}</p>
+    </div>
+    <button on:click={addRoom}>Reserve it</button>
+  </div>
+  <div class="col-right">
+    <label for="date_input_checkin">Дата въезда</label>
+    <input id="date_input_checkin" type="date" bind:value={Date_a} />
+    <label for="date_input_checkout">Дата отъезда</label>
+    <input id="date_input_checkout" type="date" bind:value={Date_b} />
+    <div class="price-total">{room.price.value * daysTotal}</div>
+    <hr />
+    <button on:click={addRoom}>Reserve</button>
+    <span>You wont be charged yet</span>
+  </div>
+</div>
+
+<Modal {modalContent} />
+
+<!-- <button on:click={() => console.log(room)}>SHOW</button>
+<button on:click={() => console.log($reservedRoom)}>RESERVED</button> -->
 
 <!-- <style>
   /*
@@ -158,60 +236,3 @@
 <!-- <div class="content">
   {@html room.description}
 </div> -->
-<svelte:head>
-  <title>{room.title}</title>
-</svelte:head>
-
-<div class="container">
-  <!-- more photos here -->
-  <div class="images">
-    {#each room.photos as img, index}
-      <img
-        src={img.src}
-        alt={img.alt}
-        on:click={() => (modalContent.active = index)} />
-    {/each}
-  </div>
-  <div class="col-left">
-    <h1>
-      {room.type}
-      <span class="n_people">
-        {room.people} {room.people == 1 ? 'person' : 'people'}
-      </span>
-    </h1>
-    <h4>{room.title}</h4>
-    <div class="price">{room.price.currency}{room.price.value}/night</div>
-
-    {#if room.amenities.additional.length + room.amenities.abscent.length > 0}
-      <h3>Amenities</h3>
-      <ul>
-        {#each room.amenities.additional as amm}
-          <li>{amm}</li>
-        {/each}
-        {#each room.amenities.abscent as amm}
-          <li class="disabled">{amm}</li>
-        {/each}
-      </ul>
-    {/if}
-
-    <h3>Description</h3>
-    <p>{room.description}</p>
-    <button>Reserve it</button>
-  </div>
-  <div class="col-right">
-    <input type="date" bind:value={a} />
-    {a}
-    <input type="date" bind:value={b} />
-    {b}
-    <div class="price-total">Price total</div>
-    <!-- <a href="services/booking" on:click={() => $reservedRoom.push('asdasd')}> -->
-    <button on:click={addRoom}>Reserve</button>
-    <br />
-    You wont be charged yet
-  </div>
-</div>
-
-<button on:click={() => console.log(room)}>SHOW</button>
-<button on:click={() => console.log($reservedRoom)}>RESERVED</button>
-
-<Modal {modalContent} />
