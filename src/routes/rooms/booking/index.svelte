@@ -1,5 +1,5 @@
 <script>
-  import { reservedRoom } from "../../components/_stores.js";
+  import { reservedRoom } from "../../../components/_stores.js";
 
   export let bookingData = false;
 
@@ -112,5 +112,5 @@
 {:else}
   <p>Для продолжения резервации</p>
   <h1>Выберите номер</h1>
-  <a href="services/rooms">Номера</a>
+  <a href="rooms">Номера</a>
 {/if}

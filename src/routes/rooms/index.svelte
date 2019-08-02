@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`services/rooms.json`)
+    return this.fetch(`rooms.json`)
       .then(r => r.json())
       .then(rooms => {
         return { rooms };
@@ -57,7 +57,7 @@
   // + удобнее передавать через общие свойства (но наверное дольше)
   import { onMount } from "svelte";
   import Filter from "./__filter.svelte";
-  import { roomsFilter } from "../../../components/_stores.js";
+  import { roomsFilter } from "../../components/_stores.js";
   let showFilter = false;
   onMount(() => {
     showFilter = true;
@@ -217,7 +217,7 @@ $roomsFilter.view {$roomsFilter.view}
   {#each rooms as room}
     <!-- <article class="guests{room.people} available{room_available} price{room.price}"> -->
     <article>
-      <a rel="prefetch" href="services/rooms/{room.slug}">
+      <a rel="prefetch" href="rooms/{room.slug}">
         <figure>
           <img src={room.photo.src} alt={room.photo.alt} />
         </figure>

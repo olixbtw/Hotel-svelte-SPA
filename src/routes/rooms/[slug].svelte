@@ -1,6 +1,6 @@
 <script context="module">
   export async function preload({ params, query }) {
-    const res = await this.fetch(`services/rooms/${params.slug}.json`);
+    const res = await this.fetch(`rooms/${params.slug}.json`);
     const data = await res.json();
 
     if (res.status === 200) {
@@ -12,7 +12,7 @@
 </script>
 
 <script>
-  import { reservedRoom, slugTitle } from "../../../components/_stores.js";
+  import { reservedRoom, slugTitle } from "../../components/_stores.js";
   import { onMount } from "svelte";
   export let room;
 
@@ -34,7 +34,7 @@
     $reservedRoom.push(reserveItem);
   }
 
-  import Modal from "../../../components/modal.svelte";
+  import Modal from "../../components/modal.svelte";
   var modalContent = {
     active: false,
     images: room.photos

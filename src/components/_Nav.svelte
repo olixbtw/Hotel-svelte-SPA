@@ -271,25 +271,19 @@
   <nav>
     <ul>
       <li>
+        <!-- <li>
+          </li> -->
         <a
-          class={segment === 'services' ? 'selected' : ''}
-          href="services"
+          class={segment === 'rooms' ? 'selected' : ''}
+          href="rooms"
           on:click={toggleNavigation}>
-          Услуги
+          Номера
         </a>
         <ul class="submenu">
           <li>
             <a
-              class={segment === 'rooms' ? 'selected' : ''}
-              href="services/rooms"
-              on:click={toggleNavigation}>
-              Номера
-            </a>
-          </li>
-          <li>
-            <a
               class={segment === 'booking' ? 'selected' : ''}
-              href="services/booking"
+              href="rooms/booking"
               on:click={toggleNavigation}>
               Резервация
             </a>
@@ -314,6 +308,14 @@
           </li>
           <li>
             <a
+              class={segment === 'services' ? 'selected' : ''}
+              href="about/services"
+              on:click={toggleNavigation}>
+              Услуги
+            </a>
+          </li>
+          <li>
+            <a
               class={segment === 'gallery' ? 'selected' : ''}
               href="about/gallery"
               on:click={toggleNavigation}>
@@ -322,14 +324,14 @@
           </li>
         </ul>
       </li>
-      <li>
+      <!-- <li>
         <a
           class={segment === 'login' ? 'selected' : ''}
           href="login"
           on:click={toggleNavigation}>
           Вход
         </a>
-      </li>
+      </li> -->
     </ul>
     <div class="nav-show" on:click={toggleNavigation}>
       <span />
