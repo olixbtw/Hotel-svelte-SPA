@@ -3,40 +3,36 @@
   import { navHeight } from "./_stores.js";
   import Logo from "./logo.svelte";
   export let segment;
-  var loaded_flag, smallerRange_flag, smaller, y, yStore;
+  var loaded_flag, smallerRange_flag, smaller, x, y, yStore;
   var navShown = false;
 
   $: y > smallerRange_flag ? (smaller = true) : (smaller = false);
+  $: if (x > 1000) toggleNavigation(false);
 
-  function toggleNavigation() {
-    if (loaded_flag && window.innerWidth < 1000) {
-      navShown = !navShown;
-      // не можем поставить ниже потому что запускает себя
-      // (дважды закрывает = сбрасывается позиция)
-      if (navShown) yStore = y;
-    }
-  }
-
-  $: {
-    //при изменении чего либо (navShown или y)
-    // = при открытии\закрытии навигации
-    // ставим нужные стили и возвращаем позицию если нужно
-    if (loaded_flag && window.innerWidth < 1000) {
-      navShown
-        ? document.body.setAttribute(
-            "style",
-            "position:fixed;overflow-y:scroll;"
-          )
-        : document.body.setAttribute("style", "");
-      if (!navShown && yStore) y = yStore;
+  function toggleNavigation(n) {
+    typeof n === "boolean" ? (navShown = n) : (navShown = !navShown);
+    if (window.innerWidth <= 1000) {
+      navShown ? openModal() : closeModal();
     }
   }
 
   onMount(() => {
-    // fire only after component loads not to get document beforehand
     loaded_flag = true;
     smallerRange_flag = $navHeight / 2;
+    //store height of navigation
   });
+  function openModal() {
+    if (loaded_flag) {
+      yStore = y;
+      document.body.setAttribute("style", "position:fixed;overflow-y:scroll;");
+    }
+  }
+  function closeModal() {
+    if (loaded_flag) {
+      y = yStore;
+      document.body.setAttribute("style", "");
+    }
+  }
 </script>
 
 <style lang="scss">
@@ -260,20 +256,17 @@
   }
 </style>
 
-<svelte:window bind:scrollY={y} on:event={() => (navShown = false)} />
+<svelte:window bind:scrollY={y} bind:innerWidth={x} />
 
 <header
   class="{navShown ? 'shown' : ''}
   {smaller ? 'smaller' : ''}"
   bind:offsetHeight={$navHeight}>
   <Logo {navShown} {smaller}>Pris Hotel</Logo>
-  <!-- <Logo {navShown} /> -->
 
   <nav>
     <ul>
       <li>
-        <!-- <li>
-          </li> -->
         <a
           class={segment === 'rooms' ? 'selected' : ''}
           href="rooms"

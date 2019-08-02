@@ -38,15 +38,16 @@
 
   import Modal from "../../components/modal.svelte";
   var modalContent = {
-    active: false,
+    active: 1,
     images: room.photos
   };
 </script>
 
 <style lang="scss">
   .container {
+    grid-gap: 1rem 2rem;
     display: grid;
-    grid-template-columns: auto 10rem;
+    grid-template-columns: auto 15rem;
   }
   .images {
     grid-row: 1 / 2;
@@ -121,8 +122,8 @@
     grid-row: 2 / 3;
   }
   .type {
-  }
-  .n_people {
+    .n_people {
+    }
   }
   h1 {
   }
@@ -155,9 +156,11 @@
     {/each}
   </div>
   <div class="col-left">
-    <div class="type">{room.type}</div>
-    <div class="n_people">
-      {room.people} {room.people == 1 ? 'person' : 'people'}
+    <div class="type">
+      {room.type}
+      <span class="n_people">
+        {room.people} {room.people == 1 ? 'person' : 'people'}
+      </span>
     </div>
     <h1>{room.title}</h1>
     <div class="price">{room.price.currency}{room.price.value}/night</div>

@@ -1,5 +1,24 @@
 <script>
-  var y;
+  import { onMount } from "svelte";
+  import { stores } from "@sapper/app";
+  const { page } = stores();
+  var y, ih;
+
+  var loaded = false;
+  onMount(() => {
+    loaded = true;
+  });
+
+  $: if (loaded && $page)
+    setTimeout(() => {
+      // event fires immediately on initiating page change
+      // need timeout to get the height of the next page
+      ih =
+        document.getElementById("sapper").offsetHeight -
+        window.innerHeight -
+        70;
+    }, 5);
+
   function scrollTop() {
     window.scrollTo({
       top: 0,
@@ -16,21 +35,33 @@
     width: 2rem;
     line-height: 2rem;
     text-align: center;
-    bottom: 1rem;
     right: 1.5rem;
     color: #443941;
-    transition: all 0.3s;
+    transition: bottom .7s, opacity 0.4s, background 0.3s, color 0.3s;
+    bottom: 0;
+    opacity: 0;
   }
   nav:hover {
     color: #fff;
     background: #443941;
   }
+  .shown {
+    transition: bottom 0.4s;
+    bottom: 1rem;
+    opacity: 1;
+  }
+  .bottom {
+    bottom: 3rem;
+  }
 </style>
 
 <svelte:window bind:scrollY={y} />
 
-{#if y > 150}
-  <nav on:click={scrollTop}>
+{#if y > 0}
+  <nav
+    on:click={scrollTop}
+    class="{y > 150 ? 'shown' : ''}
+    {y > ih ? 'bottom' : ''}">
     <i class="fas fa-chevron-up" />
   </nav>
 {/if}
