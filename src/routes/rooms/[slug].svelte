@@ -38,7 +38,8 @@
 
   import Modal from "../../components/modal.svelte";
   var modalContent = {
-    active: 1,
+    // active: 1,
+    active: false,
     images: room.photos
   };
 </script>
@@ -192,6 +193,7 @@
     <div class="price-total">{room.price.value * daysTotal}</div>
     <hr />
     <button on:click={addRoom}>Reserve</button>
+    <br />
     <span>You wont be charged yet</span>
   </div>
 </div>

@@ -24,20 +24,17 @@
     modalContent.active === 0 ||
     (modalContent.active && modalContent.images.length > 0);
   $: if (modalWindowActive) openModal();
-  // $: if (modalContent.active) console.log('123');
 
   onMount(() => {
     loaded_flag = true;
   });
   function openModal() {
-    console.log("open");
     if (loaded_flag) {
       yStore = y;
       document.body.setAttribute("style", "position:fixed; overflow-y:scroll;");
     }
   }
   function closeModal() {
-    console.log("close");
     if (loaded_flag) {
       y = yStore;
       document.body.setAttribute("style", "");

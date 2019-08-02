@@ -1,4 +1,12 @@
 <script>
+  import { stores } from "@sapper/app";
+  const { page } = stores();
+
+  // $: {
+  //   var path = $page.path.split("/");
+  //   console.log(path[path.length - 1]);
+  // }
+
   import { onMount } from "svelte";
   import { navHeight } from "./_stores.js";
   import Logo from "./logo.svelte";
@@ -32,6 +40,14 @@
       y = yStore;
       document.body.setAttribute("style", "");
     }
+  }
+
+  var path = [];
+  $: if (loaded_flag) {
+    path = $page.path.split("/");
+    console.log(path);
+    path = path[path.length - 1]
+    console.log(path[path.length - 1]);
   }
 </script>
 
@@ -210,7 +226,7 @@
     &::after {
       transition: all 0.5s;
       position: absolute;
-      left: 0.1rem;
+      left: 0;
       bottom: 0.3em;
       display: block;
       content: "";
@@ -218,6 +234,7 @@
       width: 0;
       height: 0.1em;
       opacity: 0.5;
+      margin-left: 5%;
     }
   }
 
@@ -227,7 +244,7 @@
       &::after {
         opacity: 1;
         width: 90%;
-        margin-left: 5%;
+        margin-left: 10%;
       }
     }
   }
@@ -237,8 +254,8 @@
       &::after {
         background: #dcb03f;
         opacity: 1;
-        width: 90%;
-        margin-left: 5%;
+        width: 70%;
+        margin-left: 15%;
       }
     }
   }
@@ -276,7 +293,7 @@
         <ul class="submenu">
           <li>
             <a
-              class={segment === 'booking' ? 'selected' : ''}
+              class={path === 'booking' ? 'selected' : ''}
               href="rooms/booking"
               on:click={toggleNavigation}>
               Резервация
@@ -294,7 +311,7 @@
         <ul class="submenu">
           <li>
             <a
-              class={segment === 'contact' ? 'selected' : ''}
+              class={path === 'contact' ? 'selected' : ''}
               href="about/contact"
               on:click={toggleNavigation}>
               Контакты
@@ -302,7 +319,7 @@
           </li>
           <li>
             <a
-              class={segment === 'services' ? 'selected' : ''}
+              class={path === 'services' ? 'selected' : ''}
               href="about/services"
               on:click={toggleNavigation}>
               Услуги
@@ -310,7 +327,7 @@
           </li>
           <li>
             <a
-              class={segment === 'gallery' ? 'selected' : ''}
+              class={path === 'gallery' ? 'selected' : ''}
               href="about/gallery"
               on:click={toggleNavigation}>
               Галерея
@@ -320,7 +337,7 @@
       </li>
       <!-- <li>
         <a
-          class={segment === 'login' ? 'selected' : ''}
+          class={path === 'login' ? 'selected' : ''}
           href="login"
           on:click={toggleNavigation}>
           Вход
