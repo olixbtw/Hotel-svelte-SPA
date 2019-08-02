@@ -46,7 +46,7 @@
   $: if (loaded_flag) {
     path = $page.path.split("/");
     console.log(path);
-    path = path[path.length - 1]
+    path = path[path.length - 1];
     console.log(path[path.length - 1]);
   }
 </script>
@@ -267,6 +267,11 @@
       margin-left: 10%;
       background: #eb9a21;
     }
+    &:hover {
+      &::after {
+        background: #dcb03f;
+      }
+    }
   }
   .smaller :global(img) {
     max-height: 3.5rem !important;
@@ -279,7 +284,7 @@
   class="{navShown ? 'shown' : ''}
   {smaller ? 'smaller' : ''}"
   bind:offsetHeight={$navHeight}>
-  <Logo {navShown} {smaller}>Pris Hotel</Logo>
+  <Logo {navShown} {smaller} {segment}>Pris Hotel</Logo>
 
   <nav>
     <ul>
