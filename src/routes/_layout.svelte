@@ -66,7 +66,7 @@
   {#if pageLogo}
     <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />
   {/if}
-  <Breadcrumbs />
+  <Breadcrumbs {segment} />
   <slot />
 </main>
 

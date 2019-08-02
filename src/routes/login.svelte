@@ -1,4 +1,8 @@
 <script>
+  import { stores } from "@sapper/app";
+  const { preloading, page, session } = stores();
+  // use session for register user
+
   export let register = false;
   function regTab() {
     register = true;

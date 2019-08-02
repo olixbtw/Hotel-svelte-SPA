@@ -16,7 +16,7 @@
 <script>
   import { reservedRoom } from "../../../components/_stores.js";
   export let room;
-  var showAmm =
+  var showAmm_flag =
     room.amenities.additional.length + room.amenities.abscent.length;
   var a, b;
 
