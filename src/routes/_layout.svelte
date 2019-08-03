@@ -19,7 +19,7 @@
   main {
     width: 100%;
     flex-grow: 1;
-    //to make it possible to pin items to the bottom
+    // чтобы разрешить прицепить футер вниз страницы
     display: flex;
     flex-direction: column;
     position: relative;
