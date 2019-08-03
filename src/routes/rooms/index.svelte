@@ -15,7 +15,10 @@
   import Filter from "./__filter.svelte";
   import { roomsFilter } from "../../components/_stores.js";
   let loaded_flag = false;
+
+  var REFERENCE;
   onMount(() => {
+    REFERENCE = new Array(...rooms);
     loaded_flag = true;
   });
   onDestroy(() => {
@@ -35,7 +38,63 @@
   // FIX
   // вствить сортировку по датам в объект комнат
   var room_available = true;
+
+  $: if (loaded_flag) rooms = roomSort($roomsFilter);
+
+  function roomSort(inputFilter) {
+    var sortBy = inputFilter.sort;
+    var tempRooms = rooms;
+    if (!sortBy) {
+      sortBy = "id";
+    }
+    var reg = /[^0-9]/;
+    function compare(a, b) {
+      typeof a[sortBy] === "string" ? console.log(a[sortBy]) : "";
+      if (+a[sortBy].replace(reg, "") < +b[sortBy].replace(reg, "")) {
+        return -1;
+      }
+      if (+a[sortBy].replace(reg, "") > +b[sortBy].replace(reg, "")) {
+        return 1;
+      }
+      return 0;
+    }
+    tempRooms.sort(compare);
+    return tempRooms;
+
+    // console.log("reference");
+    // REFERENCE.forEach(element => {
+    //   console.log(element[sortBy]);
+    // });
+    // console.log("sorted");
+    // tempRooms.forEach(element => {
+    //   console.log(element[sortBy]);
+    // });
+  }
 </script>
+
+<style>
+  article {
+    border: 1px solid grey;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  article::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+  figure {
+    float: left;
+    margin: 0 20px 0 0;
+    display: inline-block;
+  }
+  figure img {
+    display: block;
+    width: 200px;
+    height: 150px;
+    object-fit: contain;
+  }
+</style>
 
 {#if loaded_flag}
   <Filter />
@@ -65,27 +124,3 @@
 <svelte:head>
   <title>ОТЕЛЬ - Номера</title>
 </svelte:head>
-
-<style>
-  article {
-    border: 1px solid grey;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-  article::after {
-    display: block;
-    content: "";
-    clear: both;
-  }
-  figure {
-    float: left;
-    margin: 0 20px 0 0;
-    display: inline-block;
-  }
-  figure img {
-    display: block;
-    width: 200px;
-    height: 150px;
-    object-fit: contain;
-  }
-</style>

@@ -1,6 +1,7 @@
 const rooms = [
   //template object to store info about each room
   {
+    id: '1',
     type: 'Room',
     title: 'Комната комфортненькая',
     slug: 'comfortable-room-2',
@@ -49,6 +50,7 @@ const rooms = [
     },
   },
   {
+    id: '2',
     type: 'VIP suite',
     title: 'Красвая окна стеклянные комната',
     slug: 'glass-window-suite',
@@ -97,6 +99,7 @@ const rooms = [
     },
   },
   {
+    id: '3',
     type: 'VIP suite',
     title: 'Басейн аппартаменты',
     slug: 'pool-suite',
@@ -145,6 +148,7 @@ const rooms = [
     },
   },
   {
+    id: '4',
     type: 'VIP suite',
     title: 'Люкс номер',
     slug: 'lux-suite',
@@ -193,6 +197,7 @@ const rooms = [
     },
   },
   {
+    id: '5',
     type: 'VIP suite',
     title: 'Красвая окна стеклянные комната',
     slug: 'glass-window-suite-2',
@@ -241,6 +246,7 @@ const rooms = [
     },
   },
   {
+    id: '6',
     type: 'Room',
     title: 'Комната комфортненькая',
     slug: 'comfortable-room',
@@ -289,6 +295,7 @@ const rooms = [
     },
   },
   {
+    id: '7',
     type: 'VIP suite',
     title: 'Красвая окна стеклянные комната',
     slug: 'glass-window-suite-3',
@@ -337,6 +344,7 @@ const rooms = [
     },
   },
   {
+    id: '8',
     type: 'Room',
     title: 'Комфортненько и побольше комната',
     slug: 'comfortable-large-room',
@@ -385,6 +393,7 @@ const rooms = [
     },
   },
   {
+    id: '9',
     type: 'VIP suite',
     title: 'Красвая окна стеклянные комната',
     slug: 'glass-window-suite-4',
@@ -433,6 +442,7 @@ const rooms = [
     },
   },
   {
+    id: '10',
     type: 'VIP suite',
     title: 'Басейн аппартаменты',
     slug: 'pool-suite-2',
@@ -481,6 +491,7 @@ const rooms = [
     },
   },
   {
+    id: '12',
     type: 'VIP suite',
     title: 'Люкс номер',
     slug: 'lux-suite-2',
@@ -529,6 +540,7 @@ const rooms = [
     },
   },
   {
+    id: '13',
     type: 'VIP suite',
     title: 'Красвая окна стеклянные комната',
     slug: 'glass-window-suite-5',
@@ -577,6 +589,7 @@ const rooms = [
     },
   },
   {
+    id: '14',
     type: 'Room',
     title: 'Комната комфортненькая',
     slug: 'comfortable-room-2',
@@ -625,6 +638,7 @@ const rooms = [
     },
   },
   {
+    id: '15',
     type: 'VIP suite',
     title: 'Красвая окна стеклянные комната',
     slug: 'glass-window-suite-6',
@@ -673,6 +687,7 @@ const rooms = [
     },
   },
   {
+    id: '16',
     type: 'Room',
     title: 'Комфортненько и побольше комната',
     slug: 'comfortable-large-room-2',

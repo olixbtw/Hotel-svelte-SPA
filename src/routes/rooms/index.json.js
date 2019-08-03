@@ -3,6 +3,7 @@ import rooms from './_rooms.js'
 const contents = JSON.stringify(
   rooms.map(room => {
     return {
+      id: room.id,
       title: room.title,
       slug: room.slug,
       photo: {

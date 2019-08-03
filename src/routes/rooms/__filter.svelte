@@ -17,6 +17,36 @@
   }
 </script>
 
+<style>
+  .filter-button {
+    display: none;
+  }
+  nav {
+    font-size: 0.7rem;
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  nav > * {
+    border: 1px solid #000;
+    padding: 0.5rem;
+    line-height: 1.2;
+  }
+  section {
+    flex-grow: 1;
+  }
+  input,
+  label {
+    display: inline-block;
+  }
+  ul,
+  li {
+    list-style: circle;
+  }
+  ul {
+    padding-left: 20px;
+  }
+</style>
+
 <div class="filter-body {classToggle ? 'active' : ''}" transition:fade>
   <div class="filter-button" on:click={() => (classToggle = !classToggle)}>
     <i class="fas fa-tasks" />
@@ -44,13 +74,7 @@
     </div>
     <div class="sort">
       <h4>Sort by</h4>
-      <input
-        id="filter_sort_name"
-        type="radio"
-        value="name"
-        name="filter_sort"
-        bind:group={$roomsFilter.sort} />
-      <label for="filter_sort_name">name</label>
+      <Button on:click={() => ($roomsFilter.sort = '')}>Reset</Button>
       <br />
       <input
         id="filter_sort_price"
@@ -60,13 +84,21 @@
         bind:group={$roomsFilter.sort} />
       <label for="filter_sort_price">price</label>
       <br />
-      <input
-        id="filter_sort_guests"
+      <!-- <input
+        id="filter_sort_id"
         type="radio"
-        value="guests"
+        value="id"
         name="filter_sort"
         bind:group={$roomsFilter.sort} />
-      <label for="filter_sort_guests">number of guests</label>
+      <label for="filter_sort_id">id</label>
+      <br /> -->
+      <input
+        id="filter_sort_people"
+        type="radio"
+        value="people"
+        name="filter_sort"
+        bind:group={$roomsFilter.sort} />
+      <label for="filter_sort_people">number of guests</label>
     </div>
     <div class="view">
       <h4>View</h4>
@@ -104,33 +136,3 @@
     </section>
   </nav>
 </div>
-
-<style>
-  .filter-button {
-    display: none;
-  }
-  nav {
-    font-size: 0.7rem;
-    display: flex;
-    margin-bottom: 2rem;
-  }
-  nav > * {
-    border: 1px solid #000;
-    padding: 0.5rem;
-    line-height: 1.2;
-  }
-  section {
-    flex-grow: 1;
-  }
-  input,
-  label {
-    display: inline-block;
-  }
-  ul,
-  li {
-    list-style: circle;
-  }
-  ul {
-    padding-left: 20px;
-  }
-</style>
