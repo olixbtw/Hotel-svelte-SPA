@@ -2,8 +2,6 @@
   import { reservedRoom } from "../../../components/_stores.js";
   import Button from "../../../components/__button.svelte";
 
-  export let bookingData = false;
-
   var activeBookingPage = 0;
   function nextBooking() {
     activeBookingPage += 1;
@@ -43,7 +41,9 @@
   <title>ОТЕЛЬ - Резервация</title>
 </svelte:head>
 <svelte:window bind:scrollY={y} />
-
+{$reservedRoom.length}
+<br />
+{activeBookingPage}
 {#if $reservedRoom.length && activeBookingPage >= 0}
   <div class="container">
     <div class="col-left">
@@ -132,7 +132,7 @@
 {:else}
   <p>Для продолжения резервации</p>
   <h1>Выберите номер</h1>
-  <Button href="rooms">Номера</Button>
+  <Button href="/rooms">Номера</Button>
   {#if $reservedRoom.length}
     <Button on:click={nextBooking}>Вернуться к регистрации</Button>
   {/if}

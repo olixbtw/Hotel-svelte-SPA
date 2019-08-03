@@ -32,8 +32,6 @@
         }
 
         daysTotal = dateDiffInDays(new Date(Date_a), new Date(Date_b));
-
-        console.log(daysTotal);
       }
     }
   }
@@ -54,9 +52,9 @@
   onDestroy(() => {
     loaded_flag = false;
   });
+
   var showAmm_flag =
     room.amenities.additional.length + room.amenities.abscent.length;
-
   function addRoom() {
     var reserveItem = {
       id: room.slug,
@@ -242,9 +240,6 @@
 
 <Modal {modalContent} />
 
-<!-- <Button on:click={() => console.log(room)}>SHOW</Button>
-<Button on:click={() => console.log($reservedRoom)}>RESERVED</Button>
--->
 
 <!-- <style>
   /*

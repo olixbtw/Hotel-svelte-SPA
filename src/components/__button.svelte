@@ -17,6 +17,6 @@
   }
 </style>
 
-<button class={type} on:click={hrefChange} on:click>
+<button class={type} on:click on:click={hrefChange}>
   <slot />
 </button>

@@ -1,5 +1,6 @@
 <script>
   import Slider from "../components/slider.svelte";
+  import Button from "../components/__button.svelte";
 </script>
 
 <style lang="scss">
@@ -59,3 +60,5 @@
     Try editing this file (src/routes/index.svelte) to test live reloading.
   </strong>
 </p>
+
+<Button href="rooms/">Go to Rooms</Button>
