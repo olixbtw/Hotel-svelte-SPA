@@ -245,7 +245,6 @@
 <svelte:window bind:scrollY={y} />
 
 <h1>Номера</h1>
-<Pagination on:click={paginationClick} {pag_opt} />
 
 {#if loaded_filter}
   <Filter />

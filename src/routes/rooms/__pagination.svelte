@@ -1,32 +1,38 @@
 <script>
   export let pag_opt;
-
   import { onMount } from "svelte";
-
-  var numberItems;
+  let numberItems;
+  let diffPagination;
   onMount(() => {
-    numberItems = document
-      .getElementById("pagination")
-      .getElementsByTagName("ul")[0].children;
-    numberItems[pag_opt.active - 1].classList.add("active");
+    diffPagination = document.getElementsByClassName("pagination_bar");
+    for (let i = 0; i < diffPagination.length; i++) {
+      numberItems = diffPagination[i].getElementsByTagName("ul")[0].children;
+      numberItems[pag_opt.active - 1].classList.add("active");
+    }
   });
 
   $: {
     if (numberItems) {
-      for (var i = 0; i < numberItems.length; i++)
-        numberItems[i].classList.remove("active");
-      numberItems[pag_opt.active - 1].classList.add("active");
+      //рабтаем с ДОМ, а не с данными - каждый раз надо перестраивать все пагинации на странице
+      diffPagination = document.getElementsByClassName("pagination_bar");
+
+      for (let jj = 0; jj < diffPagination.length; jj++) {
+        numberItems = diffPagination[jj].getElementsByTagName("ul")[0].children;
+        for (let i = 0; i < numberItems.length; i++)
+          numberItems[i].classList.remove("active");
+        numberItems[pag_opt.active - 1].classList.add("active");
+      }
     }
   }
 
-  var arr = [];
-  for (var i = 1; i < pag_opt.len + 1; i++) {
+  let arr = [];
+  for (let i = 1; i < pag_opt.len + 1; i++) {
     arr[i - 1] = i;
   }
 </script>
 
 <style lang="scss">
-  .pagination {
+  .pagination_bar {
     padding: 0.5rem 0;
     display: flex;
     justify-content: center;
@@ -84,7 +90,7 @@
       }
     }
   }
-  .pagination .active {
+  .pagination_bar .active {
     color: white;
     &:hover {
       color: white;
@@ -112,7 +118,7 @@
 </style>
 
 {#if pag_opt.len > 1}
-  <nav id="pagination" on:click class="pagination">
+  <nav on:click class="pagination_bar">
     <div class="arr {pag_opt.active == 1 ? 'disabled' : ''}">&#60;</div>
     <ul>
       {#each arr as i}
