@@ -45,9 +45,7 @@
   var path = [];
   $: if (loaded_flag) {
     path = $page.path.split("/");
-    console.log(path);
     path = path[path.length - 1];
-    console.log(path[path.length - 1]);
   }
 </script>
 

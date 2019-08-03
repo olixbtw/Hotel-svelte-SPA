@@ -12,6 +12,7 @@
 </script>
 
 <script>
+  import Button from "../../components/__button.svelte";
   import { reservedRoom, slugTitle } from "../../components/_stores.js";
   import { onMount } from "svelte";
   export let room;
@@ -34,6 +35,8 @@
     };
     //should be unique index, push dates aswell, check for errors
     $reservedRoom.push(reserveItem);
+
+    console.log($reservedRoom);
   }
 
   import Modal from "../../components/modal.svelte";
@@ -183,7 +186,7 @@
       <h3>Description</h3>
       <p>{room.description}</p>
     </div>
-    <button on:click={addRoom}>Reserve it</button>
+    <Button on:click={addRoom} href="rooms/booking">Reserve it</Button>
   </div>
   <div class="col-right">
     <label for="date_input_checkin">Дата въезда</label>
@@ -192,7 +195,7 @@
     <input id="date_input_checkout" type="date" bind:value={Date_b} />
     <div class="price-total">{room.price.value * daysTotal}</div>
     <hr />
-    <button on:click={addRoom}>Reserve</button>
+    <Button on:click={addRoom} href="rooms/booking">Reserve</Button>
     <br />
     <span>You wont be charged yet</span>
   </div>
@@ -200,8 +203,9 @@
 
 <Modal {modalContent} />
 
-<!-- <button on:click={() => console.log(room)}>SHOW</button>
-<button on:click={() => console.log($reservedRoom)}>RESERVED</button> -->
+<!-- <Button on:click={() => console.log(room)}>SHOW</Button>
+<Button on:click={() => console.log($reservedRoom)}>RESERVED</Button>
+-->
 
 <!-- <style>
   /*

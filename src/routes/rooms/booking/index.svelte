@@ -1,5 +1,6 @@
 <script>
   import { reservedRoom } from "../../../components/_stores.js";
+  import Button from "../../../components/__button.svelte";
 
   export let bookingData = false;
 
@@ -26,10 +27,10 @@
   <title>ОТЕЛЬ - Резервация</title>
 </svelte:head>
 
-{#if $reservedRoom.length}
+{#if $reservedRoom.length && activeBookingPage >= 0}
   <div class="container">
     <div class="col-left">
-      <button on:click={prevBooking}>Back</button>
+      <Button on:click={prevBooking}>Back</Button>
 
       {#if activeBookingPage == 0}
         <section>
@@ -83,7 +84,7 @@
             <p>Yaryna & Yaroslav</p>
           </div>
 
-          <button on:click={nextBooking}>Agree and continue</button>
+          <Button on:click={nextBooking}>Agree and continue</Button>
 
         </section>
       {:else if activeBookingPage == 1}
@@ -97,12 +98,12 @@
           pay in full
           <br />
           pay for booking--- the rest you will pay upon arival
-          <button on:click={nextBooking}>Next</button>
+          <Button on:click={nextBooking}>Next</Button>
         </section>
       {:else if activeBookingPage > 1}
         <section>
           <h1>Thank you for your booking!</h1>
-          <button on:click={resetBooking}>Close</button>
+          <Button on:click={resetBooking}>Close</Button>
         </section>
       {/if}
 
@@ -112,5 +113,8 @@
 {:else}
   <p>Для продолжения резервации</p>
   <h1>Выберите номер</h1>
-  <a href="rooms">Номера</a>
+  <Button href="rooms">Номера</Button>
+  {#if $reservedRoom.length}
+    <Button on:click={nextBooking}>Вернуться к регистрации</Button>
+  {/if}
 {/if}

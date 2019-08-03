@@ -1,5 +1,7 @@
 <script>
   import { roomsFilter } from "../../components/_stores.js";
+  import Button from "../../components/__button.svelte";
+
   var classToggle = false;
 
   function inc_guest() {
@@ -100,9 +102,9 @@
   </div>
   <nav>
     <h4>Guests</h4>
-    <button on:click={red_guest}>-</button>
+    <Button on:click={red_guest}>-</Button>
     <input type="number" bind:value={$roomsFilter.guests.n} />
-    <button on:click={inc_guest}>+</button>
+    <Button on:click={inc_guest}>+</Button>
     <br />
     <input
       id="filter_n_guests"
