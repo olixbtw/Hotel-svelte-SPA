@@ -14,14 +14,45 @@
 <script>
   import Button from "../../components/__button.svelte";
   import { reservedRoom, slugTitle } from "../../components/_stores.js";
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   export let room;
-  var Date_a = "2019-08-02";
-  var Date_b = "2019-08-04";
-  var daysTotal = 2;
+  var Date_a, Date_b, daysTotal, loaded_flag;
+
+  $: {
+    if (loaded_flag) {
+      if (Date_a && Date_b) {
+        // a and b are javascript Date objects
+        function dateDiffInDays(a, b) {
+          // Discard the time and time-zone information.
+          const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+          const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+          const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+          return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+        }
+
+        daysTotal = dateDiffInDays(new Date(Date_a), new Date(Date_b));
+
+        console.log(daysTotal);
+      }
+    }
+  }
 
   onMount(() => {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0"); 
+    let yyyy = today.getFullYear();
+
+    Date_a = yyyy + "-" + mm + "-" + dd;
+    dd = String(++dd).padStart(2, "0");
+    Date_b = yyyy + "-" + mm + "-" + dd;
+
     $slugTitle = room.title;
+    loaded_flag = true;
+  });
+  onDestroy(() => {
+    loaded_flag = false;
   });
   var showAmm_flag =
     room.amenities.additional.length + room.amenities.abscent.length;
@@ -193,7 +224,17 @@
     <input id="date_input_checkin" type="date" bind:value={Date_a} />
     <label for="date_input_checkout">Дата отъезда</label>
     <input id="date_input_checkout" type="date" bind:value={Date_b} />
-    <div class="price-total">{room.price.value * daysTotal}</div>
+    {#if daysTotal > 0}
+      <div class="days-total">Days - {daysTotal}</div>
+      <div class="price-total">
+        Price - {room.price.value * daysTotal}{room.price.currency}
+      </div>
+    {:else}
+    <br>
+    These dates unavailable
+    <br>
+    <br>
+    {/if}
     <hr />
     <Button on:click={addRoom} href="rooms/booking">Reserve</Button>
     <br />
