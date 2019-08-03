@@ -37,7 +37,7 @@
     text-align: center;
     right: 1.5rem;
     color: #443941;
-    transition: bottom .7s, opacity 0.4s, background 0.3s, color 0.3s;
+    transition: bottom 0.7s, opacity 0.4s, background 0.3s, color 0.3s;
     bottom: 0;
     opacity: 0;
   }

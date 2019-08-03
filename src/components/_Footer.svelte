@@ -22,7 +22,9 @@
 </style>
 
 <footer>
-  <a href="https://github.com/altorik13/TGFV_finalProject" target="_blank">GIT</a>
+  <a href="https://github.com/altorik13/TGFV_finalProject" target="_blank">
+    GIT
+  </a>
   <span>
     Made for TGFN University final project
     <i class="far fa-copyright" />

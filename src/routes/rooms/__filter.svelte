@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   import { roomsFilter } from "../../components/_stores.js";
   import Button from "../../components/__button.svelte";
 
@@ -96,7 +97,7 @@
   }
 </style>
 
-<div class="filter-body {classToggle ? 'active' : ''}">
+<div class="filter-body {classToggle ? 'active' : ''}" transition:fade>
   <div class="filter-button" on:click={() => (classToggle = !classToggle)}>
     <i class="fas fa-tasks" />
   </div>

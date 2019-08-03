@@ -175,7 +175,7 @@
         color: #443941;
       }
     }
-    &:after {
+    &::after {
       content: "";
       display: block;
       position: absolute;
@@ -187,7 +187,7 @@
     }
   }
   .show_roooms {
-    &:after {
+    &::after {
       animation: hide-overlay 1500ms ease-in-out 450ms forwards;
     }
   }

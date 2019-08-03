@@ -41,7 +41,7 @@
   onMount(() => {
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, "0");
-    let mm = String(today.getMonth() + 1).padStart(2, "0"); 
+    let mm = String(today.getMonth() + 1).padStart(2, "0");
     let yyyy = today.getFullYear();
 
     Date_a = yyyy + "-" + mm + "-" + dd;
@@ -230,10 +230,10 @@
         Price - {room.price.value * daysTotal}{room.price.currency}
       </div>
     {:else}
-    <br>
-    These dates unavailable
-    <br>
-    <br>
+      <br />
+      These dates unavailable
+      <br />
+      <br />
     {/if}
     <hr />
     <Button on:click={addRoom} href="rooms/booking">Reserve</Button>

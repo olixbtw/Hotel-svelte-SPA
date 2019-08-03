@@ -30,7 +30,7 @@
     }
     &.active {
       // color: rgb(220, 176, 63);
-      // color: rgb(235, 154, 33);      
+      // color: rgb(235, 154, 33);
       filter: drop-shadow(1px 2px 2px rgba(220, 176, 63, 0.4));
     }
     &:hover {

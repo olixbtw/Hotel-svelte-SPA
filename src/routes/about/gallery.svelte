@@ -9,18 +9,22 @@
 
 <style lang="scss">
   .gallery {
+    justify-content: space-around;
     padding: 0.5rem 0;
-    width: calc(100% + 1em);
-    margin-left: -0.5em;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    width: calc(100% + 0.65rem * 2);
+    margin-left: -0.65rem;
   }
   figure {
-    position: relative;
+    margin: 1.25rem 0.65rem;
+    //минимальный зазор чтобы пр ховере не прикасаться - 0.5
     width: 300px;
+    //вместе с паддингом
+    // при наведении 300, в покое 300 - 1rem
+    position: relative;
     display: block;
-    margin: 1.5em 0.75em;
     cursor: pointer;
 
     &::after {
@@ -31,21 +35,21 @@
       display: block;
       width: 80%;
       height: 80%;
-      right: -0.5em;
-      top: -0.5em;
+      right: -0.5rem;
+      top: -0.5rem;
       z-index: -1;
       transition: all 0.5s;
     }
 
     img {
-      // z-index: 2;
-      background: #cecece;
       transition: all 0.4s;
       position: absolute;
-      top: 5%;
-      left: 5%;
-      height: 90%;
-      width: 90%;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 0.5rem;
+      background: white;
       object-fit: cover;
     }
 
@@ -55,10 +59,11 @@
       right: 0;
       width: 100%;
       position: absolute;
-      padding: 0.75em;
+      padding: 0.75rem;
       background: #eb9a21;
       color: #fff;
       transition: all 0.5s;
+      pointer-events: none;
     }
 
     &::before {
@@ -70,22 +75,19 @@
     &:hover {
       &::after {
         background: #dcb03f;
-        right: 0.75em;
-        top: 0.75em;
+        right: 0.5rem;
+        top: 0.5rem;
         width: 100%;
         height: 100%;
       }
       img {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        padding: 0;
       }
       figcaption {
-        top: -0.75em;
-        right: -0.75em;
+        top: -0.5rem;
+        right: -0.5rem;
         opacity: 1;
-        // z-index: 3;
+        pointer-events: all;
       }
     }
   }

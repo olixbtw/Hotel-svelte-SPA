@@ -60,6 +60,7 @@ a:visited {
 
 code {
   font-family: menlo, inconsolata, monospace;
+  font-size: 14px;
   font-size: calc(1em - 2px);
   color: #555;
   background-color: #f0f0f0;
