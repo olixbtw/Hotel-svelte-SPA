@@ -42,6 +42,18 @@
   }
 </script>
 
+{#if path.length > 0 && segment}
+  <nav>
+    <ul>
+      {#each path as node}
+        <li>
+          <a href={node.path}>{node.name}</a>
+        </li>
+      {/each}
+    </ul>
+  </nav>
+{/if}
+
 <style lang="scss">
   nav {
     padding: 0.25rem 0;
@@ -71,15 +83,3 @@
     }
   }
 </style>
-
-{#if path.length > 0 && segment}
-  <nav>
-    <ul>
-      {#each path as node}
-        <li>
-          <a href={node.path}>{node.name}</a>
-        </li>
-      {/each}
-    </ul>
-  </nav>
-{/if}

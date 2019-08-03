@@ -12,12 +12,6 @@
   };
 </script>
 
-<style>
-  section {
-    margin-bottom: 1rem;
-  }
-</style>
-
 <svelte:head>
   <title>ОТЕЛЬ - Контакты</title>
 </svelte:head>
@@ -54,3 +48,9 @@
 </div>
 
 <Map />
+
+<style>
+  section {
+    margin-bottom: 1rem;
+  }
+</style>

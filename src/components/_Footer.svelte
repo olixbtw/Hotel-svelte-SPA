@@ -1,3 +1,14 @@
+<footer>
+  <a href="https://github.com/altorik13/TGFV_finalProject" target="_blank">
+    GIT
+  </a>
+  <span>
+    Made for TGFN University final project
+    <i class="far fa-copyright" />
+    Alex Revchuk
+  </span>
+</footer>
+
 <style lang="scss">
   footer {
     background: #443941;
@@ -20,14 +31,3 @@
     white-space: nowrap;
   }
 </style>
-
-<footer>
-  <a href="https://github.com/altorik13/TGFV_finalProject" target="_blank">
-    GIT
-  </a>
-  <span>
-    Made for TGFN University final project
-    <i class="far fa-copyright" />
-    Alex Revchuk
-  </span>
-</footer>

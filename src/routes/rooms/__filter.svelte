@@ -93,6 +93,7 @@
       </label>
     </div>
     <section>
+      <h4>Data</h4>
       <ul>
         <li>$roomsFilter.guests.n {$roomsFilter.guests.n}</li>
         <li>$roomsFilter.larger {$roomsFilter.guests.larger}</li>

@@ -32,7 +32,7 @@
   onDestroy(() => {
     loaded_flag = false;
   });
-  
+
   function openModal() {
     if (loaded_flag) {
       yStore = y;
@@ -52,6 +52,97 @@
     path = path[path.length - 1];
   }
 </script>
+
+<svelte:window bind:scrollY={y} bind:innerWidth={x} />
+
+<header
+  class="{navShown ? 'shown' : ''}
+  {smaller ? 'smaller' : ''}"
+  bind:offsetHeight={$navHeight}>
+  <Logo {navShown} {smaller} {segment}>Pris Hotel</Logo>
+
+  <nav>
+    <ul>
+      <li>
+        <a
+          class={segment === 'rooms' ? 'selected' : ''}
+          href="rooms"
+          on:click={toggleNavigation}>
+          Номера
+        </a>
+        <ul class="submenu">
+          <li>
+            <a
+              class={path === 'booking' ? 'selected' : ''}
+              href="rooms/booking"
+              on:click={toggleNavigation}>
+              Резервация
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a
+          class={segment === 'about' ? 'selected' : ''}
+          href="about"
+          on:click={toggleNavigation}>
+          Про отель
+        </a>
+        <ul class="submenu">
+          <li>
+            <a
+              class={path === 'contact' ? 'selected' : ''}
+              href="about/contact"
+              on:click={toggleNavigation}>
+              Контакты
+            </a>
+          </li>
+          <li>
+            <a
+              class={path === 'services' ? 'selected' : ''}
+              href="about/services"
+              on:click={toggleNavigation}>
+              Услуги
+            </a>
+          </li>
+          <li>
+            <a
+              class={path === 'gallery' ? 'selected' : ''}
+              href="about/gallery"
+              on:click={toggleNavigation}>
+              Галерея
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- <li>
+        <a
+          class={path === 'login' ? 'selected' : ''}
+          href="login"
+          on:click={toggleNavigation}>
+          Вход
+        </a>
+      </li> -->
+    </ul>
+    <div class="nav-show" on:click={toggleNavigation}>
+      <span />
+      <span />
+      <span />
+      <!-- <div class="bars">
+        <span />
+        <span />
+        <span />
+      </div> 
+      <span>Меню</span> -->
+    </div>
+  </nav>
+
+  <!-- <div class="search">
+    <input type="search" />
+    <i class="fas fa-search" />
+  </div> -->
+
+</header>
 
 <style lang="scss">
   header {
@@ -279,94 +370,3 @@
     max-height: 3.5rem !important;
   }
 </style>
-
-<svelte:window bind:scrollY={y} bind:innerWidth={x} />
-
-<header
-  class="{navShown ? 'shown' : ''}
-  {smaller ? 'smaller' : ''}"
-  bind:offsetHeight={$navHeight}>
-  <Logo {navShown} {smaller} {segment}>Pris Hotel</Logo>
-
-  <nav>
-    <ul>
-      <li>
-        <a
-          class={segment === 'rooms' ? 'selected' : ''}
-          href="rooms"
-          on:click={toggleNavigation}>
-          Номера
-        </a>
-        <ul class="submenu">
-          <li>
-            <a
-              class={path === 'booking' ? 'selected' : ''}
-              href="rooms/booking"
-              on:click={toggleNavigation}>
-              Резервация
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a
-          class={segment === 'about' ? 'selected' : ''}
-          href="about"
-          on:click={toggleNavigation}>
-          Про отель
-        </a>
-        <ul class="submenu">
-          <li>
-            <a
-              class={path === 'contact' ? 'selected' : ''}
-              href="about/contact"
-              on:click={toggleNavigation}>
-              Контакты
-            </a>
-          </li>
-          <li>
-            <a
-              class={path === 'services' ? 'selected' : ''}
-              href="about/services"
-              on:click={toggleNavigation}>
-              Услуги
-            </a>
-          </li>
-          <li>
-            <a
-              class={path === 'gallery' ? 'selected' : ''}
-              href="about/gallery"
-              on:click={toggleNavigation}>
-              Галерея
-            </a>
-          </li>
-        </ul>
-      </li>
-      <!-- <li>
-        <a
-          class={path === 'login' ? 'selected' : ''}
-          href="login"
-          on:click={toggleNavigation}>
-          Вход
-        </a>
-      </li> -->
-    </ul>
-    <div class="nav-show" on:click={toggleNavigation}>
-      <span />
-      <span />
-      <span />
-      <!-- <div class="bars">
-        <span />
-        <span />
-        <span />
-      </div> 
-      <span>Меню</span> -->
-    </div>
-  </nav>
-
-  <!-- <div class="search">
-    <input type="search" />
-    <i class="fas fa-search" />
-  </div> -->
-
-</header>

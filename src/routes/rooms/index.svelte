@@ -11,9 +11,6 @@
 <script>
   export let rooms;
 
-  //filter - данные через store.js
-  // нужно связать каждое поле со значением
-  // + удобнее передавать через общие свойства (но наверное дольше)
   import { onMount, onDestroy } from "svelte";
   import Filter from "./__filter.svelte";
   import { roomsFilter } from "../../components/_stores.js";
@@ -40,14 +37,10 @@
   var room_available = true;
 </script>
 
-<svelte:head>
-  <title>ОТЕЛЬ - Номера</title>
-</svelte:head>
-<h1>Номера</h1>
-
 {#if loaded_flag}
   <Filter />
 {/if}
+
 <div class="room-list {loaded_flag ? 'show_roooms' : ''}">
   {#each rooms as room}
     <!-- <article class="guests{room.people} available{room_available} price{room.price}"> -->
@@ -69,10 +62,15 @@
   {/each}
 </div>
 
+<svelte:head>
+  <title>ОТЕЛЬ - Номера</title>
+</svelte:head>
+
 <style>
   article {
     border: 1px solid grey;
-    padding: 15px;
+    padding: 10px;
+    margin-bottom: 20px;
   }
   article::after {
     display: block;
@@ -81,8 +79,11 @@
   }
   figure {
     float: left;
+    margin: 0 20px 0 0;
+    display: inline-block;
   }
   figure img {
+    display: block;
     width: 200px;
     height: 150px;
     object-fit: contain;

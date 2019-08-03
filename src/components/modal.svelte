@@ -46,6 +46,45 @@
   }
 </script>
 
+<svelte:window bind:scrollY={y} />
+
+{#if modalContent.active === 0 || (modalContent.active && modalContent.images.length > 0)}
+  <div class="modalBG" on:click={() => modalChange(false)}>
+    <div class="inner" on:click|stopPropagation>
+      <div class="big_image">
+        {#each modalContent.images as img, index}
+          {#if index === modalContent.active}
+            <img src={img.src} alt={img.alt} />
+            <!-- {#if img.text}{img.text}{/if} -->
+          {/if}
+        {/each}
+      </div>
+      {modalContent.active}
+      <br />
+      <div class="controls-overflow">
+        <div class="all_img_list active_slide{modalContent.active}">
+          {#each modalContent.images as img, index}
+            <img
+              class={modalContent.active == index ? 'active' : ''}
+              src={img.src}
+              alt={img.alt}
+              on:click={() => (modalContent.active = index)} />
+          {/each}
+        </div>
+        <div class="prev_btn" on:click={() => modalChange('dec')}>
+          <i class="fas fa-angle-left" />
+        </div>
+        <div class="next_btn" on:click={() => modalChange('inc')}>
+          <i class="fas fa-angle-right" />
+        </div>
+      </div>
+      <div class="close_btn" on:click={() => modalChange(false)}>
+        <i class="fas fa-times" />
+      </div>
+    </div>
+  </div>
+{/if}
+
 <style lang="scss">
   .modalBG {
     background: #fff;
@@ -156,42 +195,3 @@
     }
   }
 </style>
-
-<svelte:window bind:scrollY={y} />
-
-{#if modalContent.active === 0 || (modalContent.active && modalContent.images.length > 0)}
-  <div class="modalBG" on:click={() => modalChange(false)}>
-    <div class="inner" on:click|stopPropagation>
-      <div class="big_image">
-        {#each modalContent.images as img, index}
-          {#if index === modalContent.active}
-            <img src={img.src} alt={img.alt} />
-            <!-- {#if img.text}{img.text}{/if} -->
-          {/if}
-        {/each}
-      </div>
-      {modalContent.active}
-      <br />
-      <div class="controls-overflow">
-        <div class="all_img_list active_slide{modalContent.active}">
-          {#each modalContent.images as img, index}
-            <img
-              class={modalContent.active == index ? 'active' : ''}
-              src={img.src}
-              alt={img.alt}
-              on:click={() => (modalContent.active = index)} />
-          {/each}
-        </div>
-        <div class="prev_btn" on:click={() => modalChange('dec')}>
-          <i class="fas fa-angle-left" />
-        </div>
-        <div class="next_btn" on:click={() => modalChange('inc')}>
-          <i class="fas fa-angle-right" />
-        </div>
-      </div>
-      <div class="close_btn" on:click={() => modalChange(false)}>
-        <i class="fas fa-times" />
-      </div>
-    </div>
-  </div>
-{/if}

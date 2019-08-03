@@ -51,6 +51,21 @@
   }
 </script>
 
+<div class="slider {transition ? 'transition' : ''} slide{sliderScroll}">
+  <div class="slider__text">
+    <slot />
+  </div>
+  <img
+    src={imageList[imageList.length - 1].src}
+    alt={imageList[imageList.length - 1].alt} />
+  {#each imageList as img}
+    <img src={img.src} alt={img.alt} class="" />
+  {/each}
+  <img src={imageList[0].src} alt={imageList[0].alt} />
+  <div class="slider__button slider__button-left" on:click={prevSlide} />
+  <div class="slider__button slider__button-right" on:click={nextSlide} />
+</div>
+
 <style lang="scss">
   .slider {
     height: 400px;
@@ -132,18 +147,3 @@
     }
   }
 </style>
-
-<div class="slider {transition ? 'transition' : ''} slide{sliderScroll}">
-  <div class="slider__text">
-    <slot />
-  </div>
-  <img
-    src={imageList[imageList.length - 1].src}
-    alt={imageList[imageList.length - 1].alt} />
-  {#each imageList as img}
-    <img src={img.src} alt={img.alt} class="" />
-  {/each}
-  <img src={imageList[0].src} alt={imageList[0].alt} />
-  <div class="slider__button slider__button-left" on:click={prevSlide} />
-  <div class="slider__button slider__button-right" on:click={nextSlide} />
-</div>

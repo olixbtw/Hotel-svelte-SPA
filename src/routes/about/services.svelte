@@ -1,9 +1,3 @@
-<style>
-  section {
-    margin-bottom: 1rem;
-  }
-</style>
-
 <svelte:head>
   <title>ОТЕЛЬ - Услуги</title>
 </svelte:head>
@@ -128,3 +122,9 @@
   <span>E-mail: catering@premier-palace.com</span>
   <br />
 </section>
+
+<style>
+  section {
+    margin-bottom: 1rem;
+  }
+</style>

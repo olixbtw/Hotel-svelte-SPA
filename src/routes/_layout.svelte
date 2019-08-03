@@ -8,12 +8,29 @@
   let pageLogo = "logo_dark";
   export let segment;
 
-  import { onMount} from "svelte";
+  import { onMount } from "svelte";
   var heightFix;
   onMount(() => {
     heightFix = $navHeight - 25;
   });
 </script>
+
+<Nav {segment} />
+
+<div style="height:{heightFix}px;" />
+<main>
+  {#if pageLogo}
+    <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />
+  {/if}
+  {#if segment !== 'login'}
+    <Breadcrumbs {segment} />
+  {/if}
+  <slot />
+</main>
+
+<Footer />
+
+<Arrow />
 
 <style lang="scss">
   main {
@@ -58,20 +75,3 @@
     font-range: 500px 1680px; /* viewport widths between which font-size is fluid */
   }
 </style>
-
-<Nav {segment} />
-
-<div style="height:{heightFix}px;" />
-<main>
-  {#if pageLogo}
-    <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />
-  {/if}
-  {#if segment !== 'login'}
-    <Breadcrumbs {segment} />
-  {/if}
-  <slot />
-</main>
-
-<Footer />
-
-<Arrow />

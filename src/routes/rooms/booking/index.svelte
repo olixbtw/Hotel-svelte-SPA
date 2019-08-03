@@ -15,28 +15,6 @@
   var y;
 </script>
 
-<style lang="scss">
-  .container {
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: auto 13rem;
-
-    position: relative;
-  }
-  .col-left {
-    grid-column: 1 / 2;
-  }
-  .col-right {
-    grid-column: 2 / 3;
-
-    &.fixed {
-      position: fixed;
-      background: red;
-      right: 0;
-    }
-  }
-</style>
-
 <svelte:head>
   <title>ОТЕЛЬ - Резервация</title>
 </svelte:head>
@@ -137,3 +115,25 @@
     <Button on:click={nextBooking}>Вернуться к регистрации</Button>
   {/if}
 {/if}
+
+<style lang="scss">
+  .container {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: auto 13rem;
+
+    position: relative;
+  }
+  .col-left {
+    grid-column: 1 / 2;
+  }
+  .col-right {
+    grid-column: 2 / 3;
+
+    &.fixed {
+      position: fixed;
+      background: red;
+      right: 0;
+    }
+  }
+</style>

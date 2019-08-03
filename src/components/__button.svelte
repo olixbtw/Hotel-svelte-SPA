@@ -8,6 +8,10 @@
   }
 </script>
 
+<button class={type} on:click on:click={hrefChange}>
+  <slot />
+</button>
+
 <style>
   button {
     /* display: inline-block; */
@@ -16,7 +20,3 @@
     padding: 0.5rem 1.5rem;
   }
 </style>
-
-<button class={type} on:click on:click={hrefChange}>
-  <slot />
-</button>

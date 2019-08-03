@@ -76,6 +76,113 @@
   };
 </script>
 
+<svelte:head>
+  <title>{room.title}</title>
+</svelte:head>
+
+<div class="images">
+  {#each room.photos as img, index}
+    <img
+      src={img.src}
+      alt={img.alt}
+      on:click={() => (modalContent.active = index)} />
+  {/each}
+</div>
+<div class="container">
+  <!-- more photos here -->
+  <div class="col-left">
+    <div class="type">
+      {room.type}
+      <span class="n_people">
+        {room.people} {room.people == 1 ? 'person' : 'people'}
+      </span>
+    </div>
+    <h1>{room.title}</h1>
+    <div class="price">{room.price.currency}{room.price.value}/night</div>
+
+    {#if room.amenities.additional.length + room.amenities.abscent.length > 0}
+      <div class="amenities">
+        <h3>Amenities</h3>
+        <ul>
+          {#each room.amenities.additional as amm}
+            <li>{amm}</li>
+          {/each}
+          {#each room.amenities.abscent as amm}
+            <li class="disabled">{amm}</li>
+          {/each}
+        </ul>
+      </div>
+    {/if}
+    <div class="description">
+      <h3>Description</h3>
+      <p>{room.description}</p>
+    </div>
+    <Button on:click={addRoom} href="rooms/booking">Reserve it</Button>
+  </div>
+  <div class="col-right">
+    <label for="date_input_checkin">Дата въезда</label>
+    <input id="date_input_checkin" type="date" bind:value={Date_a} />
+    <label for="date_input_checkout">Дата отъезда</label>
+    <input id="date_input_checkout" type="date" bind:value={Date_b} />
+    {#if daysTotal > 0}
+      <div class="days-total">Days - {daysTotal}</div>
+      <div class="price-total">
+        Price - {room.price.value * daysTotal}{room.price.currency}
+      </div>
+    {:else}
+      <br />
+      These dates unavailable
+      <br />
+      <br />
+    {/if}
+    <hr />
+    <Button on:click={addRoom} href="rooms/booking">Reserve</Button>
+    <br />
+    <span>You wont be charged yet</span>
+  </div>
+</div>
+
+<Modal {modalContent} />
+
+<!-- <style>
+  /*
+		By default, CSS is locally scoped to the component,
+		and any unused styles are dead-code-eliminated.
+		In this page, Svelte can't know which elements are
+		going to appear inside the {{{room.html}}} block,
+		so we have to use the :global(...) modifier to target
+		all elements inside .content
+	*/
+  .content :global(h2) {
+    font-size: 1.4em;
+    font-weight: 500;
+  }
+
+  .content :global(pre) {
+    background-color: #f9f9f9;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
+    padding: 0.5em;
+    border-radius: 2px;
+    overflow-x: auto;
+  }
+
+  .content :global(pre) :global(code) {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .content :global(ul) {
+    line-height: 1.5;
+  }
+
+  .content :global(li) {
+    margin: 0 0 0.5em 0;
+  }
+</style> -->
+<!-- <div class="content">
+  {@html room.description}
+</div> -->
+
 <style lang="scss">
   .container {
     display: grid;
@@ -171,111 +278,3 @@
   .description {
   }
 </style>
-
-<svelte:head>
-  <title>{room.title}</title>
-</svelte:head>
-
-<div class="images">
-  {#each room.photos as img, index}
-    <img
-      src={img.src}
-      alt={img.alt}
-      on:click={() => (modalContent.active = index)} />
-  {/each}
-</div>
-<div class="container">
-  <!-- more photos here -->
-  <div class="col-left">
-    <div class="type">
-      {room.type}
-      <span class="n_people">
-        {room.people} {room.people == 1 ? 'person' : 'people'}
-      </span>
-    </div>
-    <h1>{room.title}</h1>
-    <div class="price">{room.price.currency}{room.price.value}/night</div>
-
-    {#if room.amenities.additional.length + room.amenities.abscent.length > 0}
-      <div class="amenities">
-        <h3>Amenities</h3>
-        <ul>
-          {#each room.amenities.additional as amm}
-            <li>{amm}</li>
-          {/each}
-          {#each room.amenities.abscent as amm}
-            <li class="disabled">{amm}</li>
-          {/each}
-        </ul>
-      </div>
-    {/if}
-    <div class="description">
-      <h3>Description</h3>
-      <p>{room.description}</p>
-    </div>
-    <Button on:click={addRoom} href="rooms/booking">Reserve it</Button>
-  </div>
-  <div class="col-right">
-    <label for="date_input_checkin">Дата въезда</label>
-    <input id="date_input_checkin" type="date" bind:value={Date_a} />
-    <label for="date_input_checkout">Дата отъезда</label>
-    <input id="date_input_checkout" type="date" bind:value={Date_b} />
-    {#if daysTotal > 0}
-      <div class="days-total">Days - {daysTotal}</div>
-      <div class="price-total">
-        Price - {room.price.value * daysTotal}{room.price.currency}
-      </div>
-    {:else}
-      <br />
-      These dates unavailable
-      <br />
-      <br />
-    {/if}
-    <hr />
-    <Button on:click={addRoom} href="rooms/booking">Reserve</Button>
-    <br />
-    <span>You wont be charged yet</span>
-  </div>
-</div>
-
-<Modal {modalContent} />
-
-
-<!-- <style>
-  /*
-		By default, CSS is locally scoped to the component,
-		and any unused styles are dead-code-eliminated.
-		In this page, Svelte can't know which elements are
-		going to appear inside the {{{room.html}}} block,
-		so we have to use the :global(...) modifier to target
-		all elements inside .content
-	*/
-  .content :global(h2) {
-    font-size: 1.4em;
-    font-weight: 500;
-  }
-
-  .content :global(pre) {
-    background-color: #f9f9f9;
-    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
-    padding: 0.5em;
-    border-radius: 2px;
-    overflow-x: auto;
-  }
-
-  .content :global(pre) :global(code) {
-    background-color: transparent;
-    padding: 0;
-  }
-
-  .content :global(ul) {
-    line-height: 1.5;
-  }
-
-  .content :global(li) {
-    margin: 0 0 0.5em 0;
-  }
-</style> -->
-<!-- <div class="content">
-  {@html room.description}
-</div> -->
