@@ -14,18 +14,35 @@
   function resetBooking() {
     activeBookingPage = 0;
   }
+  var y;
 </script>
 
-<style>
+<style lang="scss">
   .container {
     display: grid;
-    grid-template-columns: auto 10rem;
+    grid-gap: 2rem;
+    grid-template-columns: auto 13rem;
+
+    position: relative;
+  }
+  .col-left {
+    grid-column: 1 / 2;
+  }
+  .col-right {
+    grid-column: 2 / 3;
+
+    &.fixed {
+      position: fixed;
+      background: red;
+      right: 0;
+    }
   }
 </style>
 
 <svelte:head>
   <title>ОТЕЛЬ - Резервация</title>
 </svelte:head>
+<svelte:window bind:scrollY={y} />
 
 {#if $reservedRoom.length && activeBookingPage >= 0}
   <div class="container">
@@ -108,7 +125,9 @@
       {/if}
 
     </div>
-    <div class="col-right">Booking info - col right</div>
+    <div class="col-right {y > 100 ? 'fixed' : ''}">
+      Booking info - col right
+    </div>
   </div>
 {:else}
   <p>Для продолжения резервации</p>

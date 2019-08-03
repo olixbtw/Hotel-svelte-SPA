@@ -80,13 +80,19 @@
 
 <style lang="scss">
   .container {
-    grid-gap: 1rem 2rem;
     display: grid;
-    grid-template-columns: auto 15rem;
+    grid-gap: 2rem;
+    grid-template-columns: auto 13rem;
   }
+  .col-left {
+    grid-column: 1 / 2;
+  }
+  .col-right {
+    grid-column: 2 / 3;
+  }
+
   .images {
-    grid-row: 1 / 2;
-    grid-column: 1 / 3;
+    margin-bottom: 1em;
 
     display: grid;
     height: 400px;
@@ -148,14 +154,6 @@
       }
     }
   }
-  .col-left {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-  }
-  .col-right {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-  }
   .type {
     .n_people {
     }
@@ -180,16 +178,16 @@
   <title>{room.title}</title>
 </svelte:head>
 
+<div class="images">
+  {#each room.photos as img, index}
+    <img
+      src={img.src}
+      alt={img.alt}
+      on:click={() => (modalContent.active = index)} />
+  {/each}
+</div>
 <div class="container">
   <!-- more photos here -->
-  <div class="images">
-    {#each room.photos as img, index}
-      <img
-        src={img.src}
-        alt={img.alt}
-        on:click={() => (modalContent.active = index)} />
-    {/each}
-  </div>
   <div class="col-left">
     <div class="type">
       {room.type}

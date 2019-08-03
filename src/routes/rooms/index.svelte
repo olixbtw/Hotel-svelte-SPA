@@ -18,11 +18,17 @@
   // логика переключения страниц - снаружи
   import Pagination from "./__pagination.svelte";
   var y;
+
   var roomsPerPage = 9;
   var pag_opt = {
     active: 1,
     len: Math.ceil(rooms.length / roomsPerPage)
   };
+
+
+    // import { tweened } from "svelte/motion";
+    // const progress = tweened(0);
+
   function paginationClick(event) {
     //check if page is changing
     var destination = pag_opt.active;
@@ -38,16 +44,16 @@
 
     //change pages
     if (destination !== pag_opt.active) {
-      if (y > 270) {
+      if (y > 200) {
         window.scrollTo({
-          top: 150,
+          top: 0,
           behavior: "smooth"
         });
         setTimeout(() => {
-          pag_opt.active = destination;
-        }, 300);
+          pag_opt.active = destination; //переключаем страницу
+        }, 150);
       } else {
-        pag_opt.active = destination;
+        pag_opt.active = destination; //переключаем страницу
       }
     }
   }
@@ -87,13 +93,15 @@
     flex-wrap: wrap;
     justify-content: space-around;
     position: relative;
+
     article {
-      > a {
-        color: inherit;
-        &:hover {
-          text-decoration: none;
-        }
-      }
+      pointer-events: none;
+      opacity: 0;
+      position: absolute;
+      margin: 0 0.5em 1.5em;
+      display: flex;
+      flex-direction: column;
+      animation: pagination-hide 150ms linear;
       cursor: pointer;
       width: 90%;
       max-width: 350px;
@@ -102,21 +110,10 @@
         width: 30%;
         max-width: 450px;
       }
-
-      margin: 0 0.25em 1.5em;
-      display: flex;
-      flex-direction: column;
-
-      animation: pagination-hide 250ms linear;
-      opacity: 0;
-      position: absolute;
-
-      &:hover {
-        figure:before {
-          bottom: -0.5em;
-          left: -0.5em;
-          width: 50%;
-          height: 50%;
+      > a {
+        color: inherit;
+        &:hover {
+          text-decoration: none;
         }
       }
 
@@ -174,6 +171,14 @@
       .price {
         color: #443941;
       }
+      &:hover {
+        figure:before {
+          bottom: -0.5em;
+          left: -0.5em;
+          width: 50%;
+          height: 50%;
+        }
+      }
     }
     &::after {
       content: "";
@@ -186,11 +191,6 @@
       background: white;
     }
   }
-  .show_roooms {
-    &::after {
-      animation: hide-overlay 1500ms ease-in-out 450ms forwards;
-    }
-  }
   @for $i from 1 through $pages {
     //#of pages
     .activePage#{$i} {
@@ -199,14 +199,12 @@
         through (($i - 1) * $perPage + $perPage)
       {
         //#of elements per page
-
         article:nth-child(#{$jj}) {
-          animation: pagination-show 250ms linear 250ms forwards;
+          animation: pagination-show 350ms linear 150ms forwards;
         }
       }
     }
   }
-
   @keyframes hide-overlay {
     from {
       opacity: 1;
@@ -224,9 +222,9 @@
     to {
       opacity: 1;
       position: static;
+      pointer-events: all;
     }
   }
-
   @keyframes pagination-hide {
     from {
       position: static;
@@ -235,6 +233,11 @@
     to {
       opacity: 0;
       position: static;
+    }
+  }
+  .show_roooms {
+    &::after {
+      animation: hide-overlay 700ms ease-in-out 300ms forwards;
     }
   }
 </style>
