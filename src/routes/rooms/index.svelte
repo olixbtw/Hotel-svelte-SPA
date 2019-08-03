@@ -18,7 +18,7 @@
   // логика переключения страниц - снаружи
   import Pagination from "./__pagination.svelte";
   var y;
-  var roomsPerPage = 8;
+  var roomsPerPage = 9;
   var pag_opt = {
     active: 1,
     len: Math.ceil(rooms.length / roomsPerPage)
@@ -58,9 +58,9 @@
   import { onMount } from "svelte";
   import Filter from "./__filter.svelte";
   import { roomsFilter } from "../../components/_stores.js";
-  let showFilter = false;
+  let loaded_filter = false;
   onMount(() => {
-    showFilter = true;
+    loaded_filter = true;
   });
 
   $roomsFilter = {
@@ -79,14 +79,14 @@
 </script>
 
 <style lang="scss">
-  $pages: 100;
-  $perPage: 8;
+  $perPage: 9;
+  $pages: 50;
 
   .room-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
+    position: relative;
     article {
       > a {
         color: inherit;
@@ -105,9 +105,11 @@
 
       margin: 0 0.25em 1.5em;
       display: flex;
-      //toggle visibility
-      display: none;
       flex-direction: column;
+
+      animation: pagination-hide 250ms linear;
+      opacity: 0;
+      position: absolute;
 
       &:hover {
         figure:before {
@@ -173,9 +175,22 @@
         color: #443941;
       }
     }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: white;
+    }
   }
-
-  //toggle visibility
+  .show_roooms {
+    &:after {
+      animation: hide-overlay 1500ms ease-in-out 450ms forwards;
+    }
+  }
   @for $i from 1 through $pages {
     //#of pages
     .activePage#{$i} {
@@ -186,9 +201,40 @@
         //#of elements per page
 
         article:nth-child(#{$jj}) {
-          display: block;
+          animation: pagination-show 250ms linear 250ms forwards;
         }
       }
+    }
+  }
+
+  @keyframes hide-overlay {
+    from {
+      opacity: 1;
+    }
+    to {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+  @keyframes pagination-show {
+    from {
+      position: static;
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+      position: static;
+    }
+  }
+
+  @keyframes pagination-hide {
+    from {
+      position: static;
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      position: static;
     }
   }
 </style>
@@ -199,10 +245,13 @@
 <svelte:window bind:scrollY={y} />
 
 <h1>Номера</h1>
-{#if showFilter}
+<Pagination on:click={paginationClick} {pag_opt} />
+
+{#if loaded_filter}
   <Filter />
 {/if}
-<!-- $roomsFilter.guests.n {$roomsFilter.guests.n}
+<!-- 
+$roomsFilter.guests.n {$roomsFilter.guests.n}
 <br />
 $roomsFilter.larger {$roomsFilter.guests.larger}
 <br />
@@ -211,9 +260,12 @@ $roomsFilter.unavailable {$roomsFilter.unavailable}
 $roomsFilter.sort {$roomsFilter.sort}
 <br />
 $roomsFilter.view {$roomsFilter.view}
-<br /> -->
+<br />
+-->
 
-<div class="room-list activePage{pag_opt.active}">
+<div
+  class="room-list activePage{pag_opt.active}
+  {loaded_filter ? 'show_roooms' : ''}">
   {#each rooms as room}
     <!-- <article class="guests{room.people} available{room_available} price{room.price}"> -->
     <article>
