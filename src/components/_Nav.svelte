@@ -7,7 +7,7 @@
   //   console.log(path[path.length - 1]);
   // }
 
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { navHeight } from "./_stores.js";
   import Logo from "./logo.svelte";
   export let segment;
@@ -29,6 +29,10 @@
     smallerRange_flag = $navHeight / 2;
     //store height of navigation
   });
+  onDestroy(() => {
+    loaded_flag = false;
+  });
+  
   function openModal() {
     if (loaded_flag) {
       yStore = y;

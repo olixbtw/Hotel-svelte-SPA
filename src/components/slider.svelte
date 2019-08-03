@@ -5,11 +5,15 @@
 <script>
   export let sliderScroll = 1;
 
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
 
   var myTimer;
   onMount(() => {
     myTimer = setInterval(nextSlide, 15000);
+  });
+
+  onDestroy(() => {
+    clearInterval(myTimer);
   });
 
   var transition = true;

@@ -1,15 +1,18 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { stores } from "@sapper/app";
   const { page } = stores();
   var y, ih;
 
-  var loaded = false;
+  var loaded_flag = false;
   onMount(() => {
-    loaded = true;
+    loaded_flag = true;
+  });
+  onDestroy(() => {
+    loaded_flag = false;
   });
 
-  $: if (loaded && $page)
+  $: if (loaded_flag && $page)
     setTimeout(() => {
       // event fires immediately on initiating page change
       // need timeout to get the height of the next page

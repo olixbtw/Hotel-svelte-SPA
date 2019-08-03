@@ -8,7 +8,7 @@
   let pageLogo = "logo_dark";
   export let segment;
 
-  import { onMount } from "svelte";
+  import { onMount} from "svelte";
   var heightFix;
   onMount(() => {
     heightFix = $navHeight - 25;

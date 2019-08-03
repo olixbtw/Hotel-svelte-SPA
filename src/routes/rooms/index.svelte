@@ -61,12 +61,15 @@
   //filter - данные через store.js
   // нужно связать каждое поле со значением
   // + удобнее передавать через общие свойства (но наверное дольше)
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import Filter from "./__filter.svelte";
   import { roomsFilter } from "../../components/_stores.js";
-  let loaded_filter = false;
+  let loaded_flag = false;
   onMount(() => {
-    loaded_filter = true;
+    loaded_flag = true;
+  });
+  onDestroy(() => {
+    loaded_flag = false;
   });
 
   $roomsFilter = {
@@ -249,7 +252,7 @@
 
 <h1>Номера</h1>
 
-{#if loaded_filter}
+{#if loaded_flag}
   <Filter />
 {/if}
 <!-- 
@@ -267,7 +270,7 @@ $roomsFilter.view {$roomsFilter.view}
 
 <div
   class="room-list activePage{pag_opt.active}
-  {loaded_filter ? 'show_roooms' : ''}">
+  {loaded_flag ? 'show_roooms' : ''}">
   {#each rooms as room}
     <!-- <article class="guests{room.people} available{room_available} price{room.price}"> -->
     <article>

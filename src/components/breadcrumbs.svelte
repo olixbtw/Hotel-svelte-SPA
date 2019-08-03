@@ -2,17 +2,20 @@
   import { stores } from "@sapper/app";
   const { page } = stores();
   export let segment;
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import { slugTitle } from "./_stores.js";
   import translatePath from "./_paths.js";
 
   var path = [];
-  var loaded = false;
+  var loaded_flag = false;
   onMount(() => {
-    loaded = true;
+    loaded_flag = true;
+  });
+  onDestroy(() => {
+    loaded_flag = false;
   });
 
-  $: if (loaded) {
+  $: if (loaded_flag) {
     path = $page.path.split("/");
     // ссылки
     path.forEach((element, index) => {

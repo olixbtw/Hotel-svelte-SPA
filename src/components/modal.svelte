@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   var y, yStore, loaded_flag, modalWindowActive;
 
   export let modalContent = {
@@ -28,6 +28,10 @@
   onMount(() => {
     loaded_flag = true;
   });
+  onDestroy(() => {
+    loaded_flag = false;
+  });
+
   function openModal() {
     if (loaded_flag) {
       yStore = y;
