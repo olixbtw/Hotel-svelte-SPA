@@ -1,0 +1,293 @@
+<script context="module">
+  export function preload({ params, query }) {
+    return this.fetch(`rooms.json`)
+      .then(r => r.json())
+      .then(rooms => {
+        return { rooms };
+      });
+  }
+</script>
+
+<script>
+  export let rooms;
+  //pagination - данные в родитель-ребенок
+  //данные передаем напрямую в компонент, но логика остается у родителя
+  // + удобнее потому что вешаем обработчик на общий елемент, а не на кажый
+  // ПОЭТОМУ МОЖЕМ работать с компонентом извне
+  // в зависимости от изменений переменных извне, перестраивается структура внутри.
+  // логика переключения страниц - снаружи
+  import Pagination from "./__pagination.svelte";
+  var y;
+
+  var roomsPerPage = 9;
+  var pag_opt = {
+    active: 1,
+    len: Math.ceil(rooms.length / roomsPerPage)
+  };
+
+  // import { tweened } from "svelte/motion";
+  // const progress = tweened(0);
+
+  function paginationClick(event) {
+    //check if page is changing
+    var destination = pag_opt.active;
+    if (event.target.innerHTML == "&lt;") {
+      destination--;
+      if (destination < 1) destination = 1;
+    } else if (event.target.innerHTML == "&gt;") {
+      destination++;
+      if (destination > pag_opt.len) destination = pag_opt.len;
+    } else {
+      destination = +event.target.innerHTML;
+    }
+
+    //change pages
+    if (destination !== pag_opt.active) {
+      if (y > 200) {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+        setTimeout(() => {
+          pag_opt.active = destination; //переключаем страницу
+        }, 150);
+      } else {
+        pag_opt.active = destination; //переключаем страницу
+      }
+    }
+  }
+
+  //filter - данные через store.js
+  // нужно связать каждое поле со значением
+  // + удобнее передавать через общие свойства (но наверное дольше)
+  import { onMount, onDestroy } from "svelte";
+  import Filter from "./__filter.svelte";
+  import { roomsFilter } from "../../components/_stores.js";
+  let loaded_flag = false;
+  onMount(() => {
+    loaded_flag = true;
+  });
+  onDestroy(() => {
+    loaded_flag = false;
+  });
+
+  $roomsFilter = {
+    guests: {
+      n: 1,
+      larger: true
+    },
+    unavailable: true,
+    sort: "",
+    view: "cards"
+  };
+  //additional
+  // FIX
+  // вствить сортировку по датам в объект комнат
+  var room_available = true;
+</script>
+
+<svelte:head>
+  <title>ОТЕЛЬ - Номера</title>
+</svelte:head>
+<svelte:window bind:scrollY={y} />
+
+<h1>Номера</h1>
+
+{#if loaded_flag}
+  <Filter />
+{/if}
+<!-- 
+$roomsFilter.guests.n {$roomsFilter.guests.n}
+<br />
+$roomsFilter.larger {$roomsFilter.guests.larger}
+<br />
+$roomsFilter.unavailable {$roomsFilter.unavailable}
+<br />
+$roomsFilter.sort {$roomsFilter.sort}
+<br />
+$roomsFilter.view {$roomsFilter.view}
+<br />
+-->
+
+<div
+  class="room-list activePage{pag_opt.active}
+  {loaded_flag ? 'show_roooms' : ''}">
+  {#each rooms as room}
+    <!-- <article class="guests{room.people} available{room_available} price{room.price}"> -->
+    <article>
+      <a rel="prefetch" href="rooms/{room.slug}">
+        <figure>
+          <img src={room.photo.src} alt={room.photo.alt} />
+        </figure>
+        <div class="type">
+          {room.type}
+          <span class="n_people">
+            {room.people} {room.people == 1 ? 'guest' : 'guests'}
+          </span>
+        </div>
+        <h4>{room.title}</h4>
+        <div class="price">{room.price}/night</div>
+      </a>
+    </article>
+  {/each}
+</div>
+
+<Pagination on:click={paginationClick} {pag_opt} />
+
+<style lang="scss">
+  $perPage: 9;
+  $pages: 50;
+
+  .room-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+
+    article {
+      pointer-events: none;
+      opacity: 0;
+      position: absolute;
+      margin: 0 0.5em 1.5em;
+      display: flex;
+      flex-direction: column;
+      animation: pagination-hide 150ms linear;
+      cursor: pointer;
+      width: 90%;
+      max-width: 350px;
+      min-width: 300px;
+      @media (min-width: 1000px) {
+        width: 30%;
+        max-width: 450px;
+      }
+      > a {
+        color: inherit;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      figure {
+        &::before {
+          width: 80%;
+          height: 80%;
+          bottom: 5%;
+          left: 5%;
+          transition: all 0.6s;
+          content: "";
+          display: block;
+          position: absolute;
+          z-index: -1;
+          background: #eb9a21;
+        }
+
+        position: relative;
+        margin: 0;
+        margin-bottom: 0.5em;
+
+        img {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        &::after {
+          padding-bottom: 80%;
+          display: block;
+          content: "";
+        }
+      }
+      h4 {
+        margin: 0;
+      }
+      .type {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: gray;
+        font-size: 0.8em;
+        letter-spacing: -0.025em;
+
+        span {
+          &::before {
+            content: "| ";
+            margin: 0 0.25em;
+          }
+        }
+      }
+      .price {
+        color: #443941;
+      }
+      &:hover {
+        figure:before {
+          bottom: -0.5em;
+          left: -0.5em;
+          width: 50%;
+          height: 50%;
+        }
+      }
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: white;
+    }
+  }
+  @for $i from 1 through $pages {
+    //#of pages
+    .activePage#{$i} {
+      @for $jj
+        from (($i - 1) * $perPage + 1)
+        through (($i - 1) * $perPage + $perPage)
+      {
+        //#of elements per page
+        article:nth-child(#{$jj}) {
+          animation: pagination-show 350ms linear 150ms forwards;
+        }
+      }
+    }
+  }
+  @keyframes hide-overlay {
+    from {
+      opacity: 1;
+    }
+    to {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+  @keyframes pagination-show {
+    from {
+      position: static;
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+      position: static;
+      pointer-events: all;
+    }
+  }
+  @keyframes pagination-hide {
+    from {
+      position: static;
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      position: static;
+    }
+  }
+  .show_roooms {
+    &::after {
+      animation: hide-overlay 700ms ease-in-out 300ms forwards;
+    }
+  }
+</style>
