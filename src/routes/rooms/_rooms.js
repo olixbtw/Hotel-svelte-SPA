@@ -4,7 +4,7 @@ const rooms = [
     id: '1',
     type: 'Room',
     title: 'Комната комфортненькая',
-    slug: 'comfortable-room-2',
+    slug: 'comfortable-room-3',
     people: '3',
     price: {
       currency: '$',

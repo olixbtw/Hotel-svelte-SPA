@@ -301,8 +301,9 @@
   class="room-list {$roomsFilter.view}-VIEW activePage{pag_opt.active}
   {loaded_flag ? 'show_roooms' : ''}">
   {#each rooms as room}
+    <!-- SAME SLUG ??-->
     <article>
-      <a rel="prefetch" href="rooms/{room.slug}">
+      <a rel="prefetch" href="rooms/{room.slug}" target="_self">
         <figure>
           <img src={room.photo.src} alt={room.photo.alt} />
         </figure>
