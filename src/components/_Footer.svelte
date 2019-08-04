@@ -3,7 +3,7 @@
     background: #444b57;
     padding: 0.5rem 3.2rem;
     font-size: 0.7rem;
-    color: #9f9f9f;
+    color: #dfdfdf;
     text-align: center;
     @media (min-width: 500px) {
       text-align: right;
@@ -18,6 +18,9 @@
   }
   span {
     white-space: nowrap;
+  }
+  i {
+    text-shadow: 0 0 3px #2172eb;
   }
 </style>
 

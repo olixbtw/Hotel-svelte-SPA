@@ -20,9 +20,10 @@
   import Pagination from "./__pagination.svelte";
   var y;
 
+  var roomsPerPage = 8;
   var pag_opt = {
     active: 1,
-    len: Math.ceil(rooms.length / $roomsFilter.roomsPerPage)
+    len: Math.ceil(rooms.length / roomsPerPage)
   };
 
   function paginationClick(event) {
@@ -94,13 +95,12 @@
     amenities: [false, false, false],
     sort: "",
     reverse: false,
-    view: "cards",
-    roomsPerPage: 7
+    view: "cards"
   };
 </script>
 
 <style lang="scss">
-  $perPage: 7;
+  $perPage: 8;
   $pages: 50;
 
   .room-list {
