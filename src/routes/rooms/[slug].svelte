@@ -232,7 +232,9 @@
       <br />
     {/if}
     <hr />
-    <Button on:click={addRoom} href="rooms/booking" type="active">Reserve</Button>
+    <Button on:click={addRoom} href="rooms/booking" type="active">
+      Reserve
+    </Button>
     <br />
     <span>You wont be charged yet</span>
   </div>

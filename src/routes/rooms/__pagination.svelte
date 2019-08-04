@@ -52,8 +52,8 @@
       transition: all 0.3s linear;
       cursor: pointer;
       &:hover {
-        // 444b57
-        background: rgba(68, 57, 65, 0.9);
+        // #444b57
+        background: rgba(68, 75, 87, 0.9);
         color: #f2f2f2;
       }
     }

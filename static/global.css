@@ -1,4 +1,4 @@
-:root {
+.test {
   color: #eb9a21;
   color: #dcb03f;
   color: #2172eb;
@@ -9,6 +9,7 @@
   color: #444b57;
   color: #b4b4b4;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -37,8 +38,8 @@ body {
 }
 
 body {
-  color: #333;
-  background: #f1f1f1;
+  color: #444b57;
+  background: #f2f2f2;
   font-family: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.5;
 }
@@ -52,21 +53,24 @@ h6 {
   margin: 0 0 0.5em 0;
   font-weight: 400;
   line-height: 1.2;
+  color: #444b57;
 }
 
 /* h1 {font-size: 2em;} */
 
 a {
-  color: rgb(0, 100, 200);
+  color: #2172eb;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+  opacity: 1;
 }
 
 a:visited {
-  color: rgb(0, 80, 160);
+  color: #2172eb;
+  opacity: 0.8;
 }
 
 code {

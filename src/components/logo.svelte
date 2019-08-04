@@ -29,11 +29,11 @@
       object-fit: contain;
     }
     &.active {
-      // color: rgb(220, 176, 63);
+      // color: #dcb03f;
       filter: drop-shadow(1px 2px 2px rgba(220, 176, 63, 0.4));
     }
     &:hover {
-      // color: rgb(235, 154, 33);
+      // color: #eb9a21;
       filter: drop-shadow(1px 2px 3px rgba(235, 154, 33, 0.5));
       text-decoration: none;
     }

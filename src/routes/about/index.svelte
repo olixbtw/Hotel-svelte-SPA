@@ -1,4 +1,5 @@
 <script>
+
 </script>
 
 <style>
@@ -211,6 +212,6 @@
 </section>
 
 <h1>SERVICES LINKS</h1>
-<a href='about/services#bankety'>bankety</a>
-<a href='about/services#premier'>premier hall</a>
-<a href='about/services#catering'>catering</a>
+<a href="about/services#bankety">bankety</a>
+<a href="about/services#premier">premier hall</a>
+<a href="about/services#catering">catering</a>

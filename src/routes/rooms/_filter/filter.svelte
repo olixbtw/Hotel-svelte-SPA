@@ -58,7 +58,7 @@
       padding: 1rem 2.5rem;
       color: #b4b4b4;
       // #444b57
-      background: rgba(68, 57, 65, 0.95);
+      background: rgba(68, 75, 87, 0.9);
       opacity: 0;
       max-height: 0;
       max-width: 0;
