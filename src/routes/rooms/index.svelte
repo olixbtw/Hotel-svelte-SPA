@@ -198,7 +198,7 @@
         }
         .type {
           text-transform: uppercase;
-          font-weight: bold;
+          font-weight: 300;
           color: #9f9f9f;
           font-size: 0.8em;
           letter-spacing: -0.025em;

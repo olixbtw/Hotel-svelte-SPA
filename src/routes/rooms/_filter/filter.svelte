@@ -58,7 +58,7 @@
       padding: 1rem 2.5rem;
       color: #f2f2f2;
       // #444b57
-      background: rgba(68, 75, 87, 0.97);
+      background: rgba(68, 75, 87, 0.98);
       opacity: 0;
       max-height: 0;
       max-width: 0;
@@ -94,7 +94,7 @@
   }
   h4 {
     margin: 0.15em 0 0.25em -0.5rem;
-    color: #f2f2f2;
+    color: #eb9a21;
   }
   // .list-STYLED-FILTER {
   //   .filter-button {
@@ -150,31 +150,41 @@
     <section class="filter">
       <div class="guests">
         <h4>Guests</h4>
+        <div class="control-group">
         <Button on:click={red_guest} type="controls">-</Button>
         <input type="number" bind:value={$roomsFilter.guests.n} />
         <Button on:click={inc_guest} type="controls">+</Button>
+        </div>
       </div>
+      <div class="control-group">
       <input
         id="filter_n_guests"
         type="checkbox"
         bind:checked={$roomsFilter.guests.larger} />
       <label for="filter_n_guests">Show larger rooms</label>
+      </div>
       <h4>Дополнительные удобства</h4>
+      <div class="control-group">
       <input
         id="filter_amenities"
         type="checkbox"
         bind:checked={$roomsFilter.amenities[1]} />
       <label for="filter_amenities">Утюг</label>
+      </div>
+      <div class="control-group">
       <input
         id="filter_amenities"
         type="checkbox"
         bind:checked={$roomsFilter.amenities[0]} />
       <label for="filter_amenities">Wifi</label>
+      </div>
+      <div class="control-group">
       <input
         id="filter_amenities"
         type="checkbox"
         bind:checked={$roomsFilter.amenities[2]} />
       <label for="filter_amenities">Завтрак в постель</label>
+      </div>
     </section>
     <section class="sort">
       <h4>Sort by</h4>
@@ -184,6 +194,7 @@
       </Button>
       <br />
       {#if $roomsFilter.sort}
+        <div class="control-group">
         <input
           id="filter_sort_order"
           type="checkbox"
@@ -198,8 +209,10 @@
             <i class="fas fa-sort-amount-down-alt" />
           </label>
         {/if}
+        </div>
       {/if}
 
+      <div class="control-group">
       <input
         id="filter_sort_price"
         type="radio"
@@ -207,15 +220,19 @@
         name="filter_sort"
         bind:group={$roomsFilter.sort} />
       <label for="filter_sort_price">price</label>
-      <br />
-      <!-- <input
+      </div>
+      <!-- 
+      <div class="control-group">
+        <input
         id="filter_sort_id"
         type="radio"
         value="id"
         name="filter_sort"
         bind:group={$roomsFilter.sort} />
       <label for="filter_sort_id">id</label>
-      <br /> -->
+      </div>
+       -->
+      <div class="control-group">
       <input
         id="filter_sort_people"
         type="radio"
@@ -223,9 +240,11 @@
         name="filter_sort"
         bind:group={$roomsFilter.sort} />
       <label for="filter_sort_people">number of guests</label>
+      </div>
     </section>
     <section class="view">
       <h4>View</h4>
+      <div class="control-group">
       <input
         id="filter_view_list"
         type="radio"
@@ -236,7 +255,8 @@
         <i class="fas fa-th-list" />
         list
       </label>
-      <br />
+      </div>
+      <div class="control-group">
       <input
         id="filter_view_cards"
         type="radio"
@@ -247,6 +267,7 @@
         <i class="fas fa-grip-horizontal" />
         cards
       </label>
+      </div>
     </section>
     <!-- <section>
       <h4>Data</h4>

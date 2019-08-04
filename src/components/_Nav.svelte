@@ -114,7 +114,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-weight: 300;
+    font-weight: 400;
 
     > ul {
       @media (max-width: 999px) {

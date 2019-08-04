@@ -14,6 +14,7 @@
   $: {
     if (numberItems) {
       //рабтаем с ДОМ, а не с данными - каждый раз надо перестраивать все пагинации на странице
+      //если поставим несколько пагинаций - нужен класс
       diffPagination = document.getElementsByClassName("pagination_bar");
 
       for (let jj = 0; jj < diffPagination.length; jj++) {
@@ -32,7 +33,8 @@
 </script>
 
 <style lang="scss">
-  .pagination_bar {
+  nav {
+    font-weight: 300;
     padding: 0.5rem 0;
     display: flex;
     justify-content: center;
@@ -91,7 +93,7 @@
       }
     }
   }
-  .pagination_bar .active {
+  nav .active {
     color: #f2f2f2;
     &:hover {
       color: #f2f2f2;
