@@ -106,6 +106,10 @@ img {
   max-width: 100%;
 }
 
+p {
+  color: #b4b4b4;
+}
+
 /* Open Sans */
 
 @font-face {

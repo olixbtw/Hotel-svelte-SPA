@@ -45,7 +45,7 @@
 
   .active {
     background: orange;
-    color: white;
+    color: #f2f2f2;
   }
   .disabled {
   }

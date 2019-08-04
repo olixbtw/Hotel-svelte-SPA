@@ -3,14 +3,14 @@
     background: #443941;
     padding: 0.5rem 3.2rem;
     font-size: 0.7rem;
-    color: #aeb7b9;
+    color: #b4b4b4;
     text-align: center;
     @media (min-width: 500px) {
       text-align: right;
     }
   }
   a {
-    color: #aeb7b9;
+    color: inherit;
     display: block;
     @media (min-width: 500px) {
       float: left;

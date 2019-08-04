@@ -17,7 +17,7 @@
     display: inline-block;
     display: flex;
     align-items: center;
-    color: white;
+    color: #f2f2f2;
 
     img {
       // display: inline-block;
@@ -30,10 +30,10 @@
     }
     &.active {
       // color: rgb(220, 176, 63);
-      // color: rgb(235, 154, 33);
       filter: drop-shadow(1px 2px 2px rgba(220, 176, 63, 0.4));
     }
     &:hover {
+      // color: rgb(235, 154, 33);
       filter: drop-shadow(1px 2px 3px rgba(235, 154, 33, 0.5));
       text-decoration: none;
     }

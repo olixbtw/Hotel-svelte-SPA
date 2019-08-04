@@ -43,7 +43,7 @@
 
     .arr,
     ul li {
-      color: #4f4f4f;
+      color: #444b57;
       width: 2rem;
       height: 2rem;
       line-height: 2rem;
@@ -82,7 +82,7 @@
       line-height: 1.85rem;
       &.disabled {
         opacity: 0.4;
-        color: hsl(0, 0%, 31%);
+        color: #444b57;
         &:hover {
           color: inherit;
           background: transparent;
@@ -91,9 +91,9 @@
     }
   }
   .pagination_bar .active {
-    color: white;
+    color: #f2f2f2;
     &:hover {
-      color: white;
+      color: #f2f2f2;
       background: transparent;
       &::before,
       &::after {

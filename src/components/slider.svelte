@@ -109,7 +109,7 @@
       }
     }
     &__text {
-      color: white;
+      color: #f2f2f2;
       position: absolute;
       top: 2.5em;
       left: 2.5em;
