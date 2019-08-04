@@ -80,7 +80,7 @@
       display: none;
 
       & + label {
-        color: #cfcfcf;
+        color: #afafaf;
       }
     }
     &:checked + label {
@@ -138,6 +138,11 @@
   section {
     position: relative;
   }
+  .guests {
+    :global(button) {
+      display: inline-block;
+    }
+  }
 </style>
 
 <svelte:window on:scroll={() => (classToggle = false)} />
@@ -151,39 +156,39 @@
       <div class="guests">
         <h4>Guests</h4>
         <div class="control-group">
-        <Button on:click={red_guest} type="controls">-</Button>
-        <input type="number" bind:value={$roomsFilter.guests.n} />
-        <Button on:click={inc_guest} type="controls">+</Button>
+          <Button on:click={red_guest} type="controls">-</Button>
+          <input type="number" bind:value={$roomsFilter.guests.n} />
+          <Button on:click={inc_guest} type="controls">+</Button>
         </div>
       </div>
       <div class="control-group">
-      <input
-        id="filter_n_guests"
-        type="checkbox"
-        bind:checked={$roomsFilter.guests.larger} />
-      <label for="filter_n_guests">Show larger rooms</label>
+        <input
+          id="filter_n_guests"
+          type="checkbox"
+          bind:checked={$roomsFilter.guests.larger} />
+        <label for="filter_n_guests">Show larger rooms</label>
       </div>
       <h4>Дополнительные удобства</h4>
       <div class="control-group">
-      <input
-        id="filter_amenities"
-        type="checkbox"
-        bind:checked={$roomsFilter.amenities[1]} />
-      <label for="filter_amenities">Утюг</label>
+        <input
+          id="filter_amenities"
+          type="checkbox"
+          bind:checked={$roomsFilter.amenities[1]} />
+        <label for="filter_amenities">Утюг</label>
       </div>
       <div class="control-group">
-      <input
-        id="filter_amenities"
-        type="checkbox"
-        bind:checked={$roomsFilter.amenities[0]} />
-      <label for="filter_amenities">Wifi</label>
+        <input
+          id="filter_amenities"
+          type="checkbox"
+          bind:checked={$roomsFilter.amenities[0]} />
+        <label for="filter_amenities">Wifi</label>
       </div>
       <div class="control-group">
-      <input
-        id="filter_amenities"
-        type="checkbox"
-        bind:checked={$roomsFilter.amenities[2]} />
-      <label for="filter_amenities">Завтрак в постель</label>
+        <input
+          id="filter_amenities"
+          type="checkbox"
+          bind:checked={$roomsFilter.amenities[2]} />
+        <label for="filter_amenities">Завтрак в постель</label>
       </div>
     </section>
     <section class="sort">
@@ -192,34 +197,33 @@
         <i class="fas fa-sync-alt" />
         Reset
       </Button>
-      <br />
       {#if $roomsFilter.sort}
         <div class="control-group">
-        <input
-          id="filter_sort_order"
-          type="checkbox"
-          name="filter_sort_order"
-          bind:checked={$roomsFilter.reverse} />
-        {#if $roomsFilter.reverse}
-          <label for="filter_sort_order" transition:fade>
-            <i class="fas fa-sort-amount-up-alt" />
-          </label>
-        {:else}
-          <label for="filter_sort_order" transition:fade>
-            <i class="fas fa-sort-amount-down-alt" />
-          </label>
-        {/if}
+          <input
+            id="filter_sort_order"
+            type="checkbox"
+            name="filter_sort_order"
+            bind:checked={$roomsFilter.reverse} />
+          {#if $roomsFilter.reverse}
+            <label for="filter_sort_order" transition:fade>
+              <i class="fas fa-sort-amount-up-alt" />
+            </label>
+          {:else}
+            <label for="filter_sort_order" transition:fade>
+              <i class="fas fa-sort-amount-down-alt" />
+            </label>
+          {/if}
         </div>
       {/if}
 
       <div class="control-group">
-      <input
-        id="filter_sort_price"
-        type="radio"
-        value="price"
-        name="filter_sort"
-        bind:group={$roomsFilter.sort} />
-      <label for="filter_sort_price">price</label>
+        <input
+          id="filter_sort_price"
+          type="radio"
+          value="price"
+          name="filter_sort"
+          bind:group={$roomsFilter.sort} />
+        <label for="filter_sort_price">price</label>
       </div>
       <!-- 
       <div class="control-group">
@@ -233,40 +237,40 @@
       </div>
        -->
       <div class="control-group">
-      <input
-        id="filter_sort_people"
-        type="radio"
-        value="people"
-        name="filter_sort"
-        bind:group={$roomsFilter.sort} />
-      <label for="filter_sort_people">number of guests</label>
+        <input
+          id="filter_sort_people"
+          type="radio"
+          value="people"
+          name="filter_sort"
+          bind:group={$roomsFilter.sort} />
+        <label for="filter_sort_people">number of guests</label>
       </div>
     </section>
     <section class="view">
       <h4>View</h4>
       <div class="control-group">
-      <input
-        id="filter_view_list"
-        type="radio"
-        value="list"
-        name="filter_view"
-        bind:group={$roomsFilter.view} />
-      <label for="filter_view_list">
-        <i class="fas fa-th-list" />
-        list
-      </label>
+        <input
+          id="filter_view_list"
+          type="radio"
+          value="list"
+          name="filter_view"
+          bind:group={$roomsFilter.view} />
+        <label for="filter_view_list">
+          <i class="fas fa-th-list" />
+          list
+        </label>
       </div>
       <div class="control-group">
-      <input
-        id="filter_view_cards"
-        type="radio"
-        value="cards"
-        name="filter_view"
-        bind:group={$roomsFilter.view} />
-      <label for="filter_view_cards">
-        <i class="fas fa-grip-horizontal" />
-        cards
-      </label>
+        <input
+          id="filter_view_cards"
+          type="radio"
+          value="cards"
+          name="filter_view"
+          bind:group={$roomsFilter.view} />
+        <label for="filter_view_cards">
+          <i class="fas fa-grip-horizontal" />
+          cards
+        </label>
       </div>
     </section>
     <!-- <section>

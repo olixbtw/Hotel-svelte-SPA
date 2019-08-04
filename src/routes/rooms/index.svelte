@@ -9,6 +9,7 @@
 </script>
 
 <script>
+  import Button from "../../components/__button.svelte";
   export let rooms;
 
   //pagination - данные в родитель-ребенок
@@ -97,6 +98,19 @@
     reverse: false,
     view: "cards"
   };
+  
+  function resetFilter() {
+    $roomsFilter = {
+      guests: {
+        n: 1,
+        larger: true
+      },
+      amenities: [false, false, false],
+      sort: "",
+      reverse: false,
+      view: "cards"
+    };
+  }
 </script>
 
 <style lang="scss">
@@ -284,6 +298,11 @@
       animation: hide-overlay 700ms ease-in-out 300ms forwards;
     }
   }
+  .no-rooms {
+    :global(button) {
+      display: inline-block;
+    }
+  }
 </style>
 
 <svelte:head>
@@ -297,35 +316,43 @@
   <Filter />
 {/if}
 
-<div
-  class="room-list {$roomsFilter.view}-VIEW activePage{pag_opt.active}
-  {loaded_flag ? 'show_roooms' : ''}">
-  {#each rooms as room}
-    <!-- SAME SLUG ??-->
-    <article>
-      <a rel="prefetch" href="rooms/{room.slug}" target="_self">
-        <figure>
-          <img src={room.photo.src} alt={room.photo.alt} />
-        </figure>
-        <div class="type">
-          {room.type}
-          <span class="n_people">
-            {room.people} {room.people == 1 ? 'guest' : 'guests'}
-          </span>
-        </div>
-        <h4>{room.title}</h4>
-        <div class="price">{room.price}/night</div>
-        <ul class="ammenities">
-          {#each room.amenities.additional as item}
-            <li class="enabled">{item}</li>
-          {/each}
-          {#each room.amenities.abscent as item}
-            <li class="disabled">{item}</li>
-          {/each}
-        </ul>
-      </a>
-    </article>
-  {/each}
-</div>
+{#if rooms.length > 0}
+  <div
+    class="room-list {$roomsFilter.view}-VIEW activePage{pag_opt.active}
+    {loaded_flag ? 'show_roooms' : ''}">
+    {#each rooms as room}
+      <!-- SAME SLUG ??-->
+      <article>
+        <a rel="prefetch" href="rooms/{room.slug}" target="_self">
+          <figure>
+            <img src={room.photo.src} alt={room.photo.alt} />
+          </figure>
+          <div class="type">
+            {room.type}
+            <span class="n_people">
+              {room.people} {room.people == 1 ? 'guest' : 'guests'}
+            </span>
+          </div>
+          <h4>{room.title}</h4>
+          <div class="price">{room.price}/night</div>
+          <ul class="ammenities">
+            {#each room.amenities.additional as item}
+              <li class="enabled">{item}</li>
+            {/each}
+            {#each room.amenities.abscent as item}
+              <li class="disabled">{item}</li>
+            {/each}
+          </ul>
+        </a>
+      </article>
+    {/each}
+  </div>
 
-<Pagination on:click={paginationClick} {pag_opt} />
+  <Pagination on:click={paginationClick} {pag_opt} />
+{:else}
+  <div class="no-rooms">
+    <br />
+    <p>No rooms selected</p>
+    <Button on:click={resetFilter}>Reset filter</Button>
+  </div>
+{/if}
