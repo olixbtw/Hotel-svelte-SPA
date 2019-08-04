@@ -397,7 +397,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: ['wifi', 'Утюг'],
+      additional: ['wifi', 'Утюг', 'Завтрак в постель'],
       abscent: [],
     },
     //room page
@@ -445,7 +445,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: [],
+      additional: ['Завтрак в постель', 'Утюг'],
       abscent: [],
     },
     //room page
@@ -493,8 +493,8 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: [],
-      abscent: [],
+      additional: ['Завтрак в постель'],
+      abscent: ['wifi'],
     },
     //room page
     photos: [
@@ -541,7 +541,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: ['wifi', 'Утюг'],
+      additional: ['Утюг'],
       abscent: ['Завтрак в постель'],
     },
     //room page
@@ -589,7 +589,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: [],
+      additional: ['wifi'],
       abscent: [],
     },
     //room page
@@ -637,7 +637,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: ['wifi', 'Утюг'],
+      additional: ['Утюг'],
       abscent: ['Завтрак в постель'],
     },
     //room page

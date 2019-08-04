@@ -67,24 +67,32 @@
       <label for="filter_n_guests">Show larger rooms</label>
       <h4>Дополнительные удобства</h4>
       <input
-        id="filter_ammenities"
+        id="filter_amenities"
         type="checkbox"
-        bind:checked={$roomsFilter.ammenities[1]} />
-      <label for="filter_ammenities">Утюг</label>
+        bind:checked={$roomsFilter.amenities[1]} />
+      <label for="filter_amenities">Утюг</label>
       <input
-        id="filter_ammenities"
+        id="filter_amenities"
         type="checkbox"
-        bind:checked={$roomsFilter.ammenities[0]} />
-      <label for="filter_ammenities">Wifi</label>
+        bind:checked={$roomsFilter.amenities[0]} />
+      <label for="filter_amenities">Wifi</label>
       <input
-        id="filter_ammenities"
+        id="filter_amenities"
         type="checkbox"
-        bind:checked={$roomsFilter.ammenities[2]} />
-      <label for="filter_ammenities">Завтрак в постель</label>
+        bind:checked={$roomsFilter.amenities[2]} />
+      <label for="filter_amenities">Завтрак в постель</label>
     </div>
     <div class="sort">
       <h4>Sort by</h4>
       <Button on:click={() => ($roomsFilter.sort = '')}>Reset</Button>
+      <br />
+      <input
+        id="filter_sort_order"
+        type="checkbox"
+        name="filter_sort_order"
+        bind:checked={$roomsFilter.reverse} />
+      <label for="filter_sort_order">{$roomsFilter.reverse}</label>
+
       <br />
       <input
         id="filter_sort_price"

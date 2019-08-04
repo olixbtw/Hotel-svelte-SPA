@@ -27,27 +27,29 @@
 
   $roomsFilter = {
     guests: {
-      n: 4,
+      n: 1,
       larger: true
     },
-    ammenities: [false, false, false],
+    amenities: [false, false, false],
     sort: "",
+    reverse: false,
     view: "cards"
   };
 
   import guestsFilter from "./_filter/guests.js";
   import roomSortOrder from "./_filter/order.js";
-  import ammenitiesFilter from "./_filter/amen.js";
+  import amenitiesFilter from "./_filter/amen.js";
 
   $: if (loaded_flag) rooms = doSorting($roomsFilter);
 
   function doSorting(allFilters) {
     var newArray = REFERENCE.concat();
-    console.log("generate new");
+    console.log(newArray);
     newArray = guestsFilter(newArray, allFilters); //убрать
-    newArray = ammenitiesFilter(newArray, allFilters); //оставить
+    newArray = amenitiesFilter(newArray, allFilters); //оставить только
     newArray = roomSortOrder(newArray, allFilters); //посортировать
-    newArray = REFERENCE.concat();
+    console.log(newArray);
+    // newArray = REFERENCE.concat();
     return newArray;
   }
 </script>
@@ -82,7 +84,6 @@
 
 <div class="room-list {loaded_flag ? 'show_roooms' : ''}">
   {#each rooms as room}
-    <!-- <article class="guests{room.people} available{room_available} price{room.price}"> -->
     <article>
       <a rel="prefetch" href="rooms/{room.slug}">
         <figure>
@@ -96,6 +97,14 @@
         </div>
         <h4>{room.title}</h4>
         <div class="price">{room.price}/night</div>
+        <ul style="float:right;">
+          {#each room.amenities.additional as item}
+            <li class="amen" style="background:green; color:white;">{item}</li>
+          {/each}
+          {#each room.amenities.abscent as item}
+            <li class="amen" style="background:red; color:white;">{item}</li>
+          {/each}
+        </ul>
       </a>
     </article>
   {/each}
