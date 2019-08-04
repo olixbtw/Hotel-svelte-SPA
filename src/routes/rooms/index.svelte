@@ -199,7 +199,7 @@
         .type {
           text-transform: uppercase;
           font-weight: bold;
-          color: gray;
+          color: #b4b4b4;
           font-size: 0.8em;
           letter-spacing: -0.025em;
 
@@ -211,7 +211,7 @@
           }
         }
         .price {
-          color: #443941;
+          color: #444b57;
         }
         &:hover {
           figure:before {

@@ -45,7 +45,7 @@
     opacity: 0;
   }
   nav:hover {
-    color: #fff;
+    color: #f2f2f2;
     background: #443941;
   }
   .shown {

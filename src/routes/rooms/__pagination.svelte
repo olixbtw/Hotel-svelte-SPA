@@ -53,7 +53,7 @@
       cursor: pointer;
       &:hover {
         background: rgba(68, 57, 65, 0.9);
-        color: #fff;
+        color: #f2f2f2;
       }
     }
     ul li {
@@ -113,7 +113,7 @@
       bottom: -0.15rem;
       left: -0.15rem;
     }
-    color: #fff;
+    color: #f2f2f2;
   }
 </style>
 

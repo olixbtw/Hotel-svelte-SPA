@@ -73,7 +73,7 @@
       left: 0;
       right: 0;
       opacity: 0.2;
-      background: #000;
+      background: #444b57;
     }
 
     img {

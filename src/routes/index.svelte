@@ -61,4 +61,8 @@
   </strong>
 </p>
 
-<Button href="rooms/">Go to Rooms</Button>
+<Button href="rooms/" type="default">Go to Rooms</Button>
+<Button href="rooms/" type="active">Go to Rooms</Button>
+<Button href="rooms/" type="disabled">Go to Rooms</Button>
+<Button href="rooms/" type="success">Go to Rooms</Button>
+<Button href="rooms/" type="controls">Go to Rooms</Button>

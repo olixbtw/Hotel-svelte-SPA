@@ -1,6 +1,6 @@
 <script>
   import * as sapper from "@sapper/app";
-  export let type = "default";
+  export let type = "active";
   export let href = false;
 
   function hrefChange() {
@@ -8,18 +8,50 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   button {
-    background-color: rgba(255, 165, 0, 0.5);
     padding: 0.5rem 1.5rem;
     cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    border: 2px solid;
     transition: all 0.4s ease-in-out;
+    // border-radius: 1px;
+
+    color: #eb9a21;
+    color: #dcb03f;
+    color: #2172eb;
+    color: #eb5757;
+    color: #cfcfcf;
+    color: #f2f2f2;
+    color: #27ae60;
+    color: #444b57;
+    color: #b4b4b4;
+  }
+
+  button {
+    border-color: #ccc;
+    color: #444b57;
+    background-color: #f4f4f4;
+  }
+  button:active {
+    background-color: #ddd;
+  }
+
+  button:focus {
+    border-color: #666;
+  }
+
+  .active {
+    background: orange;
+    color: white;
   }
   .disabled {
-    cursor: initial;
-    opacity: 0.9;
-    pointer-events: none;
-    background: red;
+  }
+  .succes {
+  }
+  .controls {
   }
 </style>
 

@@ -63,7 +63,7 @@
     border-bottom: 0.15em solid #eb9a21;
     display: flex;
     background: #444b57;
-    color: #fff;
+    color: #f2f2f2;
 
     padding: 0.4rem 2rem;
     @media (min-width: 1680px) {

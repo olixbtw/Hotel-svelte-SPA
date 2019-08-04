@@ -31,7 +31,7 @@
       position: absolute;
       content: "";
       background: #eb9a21;
-      color: #fff;
+      color: #f2f2f2;
       display: block;
       width: 80%;
       height: 80%;
@@ -61,7 +61,7 @@
       position: absolute;
       padding: 0.75rem;
       background: #eb9a21;
-      color: #fff;
+      color: #f2f2f2;
       transition: all 0.5s;
       pointer-events: none;
     }

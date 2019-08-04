@@ -24,8 +24,8 @@
     font-size: 1.2rem;
     line-height: 3rem;
     text-align: center;
-    color: #dfdbdb;
-    background: #443941;
+    color: #b4b4b4;
+    background: #444b57;
     cursor: pointer;
     position: absolute;
     bottom: 100%;
@@ -56,7 +56,8 @@
       margin: 0 0 0 auto;
       transition: all 0.4s;
       padding: 1rem 2.5rem;
-      color: #a19d9d;
+      color: #b4b4b4;
+      // #444b57
       background: rgba(68, 57, 65, 0.95);
       opacity: 0;
       max-height: 0;
@@ -79,11 +80,11 @@
       display: none;
 
       & + label {
-        color: #a19d9d;
+        color: #cfcfcf;
       }
     }
     &:checked + label {
-      color: #dfdbdb;
+      color: #f2f2f2;
     }
   }
   label {
@@ -93,7 +94,7 @@
   }
   h4 {
     margin: 0.15em 0 0.25em -0.5rem;
-    color: #dfdbdb;
+    color: #f2f2f2;
   }
   // .list-STYLED-FILTER {
   //   .filter-button {
@@ -105,7 +106,7 @@
   //     margin-bottom: 2rem;
   //   }
   //   nav > * {
-  //     border: 1px solid #000;
+  //     border: 1px solid #444b57;
   //     padding: 0.5rem;
   //     line-height: 1.2;
   //   }
@@ -128,7 +129,7 @@
     display: none;
   }
   label[for="filter_sort_order"] {
-    color: red;
+    color: #f2f2f2;
     font-size: 1.5rem;
     position: absolute;
     top: 0;
@@ -149,9 +150,9 @@
     <section class="filter">
       <div class="guests">
         <h4>Guests</h4>
-        <Button on:click={red_guest}>-</Button>
+        <Button on:click={red_guest} type="controls">-</Button>
         <input type="number" bind:value={$roomsFilter.guests.n} />
-        <Button on:click={inc_guest}>+</Button>
+        <Button on:click={inc_guest} type="controls">+</Button>
       </div>
       <input
         id="filter_n_guests"
@@ -177,7 +178,7 @@
     </section>
     <section class="sort">
       <h4>Sort by</h4>
-      <Button on:click={() => ($roomsFilter.sort = '')}>
+      <Button on:click={() => ($roomsFilter.sort = '')} type="controls">
         <i class="fas fa-sync-alt" />
         Reset
       </Button>

@@ -1,11 +1,11 @@
 <script>
   import rooms from "./../_rooms.js";
   $reservedRoom.push(rooms[0]);
-  // 
-  // 
+  //
+  //
   //  TEST ADDING
-  // 
-  // 
+  //
+  //
 
   import { reservedRoom } from "../../../components/_stores.js";
   import Button from "../../../components/__button.svelte";
@@ -209,7 +209,9 @@
           </div>
 
           <Button on:click={prevBooking}>Back</Button>
-          <Button on:click={nextBooking}>Agree and continue</Button>
+          <Button on:click={nextBooking} type="active">
+            Agree and continue
+          </Button>
 
         </section>
       {:else if activeBookingPage == 1}
@@ -243,7 +245,7 @@
           <Button on:click={prevBooking}>Back</Button>
           <Button
             on:click={nextBooking}
-            type={cardValid ? 'default' : 'disabled'}>
+            type={cardValid ? 'succes' : 'disabled'}>
             Next
           </Button>
         </section>
