@@ -18,7 +18,7 @@
   // ПОЭТОМУ МОЖЕМ работать с компонентом извне
   // в зависимости от изменений переменных извне, перестраивается структура внутри.
   // логика переключения страниц - снаружи
-  import Pagination from "./__pagination.svelte";
+  import Pagination from "./_filter/pagination.svelte";
   var y;
 
   var roomsPerPage = 8;
@@ -98,7 +98,7 @@
     reverse: false,
     view: "cards"
   };
-  
+
   function resetFilter() {
     $roomsFilter = {
       guests: {
@@ -108,7 +108,7 @@
       amenities: [false, false, false],
       sort: "",
       reverse: false,
-      view: "cards"
+      view: "list"
     };
   }
 </script>
@@ -159,12 +159,15 @@
         display: flex;
         flex-direction: column;
         cursor: pointer;
-        width: 90%;
-        max-width: 350px;
+        max-width: 450px;
         min-width: 300px;
+        width: 90%;
+        @media (min-width: 500px) {
+          width: 45%;
+        }
         @media (min-width: 1000px) {
           width: 30%;
-          max-width: 450px;
+          max-width: 500px;
         }
         > a {
           color: inherit;
@@ -303,6 +306,9 @@
       display: inline-block;
     }
   }
+  .amenities {
+    display: none;
+  }
 </style>
 
 <svelte:head>
@@ -317,6 +323,9 @@
 {/if}
 
 {#if rooms.length > 0}
+  <Pagination on:click={paginationClick} {pag_opt} />
+  <br />
+
   <div
     class="room-list {$roomsFilter.view}-VIEW activePage{pag_opt.active}
     {loaded_flag ? 'show_roooms' : ''}">
@@ -335,7 +344,7 @@
           </div>
           <h4>{room.title}</h4>
           <div class="price">{room.price}/night</div>
-          <ul class="ammenities">
+          <ul class="amenities">
             {#each room.amenities.additional as item}
               <li class="enabled">{item}</li>
             {/each}

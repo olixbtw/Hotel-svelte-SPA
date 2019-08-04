@@ -30,6 +30,7 @@
     position: absolute;
     bottom: 100%;
     right: 0;
+    box-shadow: -1px -2px 3px rgba(0, 0, 0, 0.2);
   }
   .filter-body {
     position: absolute;
@@ -37,25 +38,20 @@
     z-index: 500;
     white-space: nowrap;
     line-height: 2.2;
-
     right: 0.5rem;
-    // @media (min-width: 1000px) {
-    // }
-    @media (min-width: 1680px) {
-      left: -3rem;
-    }
 
     &.active {
       nav {
         max-height: 90vh;
         max-width: 50vw;
         opacity: 1;
+        padding: 1rem 2.5rem;
+        box-shadow: -2px 3px 4px rgba(0, 0, 0, 0.2);
       }
     }
     nav {
       margin: 0 0 0 auto;
       transition: all 0.4s;
-      padding: 1rem 2.5rem;
       color: #f2f2f2;
       // #444b57
       background: rgba(68, 75, 87, 0.98);

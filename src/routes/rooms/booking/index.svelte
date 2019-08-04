@@ -84,14 +84,16 @@
 <style lang="scss">
   .container {
     display: grid;
-    grid-gap: 2rem;
+    grid-gap: 3rem;
 
     @media (min-width: 1000px) {
-      grid-template-columns: auto 13rem;
+      grid-template-columns: auto auto;
+
       .col-left {
         grid-column: 1 / 2;
       }
       .col-right {
+        max-width: 20rem;
         grid-column: 2 / 3;
       }
     }
@@ -146,6 +148,9 @@
       box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
     }
   }
+  .container :global(button) {
+    display: inline-block;
+  }
 </style>
 
 <svelte:head>
@@ -161,7 +166,7 @@
         <section>
 
           <h1>1. Review rules</h1>
-          <hr>
+          <hr />
           <h3>3 nights in L'viv</h3>
           <div>
             August
@@ -220,7 +225,7 @@
       {:else if activeBookingPage == 1}
         <section>
           <h1>Confirm and pay</h1>
-          <hr>
+          <hr />
           <h3>Pay with card:</h3>
           <!-- {card_num} -->
           <div class="card_view">
@@ -295,7 +300,7 @@
   <section>
     <p>Для продолжения резервации</p>
     <h1>Выберите номер</h1>
-    <hr>
+    <hr />
     <Button href="/rooms">Номера</Button>
     {#if $reservedRoom.length}
       <Button on:click={nextBooking}>Вернуться к регистрации</Button>

@@ -38,6 +38,7 @@
       {address.street} {address.building} street, {address.index}
     </address>
   </section>
+  <hr />
   <section>
     <h2>Отзывы и комментарии гостей</h2>
     <span>Марина Томашевская</span>
@@ -49,7 +50,6 @@
     <br />
     Email:
     <a href="mailto:comments@mail.com">comments@mail.com</a>
-    <br />
     <br />
   </section>
 </div>

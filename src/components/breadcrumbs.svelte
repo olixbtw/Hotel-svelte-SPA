@@ -61,6 +61,7 @@
     display: inline-block;
     &::after {
       margin-left: 0.5em;
+      margin-right: 0.25em;
       content: ">";
     }
     &:last-child {

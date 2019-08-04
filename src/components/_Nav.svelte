@@ -91,6 +91,9 @@
         }
 
         .nav-show {
+          position: relative;
+          top: 0.75rem;
+          right: 0.5rem;
           span {
             &:first-child {
               top: 10px;

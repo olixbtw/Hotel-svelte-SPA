@@ -79,7 +79,7 @@
 <style lang="scss">
   .container {
     display: grid;
-    grid-gap: 2rem;
+    grid-gap: 3rem;
 
     .col-right {
       grid-row: 1 / 2;
@@ -106,7 +106,7 @@
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
     @media (min-width: 500px) {
-      grid-gap: 0.5em;
+      grid-gap: 0.75em;
       grid-template-columns: 6fr 7fr;
     }
     @media (min-width: 1001px) {
@@ -185,6 +185,7 @@
   }
 
   .col-right {
+    margin-top: 2rem;
     .control-group {
       display: inline-block;
     }
