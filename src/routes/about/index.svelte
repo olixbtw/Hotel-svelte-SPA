@@ -2,6 +2,16 @@
   var emptylink = "#";
 </script>
 
+<style>
+  section {
+    margin-bottom: 1rem;
+  }
+  section ul {
+    columns: 2;
+    column-span: 2rem;
+  }
+</style>
+
 <svelte:head>
   <title>ОТЕЛЬ - Про отель</title>
 </svelte:head>
@@ -205,13 +215,3 @@
 <a href={emptylink}>Link1</a>
 <a href={emptylink}>Link2</a>
 <a href={emptylink}>Link3</a>
-
-<style>
-  section {
-    margin-bottom: 1rem;
-  }
-  section ul {
-    columns: 2;
-    column-span: 2rem;
-  }
-</style>

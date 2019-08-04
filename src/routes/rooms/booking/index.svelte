@@ -5,7 +5,7 @@
   import { reservedRoom } from "../../../components/_stores.js";
   import Button from "../../../components/__button.svelte";
 
-  var activeBookingPage = 1;
+  var activeBookingPage = 0;
   function nextBooking() {
     activeBookingPage += 1;
   }
@@ -14,6 +14,7 @@
   }
   function resetBooking() {
     activeBookingPage = 0;
+    $reservedRoom = [];
   }
   var y;
   var card_num = "",
@@ -53,13 +54,25 @@
     var regexp = /[^0-9]/;
     n = n.replace(regexp, "");
 
-    console.log(n.length);
-    console.log(max);
     if (n.length > max) {
       n = n.substr(0, max);
     }
 
     return n;
+  }
+
+  var cardValid = false;
+  $: {
+    if (
+      card_expire.length > 4 &&
+      card_num.length == 16 &&
+      card_cvv.length == 3 &&
+      card_name.length > 4
+    ) {
+      cardValid = true;
+    } else {
+      cardValid = false;
+    }
   }
 </script>
 
@@ -76,12 +89,6 @@
   }
   .col-right {
     grid-column: 2 / 3;
-
-    &.fixed {
-      position: fixed;
-      background: red;
-      right: 0;
-    }
   }
   .card_view {
     background: grey;
@@ -137,19 +144,17 @@
 <svelte:head>
   <title>ОТЕЛЬ - Резервация</title>
 </svelte:head>
+
 <svelte:window bind:scrollY={y} />
-<!-- {$reservedRoom.length}
-<br />
-{activeBookingPage} -->
 {#if $reservedRoom.length && activeBookingPage >= 0}
   <div class="container">
     <div class="col-left">
-      <Button on:click={prevBooking}>Back</Button>
 
       {#if activeBookingPage == 0}
         <section>
+
           <h1>1. Review rules</h1>
-          <h2>3 nights in L'viv</h2>
+          <h3>3 nights in L'viv</h3>
           <div>
             August
             <br />
@@ -198,6 +203,7 @@
             <p>Yaryna & Yaroslav</p>
           </div>
 
+          <Button on:click={prevBooking}>Back</Button>
           <Button on:click={nextBooking}>Agree and continue</Button>
 
         </section>
@@ -205,7 +211,7 @@
         <section>
           <h1>Confirm and pay</h1>
           <h3>Pay with card:</h3>
-          {card_num}
+          <!-- {card_num} -->
           <div class="card_view">
             <input
               type="text"
@@ -228,11 +234,13 @@
               name="cvv"
               placeholder="cvv" />
           </div>
-          <h3>How do you want to pay?</h3>
-          pay in full
           <br />
-          pay for booking--- the rest you will pay upon arival
-          <Button on:click={nextBooking}>Next</Button>
+          <Button on:click={prevBooking}>Back</Button>
+          <Button
+            on:click={nextBooking}
+            type={cardValid ? 'default' : 'disabled'}>
+            Next
+          </Button>
         </section>
       {:else if activeBookingPage > 1}
         <section>
@@ -242,15 +250,34 @@
       {/if}
 
     </div>
-    <div class="col-right {y > 100 ? 'fixed' : ''}">
-      Booking info - col right
+    <div class="col-right">
+      <h3>Информация о бронировании</h3>
+      <ul>
+        <li>
+          room title
+          <br />
+          Checkin - DATE
+          <br />
+          Checkout - DATE
+          <br />
+          Days total
+          <br />
+          Price total
+        </li>
+      </ul>
+      <h3>Дополнительная информация</h3>
+      Если что - вонить сюда, ТЕЛЕФОН
+      <br />
+      адресс отеля
     </div>
   </div>
 {:else}
-  <p>Для продолжения резервации</p>
-  <h1>Выберите номер</h1>
-  <Button href="/rooms">Номера</Button>
-  {#if $reservedRoom.length}
-    <Button on:click={nextBooking}>Вернуться к регистрации</Button>
-  {/if}
+  <section>
+    <p>Для продолжения резервации</p>
+    <h1>Выберите номер</h1>
+    <Button href="/rooms">Номера</Button>
+    {#if $reservedRoom.length}
+      <Button on:click={nextBooking}>Вернуться к регистрации</Button>
+    {/if}
+  </section>
 {/if}

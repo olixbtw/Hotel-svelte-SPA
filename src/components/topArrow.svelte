@@ -30,17 +30,6 @@
   }
 </script>
 
-<svelte:window bind:scrollY={y} />
-
-{#if y > 0}
-  <nav
-    on:click={scrollTop}
-    class="{y > 150 ? 'shown' : ''}
-    {y > ih ? 'bottom' : ''}">
-    <i class="fas fa-chevron-up" />
-  </nav>
-{/if}
-
 <style>
   nav {
     cursor: pointer;
@@ -68,3 +57,14 @@
     bottom: 3rem;
   }
 </style>
+
+<svelte:window bind:scrollY={y} />
+
+{#if y > 0}
+  <nav
+    on:click={scrollTop}
+    class="{y > 150 ? 'shown' : ''}
+    {y > ih ? 'bottom' : ''}">
+    <i class="fas fa-chevron-up" />
+  </nav>
+{/if}

@@ -31,20 +31,6 @@
   }
 </script>
 
-{#if pag_opt.len > 1}
-  <nav on:click class="pagination_bar">
-    <div class="arr {pag_opt.active == 1 ? 'disabled' : ''}">&#60;</div>
-    <ul>
-      {#each arr as i}
-        <li>{i}</li>
-      {/each}
-    </ul>
-    <div class="arr {pag_opt.active == pag_opt.len ? 'disabled' : ''}">
-      &#62;
-    </div>
-  </nav>
-{/if}
-
 <style lang="scss">
   .pagination_bar {
     padding: 0.5rem 0;
@@ -130,3 +116,17 @@
     color: #fff;
   }
 </style>
+
+{#if pag_opt.len > 1}
+  <nav on:click class="pagination_bar">
+    <div class="arr {pag_opt.active == 1 ? 'disabled' : ''}">&#60;</div>
+    <ul>
+      {#each arr as i}
+        <li>{i}</li>
+      {/each}
+    </ul>
+    <div class="arr {pag_opt.active == pag_opt.len ? 'disabled' : ''}">
+      &#62;
+    </div>
+  </nav>
+{/if}

@@ -12,6 +12,12 @@
   };
 </script>
 
+<style>
+  section {
+    margin-bottom: 1rem;
+  }
+</style>
+
 <svelte:head>
   <title>ОТЕЛЬ - Контакты</title>
 </svelte:head>
@@ -22,7 +28,8 @@
   <section>
     Тел:
     <a href="tel:{address.phone}">{address.phone}</a>
-    <!-- <br /> -->
+
+    <br />
     Email:
     <a href="mailto:{address.email}">{address.email}</a>
     <address>
@@ -48,9 +55,3 @@
 </div>
 
 <Map />
-
-<style>
-  section {
-    margin-bottom: 1rem;
-  }
-</style>

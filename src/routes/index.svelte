@@ -3,30 +3,6 @@
   import Button from "../components/__button.svelte";
 </script>
 
-<svelte:head>
-  <title>ОТЕЛЬ - 123</title>
-</svelte:head>
-
-<Slider>
-  <h1>New Title</h1>
-</Slider>
-<!-- <Slider /> -->
-
-<h1>Great success!</h1>
-
-<!-- <figure>
-  <img alt="Borкat" src="logo_dark.svg" />
-  <figcaption>HIGH FIVE!</figcaption>
-</figure> -->
-
-<p>
-  <strong>
-    Try editing this file (src/routes/index.svelte) to test live reloading.
-  </strong>
-</p>
-
-<Button href="rooms/">Go to Rooms</Button>
-
 <style lang="scss">
   h1,
   // figure,
@@ -62,3 +38,27 @@
     }
   }
 </style>
+
+<svelte:head>
+  <title>ОТЕЛЬ - 123</title>
+</svelte:head>
+
+<Slider>
+  <h1>New Title</h1>
+</Slider>
+<!-- <Slider /> -->
+
+<h1>Great success!</h1>
+
+<!-- <figure>
+  <img alt="Borкat" src="logo_dark.svg" />
+  <figcaption>HIGH FIVE!</figcaption>
+</figure> -->
+
+<p>
+  <strong>
+    Try editing this file (src/routes/index.svelte) to test live reloading.
+  </strong>
+</p>
+
+<Button href="rooms/">Go to Rooms</Button>

@@ -7,23 +7,6 @@
   };
 </script>
 
-<h1>Галерея</h1>
-
-<div class="gallery">
-  {#each imageList as img, index}
-    <figure on:click={() => (modalContent.active = index)}>
-      <img src={img.src} alt={img.alt} />
-      <figcaption>{img.text}</figcaption>
-    </figure>
-  {/each}
-</div>
-
-<svelte:head>
-  <title>ОТЕЛЬ - Галерея</title>
-</svelte:head>
-
-<Modal {modalContent} />
-
 <style lang="scss">
   .gallery {
     justify-content: space-around;
@@ -109,3 +92,20 @@
     }
   }
 </style>
+
+<h1>Галерея</h1>
+
+<div class="gallery">
+  {#each imageList as img, index}
+    <figure on:click={() => (modalContent.active = index)}>
+      <img src={img.src} alt={img.alt} />
+      <figcaption>{img.text}</figcaption>
+    </figure>
+  {/each}
+</div>
+
+<svelte:head>
+  <title>ОТЕЛЬ - Галерея</title>
+</svelte:head>
+
+<Modal {modalContent} />

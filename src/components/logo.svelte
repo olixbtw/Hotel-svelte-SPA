@@ -4,19 +4,6 @@
     smaller = false;
 </script>
 
-<a
-  href="/"
-  rel="prefetch"
-  class="logo {navShown ? 'shown' : ''}
-  {smaller ? 'smaller' : ''}
-  {!segment ? 'active' : ''}
-  ">
-  <img src="logo.svg" alt="Logo" />
-  <div class="name">
-    <slot />
-  </div>
-</a>
-
 <style lang="scss">
   .logo {
     // &.shown {
@@ -52,3 +39,16 @@
     }
   }
 </style>
+
+<a
+  href="/"
+  rel="prefetch"
+  class="logo {navShown ? 'shown' : ''}
+  {smaller ? 'smaller' : ''}
+  {!segment ? 'active' : ''}
+  ">
+  <img src="logo.svg" alt="Logo" />
+  <div class="name">
+    <slot />
+  </div>
+</a>

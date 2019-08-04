@@ -15,23 +15,6 @@
   });
 </script>
 
-<Nav {segment} />
-
-<div style="height:{heightFix}px;" />
-<main>
-  {#if pageLogo}
-    <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />
-  {/if}
-  {#if segment !== 'login'}
-    <Breadcrumbs {segment} />
-  {/if}
-  <slot />
-</main>
-
-<Footer />
-
-<Arrow />
-
 <style lang="scss">
   main {
     width: 100%;
@@ -75,3 +58,20 @@
     font-range: 500px 1680px; /* viewport widths between which font-size is fluid */
   }
 </style>
+
+<Nav {segment} />
+
+<div style="height:{heightFix}px;" />
+<main>
+  {#if pageLogo}
+    <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />
+  {/if}
+  {#if segment !== 'login'}
+    <Breadcrumbs {segment} />
+  {/if}
+  <slot />
+</main>
+
+<Footer />
+
+<Arrow />
