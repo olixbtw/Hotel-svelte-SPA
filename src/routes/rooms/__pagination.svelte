@@ -52,6 +52,7 @@
       transition: all 0.3s linear;
       cursor: pointer;
       &:hover {
+        // 444b57
         background: rgba(68, 57, 65, 0.9);
         color: #f2f2f2;
       }
@@ -103,7 +104,7 @@
     &::before,
     &::after {
       opacity: 0.9;
-      background: #443941;
+      background: #444b57;
     }
     &::after {
       top: -0.15rem;

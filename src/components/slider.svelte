@@ -55,7 +55,7 @@
   .slider {
     height: 400px;
     width: 101vw;
-    background: #5c505e;
+    background: #444b57;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -91,7 +91,7 @@
 
       width: 6em;
       height: 450px;
-      background: #131f1f;
+      background: #444b57;
       opacity: 0.05;
       cursor: pointer;
       transition: all 0.5s;

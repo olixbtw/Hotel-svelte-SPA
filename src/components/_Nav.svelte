@@ -151,8 +151,7 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            // background: #fafafa;
-            background: #393d46;
+            background: #444b57;
 
             display: flex;
             flex-direction: column;
@@ -177,7 +176,7 @@
       span {
         position: relative;
         display: block;
-        background: white;
+        background: #f2f2f2;
         width: 45px;
         margin: 5px 0;
         height: 5px;

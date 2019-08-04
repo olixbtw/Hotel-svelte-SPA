@@ -40,13 +40,18 @@
     text-align: center;
     right: 1.5rem;
     color: #443941;
-    transition: bottom 0.7s, opacity 0.4s, background 0.3s, color 0.3s;
+    transition: bottom 0.7s, opacity 0.4s, background 0.3s, color 0.3s,
+      transform 0.25s;
     bottom: 0;
     opacity: 0;
   }
   nav:hover {
     color: #f2f2f2;
-    background: #443941;
+    background: #444b57;
+    transform: scale(1.1);
+  }
+  nav:active {
+    transform: scale(1);
   }
   .shown {
     transition: bottom 0.4s;

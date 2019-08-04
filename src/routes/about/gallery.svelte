@@ -49,7 +49,7 @@
       top: 0;
       left: 0;
       padding: 0.5rem;
-      background: white;
+      background: #f2f2f2;
       object-fit: cover;
     }
 

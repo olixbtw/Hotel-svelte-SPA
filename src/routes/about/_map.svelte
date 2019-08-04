@@ -2,7 +2,7 @@
   #map {
     height: 400px;
     width: 101vw;
-    background: #5c505e;
+    background: #444b57;
     position: relative;
     margin-top: auto;
     left: 50%;

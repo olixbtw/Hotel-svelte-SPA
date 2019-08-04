@@ -96,7 +96,7 @@
     grid-column: 2 / 3;
   }
   .card_view {
-    background: grey;
+    background: 444b57;
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
     padding: 2.2rem 1rem;
@@ -134,7 +134,7 @@
       //op-te side
       display: block;
       content: "";
-      background: rgb(175, 169, 169);
+      background: #b4b4b4;
       position: absolute;
       z-index: -1;
       top: 1rem;

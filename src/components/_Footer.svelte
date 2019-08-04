@@ -1,6 +1,6 @@
 <style lang="scss">
   footer {
-    background: #443941;
+    background: #444b57;
     padding: 0.5rem 3.2rem;
     font-size: 0.7rem;
     color: #b4b4b4;

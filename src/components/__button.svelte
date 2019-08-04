@@ -33,14 +33,14 @@
   button {
     border-color: #ccc;
     color: #444b57;
-    background-color: #f4f4f4;
+    background-color: #f2f2f2;
   }
   button:active {
-    background-color: #ddd;
+    background-color: #cfcfcf;
   }
 
   button:focus {
-    border-color: #666;
+    border-color: #b4b4b4;
   }
 
   .active {

@@ -232,7 +232,7 @@
       left: 0;
       bottom: 0;
       right: 0;
-      background: white;
+      background: #f2f2f2;
     }
   }
   @for $i from 1 through $pages {
