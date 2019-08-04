@@ -127,7 +127,7 @@
   input[name="filter_sort_order"] {
     display: none;
   }
-  label[for=filter_sort_order] {
+  label[for="filter_sort_order"] {
     color: red;
     font-size: 1.5rem;
     position: absolute;
@@ -138,6 +138,8 @@
     position: relative;
   }
 </style>
+
+<svelte:window on:scroll={() => (classToggle = false)} />
 
 <div class="filter-body {classToggle ? 'active' : ''}" transition:fade>
   <div class="filter-button" on:click={() => (classToggle = !classToggle)}>
