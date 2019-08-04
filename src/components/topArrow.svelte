@@ -40,8 +40,7 @@
     text-align: center;
     right: 1.5rem;
     color: #443941;
-    transition: bottom 0.7s, opacity 0.4s, background 0.3s, color 0.3s,
-      transform 0.25s;
+    transition: all 0.4s;
     bottom: 0;
     opacity: 0;
   }
@@ -49,12 +48,14 @@
     color: #f2f2f2;
     background: #444b57;
     transform: scale(1.1);
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
   }
   nav:active {
     transform: scale(1);
+
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
   }
   .shown {
-    transition: bottom 0.4s;
     bottom: 1rem;
     opacity: 1;
   }

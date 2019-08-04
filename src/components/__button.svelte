@@ -10,24 +10,35 @@
 
 <style lang="scss">
   button {
-    padding: 0.75rem 1.5rem;
+    transition: all 0.25s ease-in-out;
+    display: block;
     cursor: pointer;
     font-family: inherit;
-    font-size: 1rem;
     outline: none;
-    transition: all 0.25s ease-in-out;
     border: 0.1rem solid;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+
+    &.big {
+      padding: 1rem 3rem;
+      font-size: 1.1rem;
+    }
+    &.small {
+      padding: 0.5rem 1.5rem;
+      font-size: 0.9rem;
+    }
   }
 
   button {
     color: #444b57;
     border-color: #cfcfcf;
     background-color: #f2f2f2;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
 
     &:hover {
-      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.17);
+      box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
     }
     &:focus {
       border-color: #9f9f9f;
@@ -43,9 +54,6 @@
     color: #fff;
     background: #eb9a21;
     border-color: #eb9a21;
-    &:hover {
-      box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.27);
-    }
     &:focus {
       border-color: #6f6f7f;
     }

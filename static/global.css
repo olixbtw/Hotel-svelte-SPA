@@ -95,8 +95,9 @@ textarea {
   font-size: inherit;
   padding: 0.4em;
   margin: 0 0 0.5em 0;
-  border: 1px solid #ccc;
-  border-radius: 2px;
+  border: .1rem solid #ccc;
+
+
 }
 
 input:disabled {
@@ -113,6 +114,11 @@ img {
 
 p {
   color: #9f9f9f;
+}
+
+hr{
+  border-top: .15em solid #eb9a21;
+  /* 444b57 */
 }
 
 /* Open Sans */

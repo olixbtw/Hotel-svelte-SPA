@@ -80,20 +80,26 @@
   .container {
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: auto 13rem;
-  }
-  .col-left {
-    grid-column: 1 / 2;
-  }
-  .col-right {
-    grid-column: 2 / 3;
+
+    .col-right {
+      grid-row: 1 / 2;
+    }
+    @media (min-width: 1000px) {
+      grid-template-columns: auto auto;
+      .col-left {
+        grid-column: 1 / 2;
+      }
+      .col-right {
+        grid-column: 2 / 3;
+      }
+    }
   }
 
   .images {
     margin-bottom: 1em;
 
     display: grid;
-    height: 400px;
+    height: 450px;
     grid-auto-flow: dense;
 
     grid-row-gap: 0.5em;
@@ -103,7 +109,9 @@
       grid-gap: 0.5em;
       grid-template-columns: 6fr 7fr;
     }
-    @media (min-width: 1000px) {
+    @media (min-width: 1001px) {
+      //weird behaviour from mqpacker
+      height: 400px;
       grid-template-columns: 6fr 7fr 6fr;
     }
     @media (min-width: 1680px) {
@@ -111,6 +119,7 @@
     }
 
     img {
+      box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
       height: 100%;
       width: 100%;
       object-fit: cover;
@@ -165,10 +174,59 @@
     }
     ul {
       li {
+        &.disabled {
+          color: #9f9f9f;
+          text-decoration: line-through;
+        }
       }
     }
   }
   .description {
+  }
+
+  .col-right {
+    .control-group {
+      display: inline-block;
+    }
+    @media (min-width: 1000px) {
+    }
+    label {
+      font-size: 1.2rem;
+      padding: 0.25rem;
+      color: #9f9f9f;
+    }
+
+    .display_days {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+    .prompt {
+      display: block;
+      color: #9f9f9f;
+      font-size: 0.8rem;
+    }
+    @media (min-width: 1000px) {
+      &-inner {
+        display: block;
+        border: 0.1rem solid #9f9f9f;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 1.5rem;
+        hr {
+          display: none;
+        }
+      }
+      .control-group {
+        display: block;
+        // @media (min-width: 500px) { }
+      }
+      :global(button) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .prompt {
+        text-align: center;
+      }
+    }
   }
 </style>
 
@@ -198,7 +256,7 @@
 
     {#if room.amenities.additional.length + room.amenities.abscent.length > 0}
       <div class="amenities">
-        <h3>Amenities</h3>
+        <h3>Дополнительные услуги</h3>
         <ul>
           {#each room.amenities.additional as amm}
             <li>{amm}</li>
@@ -215,28 +273,41 @@
     </div>
     <Button on:click={addRoom} href="rooms/booking">Reserve it</Button>
   </div>
+
   <div class="col-right">
-    <label for="date_input_checkin">Дата въезда</label>
-    <input id="date_input_checkin" type="date" bind:value={Date_a} />
-    <label for="date_input_checkout">Дата отъезда</label>
-    <input id="date_input_checkout" type="date" bind:value={Date_b} />
-    {#if daysTotal > 0}
-      <div class="days-total">Days - {daysTotal}</div>
-      <div class="price-total">
-        Price - {room.price.value * daysTotal}{room.price.currency}
+    <div class="col-right-inner">
+      <div class="control-group">
+        <label for="date_input_checkin">Дата въезда</label>
+        <input id="date_input_checkin" type="date" bind:value={Date_a} />
       </div>
-    {:else}
-      <br />
-      These dates unavailable
-      <br />
-      <br />
-    {/if}
-    <hr />
-    <Button on:click={addRoom} href="rooms/booking" type="active">
-      Reserve
-    </Button>
-    <br />
-    <span>You wont be charged yet</span>
+      <div class="control-group">
+        <label for="date_input_checkout">Дата отъезда</label>
+        <input id="date_input_checkout" type="date" bind:value={Date_b} />
+      </div>
+      <div class="display_days">
+
+        {#if daysTotal > 0}
+          <div class="days-total">
+            Days -
+            <strong>{daysTotal}</strong>
+          </div>
+          <div class="price-total">
+            Price -
+            <strong>{room.price.value * daysTotal}{room.price.currency}</strong>
+          </div>
+        {:else}
+          <br />
+          These dates unavailable
+          <br />
+          <br />
+        {/if}
+      </div>
+      <Button on:click={addRoom} href="rooms/booking" type="active big">
+        Reserve
+      </Button>
+      <span class="prompt">You wont be charged yet</span>
+      <hr />
+    </div>
   </div>
 </div>
 

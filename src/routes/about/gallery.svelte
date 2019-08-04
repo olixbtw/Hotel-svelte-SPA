@@ -45,10 +45,10 @@
       transition: all 0.4s;
       position: absolute;
       height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 0.5rem;
+      // width: 100%;
+      top: 5%;
+      left: 5%;
+      width: 90%;
       background: white;
       object-fit: cover;
     }
@@ -81,13 +81,17 @@
         height: 100%;
       }
       img {
-        padding: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
       }
       figcaption {
         top: -0.5rem;
         right: -0.5rem;
         opacity: 1;
         pointer-events: all;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
       }
     }
   }

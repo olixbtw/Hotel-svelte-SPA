@@ -85,16 +85,18 @@
   .container {
     display: grid;
     grid-gap: 2rem;
-    grid-template-columns: auto 13rem;
 
-    position: relative;
+    @media (min-width: 1000px) {
+      grid-template-columns: auto 13rem;
+      .col-left {
+        grid-column: 1 / 2;
+      }
+      .col-right {
+        grid-column: 2 / 3;
+      }
+    }
   }
-  .col-left {
-    grid-column: 1 / 2;
-  }
-  .col-right {
-    grid-column: 2 / 3;
-  }
+
   .card_view {
     background: #444b57;
     border-radius: 8px;
@@ -159,6 +161,7 @@
         <section>
 
           <h1>1. Review rules</h1>
+          <hr>
           <h3>3 nights in L'viv</h3>
           <div>
             August
@@ -217,6 +220,7 @@
       {:else if activeBookingPage == 1}
         <section>
           <h1>Confirm and pay</h1>
+          <hr>
           <h3>Pay with card:</h3>
           <!-- {card_num} -->
           <div class="card_view">
@@ -245,14 +249,23 @@
           <Button on:click={prevBooking}>Back</Button>
           <Button
             on:click={nextBooking}
-            type={cardValid ? 'succes' : 'disabled'}>
+            type={cardValid ? 'success' : 'disabled'}>
             Next
           </Button>
         </section>
       {:else if activeBookingPage > 1}
-        <section>
+        <section style="text-align:center;">
+          <br />
+          <br />
+          <br />
+          <br />
           <h1>Thank you for your booking!</h1>
-          <Button on:click={resetBooking}>Close</Button>
+          <br />
+          <br />
+          <br />
+          <Button on:click={resetBooking} type="success">Close</Button>
+          <br />
+          <br />
         </section>
       {/if}
 
@@ -282,6 +295,7 @@
   <section>
     <p>Для продолжения резервации</p>
     <h1>Выберите номер</h1>
+    <hr>
     <Button href="/rooms">Номера</Button>
     {#if $reservedRoom.length}
       <Button on:click={nextBooking}>Вернуться к регистрации</Button>

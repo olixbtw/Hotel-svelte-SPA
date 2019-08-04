@@ -17,6 +17,7 @@
 
 <style lang="scss">
   main {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
     flex-grow: 1;
     // чтобы разрешить прицепить футер вниз страницы
