@@ -20,10 +20,9 @@
   import Pagination from "./__pagination.svelte";
   var y;
 
-  var roomsPerPage = 9;
   var pag_opt = {
     active: 1,
-    len: Math.ceil(rooms.length / roomsPerPage)
+    len: Math.ceil(rooms.length / $roomsFilter.roomsPerPage)
   };
 
   function paginationClick(event) {
@@ -73,17 +72,6 @@
     loaded_flag = false;
   });
 
-  $roomsFilter = {
-    guests: {
-      n: 1,
-      larger: true
-    },
-    amenities: [false, false, false],
-    sort: "",
-    reverse: false,
-    view: "cards"
-  };
-
   import guestsFilter from "./_filter/guests.js";
   import roomSortOrder from "./_filter/order.js";
   import amenitiesFilter from "./_filter/amen.js";
@@ -92,18 +80,27 @@
 
   function doSorting(allFilters) {
     var newArray = REFERENCE.concat();
-    console.log(newArray);
     newArray = guestsFilter(newArray, allFilters); //убрать
     newArray = amenitiesFilter(newArray, allFilters); //оставить только
     newArray = roomSortOrder(newArray, allFilters); //посортировать
-    console.log(newArray);
-    // newArray = REFERENCE.concat();
     return newArray;
   }
+
+  $roomsFilter = {
+    guests: {
+      n: 1,
+      larger: true
+    },
+    amenities: [false, false, false],
+    sort: "",
+    reverse: false,
+    view: "cards",
+    roomsPerPage: 7
+  };
 </script>
 
 <style lang="scss">
-  $perPage: 9;
+  $perPage: 7;
   $pages: 50;
 
   .room-list {
@@ -116,88 +113,117 @@
       pointer-events: none;
       opacity: 0;
       position: absolute;
-      margin: 0 0.5em 1.5em;
-      display: flex;
-      flex-direction: column;
       animation: pagination-hide 150ms linear;
-      cursor: pointer;
-      width: 90%;
-      max-width: 350px;
-      min-width: 300px;
-      @media (min-width: 1000px) {
-        width: 30%;
-        max-width: 450px;
+    }
+    &.list-VIEW {
+      flex-direction: column;
+      article {
+        border: 1px solid grey;
+        padding: 10px;
+        margin-bottom: 20px;
       }
-      > a {
-        color: inherit;
-        &:hover {
-          text-decoration: none;
-        }
+      article::after {
+        display: block;
+        content: "";
+        clear: both;
       }
-
       figure {
-        &::before {
-          width: 80%;
-          height: 80%;
-          bottom: 5%;
-          left: 5%;
-          transition: all 0.6s;
-          content: "";
-          display: block;
-          position: absolute;
-          z-index: -1;
-          background: #eb9a21;
-        }
-
-        position: relative;
-        margin: 0;
-        margin-bottom: 0.5em;
-
-        img {
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          width: 100%;
-          object-fit: cover;
-        }
-
-        &::after {
-          padding-bottom: 80%;
-          display: block;
-          content: "";
-        }
+        float: left;
+        margin: 0 20px 0 0;
+        display: inline-block;
       }
-      h4 {
-        margin: 0;
+      figure img {
+        display: block;
+        width: 200px;
+        height: 150px;
+        object-fit: contain;
       }
-      .type {
-        text-transform: uppercase;
-        font-weight: bold;
-        color: gray;
-        font-size: 0.8em;
-        letter-spacing: -0.025em;
+    }
+    &.cards-VIEW {
+      article {
+        margin: 0 0.5em 1.5em;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        width: 90%;
+        max-width: 350px;
+        min-width: 300px;
+        @media (min-width: 1000px) {
+          width: 30%;
+          max-width: 450px;
+        }
+        > a {
+          color: inherit;
+          &:hover {
+            text-decoration: none;
+          }
+        }
 
-        span {
+        figure {
           &::before {
-            content: "| ";
-            margin: 0 0.25em;
+            width: 80%;
+            height: 80%;
+            bottom: 5%;
+            left: 5%;
+            transition: all 0.6s;
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            background: #eb9a21;
+          }
+
+          position: relative;
+          margin: 0;
+          margin-bottom: 0.5em;
+
+          img {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            object-fit: cover;
+          }
+
+          &::after {
+            padding-bottom: 80%;
+            display: block;
+            content: "";
+          }
+        }
+        h4 {
+          margin: 0;
+        }
+        .type {
+          text-transform: uppercase;
+          font-weight: bold;
+          color: gray;
+          font-size: 0.8em;
+          letter-spacing: -0.025em;
+
+          span {
+            &::before {
+              content: "| ";
+              margin: 0 0.25em;
+            }
+          }
+        }
+        .price {
+          color: #443941;
+        }
+        &:hover {
+          figure:before {
+            bottom: -0.5em;
+            left: -0.5em;
+            width: 50%;
+            height: 50%;
           }
         }
       }
-      .price {
-        color: #443941;
-      }
-      &:hover {
-        figure:before {
-          bottom: -0.5em;
-          left: -0.5em;
-          width: 50%;
-          height: 50%;
-        }
-      }
     }
+
     &::after {
       content: "";
       display: block;
@@ -258,29 +284,6 @@
       animation: hide-overlay 700ms ease-in-out 300ms forwards;
     }
   }
-  .list-VIEW {
-    article {
-      border: 1px solid grey;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-    article::after {
-      display: block;
-      content: "";
-      clear: both;
-    }
-    figure {
-      float: left;
-      margin: 0 20px 0 0;
-      display: inline-block;
-    }
-    figure img {
-      display: block;
-      width: 200px;
-      height: 150px;
-      object-fit: contain;
-    }
-  }
 </style>
 
 <svelte:head>
@@ -295,7 +298,7 @@
 {/if}
 
 <div
-  class="room-list activePage{pag_opt.active}
+  class="room-list {$roomsFilter.view}-VIEW activePage{pag_opt.active}
   {loaded_flag ? 'show_roooms' : ''}">
   {#each rooms as room}
     <article>
