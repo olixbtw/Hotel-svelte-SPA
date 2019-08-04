@@ -1,5 +1,4 @@
 <script>
-  var emptylink = "#";
 </script>
 
 <style>
@@ -212,6 +211,6 @@
 </section>
 
 <h1>SERVICES LINKS</h1>
-<a href={emptylink}>Link1</a>
-<a href={emptylink}>Link2</a>
-<a href={emptylink}>Link3</a>
+<a href='about/services#bankety'>bankety</a>
+<a href='about/services#premier'>premier hall</a>
+<a href='about/services#catering'>catering</a>

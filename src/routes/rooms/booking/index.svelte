@@ -1,6 +1,11 @@
 <script>
   import rooms from "./../_rooms.js";
   $reservedRoom.push(rooms[0]);
+  // 
+  // 
+  //  TEST ADDING
+  // 
+  // 
 
   import { reservedRoom } from "../../../components/_stores.js";
   import Button from "../../../components/__button.svelte";

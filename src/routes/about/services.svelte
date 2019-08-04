@@ -1,6 +1,28 @@
+<script>
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    var target_href = window.location.href.split("#")[1];
+    if (target_href)
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.getElementById(target_href).offsetTop,
+          behavior: "auto"
+        });
+      }, 50);
+  });
+</script>
+
 <style>
   section {
-    margin-bottom: 1rem;
+    padding-top: 6rem;
+    margin-bottom: -3rem;
+  }
+  section:first-of-type {
+    padding-top: 0;
+  }
+  section:last-of-type {
+    margin-bottom: 0;
   }
 </style>
 
@@ -8,8 +30,12 @@
   <title>ОТЕЛЬ - Услуги</title>
 </svelte:head>
 
+<a href="about/services#bankety">bankety</a>
+<a href="about/services#premier">premier hall</a>
+<a href="about/services#catering">catering</a>
+
 <h1>Услуги отеля</h1>
-<section>
+<section id="bankety">
   <h1>Банкеты</h1>
   <p>
     Торжественное мероприятие будет выглядеть изысканно, если Вы решите его
@@ -36,7 +62,7 @@
 
 </section>
 
-<section>
+<section id="premier">
   <h1>Premier Hall</h1>
   <p>
     Premier Palace Hotel рад представить Premier Hall – эксклюзивный зал, для
@@ -76,7 +102,7 @@
   </ul>
 </section>
 
-<section>
+<section id="catering">
   <h1>Кейтеринг</h1>
 
   <p>

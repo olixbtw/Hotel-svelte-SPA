@@ -28,6 +28,10 @@
     padding: calc(2rem + 25px) 2rem 2rem;
     margin: 0 auto;
 
+    @media (max-width: 999px) {
+      max-width: 45rem;
+    }
+
     &::after {
       //заменить простой бекграунд чтобы можно спокойно использовать z-index:-1;
       position: absolute;
