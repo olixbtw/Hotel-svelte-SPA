@@ -24,7 +24,7 @@
     font-size: 1.2rem;
     line-height: 3rem;
     text-align: center;
-    color: #b4b4b4;
+    color: #f2f2f2;
     background: #444b57;
     cursor: pointer;
     position: absolute;
@@ -56,9 +56,9 @@
       margin: 0 0 0 auto;
       transition: all 0.4s;
       padding: 1rem 2.5rem;
-      color: #b4b4b4;
+      color: #f2f2f2;
       // #444b57
-      background: rgba(68, 75, 87, 0.9);
+      background: rgba(68, 75, 87, 0.97);
       opacity: 0;
       max-height: 0;
       max-width: 0;

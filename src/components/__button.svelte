@@ -1,6 +1,6 @@
 <script>
   import * as sapper from "@sapper/app";
-  export let type = "active";
+  export let type = "default";
   export let href = false;
 
   function hrefChange() {
@@ -27,7 +27,7 @@
     color: #f2f2f2;
     color: #27ae60;
     color: #444b57;
-    color: #b4b4b4;
+    color: #9f9f9f;
   }
 
   button {
@@ -40,7 +40,7 @@
   }
 
   button:focus {
-    border-color: #b4b4b4;
+    border-color: #9f9f9f;
   }
 
   .active {

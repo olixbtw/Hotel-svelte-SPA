@@ -96,11 +96,11 @@
     grid-column: 2 / 3;
   }
   .card_view {
-    background: 444b57;
+    background: #444b57;
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
     padding: 2.2rem 1rem;
-    width: 23rem;
+    width: 22rem;
     position: relative;
     margin-bottom: 2rem;
 
@@ -124,21 +124,21 @@
       float: right;
     }
     input[name="cvv"] {
-      width: 4rem;
+      width: 3rem;
       text-align: center;
       position: absolute;
       bottom: 1rem;
-      right: -5rem;
+      right: -3.5rem;
     }
     &::after {
       //op-te side
       display: block;
       content: "";
-      background: #b4b4b4;
+      background: #9f9f9f;
       position: absolute;
       z-index: -1;
       top: 1rem;
-      left: 6.5rem;
+      left: 4rem;
       width: 100%;
       height: 100%;
       box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);

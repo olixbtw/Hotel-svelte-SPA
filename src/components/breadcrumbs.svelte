@@ -46,7 +46,7 @@
   nav {
     padding: 0.25rem 0;
     font-size: 0.9rem;
-    color: #b4b4b4;
+    color: #9f9f9f;
     line-height: 2rem;
     position: relative;
     top: -1rem;

@@ -31,7 +31,7 @@
       position: absolute;
       content: "";
       background: #eb9a21;
-      color: #f2f2f2;
+      color: white;
       display: block;
       width: 80%;
       height: 80%;
@@ -49,7 +49,7 @@
       top: 0;
       left: 0;
       padding: 0.5rem;
-      background: #f2f2f2;
+      background: white;
       object-fit: cover;
     }
 

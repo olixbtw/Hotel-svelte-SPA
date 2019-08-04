@@ -48,7 +48,7 @@
 
 <style lang="scss">
   .modalBG {
-    background: #f2f2f2;
+    background: white;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -109,8 +109,8 @@
     width: 6rem;
     line-height: 6rem;
     text-align: center;
-    background: #f2f2f2;
-    // background: radial-gradient(#f2f2f2 45%, rgba(0, 0, 0, 0) 75%);
+    background: white;
+    // background: radial-gradient(white 45%, rgba(0, 0, 0, 0) 75%);
     transition: all 0.3s ease-in-out;
     &:hover {
       transform: scale(1.1);
@@ -129,7 +129,7 @@
     text-align: center;
     font-size: 2.5rem;
     z-index: 2;
-    background: linear-gradient(90deg, #f2f2f2 40%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(90deg, white 40%, rgba(0, 0, 0, 0) 100%);
     * {
       transition: all 0.3s ease-in-out;
     }
@@ -142,7 +142,7 @@
   .next_btn {
     left: unset;
     right: -2rem;
-    background: linear-gradient(270deg, #f2f2f2 40%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(270deg, white 40%, rgba(0, 0, 0, 0) 100%);
   }
 
   @for $i from 0 through 20 {

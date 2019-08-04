@@ -199,7 +199,7 @@
         .type {
           text-transform: uppercase;
           font-weight: bold;
-          color: #b4b4b4;
+          color: #9f9f9f;
           font-size: 0.8em;
           letter-spacing: -0.025em;
 
@@ -232,7 +232,7 @@
       left: 0;
       bottom: 0;
       right: 0;
-      background: #f2f2f2;
+      background: white;
     }
   }
   @for $i from 1 through $pages {
