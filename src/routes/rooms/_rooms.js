@@ -10,6 +10,12 @@ const rooms = [
       currency: '$',
       value: '60',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: ['wifi'],
+      abscent: [],
+    },
     //room page
     photos: [
       {
@@ -41,13 +47,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: '',
-      abscent: '',
-    },
   },
   {
     id: '2',
@@ -59,6 +58,12 @@ const rooms = [
       currency: '$',
       value: '90',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: ['wifi', 'Утюг'],
+      abscent: ['Завтрак в постель'],
+    },
     //room page
     photos: [
       {
@@ -90,13 +95,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: ['1111', '111'],
-      abscent: ['2222'],
-    },
   },
   {
     id: '3',
@@ -108,6 +106,12 @@ const rooms = [
       currency: '$',
       value: '130',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: ['Завтрак в постель'],
+      abscent: ['wifi'],
+    },
     //room page
     photos: [
       {
@@ -139,13 +143,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: '',
-      abscent: '',
-    },
   },
   {
     id: '4',
@@ -157,6 +154,12 @@ const rooms = [
       currency: '$',
       value: '150',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: [],
+      abscent: [],
+    },
     //room page
     photos: [
       {
@@ -188,13 +191,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: '',
-      abscent: '',
-    },
   },
   {
     id: '5',
@@ -206,6 +202,12 @@ const rooms = [
       currency: '$',
       value: '90',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: ['wifi', 'Утюг'],
+      abscent: ['Завтрак в постель'],
+    },
     //room page
     photos: [
       {
@@ -237,13 +239,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: ['1111', '111'],
-      abscent: ['2222'],
-    },
   },
   {
     id: '6',
@@ -255,6 +250,12 @@ const rooms = [
       currency: '$',
       value: '60',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: [],
+      abscent: [],
+    },
     //room page
     photos: [
       {
@@ -286,13 +287,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: '',
-      abscent: '',
-    },
   },
   {
     id: '7',
@@ -304,6 +298,12 @@ const rooms = [
       currency: '$',
       value: '90',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: ['wifi', 'Утюг'],
+      abscent: ['Завтрак в постель'],
+    },
     //room page
     photos: [
       {
@@ -335,13 +335,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: ['1111', '111'],
-      abscent: ['2222'],
-    },
   },
   {
     id: '8',
@@ -353,6 +346,12 @@ const rooms = [
       currency: '$',
       value: '70',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: [],
+      abscent: ['Завтрак в постель'],
+    },
     //room page
     photos: [
       {
@@ -384,13 +383,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: '',
-      abscent: '',
-    },
   },
   {
     id: '9',
@@ -402,6 +394,12 @@ const rooms = [
       currency: '$',
       value: '90',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: ['wifi', 'Утюг'],
+      abscent: [],
+    },
     //room page
     photos: [
       {
@@ -433,13 +431,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: ['1111', '111'],
-      abscent: ['2222'],
-    },
   },
   {
     id: '10',
@@ -451,6 +442,12 @@ const rooms = [
       currency: '$',
       value: '130',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: [],
+      abscent: [],
+    },
     //room page
     photos: [
       {
@@ -482,13 +479,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: '',
-      abscent: '',
-    },
   },
   {
     id: '12',
@@ -500,6 +490,12 @@ const rooms = [
       currency: '$',
       value: '150',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: [],
+      abscent: [],
+    },
     //room page
     photos: [
       {
@@ -531,13 +527,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: '',
-      abscent: '',
-    },
   },
   {
     id: '13',
@@ -549,6 +538,12 @@ const rooms = [
       currency: '$',
       value: '90',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: ['wifi', 'Утюг'],
+      abscent: ['Завтрак в постель'],
+    },
     //room page
     photos: [
       {
@@ -580,13 +575,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: ['1111', '111'],
-      abscent: ['2222'],
-    },
   },
   {
     id: '14',
@@ -598,6 +586,12 @@ const rooms = [
       currency: '$',
       value: '60',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: [],
+      abscent: [],
+    },
     //room page
     photos: [
       {
@@ -629,13 +623,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: '',
-      abscent: '',
-    },
   },
   {
     id: '15',
@@ -647,6 +634,12 @@ const rooms = [
       currency: '$',
       value: '90',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: ['wifi', 'Утюг'],
+      abscent: ['Завтрак в постель'],
+    },
     //room page
     photos: [
       {
@@ -678,13 +671,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: ['1111', '111'],
-      abscent: ['2222'],
-    },
   },
   {
     id: '16',
@@ -696,6 +682,12 @@ const rooms = [
       currency: '$',
       value: '70',
     },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+    amenities: {
+      additional: [],
+      abscent: [],
+    },
     //room page
     photos: [
       {
@@ -727,13 +719,6 @@ const rooms = [
         alt: 'Photo Alt',
       },
     ],
-
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
-    amenities: {
-      additional: '',
-      abscent: '',
-    },
   },
 ]
 

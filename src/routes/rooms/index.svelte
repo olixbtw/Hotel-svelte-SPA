@@ -12,13 +12,13 @@
   export let rooms;
 
   import { onMount, onDestroy } from "svelte";
-  import Filter from "./__filter.svelte";
+  import Filter from "./_filter/filter.svelte";
   import { roomsFilter } from "../../components/_stores.js";
   let loaded_flag = false;
 
-  var REFERENCE;
+  var REFERENCE = [];
   onMount(() => {
-    REFERENCE = new Array(...rooms);
+    REFERENCE = rooms.concat();
     loaded_flag = true;
   });
   onDestroy(() => {
@@ -27,48 +27,28 @@
 
   $roomsFilter = {
     guests: {
-      n: 1,
+      n: 4,
       larger: true
     },
-    unavailable: true,
+    ammenities: [false, false, false],
     sort: "",
     view: "cards"
   };
-  //additional
-  // FIX
-  // вствить сортировку по датам в объект комнат
-  var room_available = true;
 
-  $: if (loaded_flag) rooms = roomSort($roomsFilter);
+  import guestsFilter from "./_filter/guests.js";
+  import roomSortOrder from "./_filter/order.js";
+  import ammenitiesFilter from "./_filter/amen.js";
 
-  function roomSort(inputFilter) {
-    var sortBy = inputFilter.sort;
-    var tempRooms = rooms;
-    if (!sortBy) {
-      sortBy = "id";
-    }
-    var reg = /[^0-9]/;
-    function compare(a, b) {
-      typeof a[sortBy] === "string" ? console.log(a[sortBy]) : "";
-      if (+a[sortBy].replace(reg, "") < +b[sortBy].replace(reg, "")) {
-        return -1;
-      }
-      if (+a[sortBy].replace(reg, "") > +b[sortBy].replace(reg, "")) {
-        return 1;
-      }
-      return 0;
-    }
-    tempRooms.sort(compare);
-    return tempRooms;
+  $: if (loaded_flag) rooms = doSorting($roomsFilter);
 
-    // console.log("reference");
-    // REFERENCE.forEach(element => {
-    //   console.log(element[sortBy]);
-    // });
-    // console.log("sorted");
-    // tempRooms.forEach(element => {
-    //   console.log(element[sortBy]);
-    // });
+  function doSorting(allFilters) {
+    var newArray = REFERENCE.concat();
+    console.log("generate new");
+    newArray = guestsFilter(newArray, allFilters); //убрать
+    newArray = ammenitiesFilter(newArray, allFilters); //оставить
+    newArray = roomSortOrder(newArray, allFilters); //посортировать
+    newArray = REFERENCE.concat();
+    return newArray;
   }
 </script>
 

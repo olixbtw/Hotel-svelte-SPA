@@ -1,7 +1,7 @@
 <script>
   import { fade } from "svelte/transition";
-  import { roomsFilter } from "../../components/_stores.js";
-  import Button from "../../components/__button.svelte";
+  import { roomsFilter } from "../../../components/_stores.js";
+  import Button from "../../../components/__button.svelte";
 
   var classToggle = false;
 
@@ -65,12 +65,22 @@
         type="checkbox"
         bind:checked={$roomsFilter.guests.larger} />
       <label for="filter_n_guests">Show larger rooms</label>
-      <h4>Availability</h4>
+      <h4>Дополнительные удобства</h4>
       <input
-        id="filter_availability"
+        id="filter_ammenities"
         type="checkbox"
-        bind:checked={$roomsFilter.unavailable} />
-      <label for="filter_availability">Show unavailable</label>
+        bind:checked={$roomsFilter.ammenities[1]} />
+      <label for="filter_ammenities">Утюг</label>
+      <input
+        id="filter_ammenities"
+        type="checkbox"
+        bind:checked={$roomsFilter.ammenities[0]} />
+      <label for="filter_ammenities">Wifi</label>
+      <input
+        id="filter_ammenities"
+        type="checkbox"
+        bind:checked={$roomsFilter.ammenities[2]} />
+      <label for="filter_ammenities">Завтрак в постель</label>
     </div>
     <div class="sort">
       <h4>Sort by</h4>

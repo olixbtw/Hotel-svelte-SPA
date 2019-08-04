@@ -13,6 +13,7 @@ const contents = JSON.stringify(
       price: room.price.currency + room.price.value,
       people: room.people,
       type: room.type,
+      amenities: room.amenities,
     }
   }),
 )
