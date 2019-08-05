@@ -294,7 +294,7 @@
       <h3>Description</h3>
       <p>{room.description}</p>
     </div>
-    <Button on:click={addRoom} href="rooms/booking">Reserve it</Button>
+    <!-- <Button on:click={addRoom} href="rooms/booking">Reserve it</Button> -->
   </div>
 
   <div class="col-right">

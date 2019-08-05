@@ -13,6 +13,68 @@
   section:first-of-type ul {
     columns: 1;
   }
+  section::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+  section > img {
+    padding: 1rem 0 1rem 2rem;
+    max-width: 25rem;
+    min-width: 17rem;
+    max-height: 25rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+    float: right;
+  }
+  .toservices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .toservices h1 {
+    width: 100%;
+  }
+  .toservices a {
+    width: 100%;
+    max-width: 30rem;
+    display: block;
+    text-align: center;
+  }
+  @media (min-width: 500px) {
+    .toservices a {
+      width: 300px;
+    }
+  }
+  @media (min-width: 1000px) {
+    .toservices {
+      justify-content: space-between;
+    }
+    .toservices a {
+      width: 30%;
+    }
+  }
+  .toservices a img {
+    float: none;
+    padding: 0;
+    min-width: unset;
+    max-width: 100%;
+    transition: all 0.4s;
+  }
+  .toservices a:hover {
+    text-decoration: none;
+  }
+  .toservices a:hover img {
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  .toservices figcaption {
+    color: #9f9f9f;
+    font-size: 1.5rem;
+    transition: all 0.5s;
+  }
+  .toservices a:hover figcaption {
+    color: #444b57;
+  }
 </style>
 
 <svelte:head>
@@ -23,6 +85,7 @@
 
 <section>
   <h2>Краткая информация</h2>
+  <img src="_assets/img/other/image14.jpg" alt="nice image" />
   <ul>
     <li>Заезд: с 15:00</li>
     <li>Выезд: до 12:00</li>
@@ -52,6 +115,7 @@
 
 <section>
   <h1>Об отеле</h1>
+  <img src="_assets/img/other/image13.jpg" alt="nice image" />
   <p>
     Premier Palace Hotel - киевский по сути и атмосфере, роскошный исторический
     отель, жемчужина в коллекции Premier Hotels and Resorts. Его история
@@ -85,6 +149,7 @@
     в 1953 году, после восстановления и расширения, первый внеклассный отель
     Киева (по оценкам того времени, более шикарный чем отель «5 звёзд»);
   </p>
+  <img src="_assets/img/other/image12.jpg" alt="nice image" />
   <p>в 2001 году, после реконструкции, первый отель «5 звёзд» в Киеве.</p>
   <p>
     Premier Palace Hotel в 2009 году отель получил высокую оценку 6 звезд и 7
@@ -112,6 +177,7 @@
     общий список знаменитых постояльцев давно перевалил за 200 человек.
   </p>
 </section>
+
 <section>
   <h2>Услуги отеля</h2>
   <ul>
@@ -181,6 +247,7 @@
     <li>Парковка</li>
   </ul>
 </section>
+
 <section>
   <h2>Бесплатные услуги</h2>
   <ul>
@@ -216,7 +283,24 @@
   </ul>
 </section>
 
-<h1>SERVICES LINKS</h1>
-<a href="about/services#bankety">bankety</a>
-<a href="about/services#premier">premier hall</a>
-<a href="about/services#catering">catering</a>
+<section class="toservices">
+  <h1>Корпоративным клиенатам</h1>
+  <a href="about/services#bankety">
+    <figure>
+      <img src="_assets/img/other/image4.jpg" alt="nice img" />
+      <figcaption>Банкеты</figcaption>
+    </figure>
+  </a>
+  <a href="about/services#premier">
+    <figure>
+      <img src="_assets/img/other/image16.jpg" alt="nice img" />
+      <figcaption>Premier Hall</figcaption>
+    </figure>
+  </a>
+  <a href="about/services#catering">
+    <figure>
+      <img src="_assets/img/other/image5.jpg" alt="nice img" />
+      <figcaption>Кейтеринг</figcaption>
+    </figure>
+  </a>
+</section>

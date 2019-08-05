@@ -25,6 +25,21 @@
     color: #9f9f9f;
     font-size: 0.9rem;
   }
+
+  section::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+  section img {
+    padding: 1rem 0 1rem 2rem;
+    max-width: 25rem;
+    min-width: 17rem;
+    max-height: 25rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+    float: right;
+  }
   .banner {
     margin: 3rem 0 -2rem;
     /* background: #efefef; */
@@ -142,6 +157,7 @@
 
 <section id="bankety">
   <h2>Банкеты</h2>
+  <img src="_assets/img/other/image4.jpg" alt="nice img" />
   <p>
     Торжественное мероприятие будет выглядеть изысканно, если Вы решите его
     провести в стенах нашего Отеля в Киеве. Софиевский Гранд Холл – это лучшее
@@ -169,6 +185,7 @@
 
 <section id="premier">
   <h2>Premier Hall</h2>
+  <img src="_assets/img/other/image16.jpg" alt="nice img" />
   <p>
     Premier Palace Hotel рад представить Premier Hall – эксклюзивный зал, для
     проведения Ваших особенных событий.
@@ -209,6 +226,7 @@
 
 <section id="catering">
   <h2>Кейтеринг</h2>
+  <img src="_assets/img/other/image15.jpg" alt="nice img" />
 
   <p>
     Вам нужно лишь выбрать место: в загородной резиденции, музее, выставочном
