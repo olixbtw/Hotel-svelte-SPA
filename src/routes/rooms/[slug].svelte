@@ -164,8 +164,6 @@
   }
 
   .amenities {
-    h3 {
-    }
     ul {
       li {
         &.disabled {

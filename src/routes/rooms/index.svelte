@@ -22,11 +22,12 @@
   var y;
 
   var roomsPerPage = 8;
-  var pag_opt = {};
-  $: pag_opt = {
+  var pag_opt = {
     active: 1,
     len: Math.ceil(rooms.length / roomsPerPage)
   };
+
+  // $: if (pag_opt.active) console.log(pag_opt.active);
 
   function paginationClick(event) {
     //check if page is changing
@@ -230,6 +231,9 @@
       }
     }
     &.cards-VIEW {
+      .amenities {
+        display: none;
+      }
       article {
         margin: 0 0.5em 1.5em;
         display: flex;
@@ -358,7 +362,12 @@
     }
   }
   .amenities {
-    display: none;
+    li {
+      &.disabled {
+        color: #9f9f9f;
+        text-decoration: line-through;
+      }
+    }
   }
 </style>
 
