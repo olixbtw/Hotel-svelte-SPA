@@ -1,6 +1,7 @@
 <script>
   import { reservedRoom } from "../../../data/_stores.js";
   import Button from "../../../components/__button.svelte";
+  import address from "./../../../data/address.js";
 
   var activeBookingPage = 0;
   function nextBooking() {
@@ -12,6 +13,7 @@
   function resetBooking() {
     activeBookingPage = 0;
     $reservedRoom = [];
+    localStorage.removeItem("roomsBooked")
   }
   var y;
   var card_num = "",
@@ -80,8 +82,10 @@
 
   // $reservedRoom
 
-  $reservedRoom.forEach(element => {
+  var totalPrice = 0;
+  $: $reservedRoom.forEach(element => {
     console.log(element);
+    totalPrice += element.content.price.value * element.days;
   });
 
   function getDate(n) {
@@ -159,6 +163,19 @@
   .container :global(button) {
     display: inline-block;
   }
+  .price {
+    margin: 0 0 1rem 1rem;
+    font-size: 1.5rem;
+    color: grey;
+    letter-spacing: -0.05em;
+    font-weight: 600;
+  }
+  .reserved_rooms_info {
+    li {
+      list-style-type: decimal;
+      margin-bottom: 0.75rem;
+    }
+  }
 </style>
 
 <svelte:head>
@@ -176,13 +193,19 @@
           <h1>1. Правила поеления</h1>
           <hr />
           <h4>Забронированые комнаты:</h4>
-          <ul>
+          <ul class="reserved_rooms_info">
             {#each $reservedRoom as room}
               <li>
                 <h6>{room.content.title}</h6>
                 <div class="dates">
-                  <div class="arrive"><strong>Заселение:</strong> {room.date1} - 13.00</div>
-                  <div class="depart"><strong>Отбытие:</strong> {room.date2} - 10.00</div>
+                  <div class="arrive">
+                    <strong>Заселение:</strong>
+                    {room.date1} - 13.00
+                  </div>
+                  <div class="depart">
+                    <strong>Отбытие:</strong>
+                    {room.date2} - 10.00
+                  </div>
                 </div>
               </li>
             {/each}
@@ -211,11 +234,9 @@
             </p>
             <p>Администрация отеля</p>
           </div>
-          <br>
+          <br />
           <Button on:click={prevBooking}>Назад</Button>
-          <Button on:click={nextBooking} type="active">
-            Продолжить
-          </Button>
+          <Button on:click={nextBooking} type="active">Продолжить</Button>
 
         </section>
       {:else if activeBookingPage == 1}
@@ -260,11 +281,12 @@
           <br />
           <br />
           <br />
-          <h1>Thank you for your booking!</h1>
+          <h1>Спасибо за регистрацию!</h1>
+          <br />
+          <h4 style='color:#9f9f9f;'>Ждем вас в гости :)</h4>
           <br />
           <br />
-          <br />
-          <Button on:click={resetBooking} type="success">Close</Button>
+          <Button on:click={resetBooking} type="success">Закрыть</Button>
           <br />
           <br />
         </section>
@@ -274,22 +296,20 @@
     <div class="col-right">
       <h4>Информация о бронировании</h4>
       <ul>
-        <li>
-          room title
-          <br />
-          Checkin - DATE
-          <br />
-          Checkout - DATE
-          <br />
-          Days total
-          <br />
-          Price total
-        </li>
+        {#each $reservedRoom as room}
+          <li>
+            <h6>{room.content.title}</h6>
+            {room.days} дней - {room.content.price.value * room.days}{room.content.price.currency}
+          </li>
+        {/each}
       </ul>
-      <h5>Дополнительная информация</h5>
-      Если что - вонить сюда, ТЕЛЕФОН
+      <div class="price">
+        Всего: {totalPrice}{$reservedRoom[0].content.price.currency}
+      </div>
+      <h5>Дополнительно</h5>
+      по всем вопросам обращайтесь
       <br />
-      адресс отеля
+      <a href="tel:{address.phone}">{address.phone}</a>
     </div>
   </div>
 {:else}

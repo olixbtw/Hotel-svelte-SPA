@@ -2,7 +2,7 @@ const rooms = [
   //template object to store info about each room
   {
     id: '1',
-    type: 'Room',
+    type: 'Обычная комната',
     title: 'Комната комфортненькая',
     slug: 'comfortable-room-3',
     people: '3',
@@ -11,7 +11,7 @@ const rooms = [
       value: '60',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как принято считать, ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Приятно, граждане, наблюдать, как диаграммы связей, вне зависимости от их уровня, должны быть ограничены исключительно образом мышления. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Равным образом, глубокий уровень погружения позволяет оценить значение новых предложений.',
     amenities: {
       additional: ['WiFi'],
       abscent: [],
@@ -50,7 +50,7 @@ const rooms = [
   },
   {
     id: '2',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite',
     people: '4',
@@ -59,7 +59,7 @@ const rooms = [
       value: '90',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как принято считать, ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Приятно, граждане, наблюдать, как диаграммы связей, вне зависимости от их уровня, должны быть ограничены исключительно образом мышления. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Равным образом, глубокий уровень погружения позволяет оценить значение новых предложений.',
     amenities: {
       additional: ['WiFi', 'Утюг'],
       abscent: ['Завтрак в постель'],
@@ -98,7 +98,7 @@ const rooms = [
   },
   {
     id: '3',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Басейн аппартаменты',
     slug: 'pool-suite',
     people: '5',
@@ -107,7 +107,7 @@ const rooms = [
       value: '130',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как принято считать, ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Приятно, граждане, наблюдать, как диаграммы связей, вне зависимости от их уровня, должны быть ограничены исключительно образом мышления. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Равным образом, глубокий уровень погружения позволяет оценить значение новых предложений.',
     amenities: {
       additional: ['Завтрак в постель'],
       abscent: ['WiFi'],
@@ -146,7 +146,7 @@ const rooms = [
   },
   {
     id: '4',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Люкс номер',
     slug: 'lux-suite',
     people: '2',
@@ -155,7 +155,7 @@ const rooms = [
       value: '150',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как принято считать, ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Приятно, граждане, наблюдать, как диаграммы связей, вне зависимости от их уровня, должны быть ограничены исключительно образом мышления. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Равным образом, глубокий уровень погружения позволяет оценить значение новых предложений.',
     amenities: {
       additional: [],
       abscent: [],
@@ -194,7 +194,7 @@ const rooms = [
   },
   {
     id: '5',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-2',
     people: '4',
@@ -203,7 +203,7 @@ const rooms = [
       value: '90',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как принято считать, ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Приятно, граждане, наблюдать, как диаграммы связей, вне зависимости от их уровня, должны быть ограничены исключительно образом мышления. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Равным образом, глубокий уровень погружения позволяет оценить значение новых предложений.',
     amenities: {
       additional: ['WiFi', 'Утюг'],
       abscent: ['Завтрак в постель'],
@@ -242,7 +242,7 @@ const rooms = [
   },
   {
     id: '6',
-    type: 'Room',
+    type: 'Обычная комната',
     title: 'Комната комфортненькая',
     slug: 'comfortable-room',
     people: '3',
@@ -251,7 +251,7 @@ const rooms = [
       value: '60',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как принято считать, ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Приятно, граждане, наблюдать, как диаграммы связей, вне зависимости от их уровня, должны быть ограничены исключительно образом мышления. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Равным образом, глубокий уровень погружения позволяет оценить значение новых предложений.',
     amenities: {
       additional: [],
       abscent: [],
@@ -290,7 +290,7 @@ const rooms = [
   },
   {
     id: '7',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-3',
     people: '4',
@@ -299,7 +299,7 @@ const rooms = [
       value: '90',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как принято считать, ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Приятно, граждане, наблюдать, как диаграммы связей, вне зависимости от их уровня, должны быть ограничены исключительно образом мышления. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Равным образом, глубокий уровень погружения позволяет оценить значение новых предложений.',
     amenities: {
       additional: ['WiFi', 'Утюг'],
       abscent: ['Завтрак в постель'],
@@ -338,7 +338,7 @@ const rooms = [
   },
   {
     id: '8',
-    type: 'Room',
+    type: 'Обычная комната',
     title: 'Комфортненько и побольше комната',
     slug: 'comfortable-large-room',
     people: '5',
@@ -347,7 +347,7 @@ const rooms = [
       value: '70',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Равным образом, перспективное планирование прекрасно подходит для реализации новых предложений. Имеется спорная точка зрения, гласящая примерно следующее: реплицированные с зарубежных источников, современные исследования, превозмогая сложившуюся непростую экономическую ситуацию, смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. А также акционеры крупнейших компаний, инициированные исключительно синтетически, представлены в исключительно положительном свете.',
     amenities: {
       additional: [],
       abscent: ['Завтрак в постель'],
@@ -386,7 +386,7 @@ const rooms = [
   },
   {
     id: '9',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-4',
     people: '4',
@@ -395,7 +395,7 @@ const rooms = [
       value: '90',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Равным образом, перспективное планирование прекрасно подходит для реализации новых предложений. Имеется спорная точка зрения, гласящая примерно следующее: реплицированные с зарубежных источников, современные исследования, превозмогая сложившуюся непростую экономическую ситуацию, смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. А также акционеры крупнейших компаний, инициированные исключительно синтетически, представлены в исключительно положительном свете.',
     amenities: {
       additional: ['WiFi', 'Утюг', 'Завтрак в постель'],
       abscent: [],
@@ -434,7 +434,7 @@ const rooms = [
   },
   {
     id: '10',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Басейн аппартаменты',
     slug: 'pool-suite-2',
     people: '5',
@@ -443,7 +443,7 @@ const rooms = [
       value: '130',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Равным образом, перспективное планирование прекрасно подходит для реализации новых предложений. Имеется спорная точка зрения, гласящая примерно следующее: реплицированные с зарубежных источников, современные исследования, превозмогая сложившуюся непростую экономическую ситуацию, смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. А также акционеры крупнейших компаний, инициированные исключительно синтетически, представлены в исключительно положительном свете.',
     amenities: {
       additional: ['Завтрак в постель', 'Утюг'],
       abscent: [],
@@ -482,7 +482,7 @@ const rooms = [
   },
   {
     id: '12',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Люкс номер',
     slug: 'lux-suite-2',
     people: '2',
@@ -491,7 +491,7 @@ const rooms = [
       value: '150',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Равным образом, перспективное планирование прекрасно подходит для реализации новых предложений. Имеется спорная точка зрения, гласящая примерно следующее: реплицированные с зарубежных источников, современные исследования, превозмогая сложившуюся непростую экономическую ситуацию, смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. А также акционеры крупнейших компаний, инициированные исключительно синтетически, представлены в исключительно положительном свете.',
     amenities: {
       additional: ['Завтрак в постель'],
       abscent: ['WiFi'],
@@ -530,7 +530,7 @@ const rooms = [
   },
   {
     id: '13',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-5',
     people: '4',
@@ -539,7 +539,7 @@ const rooms = [
       value: '90',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Равным образом, перспективное планирование прекрасно подходит для реализации новых предложений. Имеется спорная точка зрения, гласящая примерно следующее: реплицированные с зарубежных источников, современные исследования, превозмогая сложившуюся непростую экономическую ситуацию, смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. А также акционеры крупнейших компаний, инициированные исключительно синтетически, представлены в исключительно положительном свете.',
     amenities: {
       additional: ['Утюг'],
       abscent: ['Завтрак в постель'],
@@ -578,7 +578,7 @@ const rooms = [
   },
   {
     id: '14',
-    type: 'Room',
+    type: 'Обычная комната',
     title: 'Комната комфортненькая',
     slug: 'comfortable-room-2',
     people: '3',
@@ -587,7 +587,7 @@ const rooms = [
       value: '60',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как уже неоднократно упомянуто, сторонники тоталитаризма в науке, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут подвергнуты целой серии независимых исследований. В целом, конечно, выбранный нами инновационный путь не даёт нам иного выбора, кроме определения экспериментов, поражающих по своей масштабности и грандиозности.',
     amenities: {
       additional: ['WiFi'],
       abscent: [],
@@ -626,7 +626,7 @@ const rooms = [
   },
   {
     id: '15',
-    type: 'VIP suite',
+    type: 'Отличные апартаменты',
     title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-6',
     people: '4',
@@ -635,7 +635,7 @@ const rooms = [
       value: '90',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как принято считать, ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Приятно, граждане, наблюдать, как диаграммы связей, вне зависимости от их уровня, должны быть ограничены исключительно образом мышления. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Равным образом, глубокий уровень погружения позволяет оценить значение новых предложений.',
     amenities: {
       additional: ['Утюг'],
       abscent: ['Завтрак в постель'],
@@ -674,7 +674,7 @@ const rooms = [
   },
   {
     id: '16',
-    type: 'Room',
+    type: 'Обычная комната',
     title: 'Комфортненько и побольше комната',
     slug: 'comfortable-large-room-2',
     people: '5',
@@ -683,7 +683,7 @@ const rooms = [
       value: '70',
     },
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
+      'Как принято считать, ключевые особенности структуры проекта формируют глобальную экономическую сеть и при этом - рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Приятно, граждане, наблюдать, как диаграммы связей, вне зависимости от их уровня, должны быть ограничены исключительно образом мышления. Банальные, но неопровержимые выводы, а также сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Равным образом, глубокий уровень погружения позволяет оценить значение новых предложений.',
     amenities: {
       additional: [],
       abscent: [],

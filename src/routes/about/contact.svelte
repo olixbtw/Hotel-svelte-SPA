@@ -1,15 +1,6 @@
 <script>
   import Map from "./_map.svelte";
-
-  var address = {
-    street: "Sechenova",
-    building: "7a",
-    index: "03127",
-    city: "Kyiv",
-    country: "Ukraine",
-    phone: "+38 044 597 90 30",
-    email: "example@mail.com"
-  };
+  import address from "./../../data/address.js";
 </script>
 
 <style>
