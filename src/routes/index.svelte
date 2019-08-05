@@ -37,6 +37,16 @@
       font-size: 4em;
     }
   }
+  nav {
+    margin: 0 auto;
+    display: block;
+  }
+  nav ul {
+    padding-left: 1.5rem;
+  }
+  nav ul li {
+    list-style: circle;
+  }
 </style>
 
 <svelte:head>
