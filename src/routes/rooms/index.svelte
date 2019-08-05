@@ -62,7 +62,7 @@
 
   import { onMount, onDestroy } from "svelte";
   import Filter from "./_filter/filter.svelte";
-  import { roomsFilter } from "../../components/_stores.js";
+  import { roomsFilter } from "../../data/_stores.js";
   let loaded_flag = false;
 
   var REFERENCE = [];

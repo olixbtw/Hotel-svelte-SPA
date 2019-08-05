@@ -1,5 +1,5 @@
 <script context="module">
-  import imageList from "./slider.js";
+  import imageList from "./../data/slider.js";
 </script>
 
 <script>

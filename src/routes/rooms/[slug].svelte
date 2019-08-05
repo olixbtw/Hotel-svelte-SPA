@@ -13,7 +13,7 @@
 
 <script>
   import Button from "../../components/__button.svelte";
-  import { reservedRoom, slugTitle } from "../../components/_stores.js";
+  import { reservedRoom, slugTitle } from "../../data/_stores.js";
   import { onMount, onDestroy } from "svelte";
   export let room;
   var Date_a, Date_b, daysTotal, loaded_flag;

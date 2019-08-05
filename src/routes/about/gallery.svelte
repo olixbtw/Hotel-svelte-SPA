@@ -1,5 +1,5 @@
 <script>
-  import imageList from "./_gallery.js";
+  import imageList from "./../../data/gallery.js";
   import Modal from "../../components/modal.svelte";
   var modalContent = {
     active: false,

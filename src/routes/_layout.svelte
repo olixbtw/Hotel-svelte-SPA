@@ -1,5 +1,5 @@
 <script>
-  import { navHeight } from "../components/_stores.js";
+  import { navHeight } from "../data/_stores.js";
   import Breadcrumbs from "../components/breadcrumbs.svelte";
   import Nav from "../components/_Nav.svelte";
   import Footer from "../components/_Footer.svelte";

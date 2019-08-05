@@ -1,5 +1,5 @@
 <script>
-  import rooms from "./../_rooms.js";
+  import rooms from "./../../../data/rooms.js";
   $reservedRoom.push(rooms[0]);
   //
   //
@@ -7,7 +7,7 @@
   //
   //
 
-  import { reservedRoom } from "../../../components/_stores.js";
+  import { reservedRoom } from "../../../data/_stores.js";
   import Button from "../../../components/__button.svelte";
 
   var activeBookingPage = 0;

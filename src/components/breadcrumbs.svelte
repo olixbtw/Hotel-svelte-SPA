@@ -3,8 +3,8 @@
   const { page } = stores();
   export let segment;
   import { onMount, onDestroy } from "svelte";
-  import { slugTitle } from "./_stores.js";
-  import translatePath from "./_paths.js";
+  import { slugTitle } from "./../data/_stores.js";
+  import translatePath from "./../data/pathsTranslate.js";
 
   var path = [];
   var loaded_flag = false;

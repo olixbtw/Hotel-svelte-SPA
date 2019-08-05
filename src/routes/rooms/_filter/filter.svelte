@@ -1,6 +1,6 @@
 <script>
   import { fade } from "svelte/transition";
-  import { roomsFilter } from "../../../components/_stores.js";
+  import { roomsFilter } from "../../../data/_stores.js";
   import Button from "../../../components/__button.svelte";
 
   var classToggle = false;

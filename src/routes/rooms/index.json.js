@@ -1,4 +1,4 @@
-import rooms from './_rooms.js'
+import rooms from './../../data/rooms.js'
 
 const contents = JSON.stringify(
   rooms.map(room => {
