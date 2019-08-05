@@ -33,7 +33,7 @@
     }
   }
   .name {
-    margin-left: -0.5rem;
+    white-space: nowrap;
     font-size: 2.5rem;
     font-weight: 300;
     letter-spacing: -0.05em;

@@ -198,6 +198,7 @@
     }
     @media (min-width: 1000px) {
       &-inner {
+        min-width: 16 rem;
         display: block;
         border: 0.1rem solid #9f9f9f;
         box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
@@ -237,7 +238,7 @@
     display: inline-block;
     margin: 1rem 0;
 
-    &:after {
+    &::after {
       background: #444b57;
       content: "";
       display: block;

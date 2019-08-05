@@ -13,7 +13,7 @@
   function resetBooking() {
     activeBookingPage = 0;
     $reservedRoom = [];
-    localStorage.removeItem("roomsBooked")
+    localStorage.removeItem("roomsBooked");
   }
   var y;
   var card_num = "",
@@ -116,7 +116,7 @@
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
     padding: 2.2rem 1rem;
-    width: 22rem;
+    width: 25rem;
     position: relative;
     margin-bottom: 2rem;
 
@@ -146,13 +146,24 @@
       bottom: 1rem;
       right: -3.5rem;
     }
+    &::before {
+      content: "";
+      background: #ef9f9f;
+      position: absolute;
+      z-index: -1;
+      top: 3rem;
+      left: 4rem;
+      width: 100%;
+      height: 2rem;
+    }
     &::after {
+      border-radius: 8px;
       //op-te side
       display: block;
       content: "";
       background: #9f9f9f;
       position: absolute;
-      z-index: -1;
+      z-index: -2;
       top: 1rem;
       left: 4rem;
       width: 100%;
@@ -283,7 +294,7 @@
           <br />
           <h1>Спасибо за регистрацию!</h1>
           <br />
-          <h4 style='color:#9f9f9f;'>Ждем вас в гости :)</h4>
+          <h4 style="color:#9f9f9f;">Ждем вас в гости :)</h4>
           <br />
           <br />
           <Button on:click={resetBooking} type="success">Закрыть</Button>

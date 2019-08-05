@@ -111,7 +111,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      &:before {
+      &::before {
         display: none;
       }
     }
@@ -137,11 +137,11 @@
       position: relative;
       padding-left: 1.5rem;
       color: #9f9f9f;
-      &:after {
+      &::after {
         display: inline-block;
         color: white;
       }
-      &:before {
+      &::before {
         border-radius: 0.25rem;
         content: "";
         top: 50%;
@@ -158,7 +158,7 @@
         border-width: 0rem;
         padding: 0.1rem;
       }
-      &:after {
+      &::after {
         opacity: 0;
         content: "✓";
         top: 50%;
@@ -174,11 +174,11 @@
     &:checked {
       & + label {
         color: #f2f2f2;
-        &:after {
+        &::after {
           opacity: 1;
           top: 40%;
         }
-        &:before {
+        &::before {
           padding: 0;
           border-width: 2px;
           background: #eb9a21;
@@ -193,7 +193,7 @@
       position: relative;
       padding-left: 1.5rem;
       color: #9f9f9f;
-      &:before {
+      &::before {
         top: 50%;
         left: 0;
         position: absolute;
@@ -214,7 +214,7 @@
     &:checked {
       & + label {
         color: #fff;
-        &:before {
+        &::before {
           padding: 0;
           border-width: 0.25rem;
           background: #eb9a21;
