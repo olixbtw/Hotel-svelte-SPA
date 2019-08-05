@@ -1,12 +1,4 @@
 <script>
-  import rooms from "./../../../data/rooms.js";
-  $reservedRoom.push(rooms[0]);
-  //
-  //
-  //  TEST ADDING
-  //
-  //
-
   import { reservedRoom } from "../../../data/_stores.js";
   import Button from "../../../components/__button.svelte";
 
@@ -78,6 +70,22 @@
     } else {
       cardValid = false;
     }
+  }
+
+  // id: room.slug,
+  // content: room,
+  // date1: Date_a,
+  // date2: Date_b,
+  // days: daysTotal
+
+  // $reservedRoom
+
+  $reservedRoom.forEach(element => {
+    console.log(element);
+  });
+
+  function getDate(n) {
+    return n;
   }
 </script>
 
@@ -165,43 +173,31 @@
       {#if activeBookingPage == 0}
         <section>
 
-          <h1>1. Review rules</h1>
+          <h1>1. Правила поеления</h1>
           <hr />
-          <h3>3 nights in L'viv</h3>
-          <div>
-            August
-            <br />
-            AUG
-            <br />
-            18
-            <br />
-            Sunday check-in
-            <br />
-            1PM - 6PM
-          </div>
-          <div>
-            August
-            <br />
-            AUG
-            <br />
-            21
-            <br />
-            Wednesday check-out
-            <br />
-            11AM
-          </div>
-
-          <h3>Things to keep in mind</h3>
+          <h4>Забронированые комнаты:</h4>
           <ul>
-            <li>Not suitable for children and infants</li>
-            <li>No pets</li>
-            <li>No parties or events</li>
-            <li>No smoking</li>
+            {#each $reservedRoom as room}
+              <li>
+                <h6>{room.content.title}</h6>
+                <div class="dates">
+                  <div class="arrive"><strong>Заселение:</strong> {room.date1} - 13.00</div>
+                  <div class="depart"><strong>Отбытие:</strong> {room.date2} - 10.00</div>
+                </div>
+              </li>
+            {/each}
+          </ul>
+
+          <h4>Это важно</h4>
+          <ul>
+            <li>Не для детей или подростков</li>
+            <li>Без домашних животных</li>
+            <li>Курение запрещено</li>
           </ul>
 
           <div class="additional">
-            <h3>Additional rules</h3>
-            <p>Dear guests-to-be,</p>
+            <h4>Дополнительные правила</h4>
+            <p>Дорогие гости,</p>
             <p>
               If You're making the booking on the same day as the check-in is,
               please note that we might need up to two hours to check you in (to
@@ -213,12 +209,12 @@
               Thanks for the understanding, we hope You will have a great time
               at our apartment in Lviv!
             </p>
-            <p>Yaryna & Yaroslav</p>
+            <p>Администрация отеля</p>
           </div>
-
-          <Button on:click={prevBooking}>Back</Button>
+          <br>
+          <Button on:click={prevBooking}>Назад</Button>
           <Button on:click={nextBooking} type="active">
-            Agree and continue
+            Продолжить
           </Button>
 
         </section>
@@ -226,7 +222,7 @@
         <section>
           <h1>Confirm and pay</h1>
           <hr />
-          <h3>Pay with card:</h3>
+          <h4>Pay with card:</h4>
           <!-- {card_num} -->
           <div class="card_view">
             <input
@@ -276,14 +272,14 @@
 
     </div>
     <div class="col-right">
-      <h3>Информация о бронировании</h3>
+      <h4>Информация о бронировании</h4>
       <ul>
         <li>
           room title
           <br />
           Checkin - DATE
           <br />
-          Checkout - DATE 
+          Checkout - DATE
           <br />
           Days total
           <br />

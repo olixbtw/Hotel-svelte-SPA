@@ -60,12 +60,13 @@
       id: room.slug,
       content: room,
       date1: Date_a,
-      date2: Date_b
+      date2: Date_b,
+      days: daysTotal
     };
     //should be unique index, push dates aswell, check for errors
     $reservedRoom.push(reserveItem);
 
-    console.log($reservedRoom);
+    localStorage.setItem("roomsBooked", JSON.stringify($reservedRoom));
   }
 
   import Modal from "../../components/modal.svelte";

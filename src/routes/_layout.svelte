@@ -1,5 +1,5 @@
 <script>
-  import { navHeight } from "../data/_stores.js";
+  import { navHeight, reservedRoom } from "../data/_stores.js";
   import Breadcrumbs from "../components/breadcrumbs.svelte";
   import Nav from "../components/_Nav.svelte";
   import Footer from "../components/_Footer.svelte";
@@ -9,8 +9,12 @@
   export let segment;
 
   import { onMount } from "svelte";
+  // import { reservedRoom } from "../data/_stores.js";
   var heightFix;
   onMount(() => {
+    if (window.localStorage.getItem("roomsBooked"))
+      $reservedRoom = JSON.parse(localStorage.getItem("roomsBooked"));
+
     heightFix = $navHeight - 25;
   });
 </script>
