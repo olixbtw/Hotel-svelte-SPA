@@ -27,6 +27,7 @@
     "pretty": "prettier --write --svelte-sort-order scripts-styles-markup ./**/*.svelte",
     "pretty2": "prettier --write --svelte-sort-order scripts-markup-styles ./**/*.svelte",
     "start": "npm run pretty && start powershell -NoExit npm run dev",
+    "presentation": "node __sapper__/build",
     "open": "start powershell"
   }
 }
