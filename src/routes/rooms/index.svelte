@@ -22,7 +22,8 @@
   var y;
 
   var roomsPerPage = 8;
-  var pag_opt = {
+  var pag_opt = {};
+  $: pag_opt = {
     active: 1,
     len: Math.ceil(rooms.length / roomsPerPage)
   };
@@ -194,6 +195,7 @@
             background: #eb9a21;
           }
           img {
+            transition: all 0.3s;
             display: block;
             width: 10rem;
             height: 10rem;
@@ -202,6 +204,9 @@
           }
         }
         &:hover {
+          img {
+            box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+          }
           figure::before {
             bottom: -0.5em;
             left: -0.5em;
