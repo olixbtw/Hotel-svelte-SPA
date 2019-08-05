@@ -96,7 +96,7 @@
     amenities: [false, false, false],
     sort: "",
     reverse: false,
-    view: "cards"
+    view: "list"
   };
 
   function resetFilter() {
@@ -124,33 +124,104 @@
     position: relative;
 
     article {
+      > a {
+        color: inherit;
+        &:hover {
+          text-decoration: none;
+        }
+      }
       pointer-events: none;
       opacity: 0;
       position: absolute;
       animation: pagination-hide 150ms linear;
+      h4 {
+        margin: 0;
+      }
+      .type {
+        text-transform: uppercase;
+        font-weight: 300;
+        color: #9f9f9f;
+        font-size: 0.8em;
+        letter-spacing: -0.025em;
+
+        span {
+          &::before {
+            content: "| ";
+            margin: 0 0.25em;
+          }
+        }
+      }
+      .price {
+        color: #444b57;
+        font-weight: 300;
+        font-size: 1.3rem;
+      }
     }
     &.list-VIEW {
       flex-direction: column;
       article {
-        border: 1px solid #9f9f9f;
         padding: 10px;
         margin-bottom: 20px;
+        padding-left: 13rem;
+        a {
+          min-height: 10rem;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          justify-content: center;
+          position: relative;
+        }
+
+        figure {
+          margin: 0 2rem 0 0;
+          position: absolute;
+          right: 100%;
+          top: 0;
+
+          width: 10rem;
+          height: 10rem;
+
+          &::before {
+            width: 80%;
+            height: 80%;
+            bottom: 5%;
+            left: 2.5rem;
+            transition: all 0.6s;
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            background: #eb9a21;
+          }
+          img {
+            display: block;
+            width: 10rem;
+            height: 10rem;
+            object-fit: cover;
+            margin: 0;
+          }
+        }
+        &:hover {
+          figure::before {
+            bottom: -0.5em;
+            left: -0.5em;
+            width: 50%;
+            height: 50%;
+          }
+        }
+        &:hover {
+          figure::before {
+            bottom: -0.5em;
+            left: -0.5em;
+            width: 50%;
+            height: 50%;
+          }
+        }
       }
-      article::after {
+      &::after {
         display: block;
         content: "";
         clear: both;
-      }
-      figure {
-        float: left;
-        margin: 0 20px 0 0;
-        display: inline-block;
-      }
-      figure img {
-        display: block;
-        width: 200px;
-        height: 150px;
-        object-fit: contain;
       }
     }
     &.cards-VIEW {
@@ -168,12 +239,6 @@
         @media (min-width: 1000px) {
           width: 30%;
           max-width: 500px;
-        }
-        > a {
-          color: inherit;
-          &:hover {
-            text-decoration: none;
-          }
         }
 
         figure {
@@ -210,28 +275,9 @@
             content: "";
           }
         }
-        h4 {
-          margin: 0;
-        }
-        .type {
-          text-transform: uppercase;
-          font-weight: 300;
-          color: #9f9f9f;
-          font-size: 0.8em;
-          letter-spacing: -0.025em;
 
-          span {
-            &::before {
-              content: "| ";
-              margin: 0 0.25em;
-            }
-          }
-        }
-        .price {
-          color: #444b57;
-        }
         &:hover {
-          figure:before {
+          figure::before {
             bottom: -0.5em;
             left: -0.5em;
             width: 50%;

@@ -3,7 +3,7 @@
   import { roomsFilter } from "../../../data/_stores.js";
   import Button from "../../../components/__button.svelte";
 
-  var classToggle = false;
+  var showFilter = false;
 
   function inc_guest() {
     $roomsFilter.guests.n == 10
@@ -37,7 +37,6 @@
     top: 5rem;
     z-index: 500;
     white-space: nowrap;
-    line-height: 2.2;
     right: 0.5rem;
 
     &.active {
@@ -50,6 +49,7 @@
       }
     }
     nav {
+      line-height: 2;
       margin: 0 0 0 auto;
       transition: all 0.4s;
       color: #f2f2f2;
@@ -92,45 +92,7 @@
     margin: 0.15em 0 0.25em -0.5rem;
     color: #eb9a21;
   }
-  // .list-STYLED-FILTER {
-  //   .filter-button {
-  //     display: none;
-  //   }
-  //   nav {
-  //     font-size: 0.7rem;
-  //     display: flex;
-  //     margin-bottom: 2rem;
-  //   }
-  //   nav > * {
-  //     border: 1px solid #444b57;
-  //     padding: 0.5rem;
-  //     line-height: 1.2;
-  //   }
-  //   section {
-  //     flex-grow: 1;
-  //   }
-  //   input,
-  //   label {
-  //     display: inline-block;
-  //   }
-  //   ul,
-  //   li {
-  //     list-style: circle;
-  //   }
-  //   ul {
-  //     padding-left: 20px;
-  //   }
-  // }
-  input[name="filter_sort_order"] {
-    display: none;
-  }
-  label[for="filter_sort_order"] {
-    color: #f2f2f2;
-    font-size: 1.5rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+
   section {
     position: relative;
   }
@@ -139,19 +101,169 @@
       display: inline-block;
     }
   }
+  .filter_sort_order {
+    input[name="filter_sort_order"] {
+      display: none;
+    }
+    label[for="filter_sort_order"] {
+      color: #f2f2f2;
+      font-size: 1.5rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .view,
+  .filter_sort_order {
+    label {
+      padding-left: 0;
+      i {
+        margin: 0;
+      }
+    }
+    label:after,
+    label:before {
+      display: none;
+    }
+  }
+  //checkbox/radio styling
+
+  input[type="checkbox"] {
+    display: none;
+    & + label {
+      position: relative;
+      padding-left: 1.5rem;
+      color: #9f9f9f;
+      &:after {
+        display: inline-block;
+        color: white;
+      }
+      &:before {
+        border-radius: 0.25rem;
+        content: "";
+        top: 50%;
+        left: 0;
+        position: absolute;
+        transform: translateY(-50%);
+        box-sizing: border-box;
+        display: inline-block;
+        background: #c1c1c1;
+        width: 1rem;
+        height: 1rem;
+        border: 0.25rem solid #c1c1c1;
+        transition: all 0.25s ease-in-out;
+        border-width: 0rem;
+        padding: 0.1rem;
+      }
+      &:after {
+        opacity: 0;
+        content: "✓";
+        top: 50%;
+        color: #fff;
+        left: 0.15rem;
+        position: absolute;
+        transform: translateY(-50%);
+        display: block;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    }
+    &:checked {
+      & + label {
+        color: #f2f2f2;
+        &:after {
+          opacity: 1;
+          top: 40%;
+        }
+        &:before {
+          padding: 0;
+          border-width: 2px;
+          background: #eb9a21;
+          border-color: #cfcfcf;
+        }
+      }
+    }
+  }
+  input[type="radio"] {
+    display: none;
+    & + label {
+      position: relative;
+      padding-left: 1.5rem;
+      color: #9f9f9f;
+      &:before {
+        top: 50%;
+        left: 0;
+        position: absolute;
+        transform: translateY(-50%);
+        content: "";
+        box-sizing: border-box;
+        display: inline-block;
+        background: #c1c1c1;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        border: 0.25rem solid #c1c1c1;
+        transition: all 0.25s ease-in-out;
+        border-width: 0.1rem;
+        padding: 0.15rem;
+      }
+    }
+    &:checked {
+      & + label {
+        color: #fff;
+        &:before {
+          padding: 0;
+          border-width: 0.25rem;
+          background: #eb9a21;
+          border-color: #f2f2f2;
+        }
+      }
+    }
+  }
+
+  .number-group {
+    display: flex;
+    :global(button) {
+      margin: 0;
+    }
+    mragin-bottom: 0.5rem;
+  }
+  input[type="number"] {
+    background: transparent;
+    border-color: #e0e0e0;
+    color: #fff;
+    margin: 0 0.5rem;
+    box-sizing: border-box;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    &:focus {
+      border-color: #cfcfcf;
+    }
+    &:active {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: #d0d0d0;
+    }
+  }
+  section h4 {
+    margin: 0.5rem 0;
+  }
 </style>
 
-<svelte:window on:scroll={() => (classToggle = false)} />
+<svelte:window on:scroll={() => (showFilter = false)} />
 
-<div class="filter-body {classToggle ? 'active' : ''}" transition:fade>
-  <div class="filter-button" on:click={() => (classToggle = !classToggle)}>
+<div class="filter-body {showFilter ? 'active' : ''}" transition:fade>
+  <div class="filter-button" on:click={() => (showFilter = !showFilter)}>
     <i class="fas fa-tasks" />
   </div>
   <nav>
     <section class="filter">
       <div class="guests">
         <h4>Guests</h4>
-        <div class="control-group">
+        <div class="control-group number-group">
           <Button on:click={red_guest} type="controls">-</Button>
           <input type="number" bind:value={$roomsFilter.guests.n} />
           <Button on:click={inc_guest} type="controls">+</Button>
@@ -167,24 +279,24 @@
       <h4>Дополнительные удобства</h4>
       <div class="control-group">
         <input
-          id="filter_amenities"
+          id="filter_amenities_1"
           type="checkbox"
           bind:checked={$roomsFilter.amenities[1]} />
-        <label for="filter_amenities">Утюг</label>
+        <label for="filter_amenities_1">Утюг</label>
       </div>
       <div class="control-group">
         <input
-          id="filter_amenities"
+          id="filter_amenities_0"
           type="checkbox"
           bind:checked={$roomsFilter.amenities[0]} />
-        <label for="filter_amenities">Wifi</label>
+        <label for="filter_amenities_0">Wifi</label>
       </div>
       <div class="control-group">
         <input
-          id="filter_amenities"
+          id="filter_amenities_2"
           type="checkbox"
           bind:checked={$roomsFilter.amenities[2]} />
-        <label for="filter_amenities">Завтрак в постель</label>
+        <label for="filter_amenities_2">Завтрак в постель</label>
       </div>
     </section>
     <section class="sort">
@@ -194,7 +306,7 @@
         Reset
       </Button>
       {#if $roomsFilter.sort}
-        <div class="control-group">
+        <div class="control-group filter_sort_order">
           <input
             id="filter_sort_order"
             type="checkbox"

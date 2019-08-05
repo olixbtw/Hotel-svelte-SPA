@@ -41,7 +41,7 @@
     return n;
   }
   function checkDate(n) {
-    n = checkNumber(n, 5);
+    n = checkNumber(n, 6);
     return n;
   }
 
@@ -112,8 +112,8 @@
       margin-bottom: 0;
     }
     input[name="num"] {
-      padding-left: 3.5rem;
-      padding-right: 3.5rem;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
       width: 100%;
       margin-bottom: 2.3rem;
       letter-spacing: 0.1em;
@@ -283,14 +283,14 @@
           <br />
           Checkin - DATE
           <br />
-          Checkout - DATE
+          Checkout - DATE 
           <br />
           Days total
           <br />
           Price total
         </li>
       </ul>
-      <h3>Дополнительная информация</h3>
+      <h5>Дополнительная информация</h5>
       Если что - вонить сюда, ТЕЛЕФОН
       <br />
       адресс отеля
@@ -300,7 +300,6 @@
   <section>
     <p>Для продолжения резервации</p>
     <h1>Выберите номер</h1>
-    <hr />
     <Button href="/rooms">Номера</Button>
     {#if $reservedRoom.length}
       <Button on:click={nextBooking}>Вернуться к регистрации</Button>
