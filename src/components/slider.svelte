@@ -78,9 +78,11 @@
     }
 
     img {
-      scroll-snap-align: center;
       object-fit: cover;
       width: 100%;
+      //firefox fix below
+      flex-shrink:0;
+      flex-basis:101vw;
     }
 
     &__button {
