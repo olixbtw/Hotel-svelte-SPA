@@ -33,7 +33,7 @@
 
   button {
     color: #444b57;
-    border-color: #cfcfcf;
+    border-color: #d9d9d9;
     background-color: #f2f2f2;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
 

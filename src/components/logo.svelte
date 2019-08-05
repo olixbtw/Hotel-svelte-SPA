@@ -6,11 +6,6 @@
 
 <style lang="scss">
   .logo {
-    // &.shown {
-    //   position: fixed;
-    //   z-index: 99999;
-    //   top: 2rem;
-    // }
     transition: filter 0.6s ease-in-out;
     cursor: pointer;
     text-decoration: none;
@@ -20,7 +15,6 @@
     color: #f2f2f2;
 
     img {
-      // display: inline-block;
       transition: max-height 0.6s ease-in-out;
       max-height: 5rem;
       max-width: 7rem;
@@ -37,6 +31,12 @@
       filter: drop-shadow(1px 2px 3px rgba(235, 154, 33, 0.5));
       text-decoration: none;
     }
+  }
+  .name {
+    margin-left: -0.5rem;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: -0.05em;
   }
 </style>
 
