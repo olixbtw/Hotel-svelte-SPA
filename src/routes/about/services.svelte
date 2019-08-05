@@ -18,9 +18,6 @@
     padding-top: 6rem;
     margin-bottom: -3rem;
   }
-  section:first-of-type {
-    padding-top: 0;
-  }
   section:last-of-type {
     margin-bottom: 0;
   }
@@ -28,17 +25,121 @@
     color: #9f9f9f;
     font-size: 0.9rem;
   }
+  .banner {
+    margin: 3rem 0 -2rem;
+    /* background: #efefef; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 23rem;
+    padding: 21rem 0 3rem;
+    width: unset;
+    width: calc(100% - 2rem);
+    align-items: flex-start;
+  }
+
+  .banner::after {
+    position: absolute;
+    background: #444b57;
+    top: 0;
+    right: 0;
+    width: 200vw;
+    z-index: -2;
+    bottom: 0;
+    content: "";
+    display: block;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  .banner a {
+    display: inline-block;
+    font-weight: 300;
+    font-size: 2rem;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0.5rem;
+  }
+  .banner a:hover {
+    text-decoration: none;
+  }
+  .banner a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0.2rem;
+    left: 20%;
+    height: 0.1rem;
+    width: 60%;
+    background: #f2f2f2;
+    transition: all.5s;
+  }
+  .banner a:hover::after {
+    background: orange;
+    height: 0.2rem;
+    left: 0;
+    width: 100%;
+  }
+  .banner figure {
+    left: -2rem;
+    /* right: -16rem; */
+    top: -3rem;
+    width: 30rem;
+    height: 18rem;
+    object-fit: contain;
+    object-position: 100% 50%;
+    position: absolute;
+  }
+  .banner figure img {
+    background: #f2f2f2;
+  }
+  .banner figure:after {
+    z-index: -1;
+    content: "";
+    display: block;
+    position: absolute;
+    background: orange;
+    right: 0.5rem;
+    top: 3rem;
+    width: 110%;
+    height: 100%;
+    height: calc(100% + 1rem);
+    width: calc(100% + 1rem);
+  }
+  @media (min-width: 500px) {
+    .banner figure {
+      left: 5rem;
+    }
+  }
+  @media (min-width: 1000px) {
+    .banner {
+      align-items: flex-end;
+      width: calc(100% - 15rem);
+      height: 22rem;
+      padding: 2rem 20rem 2rem 0;
+    }
+    .banner figure {
+      left: unset;
+      right: -16rem;
+    }
+  }
 </style>
 
 <svelte:head>
   <title>ОТЕЛЬ - Услуги</title>
 </svelte:head>
 
-<a href="about/services#bankety">bankety</a>
-<a href="about/services#premier">premier hall</a>
-<a href="about/services#catering">catering</a>
-
 <h1>Услуги отеля</h1>
+
+<div class="banner">
+  <a href="about/services#bankety">Банкеты</a>
+  <a href="about/services#premier">Premier hall</a>
+  <a href="about/services#catering">Кейтеринг</a>
+  <figure>
+    <img src="_assets/img/team/team1.jpg" alt="nice img" />
+  </figure>
+</div>
+
 <section id="bankety">
   <h2>Банкеты</h2>
   <p>
