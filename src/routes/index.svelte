@@ -40,29 +40,42 @@
 </style>
 
 <svelte:head>
-  <title>ОТЕЛЬ - 123</title>
+  <title>Pris отель</title>
 </svelte:head>
 
 <Slider>
-  <h1>New Title</h1>
+  <h1>Pris Hotel</h1>
 </Slider>
 <!-- <Slider /> -->
 
-<h1>Great success!</h1>
+<h1>Landing placeholder!</h1>
 
-<!-- <figure>
-  <img alt="Borкat" src="logo_dark.svg" />
-  <figcaption>HIGH FIVE!</figcaption>
-</figure> -->
+<br />
 
-<p>
-  <strong>
-    Try editing this file (src/routes/index.svelte) to test live reloading.
-  </strong>
-</p>
-
-<Button href="rooms/" type="default">Go to Rooms</Button>
-<Button href="rooms/" type="disabled">Go to Rooms</Button>
-<Button href="rooms/" type="active">Go to Rooms</Button>
-<Button href="rooms/" type="success">Go to Rooms</Button>
-<Button href="rooms/" type="controls">Go to Rooms</Button>
+<nav>
+  <ul>
+    <li>
+      <a href="./rooms">Номера</a>
+      <ul>
+        <li>
+          <a href="./rooms/booking/">Резервация</a>
+        </li>
+        <li>[страница-номера]</li>
+      </ul>
+    </li>
+    <li>
+      <a href="./about/">Про отель</a>
+      <ul>
+        <li>
+          <a href="./about/contact">Контакты</a>
+        </li>
+        <li>
+          <a href="./about/services">Услуги</a>
+        </li>
+        <li>
+          <a href="./about/gallery.svelte">Галерея</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

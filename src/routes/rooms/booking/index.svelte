@@ -179,7 +179,7 @@
 </style>
 
 <svelte:head>
-  <title>ОТЕЛЬ - Резервация</title>
+  <title>Pris - Резервация</title>
 </svelte:head>
 
 <svelte:window bind:scrollY={y} />

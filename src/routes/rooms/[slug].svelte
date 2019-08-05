@@ -253,7 +253,7 @@
 </style>
 
 <svelte:head>
-  <title>{room.title}</title>
+  <title>Pris - {room.title}</title>
 </svelte:head>
 
 <div class="images">

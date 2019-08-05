@@ -78,7 +78,7 @@
 </style>
 
 <svelte:head>
-  <title>ОТЕЛЬ - Про отель</title>
+  <title>Pris - Про отель</title>
 </svelte:head>
 
 <h1>Про отель</h1>

@@ -109,7 +109,7 @@
 </div>
 
 <svelte:head>
-  <title>ОТЕЛЬ - Галерея</title>
+  <title>Pris - Галерея</title>
 </svelte:head>
 
 <Modal {modalContent} />

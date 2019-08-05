@@ -141,7 +141,7 @@
 </style>
 
 <svelte:head>
-  <title>ОТЕЛЬ - Услуги</title>
+  <title>Pris - Услуги</title>
 </svelte:head>
 
 <h1>Услуги отеля</h1>

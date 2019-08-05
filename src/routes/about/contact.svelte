@@ -10,7 +10,7 @@
 </style>
 
 <svelte:head>
-  <title>ОТЕЛЬ - Контакты</title>
+  <title>Pris - Контакты</title>
 </svelte:head>
 
 <div class="contact-body">

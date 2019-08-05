@@ -372,7 +372,7 @@
 </style>
 
 <svelte:head>
-  <title>ОТЕЛЬ - Номера</title>
+  <title>Pris - Номера</title>
 </svelte:head>
 <svelte:window bind:scrollY={y} />
 
