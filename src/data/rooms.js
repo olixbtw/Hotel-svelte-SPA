@@ -13,7 +13,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: ['wifi'],
+      additional: ['WiFi'],
       abscent: [],
     },
     //room page
@@ -51,7 +51,7 @@ const rooms = [
   {
     id: '2',
     type: 'VIP suite',
-    title: 'Красвая окна стеклянные комната',
+    title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite',
     people: '4',
     price: {
@@ -61,7 +61,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: ['wifi', 'Утюг'],
+      additional: ['WiFi', 'Утюг'],
       abscent: ['Завтрак в постель'],
     },
     //room page
@@ -110,7 +110,7 @@ const rooms = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
       additional: ['Завтрак в постель'],
-      abscent: ['wifi'],
+      abscent: ['WiFi'],
     },
     //room page
     photos: [
@@ -195,7 +195,7 @@ const rooms = [
   {
     id: '5',
     type: 'VIP suite',
-    title: 'Красвая окна стеклянные комната',
+    title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-2',
     people: '4',
     price: {
@@ -205,7 +205,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: ['wifi', 'Утюг'],
+      additional: ['WiFi', 'Утюг'],
       abscent: ['Завтрак в постель'],
     },
     //room page
@@ -291,7 +291,7 @@ const rooms = [
   {
     id: '7',
     type: 'VIP suite',
-    title: 'Красвая окна стеклянные комната',
+    title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-3',
     people: '4',
     price: {
@@ -301,7 +301,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: ['wifi', 'Утюг'],
+      additional: ['WiFi', 'Утюг'],
       abscent: ['Завтрак в постель'],
     },
     //room page
@@ -387,7 +387,7 @@ const rooms = [
   {
     id: '9',
     type: 'VIP suite',
-    title: 'Красвая окна стеклянные комната',
+    title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-4',
     people: '4',
     price: {
@@ -397,7 +397,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: ['wifi', 'Утюг', 'Завтрак в постель'],
+      additional: ['WiFi', 'Утюг', 'Завтрак в постель'],
       abscent: [],
     },
     //room page
@@ -494,7 +494,7 @@ const rooms = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
       additional: ['Завтрак в постель'],
-      abscent: ['wifi'],
+      abscent: ['WiFi'],
     },
     //room page
     photos: [
@@ -531,7 +531,7 @@ const rooms = [
   {
     id: '13',
     type: 'VIP suite',
-    title: 'Красвая окна стеклянные комната',
+    title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-5',
     people: '4',
     price: {
@@ -589,7 +589,7 @@ const rooms = [
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, repudiandae blanditiis? Maiores cum ex neque ad aspernatur culpa minus ducimus aperiam, explicabo fuga molestias omnis quod labore. Aliquam, aliquid quod!',
     amenities: {
-      additional: ['wifi'],
+      additional: ['WiFi'],
       abscent: [],
     },
     //room page
@@ -627,7 +627,7 @@ const rooms = [
   {
     id: '15',
     type: 'VIP suite',
-    title: 'Красвая окна стеклянные комната',
+    title: 'Красивая окна стеклянные комната',
     slug: 'glass-window-suite-6',
     people: '4',
     price: {

@@ -75,7 +75,7 @@
     transition: all.5s;
   }
   .banner a:hover::after {
-    background: orange;
+    background: #eb9a21;
     height: 0.2rem;
     left: 0;
     width: 100%;
@@ -98,7 +98,7 @@
     content: "";
     display: block;
     position: absolute;
-    background: orange;
+    background: #eb9a21;
     right: 0.5rem;
     top: 3rem;
     width: 110%;

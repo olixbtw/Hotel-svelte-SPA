@@ -1,4 +1,4 @@
-var ammReference = ['wifi', 'Утюг', 'Завтрак в постель']
+var ammReference = ['WiFi', 'Утюг', 'Завтрак в постель']
 
 function amenitiesFilter(inputArray, inputFilter) {
   inputFilter = inputFilter.amenities

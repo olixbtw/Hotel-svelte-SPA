@@ -79,7 +79,7 @@
 <style lang="scss">
   .container {
     display: grid;
-    grid-gap: 3rem;
+    grid-gap: 1rem 3rem;
 
     .col-right {
       grid-row: 1 / 2;
@@ -161,14 +161,7 @@
       }
     }
   }
-  .type {
-    .n_people {
-    }
-  }
-  h1 {
-  }
-  .price {
-  }
+
   .amenities {
     h3 {
     }
@@ -180,8 +173,6 @@
         }
       }
     }
-  }
-  .description {
   }
 
   .col-right {
@@ -229,6 +220,37 @@
       }
     }
   }
+  .type {
+    color: #9f9f9f;
+    font-weight: 600;
+
+    .n_people {
+      font-weight: 400;
+    }
+  }
+  .price {
+    font-weight: 600;
+    color: #f2f2f2;
+    font-size: 2.5rem;
+    // padding-left: 1rem;
+    padding: 0.75rem 3.5rem 0.75rem 1rem;
+    position: relative;
+    display: inline-block;
+    margin: 1rem 0;
+
+    &:after {
+      background: #444b57;
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 200vh;
+      z-index: -1;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
 </style>
 
 <svelte:head>
@@ -249,7 +271,7 @@
     <div class="type">
       {room.type}
       <span class="n_people">
-        {room.people} {room.people == 1 ? 'person' : 'people'}
+        for {room.people} {room.people == 1 ? 'person' : 'people'}
       </span>
     </div>
     <h1>{room.title}</h1>

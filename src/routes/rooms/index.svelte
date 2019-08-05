@@ -132,7 +132,7 @@
     &.list-VIEW {
       flex-direction: column;
       article {
-        border: 1px solid grey;
+        border: 1px solid #9f9f9f;
         padding: 10px;
         margin-bottom: 20px;
       }
