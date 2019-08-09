@@ -98,7 +98,7 @@
     amenities: [false, false, false],
     sort: "",
     reverse: false,
-    view: "list"
+    view: "cards"
   };
 
   function resetFilter() {
@@ -110,7 +110,7 @@
       amenities: [false, false, false],
       sort: "",
       reverse: false,
-      view: "list"
+      view: "cards"
     };
   }
 </script>
@@ -162,9 +162,11 @@
     &.list-VIEW {
       flex-direction: column;
       article {
-        padding: 10px;
-        margin-bottom: 20px;
-        padding-left: 13rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        @media (min-width: 500px) {
+          padding-left: 13rem;
+        }
         a {
           min-height: 10rem;
           display: flex;
@@ -175,20 +177,28 @@
         }
 
         figure {
+          width: 10rem;
+          height: 10rem;
+
           margin: 0 2rem 0 0;
           position: absolute;
           right: 100%;
           top: 0;
 
-          width: 10rem;
-          height: 10rem;
+          @media (max-width: 499px) {
+            width: 15rem;
+            height: 15rem;
+            position: relative;
+            right: 0;
+            margin: 0 0 1.5rem;
+          }
 
           &::before {
             width: 80%;
             height: 80%;
             bottom: 5%;
             left: 2.5rem;
-            transition: all 0.6s;
+            transition: all 0.4s;
             content: "";
             display: block;
             position: absolute;
@@ -196,10 +206,10 @@
             background: #eb9a21;
           }
           img {
-            transition: all 0.3s;
+            transition: all 0.2s;
             display: block;
-            width: 10rem;
-            height: 10rem;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             margin: 0;
           }
@@ -229,6 +239,9 @@
         content: "";
         clear: both;
       }
+      .amenities {
+        margin: 0.5rem 0;
+      }
     }
     &.cards-VIEW {
       .amenities {
@@ -256,7 +269,7 @@
             height: 80%;
             bottom: 5%;
             left: 5%;
-            transition: all 0.6s;
+            transition: all 0.4s;
             content: "";
             display: block;
             position: absolute;

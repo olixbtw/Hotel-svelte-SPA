@@ -183,8 +183,12 @@
   }
   .reserved_rooms_info {
     li {
+      display: inline-block;
       list-style-type: decimal;
       margin-bottom: 0.75rem;
+      background: #fafafa;
+      box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+      padding: 0.75rem 1.25rem;
     }
   }
 </style>
@@ -201,7 +205,7 @@
       {#if activeBookingPage == 0}
         <section>
 
-          <h1>1. Правила поеления</h1>
+          <h1>1. Правила поселения</h1>
           <hr />
           <h4>Забронированые комнаты:</h4>
           <ul class="reserved_rooms_info">
