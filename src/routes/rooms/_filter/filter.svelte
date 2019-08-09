@@ -33,6 +33,7 @@
     box-shadow: -1px -2px 3px rgba(0, 0, 0, 0.2);
   }
   .filter-body {
+    font-size: 1.1rem;
     position: absolute;
     top: 5rem;
     z-index: 500;

@@ -21,7 +21,7 @@
   import Pagination from "./_filter/pagination.svelte";
   var y;
 
-  var roomsPerPage = 8;
+  var roomsPerPage = 5;
   var pag_opt = {
     active: 1,
     len: Math.ceil(rooms.length / roomsPerPage)
@@ -116,14 +116,13 @@
 </script>
 
 <style lang="scss">
-  $perPage: 8;
+  $perPage: 5;
   $pages: 50;
 
   .room-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    position: relative;
 
     article {
       > a {
@@ -198,7 +197,7 @@
             height: 80%;
             bottom: 5%;
             left: 2.5rem;
-            transition: all 0.4s;
+            transition: all 0.4s ease-in-out;
             content: "";
             display: block;
             position: absolute;
@@ -206,7 +205,7 @@
             background: #eb9a21;
           }
           img {
-            transition: all 0.2s;
+            transition: all 0.2s ease-in-out;
             display: block;
             width: 100%;
             height: 100%;
@@ -245,10 +244,42 @@
     }
     &.cards-VIEW {
       .amenities {
-        display: none;
+        opacity: 0;
+        pointer-events: none;
+        margin: 0;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        color:#f2f2f2;
+        background: #eb9a21;
+        transition: all 0.2s ease-in-out;
+        li {
+          padding: 0.25rem 0.75rem 0.25rem 0;
+          // padding-left: 0.75rem;
+          &:first-child {
+            padding-top: 1rem;
+          }
+          &:last-child {
+            padding-bottom: 1rem;
+          }
+          &.disabled {
+            color: inherit;
+          }
+        }
       }
       article {
-        margin: 0 0.5em 1.5em;
+        a {
+          position: relative;
+          &:hover {
+            .amenities {
+              opacity: 1;
+              pointer-events: all;
+              top: 1rem;
+              right: -0.5rem;
+            }
+          }
+        }
+        margin: 0 0.5em 1.75em;
         display: flex;
         flex-direction: column;
         cursor: pointer;
@@ -269,7 +300,7 @@
             height: 80%;
             bottom: 5%;
             left: 5%;
-            transition: all 0.4s;
+            transition: all 0.4s ease-in-out;
             content: "";
             display: block;
             position: absolute;
@@ -279,7 +310,7 @@
 
           position: relative;
           margin: 0;
-          margin-bottom: 0.5em;
+          margin-bottom: 0.75em;
 
           img {
             top: 0;
@@ -329,7 +360,7 @@
       {
         //#of elements per page
         article:nth-child(#{$jj}) {
-          animation: pagination-show 350ms linear 150ms forwards;
+          animation: pagination-show 150ms linear 150ms forwards;
         }
       }
     }
@@ -366,7 +397,7 @@
   }
   .show_roooms {
     &::after {
-      animation: hide-overlay 700ms ease-in-out 300ms forwards;
+      animation: hide-overlay 300ms ease-in-out 250ms forwards;
     }
   }
   .no-rooms {

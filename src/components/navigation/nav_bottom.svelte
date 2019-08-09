@@ -141,7 +141,7 @@
               opacity: 1;
               pointer-events: all;
               
-              border-bottom: .1rem solid #eb9a21;
+              border-bottom: .05rem solid #eb9a21;
             }
           }
           > ul {
