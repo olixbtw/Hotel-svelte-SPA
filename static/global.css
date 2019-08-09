@@ -130,7 +130,7 @@ img {
 p {
   color: #9f9f9f;
   margin: 0 0 0.5rem;
-  max-width:35rem;
+  max-width: 35rem;
 }
 
 hr {
@@ -205,5 +205,7 @@ hr {
   flex-direction: column;
   display: flex;
   min-height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
+  align-items: space-between;
+  position: relative;
 }

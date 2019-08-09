@@ -24,11 +24,11 @@
         setTimeout(() => {
           setTimeout(() => {
             transition = true;
-          }, 0);
+          }, 50);
           sliderScroll = 1;
         }, 200);
         transition = false;
-      }, 1000);
+      }, 1050);
     }
     sliderScroll++;
     myTimer = setInterval(nextSlide, 15000);
@@ -40,11 +40,11 @@
         setTimeout(() => {
           setTimeout(() => {
             transition = true;
-          }, 0);
+          }, 50);
           sliderScroll = imageList.length;
         }, 200);
         transition = false;
-      }, 1000);
+      }, 1050);
     }
     sliderScroll--;
     myTimer = setInterval(nextSlide, 15000);
@@ -53,14 +53,12 @@
 
 <style lang="scss">
   .slider {
-    height: 50vh;
+    height: 100vh;
     width: 101vw;
     background: #444b57;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: -2rem;
-    margin-bottom: 2rem;
 
     display: flex;
     overflow: hidden;
@@ -73,8 +71,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      opacity: 0.4;
-      background: #444b57;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     img {
@@ -93,7 +90,7 @@
       z-index: 3;
 
       width: 6em;
-      height: 450px;
+      height: 100%;
       background: #444b57;
       opacity: 0.05;
       cursor: pointer;
@@ -114,11 +111,13 @@
     &__text {
       :global(*) {
         color: #f2f2f2;
+        max-width: 50rem;
       }
+      font-size: 1.5em;
       color: #f2f2f2;
       position: absolute;
       text-align: center;
-      // width: 50rem;
+      max-width: 50rem;
       top: 50%;
       left: 50%;
       transform: translateY(-50%) translateX(-50%);
@@ -128,7 +127,7 @@
 
   .transition {
     img {
-      transition: margin 1s ease-in;
+      transition: margin 0.9s ease-in;
     }
   }
 

@@ -1,12 +1,8 @@
 <script>
-  import Nav from "../components/navigation/_Nav.svelte";
-  import Footer from "../components/_Footer.svelte";
-  import Arrow from "../components/topArrow.svelte";
-
   export let segment;
 
+  import { reservedRoom } from "../data/_stores.js";
 
-  import { navHeight, reservedRoom } from "../data/_stores.js";
   import { onMount } from "svelte";
   onMount(() => {
     if (window.localStorage.getItem("roomsBooked"))
@@ -22,8 +18,4 @@
   }
 </style>
 
-
-<Nav {segment} />
 <slot />
-
-<Arrow />

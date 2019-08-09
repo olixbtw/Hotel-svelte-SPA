@@ -1,6 +1,6 @@
 <script>
   import Breadcrumbs from "../../components/breadcrumbs.svelte";
-  import Nav from "../../components/navigation/_Nav.svelte";
+  import Nav from "../../components/navigation/nav.svelte";
   import Footer from "../../components/_Footer.svelte";
   import Arrow from "../../components/topArrow.svelte";
 

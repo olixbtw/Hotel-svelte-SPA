@@ -1,84 +1,75 @@
 <script>
   import Slider from "../components/slider.svelte";
+  import Nav from "../components/navigation/nav_bottom.svelte";
+  import Logo from "../components/logo.svelte";
   import Footer from "../components/_Footer.svelte";
   import Button from "../components/__button.svelte";
+  export let segment;
 </script>
 
 <style lang="scss">
   h1 {
     text-align: center;
-    margin: 0 auto;
-  }
-
-  h1 {
     color: inherit;
     font-size: 2.8em;
     text-transform: uppercase;
     margin: 0 0 0.5em 0;
   }
+  section {
+    position: relative;
+  }
+  .nav,
+  .logo {
+    position: absolute;
+    z-index: 100;
+  }
+  .nav {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .logo {
+    left: 50%;
+    transform: translateX(-50%) scale(1.4);
+    top: 10vh;
+  }
+  .container :global(header) {
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
-  nav {
-    margin: 0 auto;
-    display: block;
+    :global(li) {
+      font-size: 1.4rem;
+    }
   }
-  nav ul {
-    padding-left: 1.5rem;
-  }
-  nav ul li {
-    list-style: circle;
-  }
-  .container {
-    min-height: 100vh;
+  .container :global(footer) {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    font-size: 1rem;
   }
 </style>
 
 <svelte:head>
-  <title>Pris отель</title>
+  <title>Pris hotel</title>
 </svelte:head>
 
 <div class="container">
-  <Slider>
-    <h1>Pris Hotel</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iusto quasi
-      eligendi deleniti officia, dolores enim facere dignissimos reprehenderit,
-      nobis et soluta ex vel quas perspiciatis mollitia nostrum. Hic, molestias.
-    </p>
-  </Slider>
-  <!-- <Slider /> -->
-
-  <h1>Landing placeholder!</h1>
-
-  <br />
-
-  <nav>
-    <ul>
-      <li>
-        <a href="./rooms">Номера</a>
-        <ul>
-          <li>
-            <a href="./rooms/booking/">Резервация</a>
-          </li>
-          <li>[страница-номера]</li>
-        </ul>
-      </li>
-      <li>
-        <a href="./about/">Про отель</a>
-        <ul>
-          <li>
-            <a href="./about/contact">Контакты</a>
-          </li>
-          <li>
-            <a href="./about/services">Услуги</a>
-          </li>
-          <li>
-            <a href="./about/gallery.svelte">Галерея</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
+  <section>
+    <div class="logo">
+      <Logo {segment} />
+    </div>
+    <Slider>
+      <h1>Pris Hotel</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iusto quasi
+        eligendi deleniti officia, dolores enim facere dignissimos
+        reprehenderit, nobis et soluta ex vel quas perspiciatis mollitia
+        nostrum. Hic, molestias.
+      </p>
+    </Slider>
+    <div class="nav">
+      <Nav {segment} />
+    </div>
+  </section>
   <Footer />
-
 </div>
