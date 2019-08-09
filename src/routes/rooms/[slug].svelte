@@ -86,7 +86,7 @@
       grid-row: 1 / 2;
     }
     @media (min-width: 1000px) {
-      grid-template-columns: auto auto;
+      grid-template-columns: auto 18rem;
       .col-left {
         grid-column: 1 / 2;
       }
@@ -187,9 +187,14 @@
       color: #9f9f9f;
     }
 
+    .dates_check {
+      input {
+        width: 100%;
+      }
+    }
     .display_days {
       font-size: 1.2rem;
-      margin-bottom: 0.75rem;
+      margin: .5rem 0 1.25rem;
     }
     .prompt {
       display: block;
@@ -236,7 +241,7 @@
     padding: 0.75rem 3.5rem 0.75rem 1rem;
     position: relative;
     display: inline-block;
-    margin: 1rem 0;
+    margin: 1.5rem 0 3.5rem;
 
     &::after {
       background: #444b57;
@@ -271,7 +276,7 @@
     <div class="type">
       {room.type}
       <span class="n_people">
-        for {room.people} {room.people == 1 ? 'person' : 'people'}
+        для {room.people} {room.people == 1 ? 'гостя' : 'гостей'}
       </span>
     </div>
     <h1>{room.title}</h1>
@@ -291,7 +296,7 @@
       </div>
     {/if}
     <div class="description">
-      <h3>Description</h3>
+      <h3>Описание</h3>
       <p>{room.description}</p>
     </div>
     <!-- <Button on:click={addRoom} href="rooms/booking">Reserve it</Button> -->
@@ -299,11 +304,11 @@
 
   <div class="col-right">
     <div class="col-right-inner">
-      <div class="control-group">
+      <div class="control-group dates_check">
         <label for="date_input_checkin">Дата въезда</label>
         <input id="date_input_checkin" type="date" bind:value={Date_a} />
       </div>
-      <div class="control-group">
+      <div class="control-group dates_check">
         <label for="date_input_checkout">Дата отъезда</label>
         <input id="date_input_checkout" type="date" bind:value={Date_b} />
       </div>
@@ -311,24 +316,23 @@
 
         {#if daysTotal > 0}
           <div class="days-total">
-            Days -
+            Дни -
             <strong>{daysTotal}</strong>
           </div>
           <div class="price-total">
-            Price -
+            Цена -
             <strong>{room.price.value * daysTotal}{room.price.currency}</strong>
           </div>
         {:else}
-          <br />
-          These dates unavailable
+          Эти даты не доступны
           <br />
           <br />
         {/if}
       </div>
       <Button on:click={addRoom} href="rooms/booking" type="active big">
-        Reserve
+        Зарезервировать
       </Button>
-      <span class="prompt">You wont be charged yet</span>
+      <span class="prompt">Оплата позже</span>
       <hr />
     </div>
   </div>

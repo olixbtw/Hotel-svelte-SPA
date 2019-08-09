@@ -2,7 +2,7 @@ const rooms = [
   //template object to store info about each room
   {
     id: '1',
-    type: 'Обычная комната',
+    type: 'Комната обычная',
     title: 'Комната комфортненькая',
     slug: 'comfortable-room-3',
     people: '3',
@@ -242,7 +242,7 @@ const rooms = [
   },
   {
     id: '6',
-    type: 'Обычная комната',
+    type: 'Комната обычная',
     title: 'Комната комфортненькая',
     slug: 'comfortable-room',
     people: '3',
@@ -338,7 +338,7 @@ const rooms = [
   },
   {
     id: '8',
-    type: 'Обычная комната',
+    type: 'Комната обычная',
     title: 'Комфортненько и побольше комната',
     slug: 'comfortable-large-room',
     people: '5',
@@ -578,7 +578,7 @@ const rooms = [
   },
   {
     id: '14',
-    type: 'Обычная комната',
+    type: 'Комната обычная',
     title: 'Комната комфортненькая',
     slug: 'comfortable-room-2',
     people: '3',
@@ -674,7 +674,7 @@ const rooms = [
   },
   {
     id: '16',
-    type: 'Обычная комната',
+    type: 'Комната обычная',
     title: 'Комфортненько и побольше комната',
     slug: 'comfortable-large-room-2',
     people: '5',

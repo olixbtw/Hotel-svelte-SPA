@@ -99,13 +99,12 @@
     grid-gap: 3rem;
 
     @media (min-width: 1000px) {
-      grid-template-columns: auto auto;
+      grid-template-columns: auto 18rem;
 
       .col-left {
         grid-column: 1 / 2;
       }
       .col-right {
-        max-width: 20rem;
         grid-column: 2 / 3;
       }
     }
@@ -144,17 +143,17 @@
       text-align: center;
       position: absolute;
       bottom: 1rem;
-      right: -3.5rem;
+      right: -3.75rem;
     }
     &::before {
       content: "";
       background: #ef9f9f;
       position: absolute;
       z-index: -1;
-      top: 3rem;
-      left: 4rem;
+      top: 3.25rem;
+      left: 4.75rem;
       width: 100%;
-      height: 2rem;
+      height: 2.5rem;
     }
     &::after {
       border-radius: 8px;
@@ -165,7 +164,7 @@
       position: absolute;
       z-index: -2;
       top: 1rem;
-      left: 4rem;
+      left: 4.75rem;
       width: 100%;
       height: 100%;
       box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.2);
@@ -182,13 +181,17 @@
     font-weight: 600;
   }
   .reserved_rooms_info {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+
     li {
-      display: inline-block;
       list-style-type: decimal;
+      margin-left: 0.5rem;
       margin-bottom: 0.75rem;
       background: #fafafa;
       box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-      padding: 0.75rem 1.25rem;
+      padding: 0.75rem 1rem;
     }
   }
 </style>
