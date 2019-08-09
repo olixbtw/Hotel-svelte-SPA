@@ -24,10 +24,13 @@
     }
   }
 
+  var fixedHeight;
+
   onMount(() => {
     loaded_flag = true;
     smallerRange_flag = $navHeight / 2;
     //store height of navigation
+    fixedHeight = $navHeight;
   });
   onDestroy(() => {
     loaded_flag = false;
@@ -272,6 +275,8 @@
 
 <svelte:window bind:scrollY={y} bind:innerWidth={x} />
 
+<div style="height:{fixedHeight}px;" />
+
 <header
   class="{navShown ? 'shown' : ''}
   {smaller ? 'smaller' : ''}"
@@ -332,31 +337,12 @@
           </li>
         </ul>
       </li>
-      <!-- <li>
-        <a
-          class={path === 'login' ? 'selected' : ''}
-          href="login"
-          on:click={toggleNavigation}>
-          Вход
-        </a>
-      </li> -->
     </ul>
     <div class="nav-show" on:click={toggleNavigation}>
       <span />
       <span />
       <span />
-      <!-- <div class="bars">
-        <span />
-        <span />
-        <span />
-      </div> 
-      <span>Меню</span> -->
     </div>
   </nav>
-
-  <!-- <div class="search">
-    <input type="search" />
-    <i class="fas fa-search" />
-  </div> -->
 
 </header>

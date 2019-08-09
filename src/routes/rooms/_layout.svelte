@@ -1,5 +1,4 @@
 <script>
-  import { navHeight, reservedRoom } from "../../data/_stores.js";
   import Breadcrumbs from "../../components/breadcrumbs.svelte";
   import Nav from "../../components/navigation/_Nav.svelte";
   import Footer from "../../components/_Footer.svelte";
@@ -7,16 +6,6 @@
 
   let pageLogo = "logo_dark";
   export let segment;
-
-  import { onMount } from "svelte";
-  // import { reservedRoom } from "../data/_stores.js";
-  var heightFix;
-  onMount(() => {
-    if (window.localStorage.getItem("roomsBooked"))
-      $reservedRoom = JSON.parse(localStorage.getItem("roomsBooked"));
-
-    heightFix = $navHeight - 25;
-  });
 </script>
 
 <style lang="scss">
@@ -70,7 +59,6 @@
 
 <Nav {segment} />
 
-<div style="height:{heightFix}px;" />
 <main>
   {#if pageLogo}
     <img class="pageLogo" src="{pageLogo}.svg" alt="{pageLogo} logo" />

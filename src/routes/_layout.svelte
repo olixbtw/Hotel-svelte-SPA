@@ -4,6 +4,14 @@
   import Arrow from "../components/topArrow.svelte";
 
   export let segment;
+
+
+  import { navHeight, reservedRoom } from "../data/_stores.js";
+  import { onMount } from "svelte";
+  onMount(() => {
+    if (window.localStorage.getItem("roomsBooked"))
+      $reservedRoom = JSON.parse(localStorage.getItem("roomsBooked"));
+  });
 </script>
 
 <style lang="scss">
@@ -14,8 +22,8 @@
   }
 </style>
 
-<slot />
 
 <Nav {segment} />
+<slot />
 
 <Arrow />

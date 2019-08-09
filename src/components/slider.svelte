@@ -53,7 +53,7 @@
 
 <style lang="scss">
   .slider {
-    height: 400px;
+    height: 50vh;
     width: 101vw;
     background: #444b57;
     position: relative;
@@ -73,7 +73,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      opacity: 0.2;
+      opacity: 0.4;
       background: #444b57;
     }
 
@@ -112,10 +112,16 @@
       }
     }
     &__text {
+      :global(*) {
+        color: #f2f2f2;
+      }
       color: #f2f2f2;
       position: absolute;
-      top: 4rem;
-      left: 3rem;
+      text-align: center;
+      // width: 50rem;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
       z-index: 2;
     }
   }
