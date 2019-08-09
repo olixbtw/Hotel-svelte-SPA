@@ -8,8 +8,8 @@
   // }
 
   import { onMount, onDestroy } from "svelte";
-  import { navHeight } from "./../data/_stores.js";
-  import Logo from "./logo.svelte";
+  import { navHeight } from "./../../data/_stores.js";
+  import Logo from "./../logo.svelte";
   export let segment;
   var loaded_flag, smallerRange_flag, smaller, x, y, yStore;
   var navShown = false;

@@ -26,7 +26,7 @@
             transition = true;
           }, 0);
           sliderScroll = 1;
-        }, 110);
+        }, 200);
         transition = false;
       }, 1000);
     }
@@ -42,7 +42,7 @@
             transition = true;
           }, 0);
           sliderScroll = imageList.length;
-        }, 110);
+        }, 200);
         transition = false;
       }, 1000);
     }
