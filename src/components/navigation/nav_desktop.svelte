@@ -69,9 +69,9 @@
     background: #444b57;
     color: #f2f2f2;
 
-    padding: 0.4rem 2rem;
+    padding: 0.5rem 2rem;
     @media (min-width: 1680px) {
-      padding: 1rem 10vw;
+      padding: 1.5rem 10vw;
     }
     align-items: center;
     justify-content: space-between;

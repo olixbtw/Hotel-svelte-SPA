@@ -11,6 +11,7 @@
     }
   }
   a {
+    font-weight: 700;
     color: inherit;
     display: block;
     @media (min-width: 500px) {

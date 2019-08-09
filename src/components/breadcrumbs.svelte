@@ -20,7 +20,7 @@
     // ссылки
     path.forEach((element, index) => {
       if (element === segment)
-        path = path.slice(index, path.length).filter(Boolean);
+        path = path.slice(index - 1, path.length).filter(Boolean);
     });
     let itemNames = [...path];
     let pathNames = [...path];
