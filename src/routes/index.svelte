@@ -3,7 +3,6 @@
   import Nav from "../components/navigation/nav_bottom.svelte";
   import Logo from "../components/logo.svelte";
   import Footer from "../components/_Footer.svelte";
-  import Button from "../components/__button.svelte";
   export let segment;
 </script>
 
@@ -33,19 +32,12 @@
     transform: translateX(-50%) scale(1.4);
     top: 10vh;
   }
-  .container :global(header) {
-    justify-content: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    :global(li) {
-      font-size: 1.4rem;
-    }
-  }
   .container :global(footer) {
     padding-top: 5rem;
     padding-bottom: 2rem;
     font-size: 1rem;
+    background: #2172eb;
+    color: #f2f2f2;
   }
 </style>
 

@@ -49,12 +49,6 @@
     opacity: 0.1;
     z-index: -1;
   }
-
-  :global(html) {
-    font-size: 16px;
-    font-size: responsive 14px 19px; /* min-size, max-size */
-    font-range: 500px 1680px; /* viewport widths between which font-size is fluid */
-  }
 </style>
 
 <Nav {segment} />

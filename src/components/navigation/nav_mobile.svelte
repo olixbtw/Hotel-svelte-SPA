@@ -2,13 +2,19 @@
   import { stores } from "@sapper/app";
   const { page } = stores();
 
+  // $: {
+  //   var path = $page.path.split("/");
+  //   console.log(path[path.length - 1]);
+  // }
+
   import { onMount, onDestroy } from "svelte";
   import { navHeight } from "./../../data/_stores.js";
   import Logo from "./../logo.svelte";
   export let segment;
-  var loaded_flag, x, y, yStore;
+  var loaded_flag, smallerRange_flag, smaller, x, y, yStore;
   var navShown = false;
 
+  $: y > smallerRange_flag ? (smaller = true) : (smaller = false);
   $: if (x > 1000) toggleNavigation(false);
 
   function toggleNavigation(n) {
@@ -22,6 +28,9 @@
 
   onMount(() => {
     loaded_flag = true;
+    smallerRange_flag = $navHeight / 2;
+    //store height of navigation
+    fixedHeight = $navHeight;
   });
   onDestroy(() => {
     loaded_flag = false;
@@ -49,27 +58,27 @@
 
 <style lang="scss">
   header {
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
     width: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
     border-bottom: 0.15em solid #eb9a21;
+    display: flex;
     background: #444b57;
     color: #f2f2f2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
 
+    padding: 0.4rem 2rem;
     @media (min-width: 1680px) {
       padding: 1rem 10vw;
     }
+    align-items: center;
+    justify-content: space-between;
     @media (max-width: 999px) {
-      z-index: 999;
-      transition: all 0.2s ease-in-out;
-      height: 8vh;
-      min-height: 5rem;
-      bottom: 0;
-      left: 0;
+      transition: all 0.6s ease-in-out;
       &.shown {
-        bottom: 0;
+        top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
@@ -92,13 +101,13 @@
             &:first-child {
               top: 10px;
               transform: rotate(45deg);
+              width: 45px;
             }
             &:nth-child(2) {
               transition: all 0.2s;
               opacity: 0;
             }
             &:last-child {
-              width: 45px;
               top: -10px;
               transform: rotate(-45deg);
             }
@@ -109,11 +118,9 @@
   }
 
   nav {
-    font-size: 1.4rem;
-
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     font-weight: 400;
 
     > ul {
@@ -148,7 +155,7 @@
             opacity: 0;
             pointer-events: none;
             position: absolute;
-            bottom: 100%;
+            top: 100%;
             left: 50%;
             transform: translateX(-50%);
             background: #444b57;
@@ -182,7 +189,7 @@
         height: 5px;
         top: 0;
 
-        &:last-child {
+        &:first-child {
           width: 30px;
         }
         &:nth-child(2) {
@@ -261,16 +268,20 @@
       }
     }
   }
+  .smaller :global(img) {
+    max-height: 3.5rem !important;
+  }
 </style>
 
 <svelte:window bind:scrollY={y} bind:innerWidth={x} />
 
-<!-- 
-  
-  {smaller ? 'smaller' : ''}" 
-  bind:offsetHeight={$navHeight}
-  -->
-<header class={navShown ? 'shown' : ''}>
+<div style="height:{fixedHeight}px;" />
+
+<header
+  class="{navShown ? 'shown' : ''}
+  {smaller ? 'smaller' : ''}"
+  bind:offsetHeight={$navHeight}>
+  <Logo {navShown} {smaller} {segment}>Pris Hotel</Logo>
 
   <nav>
     <ul>
